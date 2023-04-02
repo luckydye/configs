@@ -13,6 +13,8 @@ alias refresh="last_dir=$PWD && cd ~/configs && git pull && cd $last_dir"
 
 export PATH="$PATH:~/bin"
 
+alias exec="bash ~/script/"
+
 alias quit="exit"
 alias t="turbo run"
 
