@@ -9,4 +9,4 @@ PROMPT='%F{blue}%1~%f ${vcs_info_msg_0_} ⚡ '
 
 zstyle ':vcs_info:git:*' formats '%b'
 
-source ./commands.sh
+source ~/configs/commands.sh
