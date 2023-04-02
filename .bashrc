@@ -3,4 +3,4 @@ bind -x '"\C-w": cd ~'
 bind -x '"\C-d": pnpm dev'
 bind -x '"\C-p": find-project'
 
-source ./commands.sh
+source ~/configs/commands.sh
