@@ -1,0 +1,436 @@
+hotkeys:
+  copy-current-path: []
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - ⌘-C
+  paste:
+    - ⌘-V
+  clear:
+    - ⌘-K
+  select-all:
+    - ⌘-A
+  zoom-in:
+    - ⌘-=
+    - ⌘-Shift-=
+  zoom-out:
+    - ⌘--
+    - ⌘-Shift--
+  reset-zoom:
+    - ⌘-0
+  home:
+    - ⌘-Left
+    - Home
+  end:
+    - ⌘-Right
+    - End
+  previous-word:
+    - ⌥-Left
+  next-word:
+    - ⌥-Right
+  delete-previous-word:
+    - ⌥-Backspace
+  delete-line:
+    - ⌘-Backspace
+  delete-next-word:
+    - ⌥-Delete
+  search:
+    - ⌘-F
+  pane-focus-all:
+    - ⌘-Shift-I
+  focus-all-tabs:
+    - ⌘-⌥-Shift-I
+  scroll-to-top:
+    - Shift-PageUp
+  scroll-up:
+    - ⌥-PageUp
+  scroll-down:
+    - ⌥-PageDown
+  scroll-to-bottom:
+    - Shift-PageDown
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  settings-tab: {}
+  settings:
+    - ⌘-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  toggle-window:
+    - F2
+    - F1
+  new-window:
+    - ⌘-N
+  new-tab:
+    - ⌘-T
+  profile: {}
+  profile-selectors: {}
+  toggle-fullscreen:
+    - Ctrl+⌘+F
+  close-tab:
+    - ⌘-W
+  reopen-tab:
+    - ⌘-Shift-T
+  toggle-last-tab: []
+  rename-tab:
+    - ⌘-R
+  next-tab:
+    - Ctrl-Tab
+  previous-tab:
+    - Ctrl-Shift-Tab
+  move-tab-left:
+    - ⌘-Shift-Left
+  move-tab-right:
+    - ⌘-Shift-Right
+  rearrange-panes:
+    - Ctrl-Shift
+  tab-1:
+    - ⌘-1
+  tab-2:
+    - ⌘-2
+  tab-3:
+    - ⌘-3
+  tab-4:
+    - ⌘-4
+  tab-5:
+    - ⌘-5
+  tab-6:
+    - ⌘-6
+  tab-7:
+    - ⌘-7
+  tab-8:
+    - ⌘-8
+  tab-9:
+    - ⌘-9
+  tab-10:
+    - ⌘-0
+  duplicate-tab: []
+  restart-tab: []
+  explode-tab:
+    - ⌘-Shift-.
+  combine-tabs:
+    - ⌘-Shift-,
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - ⌘-Shift-D
+  split-bottom:
+    - ⌘-D
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - ⌘-⌥-Right
+  pane-nav-down:
+    - ⌘-⌥-Down
+  pane-nav-up:
+    - ⌘-⌥-Up
+  pane-nav-left:
+    - ⌘-⌥-Left
+  pane-nav-previous:
+    - ⌘-⌥-[
+  pane-nav-next:
+    - ⌘-⌥-]
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-maximize:
+    - ⌘-⌥-Enter
+  close-pane:
+    - ⌘-Shift-W
+  pane-increase-vertical: []
+  pane-decrease-vertical: []
+  pane-increase-horizontal: []
+  pane-decrease-horizontal: []
+  profile-selector:
+    - ⌘-E
+  switch-profile:
+    - ⌘-Shift-E
+  command-selector:
+    - ⌘-Shift-P
+terminal:
+  frontend: xterm-webgl
+  fontSize: 14
+  fontWeight: 400
+  fontWeightBold: 700
+  fallbackFont: null
+  linePadding: 0
+  bell: 'off'
+  bracketedPaste: true
+  ligatures: false
+  cursor: block
+  cursorBlink: true
+  hideTabIndex: false
+  showTabProfileIcon: true
+  hideCloseButton: false
+  hideTabOptionsButton: false
+  rightClick: menu
+  pasteOnMiddleClick: true
+  copyOnSelect: false
+  copyAsHTML: true
+  scrollOnInput: true
+  altIsMeta: false
+  wordSeparator: ' ()[]{}''"'
+  colorScheme:
+    name: Batman
+    foreground: '#6f6f6f'
+    background: '#1b1d1e'
+    cursor: '#fcef0c'
+    colors:
+      - '#1b1d1e'
+      - '#e6dc44'
+      - '#c8be46'
+      - '#f4fd22'
+      - '#737174'
+      - '#747271'
+      - '#62605f'
+      - '#c6c5bf'
+      - '#505354'
+      - '#fff78e'
+      - '#fff27d'
+      - '#feed6c'
+      - '#919495'
+      - '#9a9a9d'
+      - '#a3a3a6'
+      - '#dadbd6'
+  customColorSchemes: []
+  warnOnMultilinePaste: true
+  searchRegexAlwaysEnabled: false
+  searchOptions:
+    regex: false
+    wholeWord: false
+    caseSensitive: false
+  detectProgress: true
+  scrollbackLines: 25000
+  drawBoldTextInBrightColors: true
+  sixel: true
+  minimumContrastRatio: 4
+  trimWhitespaceOnPaste: true
+  font: Menlo
+  autoOpen: false
+  useConPTY: true
+  environment: {}
+  setComSpec: false
+  profile: local:default
+  showRecentProfiles: 3
+  paneResizeStep: 0.1
+  focusFollowsMouse: false
+  background: colorScheme
+ssh:
+  warnOnClose: false
+  winSCPPath: null
+  agentType: auto
+  agentPath: null
+  x11Display: null
+  knownHosts:
+    - host: 192.168.1.12
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: lrdnvY5fF+U3AhTsNJ++v7nrfFAM7E1RIUDtGBE9xBw=
+    - host: 192.168.1.25
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: yaNS7BgM5Z26g0I+cUwg1xAKSjwxuQJ86Z4N9U0smeA=
+    - host: 192.168.1.20
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: d3xyNjDNUg9OCiLBDYAGbIk65dHPBZGxLMUZVo29EPg=
+  verifyHostKeys: true
+clickableLinks:
+  modifier: null
+docker:
+  host: null
+  port: null
+  socket: null
+accessibility:
+  animations: false
+appearance:
+  dock: top
+  dockScreen: current
+  dockFill: 0.6
+  dockSpace: 0.78
+  dockHideOnBlur: true
+  dockAlwaysOnTop: true
+  cycleTabs: true
+  theme: Compact
+  frame: full
+  css: '/* * { color: blue !important; } */'
+  opacity: 0.95
+  vibrancyType: blur
+  lastTabClosesWindow: false
+  tabsLocation: bottom
+profiles:
+  - type: local
+    name: luckydye
+    options:
+      command: /bin/zsh
+      args:
+        - '--login'
+      env:
+        DEV_ENV: luckydye
+      cwd: /Users/tihav/source/luckydye
+    group: dev
+    icon: fas fa-laptop
+    id: local:custom:luckydye:0626ab23-f21b-4dd5-86ba-ef224fec62d5
+    color: '#f0ad4e'
+  - type: local
+    name: sv
+    options:
+      command: /bin/zsh
+      args:
+        - '--login'
+      env:
+        DEV_ENV: sv
+      cwd: /Users/tihav/source/sv
+    group: dev
+    icon: fas fa-laptop
+    id: local:custom:sv:a6a92ebb-cb52-4b5c-8c4b-789971440b24
+    color: '#0275d8'
+  - icon: fas fa-server
+    options:
+      host: 192.168.1.25
+      algorithms: {}
+      scripts:
+        - expect: Last login
+          send: sudo docker attach minecraft
+    weight: -1
+    name: vm2 minecraft
+    group: ekko
+    id: ssh:custom:vm2-minecraft:c6052152-af1a-4ca5-84ed-ded0686b434f
+    color: '#5cb85c'
+    type: ssh
+  - icon: fas fa-server
+    options:
+      host: 192.168.1.12
+      algorithms: {}
+      scripts:
+        - expect: Last login
+          send: sudo docker exec -it load-balancer /bin/bash
+    weight: -1
+    group: ekko
+    name: vm0 load-balancer
+    id: ssh:custom:vm0-load-balancer:b5868b5c-08cb-4060-8265-c0bfbd7a2dc6
+    color: '#0275d8'
+    type: ssh
+  - icon: fas fa-server
+    options:
+      host: 192.168.1.25
+      algorithms: {}
+      user: tim
+    weight: -1
+    name: vm2
+    group: ekko
+    id: ssh:custom:vm2:4a339244-137b-467d-bd75-5aba84f6148b
+    color: '#5cb85c'
+    type: ssh
+  - icon: fas fa-server
+    options:
+      host: 192.168.1.13
+      algorithms: {}
+    weight: -1
+    name: vm1
+    group: ekko
+    id: ssh:custom:vm1:8299a21a-68e6-402f-84e4-c1854fa3c6fa
+    color: '#f0ad4e'
+    type: ssh
+  - icon: fas fa-server
+    options:
+      host: 192.168.1.12
+      algorithms: {}
+      user: tim
+    weight: -1
+    name: vm0
+    group: ekko
+    id: ssh:custom:vm0:173b8a34-4155-435b-8462-481c86d8f01b
+    color: '#0275d8'
+    type: ssh
+  - icon: fas fa-server
+    options:
+      host: 192.168.1.20
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group-exchange-sha256
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group15-sha512
+          - diffie-hellman-group16-sha512
+          - diffie-hellman-group17-sha512
+          - diffie-hellman-group18-sha512
+          - ecdh-sha2-nistp256
+          - ecdh-sha2-nistp384
+          - ecdh-sha2-nistp521
+        cipher:
+          - aes128-ctr
+          - aes128-gcm
+          - aes128-gcm@openssh.com
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm
+          - aes256-gcm@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp384
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    name: ekko
+    group: ekko
+    id: ssh:custom:ekko:ea354ba4-0761-416e-8ac5-99195f907451
+    color: null
+    type: ssh
+profileDefaults:
+  ssh:
+    disableDynamicTitle: true
+recoverTabs: true
+enableAnalytics: false
+enableWelcomeTab: false
+electronFlags:
+  - - force_discrete_gpu
+    - '0'
+enableAutomaticUpdates: true
+version: 3
+vault: null
+encrypted: false
+enableExperimentalFeatures: false
+hacks:
+  disableVibrancyWhileDragging: false
+  enableFluentBackground: false
+language: null
+pluginBlacklist: []
+configSync:
+  host: https://api.tabby.sh
+  token: >-
+    f2869a439084f822d3b049b53f655a3ea796f78cc8a7f7c1428548e9b83486764b5814259a41403d91407b1a5054f6261e58530b7f88b6b88112386e2ba5b9af
+  configID: 19529
+  parts:
+    hotkeys: true
+    appearance: true
+    vault: true
