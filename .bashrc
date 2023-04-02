@@ -1,14 +1,8 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/bashrc.pre.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.pre.bash"
+
 alias gs="git status"
 alias gp="git pull"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/bashrc.post.bash" ]] && builtin source "$HOME/.fig/shell/bashrc.post.bash"
-. "$HOME/.cargo/env"
-PATH=~/.console-ninja/.bin:$PATH
+alias push="git push"
+alias commit="git commit -m"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -43,11 +37,11 @@ PROMPT='%F{blue}%1~%f ${vcs_info_msg_0_} ⚡ '
 alias quit="exit"
 alias t="turbo run"
 
-bind -s '^l' 'clear; ls -l\n'
-bind -s '^w' 'cd ~\n'
-bind -s '^d' 'pnpm dev\n'
-bind -s '^b' 'nvim ~/.zshrc\n'
-bind -s '^p' 'find-project\n'
+bind -s '^[l' 'clear; ls -l\n'
+bind -s '^[w' 'cd ~\n'
+bind -s '^[d' 'pnpm dev\n'
+bind -s '^[b' 'nvim ~/.zshrc\n'
+bind -s '^[p' 'find-project\n'
 
 function open-project() {
         echo $1;
