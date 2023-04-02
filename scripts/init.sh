@@ -2,6 +2,6 @@
 
 git clone https://github.com/luckydye/configs.git ~/configs
 
-echo "source ~/configs/.bashrc" > ~/.bashrc
+echo "source ~/configs/.bashrc" >> ~/.bashrc
 
 echo "Successfully installed."
