@@ -5,6 +5,10 @@
 curl -s -L https://raw.githubusercontent.com/luckydye/configs/main/scripts/init.sh | bash
 ```
 
+for full setup run afterwards:
+```
+run setup.sh
+```
 
 ## Usage
 | command | description                                       |
