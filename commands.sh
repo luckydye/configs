@@ -15,6 +15,10 @@ export PATH="$PATH:~/bin"
 alias quit="exit"
 alias t="turbo run"
 
+function play() {
+        ansible-playbook ~/configs/playbooks/$1
+}
+
 function exec() {
         bash ~/configs/scripts/$1
 }
