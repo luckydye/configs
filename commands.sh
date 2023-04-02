@@ -19,7 +19,7 @@ function play() {
         ansible-playbook ~/configs/playbooks/$1
 }
 
-function exec() {
+function run() {
         bash ~/configs/scripts/$1
 }
 
