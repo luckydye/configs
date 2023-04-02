@@ -6,6 +6,10 @@ function package_manager {
   which apt > /dev/null && { echo "apt"; return; }
 }
 
+function play() {
+  ansible-playbook ~/configs/playbooks/$1
+}
+
 pkgmngr=$(package_manager)
 
 case $pkgmngr in
