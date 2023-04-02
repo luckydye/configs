@@ -4,6 +4,7 @@ function package_manager {
   which yum > /dev/null && { echo "yum"; return; }
   which apk > /dev/null && { echo "apk"; return; }
   which apt > /dev/null && { echo "apt"; return; }
+  which brew > /dev/null && { echo "brew"; return; }
 }
 
 function play() {
@@ -17,6 +18,11 @@ case $pkgmngr in
   apt)
     sudo apt -y update
     sudo apt -y install ansible
+    play setup_ubuntu.yml
+    ;;
+    
+  brwe)
+    brwe install ansible
     play setup_ubuntu.yml
     ;;
 
