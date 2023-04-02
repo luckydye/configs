@@ -7,5 +7,9 @@
   tasks:
 
     - name: Ping host
-      delegate_to: localhost
-      raw: bash
+      command: echo 123
+      register: result
+
+    - name: Print stdout
+      debug:
+        var: result.stdout
