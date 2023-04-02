@@ -13,8 +13,6 @@ alias refresh="last_dir=$PWD && cd ~/configs && git pull && cd $last_dir"
 
 export PATH="$PATH:~/bin"
 
-alias exec="bash ~/configs/scripts/"
-
 alias quit="exit"
 alias t="turbo run"
 
@@ -24,6 +22,9 @@ bind -x '"\C-w": cd ~'
 bind -x '"\C-d": pnpm dev'
 bind -x '"\C-p": find-project'
 
+function exec() {
+        bash ~/configs/scripts/$1
+}
 
 function open-project() {
         echo $1;
