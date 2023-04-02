@@ -8,8 +8,10 @@ alias reload="source ~/.bashrc"
 source ~/configs/commands.sh
 
 if grep -qi microsoft /proc/version; then
+  # is wsl
   source ~/configs/commands.sh
   source ~/configs/.wsl
 else
+  # native linux
   source ~/configs/commands.sh
 fi
