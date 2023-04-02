@@ -23,11 +23,13 @@ function run() {
         bash ~/configs/scripts/$1
 }
 
-function open-project() {
-        echo $1;
-}
-
 function find-project() {
         echo -n "Find project: "; read project
         find ~/source -type d -name "*$project*" -maxdepth 3 -ok code {} \;
+}
+
+function package_manager {
+        which yum > /dev/null && { echo "yum"; return; }
+        which apk > /dev/null && { echo "apk"; return; }
+        which apt > /dev/null && { echo "aot"; return; }
 }
