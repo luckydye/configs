@@ -8,6 +8,7 @@ function package_manager {
 }
 
 if ! command -v git &> /dev/null
+then
     pkgmngr=$(package_manager)
 
     case $pkgmngr in
@@ -25,9 +26,8 @@ if ! command -v git &> /dev/null
         echo -n "unknown package manager"
         ;;
     esac
-        exit
-    fi
-then
+fi
+
 
 git clone https://github.com/luckydye/configs.git ~/configs
 
