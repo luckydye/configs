@@ -36,6 +36,7 @@ git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 case $pkgmngr in
 
   brew)
+    echo "# luckydye configs" >> ~/.zshrc
     echo "source $CONFIGS_DIR/vars.sh" >> ~/.zshrc
     echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/.zshrc
     ;;
@@ -44,6 +45,7 @@ case $pkgmngr in
     ;;
 esac
 
+echo "# luckydye configs" >> ~/.bashrc
 echo "source $CONFIGS_DIR/vars.sh" >> ~/.bashrc
 echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/.bashrc
 
