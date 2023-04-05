@@ -7,7 +7,7 @@ curl -s -L https://raw.githubusercontent.com/luckydye/configs/main/scripts/init.
 
 for full setup run afterwards:
 ```
-run setup.sh
+run setup
 ```
 
 ## Usage
