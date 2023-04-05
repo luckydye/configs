@@ -8,7 +8,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias refresh="last_dir=$PWD && cd ~/configs && git pull && cd $last_dir"
+alias update_configs="last_dir=$PWD && cd ~/configs && git pull && cd $last_dir"
 
 export PATH="$PATH:~/bin"
 
