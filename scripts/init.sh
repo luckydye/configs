@@ -38,7 +38,7 @@ case $pkgmngr in
   brew)
     echo "# luckydye configs" >> ~/.zshrc
     echo "source $CONFIGS_DIR/vars.sh" >> ~/.zshrc
-    echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/.zshrc
+    echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc
     ;;
 
   *)
@@ -47,6 +47,6 @@ esac
 
 echo "# luckydye configs" >> ~/.bashrc
 echo "source $CONFIGS_DIR/vars.sh" >> ~/.bashrc
-echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/.bashrc
+echo "source $CONFIGS_DIR/.bashrc" >> ~/.bashrc
 
 echo "Successfully installed. Open a new Terminal."
