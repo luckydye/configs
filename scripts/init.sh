@@ -28,9 +28,11 @@ then
     esac
 fi
 
+CONFIGS_DIR=~/configs
 
-git clone https://github.com/luckydye/configs.git ~/configs
+git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
 
-echo "source ~/configs/.bashrc" >> ~/.bashrc
+echo "CONFIGS_DIR=${CONFIGS_DIR}" >> ~/.bashrc
+echo "source ${CONFIGS_DIR}/.bashrc" >> ~/.bashrc
 
 echo "Successfully installed."
