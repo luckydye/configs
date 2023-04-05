@@ -31,7 +31,7 @@ fi
 
 CONFIGS_DIR=~/configs
 
-git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
+git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 
 case $pkgmngr in
 
