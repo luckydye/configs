@@ -1,3 +1,5 @@
+source ~/configs/colors.sh
+
 alias gs="git status"
 alias gp="git pull"
 alias pull="git pull"
@@ -40,10 +42,6 @@ function package_manager {
         which apk > /dev/null && { echo "apk"; return; }
         which apt > /dev/null && { echo "apt"; return; }
 }
-
-# colors
-RED='\033[0;31m'
-CLEAR='\033[0m'
 
 # motd
 echo "\n\t${RED}luckydye/configs v2023${CLEAR}\n"
