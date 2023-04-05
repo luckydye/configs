@@ -7,10 +7,6 @@ function package_manager {
   which brew > /dev/null && { echo "brew"; return; }
 }
 
-function play() {
-  ansible-playbook ~/configs/playbooks/$1
-}
-
 pkgmngr=$(package_manager)
 
 case $pkgmngr in
@@ -18,12 +14,12 @@ case $pkgmngr in
   apt)
     sudo apt -y update
     sudo apt -y install ansible
-    play setup_ubuntu.yml
+    ansible-playbook ${CONFIGS_DIR}/playbooks/setup_ubuntu.yml
     ;;
     
   brwe)
     brwe install ansible
-    play setup_ubuntu.yml
+    ansible-playbook ${CONFIGS_DIR}/playbooks/setup_mac.yml
     ;;
 
   *)
