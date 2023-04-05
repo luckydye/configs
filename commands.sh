@@ -13,6 +13,7 @@ function update_configs() {
         prev_dir=$PWD
         cd ~/configs
         git pull > /dev/null
+        echo -ne "\033[2K"
         cd $prev_dir
 }
 
