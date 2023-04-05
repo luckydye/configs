@@ -15,6 +15,12 @@ to update to latest configs run:
 update_configs
 ```
 
+## Uninstall
+```
+rm -rf ~/configs
+# and remvoe the two lines from your .bashrc/.zshrc
+```
+
 ## Usage
 | command | description                                       |
 |---------|---------------------------------------------------|
