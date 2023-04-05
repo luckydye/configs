@@ -1,3 +1,4 @@
+#!/bin/bash
 # linux machine first setup
 
 function package_manager {
