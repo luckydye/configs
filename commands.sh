@@ -29,7 +29,9 @@ function play() {
 }
 
 function run() {
-        bash ${CONFIGS_DIR}/scripts/$1
+        SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
+        find $SCRIPT_FILE && bash $SCRIPT_FILE && exit
+        find $SCRIPT_FILE.sh && bash $SCRIPT_FILE.sh && exit
 }
 
 function find-project() {
