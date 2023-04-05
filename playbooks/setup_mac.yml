@@ -1,1 +1,15 @@
-test
+---
+
+- name: Network Getting Started First Playbook
+  connection: ansible.netcommon.network_cli
+  gather_facts: false
+  hosts: localhost
+  tasks:
+
+    - name: Ping host
+      command: echo 123
+      register: result
+
+    - name: Print stdout
+      debug:
+        var: result.stdout
