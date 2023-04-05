@@ -1,4 +1,4 @@
-source ~/configs/colors.sh
+source ${CONFIGS_DIR}/colors.sh
 
 alias gs="git status"
 alias gp="git pull"
@@ -14,7 +14,7 @@ alias l='ls -CF'
 function update_configs() {
         echo "\tChecking for config updates.."
         prev_dir=$PWD
-        cd ~/configs
+        cd ${CONFIGS_DIR}
         echo -n "\t" && git pull 2> /dev/null && echo -n "\n"
         cd $prev_dir
 }
@@ -25,11 +25,11 @@ alias quit="exit"
 alias t="turbo run"
 
 function play() {
-        ansible-playbook ~/configs/playbooks/$1
+        ansible-playbook ${CONFIGS_DIR}/playbooks/$1
 }
 
 function run() {
-        bash ~/configs/scripts/$1.sh
+        bash ${CONFIGS_DIR}/scripts/$1.sh
 }
 
 function find-project() {
@@ -44,7 +44,7 @@ function package_manager {
 }
 
 # motd
-echo "\n\t${Red}luckydye/configs v2023${Clear}\n"
+echo "\n\t${Red}luckydye/configs v2023${Clear}\n${CONFIGS_DIR}\n"
 
 # autoupdate configs
 update_configs
