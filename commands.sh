@@ -10,7 +10,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 function update_configs() {
-echo "Checking for config updates.."
+        echo "Checking for config updates.."
         prev_dir=$PWD
         cd ~/configs
         git pull 2> /dev/null
@@ -46,7 +46,7 @@ RED='\033[0;31m'
 CLEAR='\033[0m'
 
 # motd
-echo "\n${RED}luckydye/configs v2023${CLEAR}\n"
+echo "\n\t${RED}luckydye/configs v2023${CLEAR}\n"
 
 # autoupdate configs
 update_configs
