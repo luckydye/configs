@@ -36,15 +36,15 @@ git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 case $pkgmngr in
 
   brew)
-    RC_FILE_NAME=.zshrc
+    echo "source $CONFIGS_DIR/vars.sh" >> ~/.zshrc
+    echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/.zshrc
     ;;
 
   *)
-    RC_FILE_NAME=.bashrc
     ;;
 esac
 
-echo "source $CONFIGS_DIR/vars.sh" >> ~/$RC_FILE_NAME
-echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/$RC_FILE_NAME
+echo "source $CONFIGS_DIR/vars.sh" >> ~/.bashrc
+echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/.bashrc
 
 echo "Successfully installed. Open a new Terminal."
