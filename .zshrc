@@ -7,4 +7,4 @@ bindkey "\033[H" beginning-of-line; bindkey "\033[F" end-of-line
 
 alias reload="source ~/.zshrc"
 
-source ~/configs/commands.sh
+source ${CONFIGS_DIR}/commands.sh
