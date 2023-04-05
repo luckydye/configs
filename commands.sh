@@ -12,7 +12,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 function update_configs() {
-        echo "\tChecking for config updates.."
+        echo "\n\tChecking for config updates.."
         prev_dir=$PWD
         cd ${CONFIGS_DIR}
         echo -n "\t" && git pull 2> /dev/null && echo -n "\n"
