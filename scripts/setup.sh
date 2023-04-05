@@ -14,12 +14,12 @@ case $pkgmngr in
   apt)
     sudo apt -y update
     sudo apt -y install ansible
-    ansible-playbook ${CONFIGS_DIR}/playbooks/setup_ubuntu.yml
+    ansible-playbook $CONFIGS_DIR/playbooks/setup_ubuntu.yml
     ;;
     
   brew)
     brew install ansible
-    ansible-playbook ${CONFIGS_DIR}/playbooks/setup_mac.yml
+    ansible-playbook $CONFIGS_DIR/playbooks/setup_mac.yml
     ;;
 
   *)
