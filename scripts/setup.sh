@@ -1,4 +1,5 @@
 # install ansible and setup things
+source $CONFIGS_DIR/commands.sh
 
 case $(package_manager) in
 
