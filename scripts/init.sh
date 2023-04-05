@@ -35,4 +35,7 @@ git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
 echo "source ${CONFIGS_DIR}/vars.sh" >> ~/.bashrc
 echo "source ${CONFIGS_DIR}/.bashrc" >> ~/.bashrc
 
-echo "Successfully installed."
+source ${CONFIGS_DIR}/vars.sh
+source ${CONFIGS_DIR}/.bashrc
+
+echo "Successfully installed"
