@@ -35,5 +35,12 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
+# motd
+echo '\n'
+echo '\n'
+echo "Cool message here; Configs v2023"
+echo '\n'
+echo '\n'
+
 # autoupdate configs
 update_configs
