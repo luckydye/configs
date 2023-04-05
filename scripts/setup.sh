@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # install ansible and setup things
 source $CONFIGS_DIR/commands.sh
 
