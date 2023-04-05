@@ -3,7 +3,7 @@ bind -x '"\C-w": cd ~'
 bind -x '"\C-d": pnpm dev'
 bind -x '"\C-p": find-project'
 
-alias reload="source ~/.bashrc && reload"
+alias reload="source ~/.bashrc"
 
 if grep -qi microsoft /proc/version; then
   # is wsl
