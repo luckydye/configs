@@ -5,7 +5,7 @@ bind -x '"\C-p": find-project'
 
 alias reload="source ~/.bashrc"
 
-if find /proc/version && grep -qi microsoft /proc/version; then
+if grep -qi microsoft /proc/version 2> /dev/null; then
   # is wsl
   source ${CONFIGS_DIR}/commands.sh
   source ${CONFIGS_DIR}/.wsl
