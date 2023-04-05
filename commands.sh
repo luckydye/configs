@@ -48,4 +48,4 @@ function package_manager {
 echo "\n\t${Red}luckydye/configs v2023${Clear}\n\t${CONFIGS_DIR}\n"
 
 # autoupdate configs
-update_configs
+#update_configs
