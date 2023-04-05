@@ -44,7 +44,7 @@ case $pkgmngr in
     ;;
 esac
 
-echo "source ${CONFIGS_DIR}/vars.sh" >> ~/${RC_FILE_NAME}
-echo "source ${CONFIGS_DIR}/${RC_FILE_NAME}" >> ~/${RC_FILE_NAME}
+echo "source $CONFIGS_DIR/vars.sh" >> ~/$RC_FILE_NAME
+echo "source $CONFIGS_DIR/$RC_FILE_NAME" >> ~/$RC_FILE_NAME
 
 echo "Successfully installed. Open a new Terminal."
