@@ -29,7 +29,7 @@ then
     esac
 fi
 
-CONFIGS_DIR="~/configs"
+CONFIGS_DIR=~/configs
 
 git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
 
