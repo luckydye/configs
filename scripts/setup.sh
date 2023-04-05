@@ -18,7 +18,7 @@ case $pkgmngr in
     ;;
     
   brew)
-    brwe install ansible
+    brew install ansible
     ansible-playbook ${CONFIGS_DIR}/playbooks/setup_mac.yml
     ;;
 
