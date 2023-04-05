@@ -1,1 +1,1 @@
-LUCKYDYE_CONFIGS_DIR=~/configs
+CONFIGS_DIR=~/configs
