@@ -11,7 +11,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-export function update_configs() {
+function update_configs() {
         echo "\tChecking for config updates.."
         prev_dir=$PWD
         cd ${CONFIGS_DIR}
@@ -24,22 +24,22 @@ export PATH="$PATH:~/bin"
 alias quit="exit"
 alias t="turbo run"
 
-export function play() {
+function play() {
         ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
 }
 
-export function run() {
+function run() {
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
         find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE && return
         find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh && return
 }
 
-export function find-project() {
+function find-project() {
         echo -n "Find project: "; read project
         find ~/source -type d -name "*$project*" -maxdepth 3 -ok code {} \;
 }
 
-export function package_manager {
+function package_manager {
         which brew > /dev/null && { echo "brew"; return; }
         which yum > /dev/null && { echo "yum"; return; }
         which apk > /dev/null && { echo "apk"; return; }
