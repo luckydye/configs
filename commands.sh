@@ -29,7 +29,7 @@ function play() {
 }
 
 function run() {
-        bash ${CONFIGS_DIR}/scripts/$1
+        ${CONFIGS_DIR}/scripts/$1
 }
 
 function find-project() {
