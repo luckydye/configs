@@ -32,10 +32,21 @@ CONFIGS_DIR=~/configs
 
 git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
 
-echo "source ${CONFIGS_DIR}/vars.sh" >> ~/.bashrc
-echo "source ${CONFIGS_DIR}/.bashrc" >> ~/.bashrc
+case $pkgmngr in
+
+  brew)
+    RC_FILE_NAME=~/.zshrc
+    ;;
+
+  *)
+    RC_FILE_NAME=~/.bashrc
+    ;;
+esac
+
+echo "source ${CONFIGS_DIR}/vars.sh" >> ~/${RC_FILE_NAME}
+echo "source ${CONFIGS_DIR}/.bashrc" >> ~/${RC_FILE_NAME}
 
 source ${CONFIGS_DIR}/vars.sh
-source ${CONFIGS_DIR}/.bashrc
+source ${CONFIGS_DIR}/${RC_FILE_NAME}
 
 echo "Successfully installed"
