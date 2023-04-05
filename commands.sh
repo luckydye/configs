@@ -13,7 +13,7 @@ function update_configs() {
         echo "\tChecking for config updates.."
         prev_dir=$PWD
         cd ~/configs
-        echo -n "\t" && git pull 2> /dev/null && echo "\n"
+        echo -n "\t" && git pull 2> /dev/null && echo -n "\n"
         cd $prev_dir
 }
 
