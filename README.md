@@ -10,6 +10,11 @@ for full setup run afterwards:
 run setup
 ```
 
+to update to latest configs run:
+```
+update_configs
+```
+
 ## Usage
 | command | description                                       |
 |---------|---------------------------------------------------|
