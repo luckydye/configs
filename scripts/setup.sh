@@ -15,12 +15,12 @@ case $pkgmngr in
   apt)
     sudo apt -y update
     sudo apt -y install ansible
-    ansible-playbook ~/configs/playbooks/setup_ubuntu.yml
+    ansible-playbook $CONFIGS_DIR/playbooks/setup_ubuntu.yml
     ;;
     
   brwe)
     brwe install ansible
-    ansible-playbook ~/configs/playbooks/setup_ubuntu.yml
+    ansible-playbook $CONFIGS_DIR/playbooks/setup_ubuntu.yml
     ;;
 
   *)
