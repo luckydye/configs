@@ -10,10 +10,10 @@ alias la='ls -A'
 alias l='ls -CF'
 
 function update_configs() {
+echo "Checking for config updates.."
         prev_dir=$PWD
         cd ~/configs
-        git pull > /dev/null
-        echo -ne "\033[2K"
+        git pull 2> /dev/null
         cd $prev_dir
 }
 
