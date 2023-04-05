@@ -17,6 +17,7 @@ function update_configs() {
         cd ${CONFIGS_DIR}
         echo -n "\t" && git pull 2> /dev/null && echo -n "\n"
         cd $prev_dir
+        reload
 }
 
 export PATH="$PATH:~/bin"
