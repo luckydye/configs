@@ -19,5 +19,4 @@ update_configs
 | command | description                                       |
 |---------|---------------------------------------------------|
 | run     | Run any script in the `~/configs/scripts` folder. |
-| refresh | Pull latest version of configs.                   |
 | reload  | reload .rc file.                                  |
