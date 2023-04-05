@@ -30,8 +30,8 @@ function play() {
 
 function run() {
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
-        find $SCRIPT_FILE && bash $SCRIPT_FILE && exit
-        find $SCRIPT_FILE.sh && bash $SCRIPT_FILE.sh && exit
+        find $SCRIPT_FILE && bash $SCRIPT_FILE && return
+        find $SCRIPT_FILE.sh && bash $SCRIPT_FILE.sh && return
 }
 
 function find-project() {
