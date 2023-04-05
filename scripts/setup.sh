@@ -1,19 +1,26 @@
 #!/usr/bin/env bash
-
 # install ansible and setup things
-source $CONFIGS_DIR/commands.sh
 
-case $(package_manager) in
+function package_manager {
+  which yum > /dev/null && { echo "yum"; return; }
+  which apk > /dev/null && { echo "apk"; return; }
+  which apt > /dev/null && { echo "apt"; return; }
+  which brew > /dev/null && { echo "brew"; return; }
+}
+
+pkgmngr=$(package_manager)
+
+case $pkgmngr in
 
   apt)
     sudo apt -y update
     sudo apt -y install ansible
-    play setup_ubuntu
+    ansible-playbook ~/configs/playbooks/setup_ubuntu.yml
     ;;
     
-  brew)
-    brew install ansible
-    play setup_mac
+  brwe)
+    brwe install ansible
+    ansible-playbook ~/configs/playbooks/setup_ubuntu.yml
     ;;
 
   *)
