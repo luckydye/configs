@@ -9,7 +9,12 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias update_configs="last_dir=$PWD && cd ~/configs && git pull && cd $last_dir"
+function update_configs() {
+        prev_dir=$PWD
+        cd ~/configs
+        git pull > /dev/null
+        cd $prev_dir
+}
 
 export PATH="$PATH:~/bin"
 
@@ -35,11 +40,13 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
+# colors
+RED='\033[0;31m'
+CLEAR='\033[0m'
+
 # motd
 echo '\n'
-echo '\n'
-echo "Cool message here; Configs v2023"
-echo '\n'
+echo "${RED}luckydye/configs v2023${CLEAR}"
 echo '\n'
 
 # autoupdate configs
