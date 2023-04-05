@@ -33,6 +33,7 @@ function run() {
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
         find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE && return
         find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh && return
+        find $SCRIPT_FILE.js 2> /dev/null && node $SCRIPT_FILE.js && return
 }
 
 function find-project() {
