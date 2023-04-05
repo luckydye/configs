@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # linux machine first setup
 
 function package_manager {
