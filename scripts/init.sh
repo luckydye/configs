@@ -7,10 +7,10 @@ function package_manager {
   which brew > /dev/null && { echo "brew"; return; }
 }
 
+pkgmngr=$(package_manager)
+
 if ! command -v git &> /dev/null
 then
-    pkgmngr=$(package_manager)
-
     case $pkgmngr in
 
       apt)
