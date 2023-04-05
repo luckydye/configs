@@ -20,7 +20,7 @@ function play() {
 }
 
 function run() {
-        bash ~/configs/scripts/$1
+        bash ~/configs/scripts/$1.sh
 }
 
 function find-project() {
