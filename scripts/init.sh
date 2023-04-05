@@ -35,11 +35,11 @@ git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
 case $pkgmngr in
 
   brew)
-    RC_FILE_NAME=~/.zshrc
+    RC_FILE_NAME=.zshrc
     ;;
 
   *)
-    RC_FILE_NAME=~/.bashrc
+    RC_FILE_NAME=.bashrc
     ;;
 esac
 
