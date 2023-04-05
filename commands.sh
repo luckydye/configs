@@ -45,9 +45,7 @@ RED='\033[0;31m'
 CLEAR='\033[0m'
 
 # motd
-echo '\n'
-echo "${RED}luckydye/configs v2023${CLEAR}"
-echo '\n'
+echo "\n${RED}luckydye/configs v2023${CLEAR}\n"
 
 # autoupdate configs
 update_configs
