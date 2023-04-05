@@ -25,7 +25,7 @@ alias quit="exit"
 alias t="turbo run"
 
 function play() {
-        ansible-playbook ${CONFIGS_DIR}/playbooks/$1
+        ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
 }
 
 function run() {
