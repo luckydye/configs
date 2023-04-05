@@ -1,1 +1,1 @@
-CONFIGS_DIR=~/configs
+export CONFIGS_DIR=~/configs
