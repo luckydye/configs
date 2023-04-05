@@ -1,7 +1,7 @@
 # https://stackoverflow.com/questions/5947742/how-to-change-the-output-color-of-echo-in-linux
 
 # Reset
-Color_Reset='\033[0m'       # Text Reset
+Clear='\033[0m'       # Text Reset
 
 # Regular Colors
 Black='\033[0;30m'        # Black
