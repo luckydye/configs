@@ -29,7 +29,7 @@ then
     esac
 fi
 
-CONFIGS_DIR=~/configs
+CONFIGS_DIR="~/configs"
 
 git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
 
@@ -47,7 +47,4 @@ esac
 echo "source ${CONFIGS_DIR}/vars.sh" >> ~/${RC_FILE_NAME}
 echo "source ${CONFIGS_DIR}/${RC_FILE_NAME}" >> ~/${RC_FILE_NAME}
 
-source ${CONFIGS_DIR}/vars.sh
-source ${CONFIGS_DIR}/${RC_FILE_NAME}
-
-echo "Successfully installed"
+echo "Successfully installed. Open a new Terminal."
