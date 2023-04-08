@@ -12,10 +12,10 @@ alias la='ls -A'
 alias l='ls -CF'
 
 function update_configs() {
-        echo "\n\tChecking for config updates.."
+        echo -e "\n\tChecking for config updates.."
         prev_dir=$PWD
         cd ${CONFIGS_DIR}
-        echo -n "\t" && git pull 2> /dev/null && echo -n "\n"
+        echo -en "\t" && git pull 2> /dev/null && echo -n "\n"
         cd $prev_dir
         reload
 }
@@ -37,7 +37,7 @@ function run() {
 }
 
 function find-project() {
-        echo -n "Find project: "; read project
+        echo -en "Find project: "; read project
         find ~/source -type d -name "*$project*" -maxdepth 3 -ok code {} \;
 }
 
@@ -49,7 +49,7 @@ function package_manager {
 }
 
 # motd
-echo "\n\t${Red}luckydye/configs v2023${Clear}\n\t${CONFIGS_DIR}\n"
+echo -e "\n\t${Red}luckydye/configs v2023${Clear}\n\t${CONFIGS_DIR}\n"
 
 # autoupdate configs
 #update_configs
