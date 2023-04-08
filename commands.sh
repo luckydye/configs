@@ -21,6 +21,7 @@ alias switch_off="run ha services/switch/turn_off"
 alias switch_toggle="run ha services/switch/toggle"
 
 alias lamp="switch_toggle switch.lamp"
+alias lamp2="switch_toggle switch.lamp2"
 alias pc_on="switch_on switch.speakers & switch_on switch.pc"
 alias all_off="switch_off switch.lamp & switch_off switch.lamp_2 & switch_off switch.speakers & switch_off switch.pc"
 
