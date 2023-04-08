@@ -1,15 +1,29 @@
 source ${CONFIGS_DIR}/colors.sh
 
+alias quit="exit"
+
 alias gs="git status"
 alias gp="git pull"
 alias pull="git pull"
 alias push="git push"
 alias commit="git commit -m"
 
+alias t="turbo run"
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+# homeassistant aliases
+alias switch_on="run ha services/switch/turn_on"
+alias switch_off="run ha services/switch/turn_off"
+alias switch_toggle="run ha services/switch/toggle"
+
+alias lamp="switch_toggle switch.lamp"
+alias pc_on="switch_on switch.speakers & switch_on switch.pc"
+alias all_off="switch_off switch.lamp & switch_off switch.lamp_2 & switch_off switch.speakers & switch_off switch.pc"
+
 
 function update_configs() {
         echo -e "\n\tChecking for config updates.."
@@ -21,9 +35,6 @@ function update_configs() {
 }
 
 export PATH="$PATH:~/bin"
-
-alias quit="exit"
-alias t="turbo run"
 
 function play() {
         ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
