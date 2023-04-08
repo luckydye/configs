@@ -15,7 +15,7 @@ function update_configs() {
         echo -e "\n\tChecking for config updates.."
         prev_dir=$PWD
         cd ${CONFIGS_DIR}
-        echo -en "\t" && git pull 2> /dev/null && echo -n "\n"
+        echo -en "\t" && git pull 2> /dev/null && echo -en "\n"
         cd $prev_dir
         reload
 }
