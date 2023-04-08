@@ -15,7 +15,7 @@ function update_configs() {
         echo -e "\n\tChecking for config updates.."
         prev_dir=$PWD
         cd ${CONFIGS_DIR}
-        echo -en "\t" && git pull 2> /dev/null && echo -en "\n"
+        echo -en "\t" && git stash && git pull 2> /dev/null && git stash pop && echo -en "\n"
         cd $prev_dir
         reload
 }
@@ -31,9 +31,9 @@ function play() {
 
 function run() {
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
-        find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE && return
-        find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh && return
-        find $SCRIPT_FILE.js 2> /dev/null && node $SCRIPT_FILE.js && return
+        find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE $1 $2 $3 && return
+        find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh $1 $2 $3 && return
+        find $SCRIPT_FILE.js 2> /dev/null && node $SCRIPT_FILE.js $1 $2 $3 && return
 }
 
 function find-project() {
