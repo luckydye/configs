@@ -4,6 +4,7 @@ alias quit="exit"
 
 alias gs="git status"
 alias gp="git pull"
+alias add="git add"
 alias pull="git pull"
 alias push="git push"
 alias commit="git commit -m"
