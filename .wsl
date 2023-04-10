@@ -1,5 +1,5 @@
-steam="/mnt/c/Program\ Files\ \(x86\)/Steam/steam.exe"
+steam="/mnt/c/Program\ Files\ \(x86\)/Steam"
 
 # start csgo
-alias csgo="$steam -applaunch 730"
+alias csgo="$steam/steam.exe -applaunch 730"
 alias csgo_config="cp $CONFIGS_DIR/apps/csgo/autoexec.cfg $steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
