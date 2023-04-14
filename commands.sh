@@ -10,7 +10,7 @@ alias pull="git pull"
 alias push="git push"
 alias commit="git commit -m"
 
-alias t="turbo run"
+alias n="npm run"
 
 # some more ls aliases
 alias ll='ls -alF'
