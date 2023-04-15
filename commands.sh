@@ -34,7 +34,6 @@ function update_configs() {
         cd ${CONFIGS_DIR}
         echo -en "\t" && git stash && git pull 2> /dev/null && git stash pop && echo -en "\n"
         cd $prev_dir
-        reload
 }
 
 export PATH="$PATH:~/bin"
