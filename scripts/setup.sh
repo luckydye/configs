@@ -10,6 +10,9 @@ function package_manager {
 
 pkgmngr=$(package_manager)
 
+# install fnm (a node version manager)
+curl -fsSL https://fnm.vercel.app/install | bash
+
 case $pkgmngr in
 
   apt)
