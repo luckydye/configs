@@ -1,6 +1,6 @@
 bind -x '"\C-l": ls -alF'
 bind -x '"\C-w": cd ~'
-bind -x '"\C-d": pnpm dev'
+bind -x '"\C-d": npx skirp'
 bind -x '"\C-p": find-project'
 
 alias reload="source ~/.bashrc && update_configs"
