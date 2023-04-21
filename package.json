@@ -1,0 +1,6 @@
+{
+  "name": "luckydye/configs",
+  "scripts": {
+    "test": "echo 123"
+  }
+}
