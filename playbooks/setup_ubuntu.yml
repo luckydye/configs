@@ -9,7 +9,7 @@
       command: sudo apt install build-essential -y
 
     - name: Install Cargo
-      stdin: 1
+      stdin: "1"
       stdin_add_newline: true
       command: curl https://sh.rustup.rs -sSf | sh
       
