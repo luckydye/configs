@@ -6,7 +6,7 @@
   hosts: localhost
   tasks:
     - name: Install Build dependencies
-      command: sudo pat install build-essential
+      command: sudo apt install build-essential
 
     - name: Install Cargo
       command: curl https://sh.rustup.rs -sSf | sh
