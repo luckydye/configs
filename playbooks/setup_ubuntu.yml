@@ -25,6 +25,8 @@
       command: echo 'eval "$(rtx activate bash)"' >> ~/.bashrc
       
     - name: Install Node
-      command: rtx install node@latest && rtx use --global node@latest
-      
-      
+      command: "{{ item }}"
+      with_items:
+        - rtx install node@latest
+        - rtx use --global node@latest
+        
