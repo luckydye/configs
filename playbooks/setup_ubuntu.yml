@@ -16,7 +16,10 @@
         - bash /tmp/rustup-init.sh -y
       
     - name: Install rtx-cli
-      command: cargo install cargo-binstall && cargo binstall rtx-cli
+      command: "{{ item }}"
+      with_items:
+        - cargo install cargo-binstall
+        - cargo binstall rtx-cli
       
     - name: Activate rtx-cli
       command: echo 'eval "$(rtx activate bash)"' >> ~/.bashrc
