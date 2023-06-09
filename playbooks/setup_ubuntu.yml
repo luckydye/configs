@@ -9,7 +9,7 @@
       command: sudo apt install build-essential -y
 
     - name: Install Cargo
-      command: curl https://sh.rustup.rs -sSf > /tmp/rustup-init.sh
+      command: curl https://sh.rustup.rs -sSf -o /tmp/rustup-init.sh
 
     - name: Install Cargo
       command: chmod 700 /tmp/rustup-init.sh && bash /tmp/rustup-init.sh -y
