@@ -9,7 +9,10 @@
       command: sudo apt install build-essential -y
 
     - name: Install Cargo
-      command: curl https://sh.rustup.rs -sSf > /tmp/rustup-init.sh && chmod 700 /tmp/rustup-init.sh && /tmp/rustup-init.sh -y
+      command: curl https://sh.rustup.rs -sSf > /tmp/rustup-init.sh
+
+    - name: Install Cargo
+      command: chmod 700 /tmp/rustup-init.sh && /tmp/rustup-init.sh -y
       
     - name: Install rtx-cli
       command: cargo install cargo-binstall && cargo binstall rtx-cli
