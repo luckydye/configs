@@ -10,7 +10,8 @@
 
     - name: Install Cargo
       command: curl https://sh.rustup.rs -sSf | sh
-      stdin: "1"
+      args:
+        stdin: "1"
       
     - name: Install rtx-cli
       command: cargo install cargo-binstall && cargo binstall rtx-cli
