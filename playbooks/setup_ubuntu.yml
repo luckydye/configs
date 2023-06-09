@@ -9,7 +9,7 @@
       command: sudo apt install build-essential -y
 
     - name: Install Rust
-      command: {{ item }}
+      command: "{{ item }}"
       with_items:
         - curl https://sh.rustup.rs -sSf -o /tmp/rustup-init.sh
         - chmod 700 /tmp/rustup-init.sh
