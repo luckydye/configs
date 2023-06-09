@@ -12,6 +12,7 @@
       command: curl https://sh.rustup.rs -sSf | sh
       args:
         stdin: "1"
+        stdin_add_newline: true
       
     - name: Install rtx-cli
       command: cargo install cargo-binstall && cargo binstall rtx-cli
