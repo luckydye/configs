@@ -9,8 +9,8 @@
       command: sudo apt install build-essential -y
 
     - name: Install Cargo
-      stdin: "1"
       command: curl https://sh.rustup.rs -sSf | sh
+      stdin: "1"
       
     - name: Install rtx-cli
       command: cargo install cargo-binstall && cargo binstall rtx-cli
