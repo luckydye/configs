@@ -2,6 +2,7 @@ source ${CONFIGS_DIR}/colors.sh
 
 alias quit="exit"
 
+alias c="git checkout "
 alias gs="git status"
 alias gp="git pull"
 alias add="git add"
