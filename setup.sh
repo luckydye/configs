@@ -20,7 +20,7 @@ then
         ;;
 
       brew)
-        brwe install git
+        brew install git
         ;;
 
       *)
@@ -30,7 +30,6 @@ then
 fi
 
 CONFIGS_DIR=~/configs
-
 git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 
 case $pkgmngr in
@@ -67,4 +66,4 @@ case $pkgmngr in
     ;;
 esac
 
-echo "Successfully installed. Open a new Terminal."
+echo "Installation complete. Open a new Terminal."
