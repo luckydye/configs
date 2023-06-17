@@ -2,17 +2,12 @@
 
 ## Installation
 ```
-curl -s -L https://raw.githubusercontent.com/luckydye/configs/main/scripts/init.sh | bash
-```
-
-for full setup run afterwards:
-```
-run setup
+curl -s -L https://raw.githubusercontent.com/luckydye/configs/main/setup.sh | bash
 ```
 
 to update to latest configs run:
 ```
-update_configs
+reload
 ```
 
 ## Uninstall
