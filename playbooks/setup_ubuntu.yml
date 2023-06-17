@@ -24,8 +24,7 @@
     - name: Install rtx-cli
       command: "{{ item }}"
       with_items:
-        - cargo install cargo-binstall
-        - cargo binstall rtx-cli
+        - cargo install rtx-cli
       
     - name: Activate rtx-cli
       command: echo 'eval "$(rtx activate bash)"' >> ~/.bashrc
