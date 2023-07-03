@@ -5,18 +5,18 @@
   gather_facts: false
   hosts: localhost
   tasks:
-      
+
     - name: Install git
       command: brew install git
 
     - name: Install neovim
       command: brew install neovim
-      
+
     - name: Install neovim config
       command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
-      
+
     - name: Install vscode config
       command: ln -s $CONFIGS_DIR/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-      
+
     - name: Install vscode keybinds
-      command: ln -s $CONFIGS_DIR/.config/vscode/keybinds.json $HOME/Library/Application\ Support/Code/User/keybinds.json
+      command: ln -s $CONFIGS_DIR/.config/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
