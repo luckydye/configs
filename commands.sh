@@ -1,5 +1,6 @@
 source ${CONFIGS_DIR}/colors.sh
 
+alias rel="reload"
 alias quit="exit"
 
 alias c="git checkout "
