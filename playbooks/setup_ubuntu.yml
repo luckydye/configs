@@ -11,6 +11,12 @@
     - name: Install git
       command: sudo apt install git -y
       
+    - name: Install neovim
+      command: sudo apt install neovim
+      
+    - name: Install neovim config
+      command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
+      
     - name: Install Build dependencies
       command: sudo apt install build-essential -y
 
