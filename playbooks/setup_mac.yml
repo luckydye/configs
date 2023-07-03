@@ -5,6 +5,9 @@
   gather_facts: false
   hosts: localhost
   tasks:
+      
+    - name: Install git
+      command: brew install git
 
     - name: Install neovim
       command: brew install neovim
