@@ -33,10 +33,10 @@ alias all_off="switch_off switch.lamp & switch_off switch.lamp_2 & switch_off sw
 
 
 function update_configs() {
-        echo -e "\n\tChecking for config updates.."
+        echo -e "\nChecking for config updates.."
         prev_dir=$PWD
         cd ${CONFIGS_DIR}
-        echo -en "\t" && git stash && git pull 2> /dev/null && git stash pop && echo -en "\n"
+        echo -en git stash && git pull 2> /dev/null && git stash pop && echo -en "\n"
         cd $prev_dir
 }
 
