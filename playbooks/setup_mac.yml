@@ -6,10 +6,8 @@
   hosts: localhost
   tasks:
 
-    - name: Ping host
-      command: echo 123
-      register: result
-
-    - name: Print stdout
-      debug:
-        var: result.stdout
+    - name: Install neovim
+      command: brew install neovim
+      
+    - name: Install neovim config
+      command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
