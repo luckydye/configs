@@ -14,3 +14,9 @@
       
     - name: Install neovim config
       command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
+      
+    - name: Install vscode config
+      command: ln -s $CONFIGS_DIR/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+      
+    - name: Install vscode keybinds
+      command: ln -s $CONFIGS_DIR/.config/vscode/keybinds.json $HOME/Library/Application\ Support/Code/User/keybinds.json
