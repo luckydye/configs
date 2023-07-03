@@ -7,6 +7,11 @@ set mouse=a
 set clipboard=unnamedplus
 filetype plugin on
 
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
