@@ -1,0 +1,207 @@
+{
+  "editor.suggestSelection": "recentlyUsed",
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "html-css-class-completion.JavaScriptLanguages": [
+    "javascript",
+    "javascriptreact",
+    "typescriptreact",
+    "vue"
+  ],
+  "editor.minimap.maxColumn": 50,
+  "editor.minimap.enabled": false,
+  "vetur.format.defaultFormatter.ts": "vscode-typescript",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "workbench.colorTheme": "Panda Syntax",
+  "explorer.confirmDragAndDrop": false,
+  "explorer.confirmDelete": false,
+  "eslint.codeActionsOnSave.mode": "all",
+  "redhat.telemetry.enabled": false,
+  "vetur.format.options.useTabs": true,
+  "autoimport.autoComplete": true,
+  "autoimport.spaceBetweenBraces": true,
+  "autoimport.filesToScan": "**/*.{js,ts,tsx,mjs}",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.associations": {
+    "*.twig": "html",
+    "*.mustache": "html",
+    "*.mdx": "mdx",
+    ".env": "ini",
+    "TODO": "markdown"
+  },
+  "git.showCommitInput": false,
+  "git.alwaysShowStagedChangesResourceGroup": true,
+  "workbench.startupEditor": "none",
+  "git-graph.graph.style": "angular",
+  "explorer.experimental.fileNesting.patterns": {
+    "*.ts": "$(capture).js, $(capture).*.ts",
+    "*.js": "$(capture).js.map, $(capture).min.js, $(capture).d.ts",
+    "*.jsx": "$(capture).js",
+    "*.tsx": "$(capture).ts",
+    "tsconfig.json": "tsconfig.*.json",
+    "package.json": "package-lock.json, .npmrc, yarn.lock, .yarnrc, pnpm-lock.yaml"
+  },
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "workspaceExplorer.workspaceStorageDirectory": "/Users/tihav/src",
+  "editor.inlineSuggest.enabled": false,
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "tailwindCSS.suggestions": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  // autosave
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": false
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.wordWrap": "on"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.formatOnSave": true,
+    "editor.inlayHints.enabled": "off"
+  },
+  "explorer.autoReveal": "focusNoScroll",
+  "svgo.cleanupIDs": true,
+  "svgo.collapseGroups": true,
+  "svgo.convertTransform": true,
+  "svgo.removeViewBox": false,
+  "console-ninja.toolsToEnableSupportAutomaticallyFor": {
+    "live-server": true,
+    "live-preview": true
+  },
+  "console-ninja.outputMode": "In View",
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "editor.accessibilitySupport": "off",
+  "editor.stickyScroll.enabled": true,
+  "projectManager.git.baseFolders": ["/Users/tihav/source/luckydye", "/Users/tihav/source/sv"],
+  "projectManager.sortList": "Recent",
+  "projectManager.ignoreProjectsWithinProjects": true,
+  "projectManager.removeCurrentProjectFromList": false,
+  "deno.enable": false,
+  "deno.inlayHints.parameterNames.enabled": "none",
+  "deno.inlayHints.parameterTypes.enabled": false,
+  "deno.inlayHints.propertyDeclarationTypes.enabled": false,
+  "deno.inlayHints.variableTypes.enabled": false,
+  "deno.inlayHints.functionLikeReturnTypes.enabled": false,
+  "deno.inlayHints.enumMemberValues.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "github-actions.org-features": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "explorer.fileNesting.patterns": {
+    "package.json": "pnpm-lock.yaml,package-lock.json,pnpm-workspace.yaml,.npmrc",
+    ".env": ".env*",
+    "*.tsx": "${capture}.scss",
+    "index.ts": "*.ts,*.tsx"
+  },
+  "explorer.fileNesting.enabled": true,
+  "workbench.productIconTheme": "adwaita",
+  "workbench.editor.showTabs": false,
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "xml.format.maxLineWidth": 120,
+  "prettier.printWidth": 100,
+  "volar.codeLens.references": false,
+  "files.autoSaveDelay": 500,
+  "editor.tokenColorCustomizations": {
+    "textMateRules": []
+  },
+  "terminal.integrated.gpuAcceleration": "on",
+  "vscode_vibrancy.opacity": 0.33,
+  "vscode_vibrancy.type": "acrylic",
+  "editor.cursorStyle": "block",
+  "editor.find.seedSearchStringFromSelection": "selection",
+  "editor.fontSize": 13,
+  // "editor.formatOnSaveMode": "modifications",
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.quickSuggestionsDelay": 8,
+  "editor.snippetSuggestions": "top",
+  "editor.suggest.insertMode": "replace",
+  "editor.suggest.localityBonus": true,
+  "editor.suggest.preview": true,
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "workbench.settings.editor": "json",
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "vim.cursorStylePerMode.normal": "block-outline",
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  "editor.colorDecorators": false,
+  "cSpell.userWords": ["astro", "astrojs", "dropzone", "fastify"],
+  "editor.tabSize": 2,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "cSpell.files": ["*.md", "*.ts", "*.tsx"],
+  "files.exclude": {
+    "**/.DS_Store": false,
+    "**/.git": false
+  },
+  "terminal.external.linuxExec": "tabby",
+  "window.menuBarVisibility": "compact",
+  "window.titleBarStyle": "custom",
+  "terminal.integrated.env.windows": {},
+  "terminal.integrated.env.linux": {},
+  "dart.flutterSdkPath": "/Users/tihav/source/test/flutter/flutter",
+  "livePreview.serverRoot": "dist"
+}
