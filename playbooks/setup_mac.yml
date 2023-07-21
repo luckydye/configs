@@ -9,6 +9,9 @@
     - name: Install git
       command: brew install git
 
+    - name: Install RTX
+      command: brew install rtx
+
     - name: Install neovim
       command: brew install neovim
 
