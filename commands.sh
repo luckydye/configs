@@ -3,6 +3,7 @@ source ${CONFIGS_DIR}/colors.sh
 alias rel="reload"
 alias quit="exit"
 
+# git
 alias c="git checkout "
 alias gs="git status"
 alias gp="git pull"
@@ -14,7 +15,11 @@ alias merge="git merge"
 alias commit="git commit -m"
 alias graph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
 
+# node
 alias n="npm run"
+
+# docker
+alias dd="docker run --rm -it --entrypoint bash -v ~/source:/source -w /source luckydye/build-utils"
 
 # some more ls aliases
 alias ll='ls -alF'
