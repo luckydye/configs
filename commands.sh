@@ -19,7 +19,7 @@ alias graph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold
 alias n="npm run"
 
 # docker
-alias dd="docker run --rm -it --entrypoint bash -v ~/source:/source -w /source luckydye/build-utils"
+alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source:/source -w /source luckydye/build-utils"
 
 # some more ls aliases
 alias ll='ls -alF'
