@@ -71,7 +71,7 @@ function package_manager {
 }
 
 # motd
-echo -e "\n${Red}luckydye/configs v2023${Clear}\n${CONFIGS_DIR}\n"
+echo -e "\n${Red}luckydye/configs${Clear}\n"
 
 # autoupdate configs
 #update_configs
