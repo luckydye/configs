@@ -48,6 +48,11 @@ echo "# luckydye configs" >> ~/.bashrc
 echo "source $CONFIGS_DIR/vars.sh" >> ~/.bashrc
 echo "source $CONFIGS_DIR/.bashrc" >> ~/.bashrc
 
+if [ "$CONFIGS_ANSIBLE" == "false" ] then
+  echo "Installation complete. Open a new Terminal."
+  exit 0;
+fi
+
 case $pkgmngr in
 
   apt)
