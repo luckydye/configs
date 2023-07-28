@@ -15,8 +15,8 @@ then
     case $pkgmngr in
 
       apt)
-        sudo apt -y update
-        sudo apt -y install git
+        apt -y update
+        apt -y install git
         ;;
 
       brew)
@@ -51,8 +51,8 @@ echo "source $CONFIGS_DIR/.bashrc" >> ~/.bashrc
 case $pkgmngr in
 
   apt)
-    sudo apt -y update
-    sudo apt -y install ansible
+    apt -y update
+    apt -y install ansible
     pip install ansible
     ansible-playbook $CONFIGS_DIR/playbooks/setup_ubuntu.yml
     ;;
