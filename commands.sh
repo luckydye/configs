@@ -15,11 +15,12 @@ alias merge="git merge"
 alias commit="git commit -m"
 alias graph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
 
+# docker
+alias compose="docker-compose"
+alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source:/source -w /source luckydye/build-utils:debian"
+
 # node
 alias n="npm run"
-
-# docker
-alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source:/source -w /source luckydye/build-utils:debian"
 
 # some more ls aliases
 alias ll='ls -alF'
