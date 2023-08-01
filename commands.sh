@@ -22,6 +22,9 @@ alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source
 # node
 alias n="npm run"
 
+# tasks
+alias t="task"
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
