@@ -17,7 +17,7 @@ alias graph="git log --graph --abbrev-commit --decorate --format=format:'%C(bold
 
 # docker
 alias compose="docker-compose"
-alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source:/source -w /source luckydye/build-utils:debian"
+alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source:/source -w /source luckydye/build-utils:latest"
 
 # node
 alias n="npm run"
