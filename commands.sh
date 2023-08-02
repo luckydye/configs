@@ -24,6 +24,7 @@ alias n="npm run"
 
 # tasks
 alias t="task"
+alias use="rtx use"
 
 # some more ls aliases
 alias ll='ls -alF'
