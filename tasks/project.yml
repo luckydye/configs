@@ -1,0 +1,11 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+
+  new:
+    desc: Create new project structure in directory
+    silent: true
+    cmds:
+      - task --init
