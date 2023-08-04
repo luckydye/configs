@@ -1,5 +1,7 @@
 source ${CONFIGS_DIR}/colors.sh
 
+alias config='/usr/bin/git --git-dir=$HOME/configs/ --work-tree=$HOME status'
+
 alias rel="reload"
 alias quit="exit"
 alias x="exit"

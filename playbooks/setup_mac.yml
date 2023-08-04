@@ -1,7 +1,6 @@
 ---
 
-- name: Network Getting Started First Playbook
-  connection: ansible.netcommon.network_cli
+- name: Setup Mac Environment
   gather_facts: false
   hosts: localhost
   tasks:
@@ -16,10 +15,17 @@
       command: brew install neovim
 
     - name: Install neovim config
+      ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
 
     - name: Install vscode config
+      ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
 
     - name: Install vscode keybinds
+      ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+
+    - name: Install global Taskfile
+      ignore_errors: true
+      command: ln -s $CONFIGS_DIR/tasks/Taskfile.yml $HOME/Taskfile.yml

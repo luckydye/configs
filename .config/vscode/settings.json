@@ -1,8 +1,7 @@
 {
-  "workbench.editor.splitInGroupLayout": "vertical",
-  // "editor.suggestSelection": "recentlyUsed",
+  "editor.suggestSelection": "recentlyUsed",
   "editor.minimap.enabled": false,
-  // "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.enabled": true,
   "editor.unicodeHighlight.ambiguousCharacters": true,
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
@@ -11,14 +10,17 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": false
   },
+  "editor.find.cursorMoveOnType": false,
   "editor.accessibilitySupport": "off",
   "editor.stickyScroll.enabled": true,
   "editor.find.seedSearchStringFromSelection": "selection",
   "editor.fontSize": 13,
-  "editor.formatOnSaveMode": "modifications",
+  "editor.fontFamily": "CommitMono",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "CommitMono",
   "editor.acceptSuggestionOnCommitCharacter": false,
   // "editor.quickSuggestionsDelay": 8,
-  // "editor.snippetSuggestions": "top",
+  // "editor.snippetSuggestions": "none",
   // "editor.suggest.insertMode": "replace",
   // "editor.suggest.localityBonus": true,
   "editor.suggest.preview": true,
@@ -27,7 +29,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": false,
-  "workbench.colorTheme": "Panda Syntax",
   "workbench.startupEditor": "readme",
   "workbench.editor.showTabs": false,
   "workbench.settings.editor": "json",
@@ -35,8 +36,8 @@
   "git.autofetch": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "files.associations": {
-    "*.twig": "html",
-    "*.mustache": "html",
+    "*.twig": "twig",
+    "*.mustache": "twig",
     "*.mdx": "mdx",
     ".env": "ini",
     "TODO": "markdown"
@@ -46,13 +47,18 @@
   "git-graph.graph.style": "angular",
   "javascript.preferences.importModuleSpecifierEnding": "js",
   "[typescriptreact]": {
-    "tailwindCSS.suggestions": true
+    "tailwindCSS.suggestions": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "security.workspace.trust.untrustedFiles": "open",
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "projectManager.git.baseFolders": ["/Users/tihav/source/luckydye", "/Users/tihav/source/sv"],
+  "projectManager.git.baseFolders": [
+    "/Users/tihav/source/luckydye",
+    "/Users/tihav/source/sv",
+    "/Users/tihav/source/atrium"
+  ],
   "projectManager.sortList": "Recent",
   "projectManager.ignoreProjectsWithinProjects": true,
   "projectManager.removeCurrentProjectFromList": false,
@@ -63,13 +69,9 @@
   "terminal.integrated.gpuAcceleration": "on",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "cSpell.userWords": ["astro", "astrojs", "dropzone", "fastify"],
+  "cSpell.userWords": ["astro", "astrojs", "dropzone", "fastify", "Todos"],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "cSpell.files": ["*.md", "*.ts", "*.tsx"],
-  "files.exclude": {
-    "**/.DS_Store": false,
-    "**/.git": false
-  },
   "terminal.external.linuxExec": "tabby",
   "window.titleBarStyle": "custom",
   "terminal.integrated.env.windows": {},
@@ -106,5 +108,38 @@
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
-  }
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "svelte.enable-ts-plugin": true,
+  "extensions.ignoreRecommendations": true,
+  "workbench.editor.splitSizing": "split",
+  "github.branchProtection": true,
+  "github.gitProtocol": "ssh",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false
+  },
+  "workbench.colorTheme": "Vim Deep Dark"
 }

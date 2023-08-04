@@ -3,7 +3,7 @@ bind -x '"\C-w": cd ~'
 bind -x '"\C-d": npx skirp'
 bind -x '"\C-p": find-project'
 
-alias reload="source ~/.bashrc && update_configs"
+alias reload="source ~/.bashrc"
 
 if grep -qi microsoft /proc/version 2> /dev/null; then
   # is wsl
