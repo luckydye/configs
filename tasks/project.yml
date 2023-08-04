@@ -14,7 +14,9 @@ tasks:
     cmds:
       - git init
       - echo "# " >> README.md
-      - echo "node_modules\ndist\n" >> .gitignore
+      - echo "node_modules" >> .gitignore
+      - echo "dist" >> .gitignore
+      - echo "!.rtx.toml" >> .gitignore
       - rtx use task
       - task --init
       - mkdir apps
