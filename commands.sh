@@ -1,6 +1,7 @@
 source ${CONFIGS_DIR}/colors.sh
 
 alias config='/usr/bin/git -C $HOME/configs/'
+alias cfg='config'
 
 alias rel="reload"
 alias quit="exit"
