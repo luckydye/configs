@@ -54,11 +54,7 @@
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "projectManager.git.baseFolders": [
-    "/Users/tihav/source/luckydye",
-    "/Users/tihav/source/sv",
-    "/Users/tihav/source/atrium"
-  ],
+  "projectManager.git.baseFolders": ["/Users/tihav/source"],
   "projectManager.sortList": "Recent",
   "projectManager.ignoreProjectsWithinProjects": true,
   "projectManager.removeCurrentProjectFromList": false,
@@ -69,7 +65,15 @@
   "terminal.integrated.gpuAcceleration": "on",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "cSpell.userWords": ["astro", "astrojs", "dropzone", "fastify", "Todos"],
+  "cSpell.userWords": [
+    "astro",
+    "astrojs",
+    "dropzone",
+    "fastify",
+    "luckydye",
+    "Tauri",
+    "Todos"
+  ],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "cSpell.files": ["*.md", "*.ts", "*.tsx"],
   "terminal.external.linuxExec": "tabby",

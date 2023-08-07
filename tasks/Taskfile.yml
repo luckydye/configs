@@ -3,7 +3,13 @@
 version: '3'
 
 includes:
-  project: ~/configs/tasks/project.yml
+  project:
+    taskfile: ~/configs/tasks/project.yml
+    aliases: ["p"]
+
+# output:
+#   group:
+#     error_only: true
 
 tasks:
 
@@ -12,3 +18,70 @@ tasks:
     silent: true
     cmds:
       - task --list
+
+  prints:
+    deps:
+      - task: print
+        vars: { TEXT: foo }
+      - task: print
+        vars: { TEXT: bar }
+      - task: print
+        vars: { TEXT: baz }
+
+  print:
+    cmds:
+      - echo "{{.TEXT}}"
+    prefix: 'print-{{.TEXT}}'
+    silent: true
+
+  prompt:
+    prompt: This is a dangerous command... Do you want to continue?
+    ignore_error: true
+    cmds:
+      - echo "You said yes!"
+
+  build:
+    desc: Build project (can be wachted with the '-w' task flag)
+    silent: true
+    dir: '{{.USER_WORKING_DIR}}'
+    sources:
+      - src/**
+    generates:
+      - dist/**
+    cmds:
+      - npx vite build
+
+  vite:
+    desc: vite dev
+    silent: true
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - npx vite -c vite.config.ts
+
+  args:
+    desc: Test cli arguments using "--"
+    silent: true
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - echo {{.CLI_ARGS}}
+
+  loop:
+    desc: cat all .log files in directory.
+    silent: true
+    dir: '{{.USER_WORKING_DIR}}'
+    vars:
+      MY_VAR:
+        # dynamic variable !!!!
+        sh: find *.log
+    cmds:
+      - for: { var: MY_VAR }
+        cmd: cat {{.ITEM}}
+
+  log:
+    desc: generate log
+    dir: '{{.USER_WORKING_DIR}}'
+    silent: true
+    status:
+      - test -f test.log # wont run cmd if file exists
+    cmds:
+      - echo {{now}} > test.log
