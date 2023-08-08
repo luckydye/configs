@@ -11,4 +11,6 @@ function volume() {
   osascript -e "set Volume $1"
 }
 
+export GPG_TTY=$(tty)
+
 source ${CONFIGS_DIR}/commands.sh
