@@ -1,0 +1,22 @@
+#!/bin/bash
+# install gnugpg
+# brew install gpg
+# sudo apt-get update && sudo apt-get -y install gnupg
+
+echo "#"
+echo "# Choose RSA and RSA / 4096 bits / 0 days"
+echo "# As 'Real Name' choose your github/git username"
+echo "# The email has to match with the verified email on github/gitlab"
+echo "#"
+gpg --full-generate-key
+
+key_id=$(gpg --list-secret-keys --keyid-format=long | grep -oEi "sec\W+rsa4096/[a-zA-Z0-9]+" | grep -oEi "[A-Za-z0-9]+" | tail -n 1)
+
+echo "#"
+echo "# Your key ID: $key_id"
+echo "#"
+
+echo "#"
+echo "# Your GPG key:"
+echo "#"
+gpg --armor --export $key_id

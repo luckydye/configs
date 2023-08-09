@@ -65,15 +65,7 @@
   "terminal.integrated.gpuAcceleration": "on",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "cSpell.userWords": [
-    "astro",
-    "astrojs",
-    "dropzone",
-    "fastify",
-    "luckydye",
-    "Tauri",
-    "Todos"
-  ],
+  "cSpell.userWords": ["astro", "astrojs", "dropzone", "fastify", "luckydye", "Tauri", "Todos"],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "cSpell.files": ["*.md", "*.ts", "*.tsx"],
   "terminal.external.linuxExec": "tabby",
@@ -132,7 +124,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "svelte.enable-ts-plugin": true,
   "extensions.ignoreRecommendations": true,
