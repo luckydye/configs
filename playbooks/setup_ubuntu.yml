@@ -9,18 +9,23 @@
       command: sudo apt update -y
       
     - name: Install git
+      ignore_errors: true
       command: sudo apt install git -y
       
     - name: Install neovim
+      ignore_errors: true
       command: sudo apt install neovim
       
     - name: Install neovim config
+      ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
       
     - name: Install Build dependencies
+      ignore_errors: true
       command: sudo apt install build-essential -y
 
     - name: Install Rust
+      ignore_errors: true
       command: "{{ item }}"
       with_items:
         - curl https://sh.rustup.rs -sSf -o /tmp/rustup-init.sh
@@ -28,14 +33,17 @@
         - bash /tmp/rustup-init.sh -y
       
     - name: Install rtx-cli
+      ignore_errors: true
       command: "{{ item }}"
       with_items:
         - cargo install rtx-cli
       
     - name: Activate rtx-cli
+      ignore_errors: true
       command: echo 'eval "$(rtx activate bash)"' >> ~/.bashrc
       
     - name: Install Node
+      ignore_errors: true
       command: "{{ item }}"
       with_items:
         - rtx install node@latest
