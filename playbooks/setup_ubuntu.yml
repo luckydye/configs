@@ -40,4 +40,8 @@
       with_items:
         - rtx install node@latest
         - rtx use --global node@latest
+
+    - name: Install global Taskfile
+      ignore_errors: true
+      command: ln -s $CONFIGS_DIR/tasks/Taskfile.yml $HOME/Taskfile.yml
         
