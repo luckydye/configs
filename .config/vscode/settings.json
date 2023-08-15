@@ -121,7 +121,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[vue]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "Vue.volar"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -137,5 +137,5 @@
     "markdown": true,
     "scminput": false
   },
-  "workbench.colorTheme": "Vim Deep Dark"
+  "workbench.colorTheme": "Vim Deep Dark","remote.SSH.remotePlatform": {"coder-vscode--tim--testing":"linux"}
 }
