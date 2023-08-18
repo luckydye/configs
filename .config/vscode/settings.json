@@ -137,5 +137,15 @@
     "markdown": true,
     "scminput": false
   },
-  "workbench.colorTheme": "Vim Deep Dark","remote.SSH.remotePlatform": {"coder-vscode--tim--testing":"linux"}
+  "workbench.colorTheme": "Vim Deep Dark",
+  "remote.SSH.remotePlatform": {
+    "coder-vscode--tim--testing": "linux",
+    "coder-vscode--tim--testing--main": "linux"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[graphql]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
