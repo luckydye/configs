@@ -40,6 +40,11 @@ tasks:
     cmds:
       - echo "You said yes!"
 
+  dev:
+    dir: '{{.USER_WORKING_DIR}}'
+    cmds:
+      - npm run dev
+
   build:
     desc: Build project (can be wachted with the '-w' task flag)
     silent: true
