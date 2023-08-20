@@ -84,8 +84,6 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
-# motd
-# echo -e "\n${Red}luckydye/configs${Clear}\n"
+export CHARM_HTTP_PORT=443
+export CHARM_HOST=charm.luckydye.de
 
-# autoupdate configs
-#update_configs
