@@ -1,4 +1,0 @@
-{
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "postCreateCommand": "curl -s -L https://raw.githubusercontent.com/luckydye/configs/main/setup.sh | bash"
-}
