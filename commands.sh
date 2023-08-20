@@ -58,8 +58,6 @@ function update_configs() {
         cd $prev_dir
 }
 
-export PATH="$PATH:~/bin"
-
 function play() {
         ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
 }
@@ -83,7 +81,4 @@ function package_manager {
         which apk > /dev/null && { echo "apk"; return; }
         which apt > /dev/null && { echo "apt"; return; }
 }
-
-export CHARM_HTTP_PORT=443
-export CHARM_HOST=charm.luckydye.de
 
