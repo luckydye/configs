@@ -72,7 +72,7 @@ function run() {
 
 function find-project() {
         # find all .git directories
-        nvim $(find . -name .git -type d -maxdepth 3 | sed 's/\/.git//g' | gum filter)
+        nvim $(find . -name .git -type d -maxdepth 4 | sed 's/\/.git//g' | gum filter)
 }
 
 function package_manager {
