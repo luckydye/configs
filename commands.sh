@@ -17,7 +17,7 @@ alias push="git push"
 alias merge="git merge"
 
 function commit() {
-        msg="$*"; 
+        msg="$*";
         git commit -m "$msg"
 }
 
@@ -71,8 +71,8 @@ function run() {
 }
 
 function find-project() {
-        echo -en "Find project: "; read project
-        find ~/source -type d -name "*$project*" -maxdepth 3 -ok code {} \;
+        # find all .git directories
+        nvim $(find . -name .git -type d -maxdepth 3 | sed 's/\/.git//g' | gum filter)
 }
 
 function package_manager {
