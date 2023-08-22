@@ -33,8 +33,9 @@
 # gum table < flavors.csv | cut -d ',' -f 1
 
 # select key from skate
-# skate list -k | gum filter | xargs skate get
+skate list -k | gum filter | xargs skate get
 
 # choose command from history
-HISTFILE=~/.zsh_history
-gum filter < $HISTFILE --height 40
+# HISTFILE=~/.zsh_history
+# gum filter < $HISTFILE --height 40
+
