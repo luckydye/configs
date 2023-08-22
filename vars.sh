@@ -7,3 +7,5 @@ export CHARM_HTTP_PORT=443
 export CHARM_HOST=charm.luckydye.de
 
 export GPG_TTY=$(tty)
+
+export OPENAI_API_KEY=$(skate get openai_token)
