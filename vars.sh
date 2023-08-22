@@ -9,3 +9,4 @@ export CHARM_HOST=charm.luckydye.de
 export GPG_TTY=$(tty)
 
 export OPENAI_API_KEY=$(skate get openai_token)
+export HOME_ASSISTANT_TOKEN=$(skate get homeassistant_token)
