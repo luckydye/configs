@@ -64,6 +64,7 @@ function play() {
 
 function addToPath() {
         echo "export PATH=$1:\$PATH" >> ~/.bashrc
+        export PATH=$1:$PATH
 }
 
 function run() {
