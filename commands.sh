@@ -62,6 +62,10 @@ function play() {
         ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
 }
 
+function addToPath() {
+        echo "export PATH=$1:\$PATH" >> ~/.bashrc
+}
+
 function run() {
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
         find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE $1 $2 $3 && return
