@@ -28,9 +28,3 @@ endif
 " Symbol renaming
 nmap <leader>rn <Plug>(coc-rename)
 
-call plug#begin()
-
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-
-call plug#end()
