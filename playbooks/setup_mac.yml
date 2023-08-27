@@ -1,22 +1,19 @@
 ---
-
 - name: Setup Mac Environment
   gather_facts: false
   hosts: localhost
   tasks:
+    - name: Install git config
+      ignore_errors: true
+      command: ln -s $CONFIGS_DIR/.config/.gitconfig $HOME/.gitconfig
 
-    - name: Install git
-      command: brew install git
-
-    - name: Install RTX
-      command: brew install rtx
-
-    - name: Install neovim
-      command: brew install neovim
+    - name: Install rtx config
+      ignore_errors: true
+      command: ln -s $CONFIGS_DIR/.config/rtx $HOME/.config/
 
     - name: Install neovim config
       ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
+      command: ln -s $CONFIGS_DIR/.config/nvim $HOME/.config/
 
     - name: Install vscode config
       ignore_errors: true
@@ -29,3 +26,12 @@
     - name: Install global Taskfile
       ignore_errors: true
       command: ln -s $CONFIGS_DIR/tasks/Taskfile.yml $HOME/Taskfile.yml
+
+    - name: Install git
+      command: brew install git
+
+    - name: Install RTX
+      command: brew install rtx
+
+    - name: Install neovim
+      command: brew install neovim

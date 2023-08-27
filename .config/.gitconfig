@@ -1,0 +1,40 @@
+[user]
+	email = tim.h4vlicek@gmail.com
+	name = Tim Havlicek
+	signingkey = BF007352F3B082D4
+
+
+[alias]
+st = status
+br = branch -a -v
+#lol = log --graph --decorate --pretty=oneline --abbrev-commit
+#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+lol = log --graph --pretty=format:‘%Cred%h%Creset %C(auto)%d%Creset - %s’ --abbrev-commit --date=relative
+lola = log --graph --pretty=format:‘%Cred%h%Creset -%C(auto)%d%Creset %s %C(cyan)<%an>%Creset’ --abbrev-commit --date=relative --all
+reset-tag = “!f() { git tag -d $1 && git push origin :$1 && git tag $1 && git push origin $1; }; f”
+del = branch -D
+clear = stash clear
+nome = branch --no-merged
+ls = log --pretty=format:“%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]” --decorate
+ll = log --pretty=format:“%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]” --decorate --numstat
+le = log --oneline --decorate
+la = “!git config -l | grep alias | cut -c 7-”
+sl = stash list
+sa = stash apply
+ss = stash save
+cm= commit --message
+aa= add --al
+ca= commit --amend
+rm-ignored=git ls-files -i --exclude-from=.gitignore | xargs git rm --cached
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[core]
+	excludesfile = /Users/tihav/.gitignore_global
+	editor = nvim
+[commit]
+	gpgsign = true

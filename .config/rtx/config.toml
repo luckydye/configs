@@ -1,0 +1,8 @@
+[tools]
+node = "latest"
+python = "3.9"
+task = "latest"
+pnpm = "latest"
+go = "latest"
+gum = "latest"
+skate = "latest"
