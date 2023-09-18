@@ -33,17 +33,7 @@
     "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
   },
   {
-    "key": "cmd+r",
-    "command": "-workbench.action.reloadWindow",
-    "when": "isDevelopment"
-  },
-  {
-    "key": "cmd+r",
-    "command": "-python.refreshTensorBoard",
-    "when": "python.hasActiveTensorBoardSession"
-  },
-  {
-    "key": "cmd+r",
-    "command": "taskfile.run"
+    "key": "alt+s",
+    "command": "editor.action.insertSnippet"
   }
 ]
