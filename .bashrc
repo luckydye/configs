@@ -1,11 +1,3 @@
-if [ -t 1 ]
-then
-    bind -x '"\C-l": ls -alF'
-    bind -x '"\C-w": cd ~'
-    bind -x '"\C-d": npx skirp'
-    bind -x '"\C-p": find-project'
-fi
-
 alias reload="source ~/.bashrc && clear"
 
 if grep -qi microsoft /proc/version 2> /dev/null; then
