@@ -1,3 +1,5 @@
+alias reload="source ~/.zshrc && clear"
+
 # select entry of command history
 bindkey -s '^h' ' gum filter < ~/.zsh_history --height 40\n'
 
