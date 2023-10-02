@@ -35,3 +35,6 @@
 
     - name: Install neovim
       command: brew install neovim
+
+    - name: Install navigation stuff
+      command: brew install fd fzf tmux
