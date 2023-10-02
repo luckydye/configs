@@ -7,7 +7,7 @@ alias rel="reload"
 
 # navigation
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-alias ff="nvim $(fzf)"
+alias ff='nvim $(fzf)'
 alias quit="exit"
 alias x="exit"
 
