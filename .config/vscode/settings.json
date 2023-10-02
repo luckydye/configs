@@ -70,10 +70,14 @@
   "cSpell.userWords": [
     "astro",
     "astrojs",
+    "Comlink",
     "dropzone",
     "fastify",
     "luckydye",
     "outdir",
+    "overscan",
+    "postmeta",
+    "sysinfo",
     "tailwindcss",
     "Tauri",
     "Todos"
@@ -149,5 +153,13 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "workbench.activityBar.visible": false
+  "[swift]": {
+    "editor.defaultFormatter": "vknabel.vscode-apple-swift-format"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

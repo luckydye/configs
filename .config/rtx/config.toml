@@ -9,3 +9,6 @@ bun = "1"
 terraform = "latest"
 protoc = "latest"
 jq = "latest"
+
+[settings]
+experimental = true
