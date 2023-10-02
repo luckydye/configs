@@ -88,3 +88,6 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
+
+addToPath ~/bin
+
