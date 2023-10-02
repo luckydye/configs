@@ -1,9 +1,13 @@
 source ${CONFIGS_DIR}/colors.sh
 
+# config util
 alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
-
 alias rel="reload"
+
+# navigation
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+alias ff="fzf"
 alias quit="exit"
 alias x="exit"
 
