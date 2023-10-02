@@ -7,7 +7,7 @@ alias rel="reload"
 
 # navigation
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-alias ff="fzf"
+alias ff="nvim $(fzf)"
 alias quit="exit"
 alias x="exit"
 
@@ -91,7 +91,6 @@ function package_manager {
         which apk > /dev/null && { echo "apk"; return; }
         which apt > /dev/null && { echo "apt"; return; }
 }
-
 
 addToPath ~/bin
 
