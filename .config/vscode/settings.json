@@ -71,6 +71,7 @@
     "astro",
     "astrojs",
     "Comlink",
+    "composables",
     "dropzone",
     "fastify",
     "luckydye",
@@ -89,34 +90,11 @@
   "terminal.integrated.env.windows": {},
   "terminal.integrated.env.linux": {},
   "livePreview.serverRoot": "dist",
-  // "vim.cursorStylePerMode.normal": "block-outline",
   "vim.easymotion": true,
   "vim.incsearch": true,
   "vim.useSystemClipboard": true,
   "vim.useCtrlKeys": true,
   "vim.hlsearch": true,
-  "vim.insertModeKeyBindings": [
-    {
-      "before": ["j", "j"],
-      "after": ["<Esc>"]
-    }
-  ],
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {
-      "before": ["<leader>", "d"],
-      "after": ["d", "d"]
-    },
-    {
-      "before": ["<C-n>"],
-      "commands": [":nohl"]
-    },
-    {
-      "before": ["K"],
-      "commands": ["lineBreakInsert"],
-      "silent": true
-    }
-  ],
-  "vim.leader": "<space>",
   "vim.handleKeys": {
     "<C-a>": false,
     "<C-f>": false
@@ -137,7 +115,6 @@
     "markdown": true,
     "scminput": false
   },
-  "workbench.colorTheme": "Vim Deep Dark",
   "remote.SSH.remotePlatform": {
     "coder-vscode--tim--testing": "linux",
     "coder-vscode--tim--testing--main": "linux"
@@ -161,5 +138,8 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   }
 }
