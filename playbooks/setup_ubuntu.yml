@@ -24,6 +24,7 @@
       command: "{{ item }}"
       with_items:
         - mkdir -p $HOME/bin && cd $HOME/bin
+        - sudo apt install -y libfuse2
         - curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin//nvim
         - chmod u+x ~/bin//nvim
       
