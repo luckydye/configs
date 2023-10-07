@@ -1,3 +1,6 @@
+source $CONFIGS_DIR/vars.sh
+export PATH=$HOME/bin:$PATH
+
 alias reload="source ~/.zshrc && clear"
 
 # select entry of command history
