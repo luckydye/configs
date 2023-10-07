@@ -38,3 +38,7 @@
 
     - name: Install navigation stuff
       command: brew install fd fzf tmux
+
+    - name: Install tmux config
+      ignore_errors: true
+      command: ln -s $CONFIGS_DIR/.config/.tmux.conf $HOME/.tmux.conf
