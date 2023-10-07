@@ -11,6 +11,8 @@ alias ff='nvim $(fzf)'
 alias quit="exit"
 alias x="exit"
 alias s='cd $HOME/source'
+alias fp='run find_project'
+alias repo='run open_git_repo'
 
 # git
 alias c="git checkout "
@@ -55,15 +57,6 @@ alias lamp2="switch_toggle switch.lamp_2"
 alias pc_on="switch_on switch.speakers & switch_on switch.pc"
 alias all_off="switch_off switch.lamp & switch_off switch.lamp_2 & switch_off switch.speakers & switch_off switch.pc"
 
-
-function update_configs() {
-        echo -e "\nChecking for config updates.."
-        prev_dir=$PWD
-        cd ${CONFIGS_DIR}
-        echo -en git stash && git pull 2> /dev/null && git stash pop && echo -en "\n"
-        cd $prev_dir
-}
-
 function play() {
         ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
 }
@@ -79,11 +72,6 @@ function run() {
         find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh $1 $2 $3 && return
         find $SCRIPT_FILE.js 2> /dev/null && node $SCRIPT_FILE.js $1 $2 $3 && return
         find $SCRIPT_FILE.ts 2> /dev/null && bun $SCRIPT_FILE.ts $1 $2 $3 && return
-}
-
-function find-project() {
-        # find all .git directories
-        nvim $(find . -name .git -type d -maxdepth 4 | sed 's/\/.git//g' | gum filter)
 }
 
 function package_manager {
