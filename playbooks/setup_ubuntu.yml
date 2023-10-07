@@ -62,6 +62,6 @@
       command: ln -s $CONFIGS_DIR/.config/.tmux.conf $HOME/.tmux.conf
 
     - name: Link skate
-      command: [[ ! -z $(skate list) ]] && echo "Skate already linked" || skate link
+      command: "[[ ! -z $(skate list) ]] && echo "Skate already linked" || skate link"
     
         
