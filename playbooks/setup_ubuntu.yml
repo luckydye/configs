@@ -10,7 +10,7 @@
       
     - name: Install apt packages
       ignore_errors: true
-      command: sudo apt install git unzip fd-find fzf tmux build-essential -y
+      command: sudo apt install git unzip fd-find fzf ripgrep tmux build-essential -y
       
     - name: Install neovim
       ignore_errors: true
