@@ -10,6 +10,7 @@ export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 alias ff='nvim $(fzf)'
 alias quit="exit"
 alias x="exit"
+alias s='cd $HOME/source'
 
 # git
 alias c="git checkout "
@@ -92,5 +93,5 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
-addToPath ~/bin
+addToPath $HOME/bin
 
