@@ -38,20 +38,16 @@
       with_items:
         - curl https://rtx.pub/install.sh | bash
         - echo 'eval "$(rtx activate)"' >> ~/.bashrc
+        
+    - name: Install Tools config
+      ignore_errors: true
+      command: ln -s $CONFIGS_DIR/.config/rtx $HOME/.config/
       
-    - name: Install Node
+    - name: Install Tools
       ignore_errors: true
       command: "{{ item }}"
       with_items:
-        - rtx install node@latest
-        - rtx use --global node@latest
-
-    - name: Install Task
-      ignore_errors: true
-      command: "{{ item }}"
-      with_items:
-        - rtx install task@latest
-        - rtx use --global task@latest
+        - rtx install
 
     - name: Install global Taskfile
       ignore_errors: true
