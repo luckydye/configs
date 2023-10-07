@@ -2,12 +2,8 @@
 task = "latest"
 gum = "latest"
 skate = "latest"
-glow = "latest"
 node = "latest"
 pnpm = "latest"
-bun = "1"
-terraform = "latest"
-protoc = "latest"
 jq = "latest"
 
 [settings]
