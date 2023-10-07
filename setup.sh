@@ -36,7 +36,6 @@ case $pkgmngr in
 
   brew)
     echo "# luckydye configs" >> ~/.zshrc
-    echo "source $CONFIGS_DIR/vars.sh" >> ~/.zshrc
     echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc
     ;;
 
@@ -45,7 +44,6 @@ case $pkgmngr in
 esac
 
 echo "# luckydye configs" >> ~/.bashrc
-echo "source $CONFIGS_DIR/vars.sh" >> ~/.bashrc
 echo "source $CONFIGS_DIR/.bashrc" >> ~/.bashrc
 
 if [ "$CONFIGS_ANSIBLE" = "false" ]; then
