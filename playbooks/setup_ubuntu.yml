@@ -14,6 +14,10 @@
     - name: Install apt packages
       ignore_errors: true
       command: sudo apt install git unzip fd-find fzf ripgrep tmux build-essential -y
+
+    - name: Install git config
+      ignore_errors: true
+      command: ln -s $CONFIGS_DIR/.config/.gitconfig $HOME/.gitconfig
       
     - name: Install neovim
       ignore_errors: true
