@@ -20,6 +20,7 @@ alias adda="git add --all"
 alias pull="git pull"
 alias push="git push"
 alias merge="git merge"
+alias gd="git diff -- ':!package-lock.json' ':!yarn.lock' ':!Cargo.lock'"
 
 function commit() {
         msg="$*";
