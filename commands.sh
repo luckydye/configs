@@ -80,6 +80,3 @@ function package_manager {
         which apk > /dev/null && { echo "apk"; return; }
         which apt > /dev/null && { echo "apt"; return; }
 }
-
-addToPath $HOME/bin
-
