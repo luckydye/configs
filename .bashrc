@@ -1,5 +1,4 @@
 source $CONFIGS_DIR/vars.sh
-export PATH=$HOME/bin:$PATH
 
 alias reload="source ~/.bashrc && clear"
 alias fd='fdfind'
