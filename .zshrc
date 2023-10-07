@@ -1,4 +1,4 @@
-source $CONFIGS_DIR/vars.sh
+source ~/configs/vars.sh
 
 alias reload="source ~/.zshrc && clear"
 
