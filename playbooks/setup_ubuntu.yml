@@ -24,9 +24,8 @@
       command: "{{ item }}"
       with_items:
         - mkdir -p $HOME/bin && cd $HOME/bin
-        - curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-        - chmod u+x nvim.appimage
-        - mv nvim.appImage nvim
+        - curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin//nvim
+        - chmod u+x ~/bin//nvim
       
     - name: Install neovim config
       ignore_errors: true
