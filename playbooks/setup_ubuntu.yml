@@ -60,4 +60,8 @@
     - name: Install tmux config
       ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/.tmux.conf $HOME/.tmux.conf
+
+    - name: Link skate
+      command: [[ ! -z $(skate list) ]] && echo "Skate already linked" || echo "skate link"
+    
         
