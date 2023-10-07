@@ -4,7 +4,7 @@
 ```
 curl https://raw.githubusercontent.com/luckydye/configs/main/setup.sh | bash
 or
-curl https://setup.luckydye.dev | bash
+curl https://luckydye.dev/setup | bash
 ```
 
 to update to latest configs run:
