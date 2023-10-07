@@ -25,19 +25,11 @@
       ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
 
-    - name: Install Rust
-      ignore_errors: true
-      command: "{{ item }}"
-      with_items:
-        - curl https://sh.rustup.rs -sSf -o /tmp/rustup-init.sh
-        - chmod 700 /tmp/rustup-init.sh
-        - bash /tmp/rustup-init.sh -y
-      
     - name: Install rtx-cli
       ignore_errors: true
       command: "{{ item }}"
       with_items:
-        - curl https://rtx.pub/install.sh | sh
+        - curl https://rtx.pub/install.sh | bash
         - echo 'eval "$(rtx activate)"' >> ~/.bashrc
       
     - name: Install Node
