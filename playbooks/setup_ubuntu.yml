@@ -44,7 +44,7 @@
       ignore_errors: true
       command: "{{ item }}"
       with_items:
-        - curl -L https://rtx.pub/install.sh | RTX_INSTALL_PATH=~/bin/rtx sh
+        - "curl -L https://rtx.pub/install.sh | RTX_INSTALL_PATH=~/bin/rtx sh"
         - echo 'eval "$(rtx activate)"' >> ~/.bashrc
       
     - name: Install Tools
