@@ -6,7 +6,6 @@ alias cfg='config'
 alias rel="reload"
 
 # navigation
-alias fd='fdfind 2> /dev/null || fd'
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 alias ff='nvim $(fzf)'
 alias quit="exit"
