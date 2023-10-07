@@ -8,21 +8,22 @@
     - name: Update
       command: sudo apt update -y
       
-    - name: Install git
+    - name: Install apt packages
       ignore_errors: true
-      command: sudo apt install git -y
+      command: sudo apt install git unzip build-essential -y
       
     - name: Install neovim
       ignore_errors: true
-      command: sudo apt install neovim
+      command: "{{ item }}"
+      with_items:
+        - cd $HOME/bin
+        - curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+        - chmod u+x nvim.appimage
+        - sudo ln -s nvim.appImage /usr/bin/nvim
       
     - name: Install neovim config
       ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
-      
-    - name: Install Build dependencies
-      ignore_errors: true
-      command: sudo apt install build-essential -y
 
     - name: Install Rust
       ignore_errors: true
@@ -36,11 +37,8 @@
       ignore_errors: true
       command: "{{ item }}"
       with_items:
-        - cargo install rtx-cli
-      
-    - name: Activate rtx-cli
-      ignore_errors: true
-      command: echo 'eval "$(rtx activate bash)"' >> ~/.bashrc
+        - curl https://rtx.pub/install.sh | sh
+        - echo 'eval "$(rtx activate)"' >> ~/.bashrc
       
     - name: Install Node
       ignore_errors: true
@@ -48,6 +46,13 @@
       with_items:
         - rtx install node@latest
         - rtx use --global node@latest
+
+    - name: Install Task
+      ignore_errors: true
+      command: "{{ item }}"
+      with_items:
+        - rtx install task@latest
+        - rtx use --global task@latest
 
     - name: Install global Taskfile
       ignore_errors: true
