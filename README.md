@@ -2,7 +2,9 @@
 
 ## Installation
 ```
-curl -s -L https://raw.githubusercontent.com/luckydye/configs/main/setup.sh | bash
+curl https://raw.githubusercontent.com/luckydye/configs/main/setup.sh | bash
+or
+curl https://setup.luckydye.de | bash
 ```
 
 to update to latest configs run:
