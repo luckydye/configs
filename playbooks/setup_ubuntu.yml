@@ -60,8 +60,3 @@
       ignore_errors: true
       command: ln -s $CONFIGS_DIR/.config/.tmux.conf $HOME/.tmux.conf
 
-    - name: Link skate
-      shell: yes
-      command: sh $CONFIGS_DIR/scripts/skate_link.sh
-    
-        
