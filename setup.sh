@@ -71,4 +71,7 @@ case $pkgmngr in
     ;;
 esac
 
+echo "Link skate to access enviroment secrets:"
+run skate_link
+
 echo "Installation complete. Open a new Terminal."
