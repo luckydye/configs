@@ -62,6 +62,6 @@
       command: ln -s $CONFIGS_DIR/.config/.tmux.conf $HOME/.tmux.conf
 
     - name: Link skate
-      command: run skate_link
+      command: sh $CONFIGS_DIR/scripts/skate_link.sh
     
         
