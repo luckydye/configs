@@ -1,8 +1,8 @@
 ---
 
-- name: Network Getting Started First Playbook
+- name: Setup Ubuntu Machine
   connection: ansible.netcommon.network_cli
-  gather_facts: false
+  gather_facts: true
   hosts: localhost
   tasks:
     - name: Update
