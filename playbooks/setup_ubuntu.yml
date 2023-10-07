@@ -16,7 +16,7 @@
       ignore_errors: true
       command: "{{ item }}"
       with_items:
-        - cd $HOME/bin
+        - mkdir -p $HOME/bin && cd $HOME/bin
         - curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
         - chmod u+x nvim.appimage
         - sudo ln -s nvim.appImage /usr/bin/nvim
