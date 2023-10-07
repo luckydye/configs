@@ -1,5 +1,7 @@
-alias reload="source ~/.bashrc && clear"
+source $CONFIGS_DIR/vars.sh
+export PATH=$HOME/bin:$PATH
 
+alias reload="source ~/.bashrc && clear"
 alias fd='fdfind'
 
 if grep -qi microsoft /proc/version 2> /dev/null; then
