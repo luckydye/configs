@@ -11,13 +11,36 @@ return {
   },
 
   {
+    "nvimtools/none-ls.nvim",
+    event = "LazyFile",
+    dependencies = { "mason.nvim" },
+    opts = function()
+      local nls = require("null-ls")
+      return {
+        root_dir = require("null-ls.utils").root_pattern(
+          ".null-ls-root",
+          ".neoconf.json",
+          "Makefile",
+          ".git"
+        ),
+        sources = {
+          nls.builtins.formatting.biome,
+          nls.builtins.formatting.stylua,
+          nls.builtins.formatting.shfmt,
+        },
+      }
+    end,
+  },
+
+  {
     "nvim-neo-tree/neo-tree.nvim",
-      keys = {
-        { "<leader>ft", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-      },
-      config = function()
-        require("neo-tree").setup()
-      end,
+    enabled = false,
+    keys = {
+      { "<leader>ft", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
+    },
+    config = function()
+      require("neo-tree").setup()
+    end,
   },
 
   {
@@ -63,6 +86,7 @@ return {
       ensure_installed = {
         "stylua",
         "shellcheck",
+        "biome",
         "shfmt",
       },
     },
