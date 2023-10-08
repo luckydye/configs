@@ -3,8 +3,6 @@ task = "latest"
 gum = "latest"
 skate = "latest"
 node = "latest"
-pnpm = "latest"
-jq = "latest"
 
 [settings]
 experimental = true
