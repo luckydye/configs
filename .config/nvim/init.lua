@@ -7,7 +7,7 @@ else
   require("config.lazy")
 end
 
-vim.api.nvim_set_keymap("n", "<A-Up>", ":m-<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<A-Up>", ":m--<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-Down>", ":m+<CR>", { noremap = true, silent = true })
 
 vim.api.nvim_set_keymap("n", "<C-w>", ":bd<CR>", { noremap = true, silent = true })
