@@ -21,11 +21,13 @@ tasks:
 
   up:
     desc: Run docker compose up
+    dir: '{{.USER_WORKING_DIR}}'
     cmds:
       - docker compose up
 
   down:
     desc: Run docker compose down
+    dir: '{{.USER_WORKING_DIR}}'
     cmds:
       - docker compose down
 
