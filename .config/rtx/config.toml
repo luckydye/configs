@@ -4,6 +4,7 @@ gum = "latest"
 skate = "latest"
 node = "latest"
 jq = "latest"
+bun = "1.0.4"
 
 [settings]
 experimental = true
