@@ -3,8 +3,7 @@ alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
 alias await="gum spin --show-output --spinner minidot --"
-alias cfgpull="await config_pull"
-alias cfgpush="await config_push"
+alias sync="await run config_pull && echo 12"
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -74,22 +73,4 @@ function package_manager {
         which yum > /dev/null && { echo "yum"; return; }
         which apk > /dev/null && { echo "apk"; return; }
         which apt > /dev/null && { echo "apt"; return; }
-}
-
-function config_pull {
-        sleep 0.5
-        cfg stash
-        cfg pull
-        cfg stash pop
-}
-
-function config_push {
-        sleep 0.5
-        cfg add --all
-        cfg commit -m "sync config"
-        cfg push
-}
-
-function sync() {
-        gum confirm "Push config to github?" && cfgpush
 }
