@@ -1,8 +1,8 @@
 [user]
 	email = tim.h4vlicek@gmail.com
 	name = Tim Havlicek
-	signingkey = BF007352F3B082D4
-
+	# should be in repo config instead
+	# signingkey = BF007352F3B082D4
 
 [alias]
 st = status
@@ -37,4 +37,4 @@ rm-ignored=git ls-files -i --exclude-from=.gitignore | xargs git rm --cached
 	excludesfile = /Users/tihav/.gitignore_global
 	editor = nvim
 [commit]
-	gpgsign = true
+	# gpgsign = true

@@ -4,28 +4,52 @@
   hosts: localhost
   tasks:
     - name: Install git config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/.gitconfig $HOME/.gitconfig
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.gitconfig"
+        dest: "{{ lookup('env', 'HOME') }}/.gitconfig"
+        state: link
 
     - name: Install rtx config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/rtx $HOME/.config/
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/rtx"
+        dest: "{{ lookup('env', 'HOME') }}/.config/rtx"
+        state: link
 
     - name: Install neovim config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/nvim $HOME/.config/
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
+        dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+        state: link
 
     - name: Install vscode config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/settings.json"
+        dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/settings.json"
+        state: link
 
     - name: Install vscode keybinds
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/keybindings.json"
+        dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/keybindings.json"
+        state: link
 
     - name: Install global Taskfile
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/tasks/Taskfile.yml $HOME/Taskfile.yml
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
+        dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
+        state: link
+
+    - name: Install tmux config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
+        dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
+        state: link
+
+    - name: Install ansible config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.ansible.cfg"
+        dest: "{{ lookup('env', 'HOME') }}/.ansible.cfg"
+        state: link
 
     - name: Install git
       command: brew install git
@@ -38,7 +62,3 @@
 
     - name: Install navigation stuff
       command: brew install fd fzf tmux
-
-    - name: Install tmux config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/.tmux.conf $HOME/.tmux.conf

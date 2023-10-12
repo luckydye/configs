@@ -19,11 +19,12 @@ case $provider in
   *)
     ;;
 esac
- 
 
 cd ~/source/
 name=$(basename -s .git $repo)
 git clone ${repo} -o $name
 cd $name
+
+# TODO: set pgp signkey in repo git config
 
 tmux

@@ -59,7 +59,7 @@ case $pkgmngr in
     pip install ansible
     ansible-playbook $CONFIGS_DIR/playbooks/setup_ubuntu.yml
     ;;
-    
+
   brew)
     brew install ansible
     pip install ansible
@@ -75,3 +75,6 @@ echo "Link skate to access enviroment secrets:"
 run skate_link
 
 echo "Installation complete. Open a new Terminal."
+
+echo "To sync config to the latest commit run: update"
+echo ""

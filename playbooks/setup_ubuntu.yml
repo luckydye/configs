@@ -1,27 +1,54 @@
 ---
-
-- name: Setup Ubuntu Machine
-  connection: ansible.netcommon.network_cli
+- name: Setup Ubuntu Enviroment
+  gather_facts: false
   hosts: localhost
   tasks:
     - name: Update
       command: sudo apt update -y
 
+    - name: Install git config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.gitconfig"
+        dest: "{{ lookup('env', 'HOME') }}/.gitconfig"
+        state: link
+
+    - name: Install rtx config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/rtx"
+        dest: "{{ lookup('env', 'HOME') }}/.config/rtx"
+        state: link
+
+    - name: Install neovim config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
+        dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+        state: link
+
+    - name: Install global Taskfile
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
+        dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
+        state: link
+
+    - name: Install tmux config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
+        dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
+        state: link
+
+    - name: Install ansible config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.ansible.cfg"
+        dest: "{{ lookup('env', 'HOME') }}/.ansible.cfg"
+        state: link
+
     - name: Create source directory
       command: mkdir -p $HOME/source
-      
+
     - name: Install apt packages
       ignore_errors: true
       command: sudo apt install git unzip fd-find fzf ripgrep tmux build-essential -y
 
-    - name: Install git config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/.gitconfig $HOME/.gitconfig
-      
-    - name: Install ansible config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/.ansible.cfg $HOME/.ansible.cfg
-      
     - name: Install neovim
       ignore_errors: true
       command: "{{ item }}"
@@ -30,14 +57,6 @@
         - sudo apt install -y libfuse2
         - curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin//nvim
         - chmod u+x ~/bin//nvim
-      
-    - name: Install neovim config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/nvim ~/.config/
-
-    - name: Install Tools config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/rtx $HOME/.config/
 
     - name: Install rtx-cli
       ignore_errors: true
@@ -45,18 +64,9 @@
       with_items:
         - curl -sL https://rtx.pub/install.sh | RTX_INSTALL_PATH=~/bin/rtx sh
         - echo 'eval "$(rtx activate)"' >> ~/.bashrc
-      
+
     - name: Install Tools
       ignore_errors: true
       command: "{{ item }}"
       with_items:
         - rtx install
-
-    - name: Install global Taskfile
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/tasks/Taskfile.yml $HOME/Taskfile.yml
-      
-    - name: Install tmux config
-      ignore_errors: true
-      command: ln -s $CONFIGS_DIR/.config/.tmux.conf $HOME/.tmux.conf
-

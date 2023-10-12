@@ -2,6 +2,7 @@
 alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
+alias update="gum spin --show-output pull_config"
 
 # navigation
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
@@ -80,4 +81,17 @@ function package_manager {
         which yum > /dev/null && { echo "yum"; return; }
         which apk > /dev/null && { echo "apk"; return; }
         which apt > /dev/null && { echo "apt"; return; }
+}
+
+function pull_config {
+        sleep 1
+        cfg stash
+        cfg pull
+        cfg stash pop
+}
+
+function push_config {
+        cfg add --all
+        cfg commit -m "sync config"
+        cfg push
 }

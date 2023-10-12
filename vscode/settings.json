@@ -75,7 +75,9 @@
     "dropzone",
     "fastify",
     "luckydye",
+    "Matomo",
     "outdir",
+    "overflowscroll",
     "overscan",
     "postmeta",
     "sysinfo",
@@ -90,16 +92,6 @@
   "terminal.integrated.env.windows": {},
   "terminal.integrated.env.linux": {},
   "livePreview.serverRoot": "dist",
-  "vim.easymotion": true,
-  "vim.incsearch": true,
-  "vim.useSystemClipboard": true,
-  "vim.useCtrlKeys": true,
-  "vim.hlsearch": true,
-  "vim.handleKeys": {
-    "<C-a>": false,
-    "<C-f>": false
-  },
-  "vim.smartRelativeLine": true,
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
@@ -129,7 +121,6 @@
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "[swift]": {
     "editor.defaultFormatter": "vknabel.vscode-apple-swift-format"
   },
@@ -141,5 +132,9 @@
   },
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
-  }
+  },
+  "workbench.colorTheme": "Vim Deep Dark",
+  "git.openRepositoryInParentFolders": "never",
+  "gitlens.graph.minimap.enabled": false,
+  "workbench.activityBar.visible": false
 }
