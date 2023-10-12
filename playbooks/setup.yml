@@ -1,0 +1,11 @@
+# jetporch playbook
+- name: setup
+
+  groups:
+    - all
+
+  tasks:
+     - !shell
+       cmd: echo hi
+     - !shell
+       cmd: sleep 2 &&  cargo && exit 1
