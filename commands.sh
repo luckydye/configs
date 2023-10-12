@@ -3,7 +3,7 @@ alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
 alias await="gum spin --show-output --spinner minidot --"
-alias sync="await run config_pull && echo 12"
+alias sync="await bash ${CONFIGS_DIR}/scripts/config_pull.sh && bash ${CONFIGS_DIR}/scripts/config_push.sh"
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -62,10 +62,10 @@ function addToPath() {
 
 function run() {
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
-        find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE $1 $2 $3 && return
-        find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh $1 $2 $3 && return
-        find $SCRIPT_FILE.js 2> /dev/null && node $SCRIPT_FILE.js $1 $2 $3 && return
-        find $SCRIPT_FILE.ts 2> /dev/null && bun $SCRIPT_FILE.ts $1 $2 $3 && return
+        find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE $2 $3 $4 && return
+        find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh $2 $3 $4 && return
+        find $SCRIPT_FILE.js 2> /dev/null && node $SCRIPT_FILE.js $2 $3 $4 && return
+        find $SCRIPT_FILE.ts 2> /dev/null && bun $SCRIPT_FILE.ts $2 $3 $4 && return
 }
 
 function package_manager {

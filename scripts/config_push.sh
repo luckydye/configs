@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sleep 0.5
-cfg add --all
-cfg commit -m "sync config"
-cfg push
+
+git -C $HOME/configs/ add --all
+git -C $HOME/configs/ commit -m "sync config"
+git -C $HOME/configs/ push
