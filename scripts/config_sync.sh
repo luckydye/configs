@@ -4,7 +4,7 @@ git -C $HOME/configs/ stash
 git -C $HOME/configs/ pull
 git -C $HOME/configs/ stash pop
 
-ansible-playbook ${CONFIGS_DIR}/playbooks/setup_mac.yml
+ansible-playbook $CONFIGS_DIR/playbooks/setup_mac.yml
 
 sleep 0.5
 

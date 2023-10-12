@@ -3,7 +3,8 @@ alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
 alias await="gum spin --show-output --spinner minidot"
-alias sync="await --title 'Syncing config with remote' -- bash ${CONFIGS_DIR}/scripts/config_sync.sh"
+# alias sync="await --title 'Syncing config with remote' -- bash ${CONFIGS_DIR}/scripts/config_sync.sh"
+alias sync="bash ${CONFIGS_DIR}/scripts/config_sync.sh"
 
 # some more ls aliases
 alias ll='ls -alF'
