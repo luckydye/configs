@@ -2,7 +2,14 @@
 alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
-alias update="gum spin --show-output pull_config"
+alias await="gum spin --show-output --spinner minidot --"
+alias cfgpull="await config_pull"
+alias cfgpush="await config_push"
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 # navigation
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
@@ -44,20 +51,6 @@ alias n="npm run"
 alias t="task"
 alias use="rtx use"
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# homeassistant aliases
-alias switch_on="run ha services/switch/turn_on"
-alias switch_off="run ha services/switch/turn_off"
-alias switch_toggle="run ha services/switch/toggle"
-
-alias lamp="switch_toggle switch.lamp"
-alias lamp2="switch_toggle switch.lamp_2"
-alias pc_on="switch_on switch.speakers & switch_on switch.pc"
-alias all_off="switch_off switch.lamp & switch_off switch.lamp_2 & switch_off switch.speakers & switch_off switch.pc"
 
 function play() {
         ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
@@ -83,15 +76,20 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
-function pull_config {
-        sleep 1
+function config_pull {
+        sleep 0.5
         cfg stash
         cfg pull
         cfg stash pop
 }
 
-function push_config {
+function config_push {
+        sleep 0.5
         cfg add --all
         cfg commit -m "sync config"
         cfg push
+}
+
+function sync() {
+        gum confirm "Push config to github?" && cfgpush
 }
