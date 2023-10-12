@@ -3,6 +3,8 @@
   gather_facts: false
   hosts: localhost
   tasks:
+
+  asd
     - name: Install git config
       file:
         src: "{{ lookup('env', 'CONFIGS_DIR') }}/.gitconfig"
