@@ -3,7 +3,7 @@ task = "3"
 gum = "latest"
 skate = "latest"
 node = "20"
-jq = "1.7"
+jq = "1.6"
 bun = "1.0.6"
 
 [settings]
