@@ -133,6 +133,9 @@
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
+  "[svg]": {
+    "editor.defaultFormatter": "jock.svg"
+  },
   "workbench.colorTheme": "Vim Deep Dark",
   "git.openRepositoryInParentFolders": "never",
   "gitlens.graph.minimap.enabled": false,
