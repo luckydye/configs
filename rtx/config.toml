@@ -1,10 +1,10 @@
 [tools]
-task = "latest"
+task = "3"
 gum = "latest"
 skate = "latest"
-node = "latest"
-jq = "latest"
-bun = "1.0.4"
+node = "20"
+jq = "1.7"
+bun = "1.0.6"
 
 [settings]
 experimental = true
