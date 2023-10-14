@@ -19,7 +19,6 @@ alias x="exit"
 alias s='cd $HOME/source'
 alias fp='run find_project'
 alias repo='run open_git_repo'
-alias n='nvim'
 alias v='nvim'
 
 # tmux
