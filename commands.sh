@@ -27,7 +27,6 @@ alias ta="run tmux_attach"
 # git
 alias c="git checkout "
 alias gs="git status"
-alias gp="git pull"
 alias adda="git add --all"
 alias pull="git pull"
 alias push="git push"
