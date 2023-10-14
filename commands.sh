@@ -22,6 +22,9 @@ alias repo='run open_git_repo'
 alias n='nvim'
 alias v='nvim'
 
+# tmux
+alias ta="run tmux_attach"
+
 # git
 alias c="git checkout "
 alias gs="git status"
