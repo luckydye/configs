@@ -46,7 +46,8 @@ alias g="graph"
 # docker
 alias compose="docker compose"
 alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source:/source -w /source luckydye/buildapp:latest"
-alias atch="run docker_attach"
+alias datch="run docker_attach"
+alias dshell="run docker_shell"
 
 # node
 alias n="npm run"
