@@ -1,5 +1,6 @@
 #!/bin/bash
 
+git -C $HOME/configs/ add --all
 git -C $HOME/configs/ stash
 git -C $HOME/configs/ pull
 git -C $HOME/configs/ stash pop
