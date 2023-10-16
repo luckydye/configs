@@ -22,6 +22,10 @@ then
       brew)
         brew install git
         ;;
+        
+      apk)
+        apk add git
+        ;;
 
       *)
         echo -n "unknown package manager"
@@ -64,6 +68,11 @@ case $pkgmngr in
     brew install ansible
     pip install ansible
     ansible-playbook $CONFIGS_DIR/playbooks/setup_mac.yml
+    ;;
+
+  apk)
+    apk add ansible
+    ansible-playbook $CONFIGS_DIR/playbooks/setup_alpine.yml
     ;;
 
   *)
