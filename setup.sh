@@ -60,13 +60,11 @@ case $pkgmngr in
 
   apt)
     apt -y install ansible
-    pip install ansible
     ansible-playbook $CONFIGS_DIR/playbooks/setup_ubuntu.yml
     ;;
 
   brew)
     brew install ansible
-    pip install ansible
     ansible-playbook $CONFIGS_DIR/playbooks/setup_mac.yml
     ;;
 
