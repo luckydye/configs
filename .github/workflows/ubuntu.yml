@@ -19,7 +19,7 @@ jobs:
       - name: Run tests
         run: |
           source ~/.bashrc
-          ll ~/bin
+          printenv
           rtx -v
           gum -v 
           skate -v
