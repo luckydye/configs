@@ -23,6 +23,7 @@ jobs:
           eval "$(rtx activate bash)"
           rtx install
           rtx -v
+          rtx list
           gum -v 
           skate -v
           nvim -v
