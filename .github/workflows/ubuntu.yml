@@ -18,6 +18,8 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/luckydye/configs/main/setup.sh | bash
           source ~/.bashrc
+          export PATH=$PATH:~/bin
+          ls ~/bin
           rtx -v
           gum -v 
           skate -v
