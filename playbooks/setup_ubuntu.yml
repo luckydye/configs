@@ -72,5 +72,5 @@
     - name: Install Tools
       command: "{{ item }}"
       with_items:
-        - ~/bin/rtx install
+        - ~/bin/rtx install -y
         
