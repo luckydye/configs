@@ -80,4 +80,4 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
-eval "$(rtx activate)"
+eval "$(rtx activate)" 2> /dev/null
