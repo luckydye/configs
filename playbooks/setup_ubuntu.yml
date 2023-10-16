@@ -24,7 +24,7 @@
       command: "{{ item }}"
       with_items:
         - curl -sL https://rtx.pub/install.sh >> install_rtx.sh
-        - RTX_INSTALL_PATH=~/bin/rtx bash install_rtx.sh
+        - bash install_rtx.sh
         - echo 'eval "$(rtx activate)"' >> ~/.bashrc
         
     - name: Install git config
