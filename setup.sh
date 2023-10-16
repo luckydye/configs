@@ -41,14 +41,15 @@ case $pkgmngr in
   brew)
     echo "# luckydye configs" >> ~/.zshrc
     echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc
+    source $CONFIGS_DIR/.zshrc
     ;;
 
   *)
+    echo "# luckydye configs" >> ~/.bashrc
+    echo "source $CONFIGS_DIR/.bashrc" >> ~/.bashrc
+    source $CONFIGS_DIR/.bashrc
     ;;
 esac
-
-echo "# luckydye configs" >> ~/.bashrc
-echo "source $CONFIGS_DIR/.bashrc" >> ~/.bashrc
 
 if [ "$CONFIGS_ANSIBLE" = "false" ]; then
   echo "Installation complete. Open a new Terminal."
