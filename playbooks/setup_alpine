@@ -1,1 +1,68 @@
-dasd
+---
+- name: Setup Ubuntu Enviroment
+  gather_facts: false
+  hosts: localhost
+  tasks:
+    - name: Install git config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.gitconfig"
+        dest: "{{ lookup('env', 'HOME') }}/.gitconfig"
+        state: link
+
+    - name: Install rtx config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/rtx"
+        dest: "{{ lookup('env', 'HOME') }}/.config/rtx"
+        state: link
+
+    - name: Install neovim config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
+        dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+        state: link
+
+    - name: Install global Taskfile
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
+        dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
+        state: link
+
+    - name: Install tmux config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
+        dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
+        state: link
+
+    - name: Install ansible config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.ansible.cfg"
+        dest: "{{ lookup('env', 'HOME') }}/.ansible.cfg"
+        state: link
+
+    - name: Create source directory
+      command: mkdir -p $HOME/source
+
+    - name: Install apt packages
+      ignore_errors: true
+      command: apk add git unzip fd fzf ripgrep tmux
+
+    - name: Install neovim
+      ignore_errors: true
+      command: "{{ item }}"
+      with_items:
+        - mkdir -p $HOME/bin && cd $HOME/bin
+        - curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin//nvim
+        - chmod u+x ~/bin//nvim
+
+    - name: Install rtx-cli
+      ignore_errors: true
+      command: "{{ item }}"
+      with_items:
+        - apk add rtx
+        - echo 'eval "$(rtx activate)"' >> ~/.bashrc
+
+    - name: Install Tools
+      ignore_errors: true
+      command: "{{ item }}"
+      with_items:
+        - rtx install
