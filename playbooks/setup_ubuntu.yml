@@ -25,7 +25,6 @@
       with_items:
         - curl -sL https://rtx.pub/install.sh -o install_rtx.sh
         - bash install_rtx.sh
-        - echo 'eval "$(rtx activate)"' >> ~/.bashrc
         
     - name: Install git config
       file:
