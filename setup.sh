@@ -81,10 +81,10 @@ case $pkgmngr in
     ;;
 esac
 
-echo "Link skate to access enviroment secrets:"
-run skate_link
-
+echo "###########"
+echo "###########"
+echo "Link skate to access enviroment secrets: run skate_link"
 echo "Installation complete. Open a new Terminal."
-
-echo "To sync config to the latest commit run: update"
+echo ""
+echo "To sync config to the latest commit run: sync"
 echo ""
