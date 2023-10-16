@@ -1,5 +1,5 @@
 ---
-- name: Setup Ubuntu Enviroment
+- name: Setup Alpine Enviroment
   gather_facts: false
   hosts: localhost
   tasks:
