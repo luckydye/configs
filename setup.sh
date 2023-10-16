@@ -10,29 +10,6 @@ function package_manager {
 
 pkgmngr=$(package_manager)
 
-if ! command -v git &> /dev/null
-then
-    case $pkgmngr in
-
-      apt)
-        sudo apt -y update
-        sudo apt -y install git
-        ;;
-
-      brew)
-        brew install git
-        ;;
-        
-      apk)
-        apk add git
-        ;;
-
-      *)
-        echo -n "unknown package manager"
-        ;;
-    esac
-fi
-
 CONFIGS_DIR=~/configs
 git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 
