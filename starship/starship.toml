@@ -1,9 +1,31 @@
 # Inserts a blank line between shell prompts
 add_newline = false
 
-
-format = '$all$directory$character'
+format = """
+$username\
+$hostname\
+$localip\
+$env_var\
+$cmd_duration\
+$jobs\
+$status\
+$os\
+$container\
+$shell\
+$battery\
+$directory\
+$character\
+"""
 
 # Disable the package module, hiding it from the prompt completely
 [package]
-disabled = true
+disabled = false
+
+[battery]
+full_symbol = ''
+charging_symbol = ''
+discharging_symbol = ''
+
+[[battery.display]]
+threshold = 10
+style = 'bold red'

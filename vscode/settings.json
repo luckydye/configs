@@ -72,6 +72,7 @@
     "astrojs",
     "Comlink",
     "composables",
+    "ctlr",
     "dropzone",
     "fastify",
     "luckydye",
@@ -86,7 +87,7 @@
     "Todos"
   ],
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "cSpell.files": ["**/*.md", "**/*.ts", "**/*.tsx"],
+  "cSpell.files": ["**/*.md", "**/*.ts", "**/*.tsx", "**/*.json"],
   "terminal.external.linuxExec": "tabby",
   "window.titleBarStyle": "custom",
   "terminal.integrated.env.windows": {},
@@ -139,5 +140,6 @@
   "workbench.colorTheme": "Vim Deep Dark",
   "git.openRepositoryInParentFolders": "never",
   "gitlens.graph.minimap.enabled": false,
-  "workbench.activityBar.visible": false
+  "workbench.activityBar.visible": false,
+  "cSpell.enabled": true
 }
