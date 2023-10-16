@@ -10,11 +10,9 @@
       command: mkdir -p $HOME/source
 
     - name: Install apt packages
-      ignore_errors: true
       command: sudo apt install git unzip fd-find fzf ripgrep tmux build-essential -y
 
     - name: Install neovim
-      ignore_errors: true
       command: "{{ item }}"
       with_items:
         - mkdir -p $HOME/bin && cd $HOME/bin
@@ -23,7 +21,6 @@
         - chmod u+x ~/bin//nvim
 
     - name: Install rtx-cli
-      ignore_errors: true
       command: "{{ item }}"
       with_items:
         - curl -sL https://rtx.pub/install.sh | RTX_INSTALL_PATH=~/bin/rtx bash
@@ -72,7 +69,6 @@
         state: link
 
     - name: Install Tools
-      ignore_errors: true
       command: "{{ item }}"
       with_items:
         - ~/bin/rtx install
