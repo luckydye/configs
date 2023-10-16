@@ -18,8 +18,8 @@ jobs:
         run: |
           curl https://raw.githubusercontent.com/luckydye/configs/main/setup.sh | bash
           source ~/.bashrc
-          eval "$(rtx activate)"
           export PATH=$PATH:~/bin
+          eval "$(rtx activate)"
           rtx install
           rtx -v
           gum -v 
