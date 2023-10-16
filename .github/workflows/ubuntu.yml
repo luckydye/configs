@@ -21,6 +21,7 @@ jobs:
           echo "$SHELL"
           export PATH=$PATH:~/bin
           eval "$(rtx activate bash)"
+          export PATH=$RTX_DATA_DIR/shims:$PATH
           rtx install
           rtx -v
           rtx list
