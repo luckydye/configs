@@ -6,42 +6,6 @@
     - name: Update
       command: sudo apt update -y
 
-    - name: Install git config
-      file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.gitconfig"
-        dest: "{{ lookup('env', 'HOME') }}/.gitconfig"
-        state: link
-
-    - name: Install rtx config
-      file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/rtx"
-        dest: "{{ lookup('env', 'HOME') }}/.config/rtx"
-        state: link
-
-    - name: Install neovim config
-      file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
-        dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
-        state: link
-
-    - name: Install global Taskfile
-      file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
-        dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
-        state: link
-
-    - name: Install tmux config
-      file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
-        dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
-        state: link
-
-    - name: Install ansible config
-      file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.ansible.cfg"
-        dest: "{{ lookup('env', 'HOME') }}/.ansible.cfg"
-        state: link
-
     - name: Create source directory
       command: mkdir -p $HOME/source
 
@@ -64,9 +28,52 @@
       with_items:
         - curl -sL https://rtx.pub/install.sh | RTX_INSTALL_PATH=~/bin/rtx sh
         - echo 'eval "$(rtx activate)"' >> ~/.bashrc
+        
+    - name: Install git config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.gitconfig"
+        dest: "{{ lookup('env', 'HOME') }}/.gitconfig"
+        force: true
+        state: link
+
+    - name: Install rtx config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/rtx"
+        dest: "{{ lookup('env', 'HOME') }}/.config/rtx"
+        force: true
+        state: link
+
+    - name: Install neovim config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
+        dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+        force: true
+        state: link
+
+    - name: Install global Taskfile
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
+        dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
+        force: true
+        state: link
+
+    - name: Install tmux config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
+        dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
+        force: true
+        state: link
+
+    - name: Install ansible config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.ansible.cfg"
+        dest: "{{ lookup('env', 'HOME') }}/.ansible.cfg"
+        force: true
+        state: link
 
     - name: Install Tools
       ignore_errors: true
       command: "{{ item }}"
       with_items:
         - rtx install
+        
