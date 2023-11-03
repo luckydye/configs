@@ -7,6 +7,7 @@ jq = "1.6"
 bun = "1.0.6"
 pnpm = "latest"
 glow = "latest"
+lazygit = "latest"
 
 [settings]
 experimental = true
