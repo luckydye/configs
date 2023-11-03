@@ -6,6 +6,7 @@ node = "20"
 jq = "1.6"
 bun = "1.0.6"
 pnpm = "latest"
+glow = "latest"
 
 [settings]
 experimental = true

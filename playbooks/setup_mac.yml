@@ -33,6 +33,18 @@
         dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/keybindings.json"
         state: link
 
+    - name: Install zed config
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/settings.json"
+        dest: "{{ lookup('env', 'HOME') }}/.config/zed/settings.json"
+        state: link
+
+    - name: Install zed keybinds
+      file:
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/keymap.json"
+        dest: "{{ lookup('env', 'HOME') }}/.config/zed/keymap.json"
+        state: link
+
     - name: Install global Taskfile
       file:
         src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"

@@ -32,7 +32,7 @@
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": false,
   "workbench.startupEditor": "readme",
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": "single",
   "workbench.settings.editor": "json",
   "git.enableSmartCommit": true,
   "git.autofetch": true,
@@ -75,6 +75,7 @@
     "ctlr",
     "dropzone",
     "fastify",
+    "GEOAPI",
     "luckydye",
     "Matomo",
     "outdir",
@@ -84,7 +85,8 @@
     "sysinfo",
     "tailwindcss",
     "Tauri",
-    "Todos"
+    "Todos",
+    "visio"
   ],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "cSpell.files": ["**/*.md", "**/*.ts", "**/*.tsx", "**/*.json"],
@@ -140,6 +142,13 @@
   "workbench.colorTheme": "Vim Deep Dark",
   "git.openRepositoryInParentFolders": "never",
   "gitlens.graph.minimap.enabled": false,
-  "workbench.activityBar.visible": false,
-  "cSpell.enabled": true
+  "cSpell.enabled": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "biome.requireConfiguration": true,
+  "workbench.activityBar.location": "top",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
