@@ -20,6 +20,7 @@ alias s='cd $HOME/source'
 alias fp='run find_project'
 alias repo='run open_git_repo'
 alias v='nvim'
+alias lg='lazygit'
 
 # tmux
 alias ta="run tmux_attach"
