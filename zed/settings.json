@@ -9,18 +9,51 @@
 {
   "vim_mode": true,
   "base_keymap": "VSCode",
-  "theme": "Andromeda",
+  "theme": "Ayu Mirage",
   "buffer_font_size": 13,
   "buffer_font_family": "CommitMono",
-  "show_whitespaces": true,
+  "show_whitespaces": "selection",
   "formatter": "language_server",
   "format_on_save": "on",
   "language_overrides": {
-    "JavaScript": {
-      "format_on_save": {
+    "TSX": {
+      "formatter": {
         "external": {
-          "command": "prettier",
-          "arguments": ["--stdin-filepath", "{buffer_path}"]
+          "command": "bun",
+          "arguments": [
+            "x",
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "bun",
+          "arguments": [
+            "x",
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "npx",
+          "arguments": [
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
         }
       }
     }
