@@ -53,7 +53,7 @@ alias n="npm run"
 
 # tasks
 alias t="task"
-alias use="rtx use"
+alias u="rtx use"
 
 
 function play() {
