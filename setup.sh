@@ -1,6 +1,19 @@
 #!/usr/bin/env bash
 # linux machine first setup
 
+function explain() {
+    echo ""
+    echo "#######################################################"
+    echo ""
+    echo "Link skate to access enviroment secrets: run skate_link"
+    echo "Installation complete. Open a new Terminal."
+    echo ""
+    echo "To sync config to the latest commit run: sync"
+    echo ""
+    echo "#######################################################"
+    echo ""
+}
+
 function package_manager {
   which brew > /dev/null && { echo "brew"; return; }
   which yum > /dev/null && { echo "yum"; return; }
@@ -28,37 +41,11 @@ case $pkgmngr in
     ;;
 esac
 
-if [ "$CONFIGS_ANSIBLE" = "false" ]; then
-  echo "Installation complete. Open a new Terminal."
-  exit 0
-fi
+# After jetporch is published to package regestries, we dont need to install rust anymore.
+# install rust and cargo
+curl https://sh.rustup.rs -sSf | sh
 
-case $pkgmngr in
+# install jetporch
+cargo install jetp
 
-  apt)
-    apt -y install ansible
-    ansible-playbook $CONFIGS_DIR/playbooks/setup_ubuntu.yml
-    ;;
-
-  brew)
-    brew install ansible
-    ansible-playbook $CONFIGS_DIR/playbooks/setup_mac.yml
-    ;;
-
-  apk)
-    apk add ansible
-    ansible-playbook $CONFIGS_DIR/playbooks/setup_alpine.yml
-    ;;
-
-  *)
-    echo -n "unknown package manager"
-    ;;
-esac
-
-echo "###########"
-echo "###########"
-echo "Link skate to access enviroment secrets: run skate_link"
-echo "Installation complete. Open a new Terminal."
-echo ""
-echo "To sync config to the latest commit run: sync"
-echo ""
+jetp local -p playbooks/setup.yml && explain

@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://my.url.to/the/schema
+- name: Init new project
+
+  groups:
+    - all
+
+  tasks:
+    - !echo
+      msg: "Creating ..."
+    - !shell
+      cmd: task project:init

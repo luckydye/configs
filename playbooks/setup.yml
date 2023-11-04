@@ -1,11 +1,138 @@
-# jetporch playbook
-- name: setup
+# yaml-language-server: $schema=https://my.url.to/the/schema
+- name: Setup enviroment
 
   groups:
     - all
 
+  defaults:
+    #configs_dir: "~/configs"
+    home_dir: "/Users/tihav"
+    configs_dir: "/Users/tihav/source/configs"
+
+  # Missing stuff I would like:
+    # Docker
+    # Raycast
+    # Linear Mouse
+    # Keeweb
+    # Browserosaurus
+
   tasks:
-     - !shell
-       cmd: echo hi
-     - !shell
-       cmd: sleep 2 &&  cargo && exit 1
+    - !facts
+    - !echo
+      msg: "OS Flavor = {{ jet_os_flavor }}"
+
+    # install dependencies
+    - !echo
+      msg: "Installing dependencies"
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "OSX")
+      cmd: brew install fd fzf tmux
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "Debian")
+      cmd: sudo apt update -y
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "Debian")
+      cmd: sudo apt install -y git unzip fd-find fzf ripgrep tmux build-essential
+
+    #
+    # should link configs here
+    # #
+
+    - !template
+      src: "{{ configs_dir }}/git/.gitconfig"
+      dest: "{{ home_dir }}/.gitconfig"
+
+    - !template
+      src: "{{ configs_dir }}/rtx/config.toml"
+      dest: "{{ home_dir }}/.config/rtx/config.toml"
+
+    # I need symlinks!
+
+    # - name: Install neovim config
+    #   file:
+    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
+    #     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+    #     state: link
+
+    # - name: Install vscode config
+    #   file:
+    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/settings.json"
+    #     dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/settings.json"
+    #     state: link
+
+    # - name: Install vscode keybinds
+    #   file:
+    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/keybindings.json"
+    #     dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/keybindings.json"
+    #     state: link
+
+    # - name: Install zed config
+    #   file:
+    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/settings.json"
+    #     dest: "{{ lookup('env', 'HOME') }}/.config/zed/settings.json"
+    #     state: link
+
+    # - name: Install zed keybinds
+    #   file:
+    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/keymap.json"
+    #     dest: "{{ lookup('env', 'HOME') }}/.config/zed/keymap.json"
+    #     state: link
+
+    # - name: Install global Taskfile
+    #   file:
+    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
+    #     dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
+    #     state: link
+
+    # - name: Install tmux config
+    #   file:
+    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
+    #     dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
+    #     state: link
+
+    # #
+    #
+
+    # install/update git
+    - !echo
+      msg: "Installing git"
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "OSX")
+      cmd: brew install git
+    - !apt
+      with:
+        condition: (eq jet_os_flavor "Debian")
+      package: git
+
+    # install/update rtx
+    - !echo
+      msg: "Installing rtx"
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "OSX")
+      cmd: brew install rtx
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "Debian")
+      cmd: curl -sL https://rtx.pub/install.sh -o ~/install_rtx.sh && \
+            bash ~/install_rtx.sh && \
+            rm ~/install_rtx.sh
+
+    # install/update neovim
+    - !echo
+      msg: "Installing neovim"
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "OSX")
+      cmd: brew install neovim
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "Debian")
+      cmd: mkdir -p $HOME/bin && cd $HOME/bin && \
+            sudo apt install -y libfuse2 && \
+            curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin//nvim && \
+            chmod u+x ~/bin//nvim
