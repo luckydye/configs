@@ -44,7 +44,7 @@ alias g="graph"
 
 # docker
 alias compose="docker compose"
-alias dd="docker run --rm -it --entrypoint "/source/devcontainer.sh" -v ~/source:/source -w /source luckydye/buildapp:latest"
+alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v ~/configs:/configs -w /source luckydye/buildapp:latest"
 alias da="run docker_attach"
 alias ds="run docker_shell"
 
