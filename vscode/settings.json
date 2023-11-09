@@ -144,11 +144,11 @@
   "gitlens.graph.minimap.enabled": false,
   "cSpell.enabled": true,
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "biome.requireConfiguration": true,
   "workbench.activityBar.location": "top",
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }
