@@ -11,6 +11,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# scratch
+alias to_llm='fd --glob "**/*.ts" | ts_to_text | to_model'
+
 # navigation
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 alias ff='nvim $(fzf)'
