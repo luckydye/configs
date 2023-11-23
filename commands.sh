@@ -46,8 +46,9 @@ function grecent() {
     local branches branch
     branches=$(git branch --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]')
     branch=$(echo "$branches" | gum filter)
-    branch=$(echo "$branch" | awk '{print $1}' | tr -d "*")
+    branch=$(echo "$branch" | awk '{print $1 $2}' | tr -d "*")
     echo $branch
+    git checkout $branch
 }
 
 function c() {
