@@ -29,7 +29,6 @@ alias lg='lazygit'
 alias ta="run tmux_attach"
 
 # git
-alias c="git checkout "
 alias gs="git status"
 alias adda="git add --all"
 alias pull="git pull"
@@ -40,6 +39,24 @@ alias gd="git diff --cached ':!*lock'"
 function commit() {
         msg="$*";
         git commit -m "$msg"
+}
+
+# https://gist.github.com/srsholmes/5607e26c187922878943c50edfb245ef
+function grecent() {
+    local branches branch
+    branches=$(git branch --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]') \
+    && branch=$(echo "$branches" | fzf --ansi) \
+    && branch=$(echo "$branch" | awk '{print $1}' | tr -d '*') \
+    && git checkout "$branch"
+}
+
+function c() {
+    if [ $# -eq 0 ]
+      then
+        grecent
+    else
+        git checkout $0
+    fi
 }
 
 alias graph="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
