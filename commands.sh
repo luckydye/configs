@@ -43,7 +43,6 @@ function commit() {
 
 # https://gist.github.com/srsholmes/5607e26c187922878943c50edfb245ef
 function grecent() {
-    local branches branch
     branches=$(git branch --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]')
     branch=$(echo "$branches" | gum filter)
     git checkout $(echo "$branch" | tr -d "*" | awk '{print $1}')
