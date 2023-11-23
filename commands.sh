@@ -56,7 +56,7 @@ function c() {
       then
         grecent
     else
-        git checkout $0
+        git checkout $1
     fi
 }
 
