@@ -162,5 +162,6 @@
   "workbench.activityBar.location": "top",
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
-  }
+  },
+  "gitlens.currentLine.enabled": false,
 }
