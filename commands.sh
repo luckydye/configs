@@ -74,7 +74,7 @@ alias t="task"
 alias u="rtx use -g"
 
 function calc() {
-        echo $* | node
+        echo "console.log(eval(`$*`))" | node
 }
 
 function play() {
