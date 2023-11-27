@@ -73,6 +73,9 @@ alias n="npm run"
 alias t="task"
 alias u="rtx use -g"
 
+function calc() {
+        echo $* | node
+}
 
 function play() {
         ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
