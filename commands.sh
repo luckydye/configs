@@ -37,8 +37,13 @@ alias merge="git merge"
 alias gd="git diff --cached ':!*lock'"
 
 function commit() {
+    if [ $# -eq 0 ]
+        then
+            git commit -m "$(gum input --placeholder 'Commit message')"
+    else
         msg="$*";
         git commit -m "$msg"
+    fi
 }
 
 # https://gist.github.com/srsholmes/5607e26c187922878943c50edfb245ef
