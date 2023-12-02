@@ -19,7 +19,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install ripgrep fd fzf tmux
+      cmd: brew install stow ripgrep unzip fd fzf tmux
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
@@ -27,11 +27,9 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: sudo apt install -y git unzip fd-find fzf ripgrep zsh tmux build-essential
+      cmd: sudo apt install -y stow git unzip fd-find fzf ripgrep zsh tmux build-essential
 
-    #
-    # should link configs here
-    # #
+    # link configs
 
     - !template
       src: "{{ configs_dir }}/git/.gitconfig"
@@ -40,6 +38,14 @@
     - !template
       src: "{{ configs_dir }}/rtx/config.toml"
       dest: "{{ home_dir }}/.config/rtx/config.toml"
+
+    - !template
+      src: "{{ configs_dir }}/task/Taskfile.yml"
+      dest: "{{ home_dir }}/Taskfile.yml"
+
+    - !template
+      src: "{{ configs_dir }}/tmux/.tmux.conf"
+      dest: "{{ home_dir }}/.tmux.conf"
 
     # I need symlinks!
 
@@ -71,18 +77,6 @@
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/keymap.json"
     #     dest: "{{ lookup('env', 'HOME') }}/.config/zed/keymap.json"
-    #     state: link
-
-    # - name: Link global Taskfile
-    #   file:
-    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
-    #     dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
-    #     state: link
-
-    # - name: Link tmux config
-    #   file:
-    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
-    #     dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
     #     state: link
 
     # #
@@ -127,4 +121,10 @@
       cmd: mkdir -p $HOME/bin && cd $HOME/bin && \
             sudo apt install -y libfuse2 && \
             curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin//nvim && \
-            chmod u+x ~/bin//nvim
+            chmod u+x ~/bin/nvim
+
+    # install/update starship
+    - !echo
+      msg: "Installing starship"
+    - !shell
+      cmd: curl -sS https://starship.rs/install.sh | sh

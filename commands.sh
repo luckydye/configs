@@ -105,3 +105,4 @@ function package_manager {
 }
 
 eval "$(rtx activate)" 2> /dev/null
+eval "$(starship init zsh)" 2> /dev/null

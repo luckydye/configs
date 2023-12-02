@@ -4,7 +4,7 @@ version: '3'
 
 includes:
   project:
-    taskfile: ~/configs/tasks/project.yml
+    taskfile: ~/configs/task/project.yml
     aliases: ["p"]
 
 # output:
