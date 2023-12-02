@@ -6,11 +6,12 @@ then
 else  
   cd $project
   id=$project
+
+  tmux new-session -d -s $id
+  tmux send 'pull' ENTER
     
   if [ -z "$TMUX" ]
   then
-    tmux new-session -d -s $id
-    tmux send 'pull' ENTER
     tmux attach -t $id
   else  
     tmux switch-client $id
