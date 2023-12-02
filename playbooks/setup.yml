@@ -4,10 +4,6 @@
   groups:
     - all
 
-  defaults:
-    home_dir: "/Users/tihav"
-    configs_dir: "/Users/tihav/source/configs"
-
   tasks:
     - !facts
     - !echo
@@ -30,57 +26,8 @@
       cmd: sudo apt install -y stow git unzip fd-find fzf ripgrep zsh tmux build-essential
 
     # link configs
-
-    - !template
-      src: "{{ configs_dir }}/git/.gitconfig"
-      dest: "{{ home_dir }}/.gitconfig"
-
-    - !template
-      src: "{{ configs_dir }}/rtx/config.toml"
-      dest: "{{ home_dir }}/.config/rtx/config.toml"
-
-    - !template
-      src: "{{ configs_dir }}/task/Taskfile.yml"
-      dest: "{{ home_dir }}/Taskfile.yml"
-
-    - !template
-      src: "{{ configs_dir }}/tmux/.tmux.conf"
-      dest: "{{ home_dir }}/.tmux.conf"
-
-    # I need symlinks!
-
-    # - name: Link neovim config
-    #   file:
-    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
-    #     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
-    #     state: link
-
-    # - name: Link vscode config
-    #   file:
-    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/settings.json"
-    #     dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/settings.json"
-    #     state: link
-
-    # - name: Link vscode keybinds
-    #   file:
-    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/keybindings.json"
-    #     dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/keybindings.json"
-    #     state: link
-
-    # - name: Link zed config
-    #   file:
-    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/settings.json"
-    #     dest: "{{ lookup('env', 'HOME') }}/.config/zed/settings.json"
-    #     state: link
-
-    # - name: Link zed keybinds
-    #   file:
-    #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/keymap.json"
-    #     dest: "{{ lookup('env', 'HOME') }}/.config/zed/keymap.json"
-    #     state: link
-
-    # #
-    #
+    - !shell
+      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim git rtx tmux starship task vscode zed ansible
 
     # install/update git
     - !echo
@@ -127,4 +74,10 @@
     - !echo
       msg: "Installing starship"
     - !shell
+      with:
+        condition: (eq jet_os_flavor "OSX")
+      cmd: brew install starship
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "Debian")
       cmd: curl -sS https://starship.rs/install.sh | sh
