@@ -14,6 +14,6 @@ else
   then
     tmux attach -t $id
   else  
-    tmux switch-client $id
+    tmux switch-client -t $id
   fi
 fi
