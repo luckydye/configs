@@ -23,7 +23,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: sudo apt install -y stow git unzip fd-find fzf ripgrep zsh tmux build-essential
+      cmd: sudo apt install -y stow git unzip fd-find fzf ripgrep zsh tmux build-essential libfuse2
 
     # link configs
     - !shell
@@ -63,10 +63,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: mkdir -p $HOME/bin && cd $HOME/bin && \
-            sudo apt install -y libfuse2 && \
-            curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin//nvim && \
-            chmod u+x ~/bin/nvim
+      cmd: mkdir -p $HOME/bin && cd $HOME/bin && curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin/nvim && chmod u+x ~/bin/nvim
 
     # install/update starship
     - !echo
