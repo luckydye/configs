@@ -36,8 +36,8 @@ case $pkgmngr in
 
   *)
     echo "# luckydye configs" >> ~/.bashrc
-    echo "source $CONFIGS_DIR/.bashrc" >> ~/.bashrc
-    source $CONFIGS_DIR/.bashrc
+    echo "source $CONFIGS_DIR/.zshrc" >> ~/.bashrc
+    source $CONFIGS_DIR/.zshrc
     ;;
 esac
 
