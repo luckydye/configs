@@ -51,7 +51,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: curl https://rtx.pub/install.sh | sh
+      cmd: curl -sL https://rtx.pub/install.sh -o ~/install_rtx.sh && bash ~/install_rtx.sh && rm ~/install_rtx.sh
 
     # install/update neovim
     - !echo
@@ -75,4 +75,4 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: curl -sS https://starship.rs/install.sh > ~/install_starship.sh && bash install_starship.sh --yes
+      cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && bash ~/install_starship.sh && rm ~/install_starship.sh --yes
