@@ -1,8 +1,8 @@
 file=$(fzf)
 
-if [ -z "$project" ]
+if [ -z "$file" ]
 then
-  echo ""
+  echo "Canceled"
 else
   nvim $file
 fi
