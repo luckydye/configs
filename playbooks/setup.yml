@@ -5,16 +5,8 @@
     - all
 
   defaults:
-    #configs_dir: "~/configs"
     home_dir: "/Users/tihav"
     configs_dir: "/Users/tihav/source/configs"
-
-  # Missing stuff I would like:
-    # Docker
-    # Raycast
-    # Linear Mouse
-    # Keeweb
-    # Browserosaurus
 
   tasks:
     - !facts
@@ -27,7 +19,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install fd fzf tmux
+      cmd: brew install ripgrep fd fzf tmux
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
@@ -35,7 +27,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: sudo apt install -y git unzip fd-find fzf ripgrep tmux build-essential
+      cmd: sudo apt install -y git unzip fd-find fzf ripgrep zsh tmux build-essential
 
     #
     # should link configs here
@@ -51,43 +43,43 @@
 
     # I need symlinks!
 
-    # - name: Install neovim config
+    # - name: Link neovim config
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/nvim"
     #     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
     #     state: link
 
-    # - name: Install vscode config
+    # - name: Link vscode config
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/settings.json"
     #     dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/settings.json"
     #     state: link
 
-    # - name: Install vscode keybinds
+    # - name: Link vscode keybinds
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/vscode/keybindings.json"
     #     dest: "{{ lookup('env', 'HOME') }}/Library/Application\ Support/Code/User/keybindings.json"
     #     state: link
 
-    # - name: Install zed config
+    # - name: Link zed config
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/settings.json"
     #     dest: "{{ lookup('env', 'HOME') }}/.config/zed/settings.json"
     #     state: link
 
-    # - name: Install zed keybinds
+    # - name: Link zed keybinds
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/zed/keymap.json"
     #     dest: "{{ lookup('env', 'HOME') }}/.config/zed/keymap.json"
     #     state: link
 
-    # - name: Install global Taskfile
+    # - name: Link global Taskfile
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/tasks/Taskfile.yml"
     #     dest: "{{ lookup('env', 'HOME') }}/Taskfile.yml"
     #     state: link
 
-    # - name: Install tmux config
+    # - name: Link tmux config
     #   file:
     #     src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
     #     dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
