@@ -9,8 +9,6 @@ export CHARM_HOST=charm.luckydye.de
 
 export GPG_TTY=$(tty)
 
-export STARSHIP_CONFIG=$CONFIGS_DIR/starship/starship.toml
-
 export RTX_INSTALL_PATH=~/bin/rtx
 
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
