@@ -53,7 +53,7 @@
 
     - name: Install tmux config
       file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}/tmux/.tmux.conf"
         dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
         state: link
 
@@ -73,4 +73,4 @@
       command: brew install neovim
 
     - name: Install navigation stuff
-      command: brew install fd fzf tmux
+      command: brew install fd fzf tmux ripgrep

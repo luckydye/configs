@@ -58,7 +58,7 @@
 
     - name: Install tmux config
       file:
-        src: "{{ lookup('env', 'CONFIGS_DIR') }}/.tmux.conf"
+        src: "{{ lookup('env', 'CONFIGS_DIR') }}//tmux/.tmux.conf"
         dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
         force: true
         state: link

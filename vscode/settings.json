@@ -32,7 +32,7 @@
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": false,
   "workbench.startupEditor": "readme",
-  "workbench.editor.showTabs": "single",
+  "workbench.editor.showTabs": "none",
   "workbench.settings.editor": "json",
   "git.enableSmartCommit": true,
   "git.autofetch": true,
@@ -68,25 +68,44 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "cSpell.userWords": [
+    "Abmelden",
     "astro",
     "astrojs",
+    "booleangroup",
+    "chnl",
+    "colorpalette",
     "Comlink",
     "composables",
     "ctlr",
+    "ctrler",
+    "Dataviz",
+    "daterange",
+    "Deckgl",
     "dropzone",
     "fastify",
     "GEOAPI",
+    "langsamer",
     "luckydye",
+    "mapbox",
     "Matomo",
     "outdir",
     "overflowscroll",
     "overscan",
+    "pickable",
     "postmeta",
+    "RADPLUSAPI",
+    "Routen",
+    "Scatterplot",
     "sysinfo",
     "tailwindcss",
+    "tanstack",
     "Tauri",
+    "Timespan",
     "Todos",
-    "visio"
+    "Unbekannter",
+    "visio",
+    "visionew",
+    "zeitraum"
   ],
   "typescript.updateImportsOnFileMove.enabled": "never",
   "cSpell.files": ["**/*.md", "**/*.ts", "**/*.tsx", "**/*.json"],
@@ -144,11 +163,13 @@
   "gitlens.graph.minimap.enabled": false,
   "cSpell.enabled": true,
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "biome.requireConfiguration": true,
   "workbench.activityBar.location": "top",
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "gitlens.currentLine.enabled": false,
+  "workbench.statusBar.visible": false,
 }

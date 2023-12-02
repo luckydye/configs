@@ -9,7 +9,7 @@
 {
   "vim_mode": true,
   "base_keymap": "VSCode",
-  "theme": "Ayu Mirage",
+  "theme": "Andromeda",
   "buffer_font_size": 13,
   "buffer_font_family": "CommitMono",
   "show_whitespaces": "selection",
