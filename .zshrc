@@ -10,5 +10,10 @@ bindkey -s '^g' ' graph\n'
 
 bindkey "\033[H" beginning-of-line; bindkey "\033[F" end-of-line
 
+if grep -qi microsoft /proc/version 2> /dev/null; then
+  # is wsl
+  source ${CONFIGS_DIR}/.wsl
+fi
+
 source ${CONFIGS_DIR}/commands.sh
 

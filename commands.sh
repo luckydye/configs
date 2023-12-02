@@ -3,20 +3,16 @@ alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
 alias await="gum spin --show-output --spinner minidot"
-# alias sync="await --title 'Syncing config with remote' -- bash ${CONFIGS_DIR}/scripts/config_sync.sh"
 alias sync="bash ${CONFIGS_DIR}/scripts/config_sync.sh"
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
 
 # scratch
 alias to_llm='fd --glob "**/*.ts" | ts_to_text | to_model'
 
 # navigation
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-alias ff='nvim $(fzf)'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+alias ff='run find_file'
 alias quit="exit"
 alias x="exit"
 alias s='cd $HOME/source'
@@ -24,6 +20,8 @@ alias fp='run find_project'
 alias repo='run open_git_repo'
 alias v='nvim'
 alias lg='lazygit'
+
+alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
 # tmux
 alias ta="run tmux_attach"
@@ -34,7 +32,9 @@ alias adda="git add --all"
 alias pull="git pull"
 alias push="git push"
 alias merge="git merge"
-alias gd="git diff --cached ':!*lock'"
+alias gd="git diff --stat --cached ':!*lock'"
+alias graph="run git_graph"
+alias g="graph"
 
 function commit() {
     if [ $# -eq 0 ]
@@ -61,9 +61,6 @@ function c() {
         git checkout $1
     fi
 }
-
-alias graph="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
-alias g="graph"
 
 # docker
 alias compose="docker compose"
