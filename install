@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# linux machine first setup
+# unix machine first setup
 
 function explain() {
     echo ""
