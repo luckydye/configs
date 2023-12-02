@@ -51,9 +51,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: curl -sL https://rtx.pub/install.sh -o ~/install_rtx.sh && \
-            sh ~/install_rtx.sh && \
-            rm ~/install_rtx.sh
+      cmd: curl https://rtx.pub/install.sh | sh
 
     # install/update neovim
     - !echo
