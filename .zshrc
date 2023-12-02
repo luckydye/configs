@@ -6,6 +6,7 @@ alias reload="source ~/.zshrc && clear"
 bindkey -s '^h' ' gum filter < ~/.zsh_history --height 40\n'
 bindkey -s '^p' ' ff\n'
 bindkey -s '^r' ' fp\n'
+bindkey -s '^g' ' graph\n'
 
 bindkey "\033[H" beginning-of-line; bindkey "\033[F" end-of-line
 
