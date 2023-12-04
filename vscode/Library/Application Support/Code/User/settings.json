@@ -31,7 +31,6 @@
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": false,
-  "workbench.startupEditor": "readme",
   "workbench.editor.showTabs": "none",
   "workbench.settings.editor": "json",
   "git.enableSmartCommit": true,
@@ -160,7 +159,7 @@
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
   },
-  "workbench.colorTheme": "Vim Deep Dark",
+  "workbench.colorTheme": "Vim Dark Medium",
   "git.openRepositoryInParentFolders": "never",
   "gitlens.graph.minimap.enabled": false,
   "cSpell.enabled": true,
@@ -174,4 +173,5 @@
   },
   "gitlens.currentLine.enabled": false,
   "workbench.statusBar.visible": false,
+  "workbench.startupEditor": "none",
 }
