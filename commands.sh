@@ -88,6 +88,7 @@ function addToPath() {
         export PATH=$1:$PATH
 }
 
+# could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "run find_proejct".
 function run() {
         [ -z "$1" ] && ls -1 ${CONFIGS_DIR}/scripts && return
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
