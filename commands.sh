@@ -20,6 +20,7 @@ alias fp='run find_project'
 alias repo='run open_git_repo'
 alias v='nvim'
 alias lg='lazygit'
+alias files='watch -d ls -l'
 
 alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
@@ -86,6 +87,10 @@ function play() {
 function addToPath() {
         echo "export PATH=$1:\$PATH" >> ~/.bashrc
         export PATH=$1:$PATH
+}
+
+function linkBin() {
+        ln -s $1 ~/bin/
 }
 
 # could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "run find_proejct".
