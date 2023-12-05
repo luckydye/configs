@@ -15,15 +15,15 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install stow ripgrep unzip fd fzf tmux
-    - !shell
+      cmd: brew install stow ripgrep unzip fd fzf tmux watch
+    - !shell 
       with:
         condition: (eq jet_os_flavor "Debian")
       cmd: sudo apt update -y
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: sudo apt install -y stow git unzip fd-find fzf ripgrep zsh tmux build-essential libfuse2
+      cmd: sudo apt install -y stow git unzip fd-find fzf watch ripgrep zsh tmux build-essential libfuse2
 
     # link configs
     - !shell
