@@ -93,6 +93,10 @@ function linkBin() {
         ln -s $1 ~/bin/
 }
 
+function toBin() {
+        cp $1 ~/bin/
+}
+
 # could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "run find_proejct".
 function run() {
         [ -z "$1" ] && ls -1 ${CONFIGS_DIR}/scripts && return
