@@ -6,7 +6,7 @@ alias await="gum spin --show-output --spinner minidot"
 alias sync="bash ${CONFIGS_DIR}/scripts/config_sync.sh"
 
 # scratch
-alias to_llm='fd --glob "**/*.ts" | ts_to_text | to_model'
+alias codellm='bun ~/source/llm/converters/src/main.ts'
 
 # navigation
 alias ll='ls -alF'
