@@ -7,6 +7,7 @@ alias sync="bash ${CONFIGS_DIR}/scripts/config_sync.sh"
 
 # scratch
 alias codellm='bun ~/source/llm/converters/src/main.ts'
+alias mdllm='bun ~/source/llm/converters/src/markdown.ts'
 
 # navigation
 alias ll='ls -alF'
