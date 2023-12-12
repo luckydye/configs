@@ -17,6 +17,7 @@ tasks:
 
   clean:
     desc: Reset repository files
+    dir: '{{.USER_WORKING_DIR}}'
     prompt: Do you really want to reset the repository?
     cmds:
       - git clean -xdf .
