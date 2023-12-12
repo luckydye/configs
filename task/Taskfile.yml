@@ -7,10 +7,6 @@ includes:
     taskfile: ~/configs/task/project.yml
     aliases: ["p"]
 
-# output:
-#   group:
-#     error_only: true
-
 tasks:
 
   default:
@@ -18,6 +14,12 @@ tasks:
     silent: true
     cmds:
       - task --list
+
+  clean:
+    desc: Reset repository files
+    prompt: Do you really want to reset the repository?
+    cmds:
+      - git clean -xdf .
 
   up:
     desc: Run docker compose up
@@ -35,21 +37,10 @@ tasks:
     dir: '{{.USER_WORKING_DIR}}'
     cmds:
       - npm run dev
-
-  build:
-    desc: Build project (can be wachted with the '-w' task flag)
-    silent: true
-    dir: '{{.USER_WORKING_DIR}}'
-    sources:
-      - src/**
-    generates:
-      - dist/**
-    cmds:
-      - npx vite build
-
+      
   vite:
     desc: vite dev
     silent: true
     dir: '{{.USER_WORKING_DIR}}'
     cmds:
-      - npx vite -c vite.config.ts
+      - npx vite -c vite.config.ts {{.args}}
