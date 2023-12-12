@@ -102,10 +102,11 @@ function toBin() {
 function run() {
         [ -z "$1" ] && ls -1 ${CONFIGS_DIR}/scripts && return
         SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
-        find $SCRIPT_FILE 1> /dev/null && bash $SCRIPT_FILE $2 $3 $4 && return
-        find $SCRIPT_FILE.sh 1> /dev/null && bash $SCRIPT_FILE.sh $2 $3 $4 && return
-        find $SCRIPT_FILE.js 1> /dev/null && node $SCRIPT_FILE.js $2 $3 $4 && return
-        find $SCRIPT_FILE.ts 1> /dev/null && bun $SCRIPT_FILE.ts $2 $3 $4 && return
+        find $SCRIPT_FILE 2> /dev/null && bash $SCRIPT_FILE $2 $3 $4 && return
+        find $SCRIPT_FILE.sh 2> /dev/null && bash $SCRIPT_FILE.sh $2 $3 $4 && return
+        find $SCRIPT_FILE.js 2> /dev/null && node $SCRIPT_FILE.js $2 $3 $4 && return
+        find $SCRIPT_FILE.ts 2> /dev/null && bun $SCRIPT_FILE.ts $2 $3 $4 && return
+        echo "script not found"
 }
 
 function package_manager {
