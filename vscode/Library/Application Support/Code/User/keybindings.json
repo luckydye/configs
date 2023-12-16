@@ -15,10 +15,6 @@
     "command": "-workbench.action.showAllSymbols"
   },
   {
-    "key": "cmd+[Period]",
-    "command": "git-graph.view"
-  },
-  {
     "key": "ctrl+w",
     "command": "workbench.action.closeActiveEditor"
   },
@@ -71,5 +67,13 @@
   {
     "key": "ctrl+v",
     "command": "editor.action.clipboardPasteAction"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "git-graph.view"
   }
 ]

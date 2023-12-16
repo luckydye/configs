@@ -1,6 +1,6 @@
 [tools]
 task = "3"
-gum = "latest"
+gum = "0.13.0"
 skate = "latest"
 node = "21"
 jq = "1.6"
