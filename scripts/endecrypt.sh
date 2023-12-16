@@ -1,8 +1,8 @@
-export function encrypt() {
+function encrypt() {
   openssl enc -aes-256-cbc -salt -in $1 -out $1.enc
 }
 
-export function decrypt() {
+function decrypt() {
   replace=".enc"
   replacewith=""
   out="${1/${replace}/${replacewith}}"
