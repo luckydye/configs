@@ -9,7 +9,7 @@ git -C $CONFIGS_DIR/ stash pop
 
 echo "Rerun setup..." 
 
-jetp local -p $CONFIGS_DIR/playbooks/setup.yml || exit 1
+jetp local -p $CONFIGS_DIR/setup.yml || exit 1
 
 echo "Encrypt env..." 
 sleep 1
