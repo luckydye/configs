@@ -72,7 +72,7 @@ alias ds="run docker_shell"
 
 # tasks
 alias t="task"
-alias u="rtx use -g"
+alias u="rtx -g use"
 
 function calc() {
         echo "console.log(eval('$*'))" | node
