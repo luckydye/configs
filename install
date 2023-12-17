@@ -49,4 +49,4 @@ source "$HOME/.cargo/env"
 # install jetporch
 cargo install jetp
 
-jetp local -p setup.yml && explain
+jetp local -p $CONFIGS_DIR/setup.yml && explain
