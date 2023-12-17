@@ -21,12 +21,10 @@ function package_manager {
   which apt > /dev/null && { echo "apt"; return; }
 }
 
-pkgmngr=$(package_manager)
-
 export CONFIGS_DIR=~/configs
 git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 
-case $pkgmngr in
+case $(package_manager) in
 
   brew)
     echo "# luckydye configs" >> ~/.zshrc
