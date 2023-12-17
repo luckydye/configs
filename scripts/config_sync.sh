@@ -18,9 +18,11 @@ enc $CONFIGS_DIR/env
 
 sleep 1
 
-echo "Push configs..."
-git -C $CONFIGS_DIR/ add --all
-git -C $CONFIGS_DIR/ commit -m "sync config"
-git -C $CONFIGS_DIR/ push
+if ! git diff-index --quiet HEAD --; then
+  echo "Push configs..."
+  git -C $CONFIGS_DIR/ add --all
+  git -C $CONFIGS_DIR/ commit -m "sync config"
+  git -C $CONFIGS_DIR/ push
+fi
 
 echo "Done"
