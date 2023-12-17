@@ -3,7 +3,7 @@ alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
 alias await="gum spin --show-output --spinner minidot"
-alias sync="bash ${CONFIGS_DIR}/scripts/config_sync.sh"
+alias sync="run config_sync"
 
 # scratch
 alias codellm='bun ~/source/llm/converters/src/main.ts'
