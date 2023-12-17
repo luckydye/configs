@@ -14,30 +14,12 @@ function explain() {
     echo ""
 }
 
-function package_manager {
-  which brew > /dev/null && { echo "brew"; return; }
-  which yum > /dev/null && { echo "yum"; return; }
-  which apk > /dev/null && { echo "apk"; return; }
-  which apt > /dev/null && { echo "apt"; return; }
-}
-
 export CONFIGS_DIR=~/configs
 git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 
-case $(package_manager) in
-
-  brew)
-    echo "# luckydye configs" >> ~/.zshrc
-    echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc
-    source $CONFIGS_DIR/.zshrc
-    ;;
-
-  *)
-    echo "# luckydye configs" >> ~/.bashrc
-    echo "source $CONFIGS_DIR/.zshrc" >> ~/.bashrc
-    source $CONFIGS_DIR/.zshrc
-    ;;
-esac
+echo "# luckydye configs" >> ~/.zshrc
+echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc
+source $CONFIGS_DIR/.zshrc
 
 # After jetporch is published to package regestries, we dont need to install rust anymore.
 # install rust and cargo
