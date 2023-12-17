@@ -47,11 +47,11 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install rtx
+      cmd: brew install rtx && rtx install
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: curl -sL https://rtx.pub/install.sh -o ~/install_rtx.sh && sh ~/install_rtx.sh && rm ~/install_rtx.sh
+      cmd: curl -sL https://rtx.pub/install.sh -o ~/install_rtx.sh && sh ~/install_rtx.sh && rm ~/install_rtx.sh && rtx install
 
     # install/update neovim
     - !echo
