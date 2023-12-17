@@ -1,3 +1,5 @@
+source $CONFIGS_DIR/commands.sh
+
 echo "Stash local changes and pull..."
 
 git -C $CONFIGS_DIR/ add --all
