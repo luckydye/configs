@@ -78,4 +78,4 @@
       cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
 
     - !shell 
-      cmd: bash <(echo $(source $CONFIGS_DIR/commands.sh) && dec $CONFIGS_DIR/env.enc)
+      cmd: zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc"
