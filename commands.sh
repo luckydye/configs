@@ -116,5 +116,16 @@ function package_manager {
         which apt > /dev/null && { echo "apt"; return; }
 }
 
+function encrypt() {
+  openssl enc -aes-256-cbc -salt -in $1 -out $1.enc
+}
+
+function decrypt() {
+  replace=".enc"
+  replacewith=""
+  out="${1/${replace}/${replacewith}}"
+  openssl enc -d -aes-256-cbc -in $1 -out $out
+}
+
 eval "$(rtx activate)" 2> /dev/null
 eval "$(starship init zsh)" 2> /dev/null
