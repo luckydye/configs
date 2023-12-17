@@ -1,3 +1,3 @@
 #!/bin/bash
-curl https://luckydye.dev/setup | bash
+curl https://raw.githubusercontent.com/luckydye/configs/main/install | bash
 bash
