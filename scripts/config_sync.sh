@@ -18,11 +18,13 @@ enc $CONFIGS_DIR/env
 
 sleep 1
 
-if ! git diff-index --quiet HEAD --; then
+function push_changes() {
   echo "Push configs..."
   git -C $CONFIGS_DIR/ add --all
   git -C $CONFIGS_DIR/ commit -m "sync config"
   git -C $CONFIGS_DIR/ push
-fi
+}
+
+git diff --exit-code || push_changes
 
 echo "Done"
