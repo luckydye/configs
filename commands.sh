@@ -25,6 +25,19 @@ alias files='watch -d ls -l'
 
 alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
+function addToPath() {
+        echo "export PATH=$1:\$PATH" >> ~/.bashrc
+        export PATH=$1:$PATH
+}
+
+function linkBin() {
+        ln -s $1 ~/bin/
+}
+
+function toBin() {
+        cp $1 ~/bin/
+}
+
 # tmux
 alias ta="run tmux_attach"
 
@@ -74,54 +87,38 @@ alias ds="run docker_shell"
 alias t="task"
 alias u="rtx -g use"
 
-function calc() {
-        echo "console.log(eval('$*'))" | node
-}
-
-function play() {
-        ansible-playbook ${CONFIGS_DIR}/playbooks/$1.yml
-}
-
-function addToPath() {
-        echo "export PATH=$1:\$PATH" >> ~/.bashrc
-        export PATH=$1:$PATH
-}
-
-function linkBin() {
-        ln -s $1 ~/bin/
-}
-
-function toBin() {
-        cp $1 ~/bin/
-}
 
 # could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "run find_proejct".
 function run() {
-        [ -z "$1" ] && ls -1 ${CONFIGS_DIR}/scripts && return
-        SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
-        find $SCRIPT_FILE > /dev/null 2>&1 && bash $SCRIPT_FILE $2 $3 $4 && return
-        find $SCRIPT_FILE.sh > /dev/null 2>&1 && bash $SCRIPT_FILE.sh $2 $3 $4 && return
-        find $SCRIPT_FILE.js > /dev/null 2>&1 && node $SCRIPT_FILE.js $2 $3 $4 && return
-        find $SCRIPT_FILE.ts > /dev/null 2>&1 && bun $SCRIPT_FILE.ts $2 $3 $4 && return
-        echo "script not found"
+    [ -z "$1" ] && ls -1 ${CONFIGS_DIR}/scripts && return
+    SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
+    find $SCRIPT_FILE > /dev/null 2>&1 && bash $SCRIPT_FILE $2 $3 $4 && return
+    find $SCRIPT_FILE.sh > /dev/null 2>&1 && bash $SCRIPT_FILE.sh $2 $3 $4 && return
+    find $SCRIPT_FILE.js > /dev/null 2>&1 && node $SCRIPT_FILE.js $2 $3 $4 && return
+    find $SCRIPT_FILE.ts > /dev/null 2>&1 && bun $SCRIPT_FILE.ts $2 $3 $4 && return
+    echo "script not found"
 }
 
 function package_manager {
-        which brew > /dev/null && { echo "brew"; return; }
-        which yum > /dev/null && { echo "yum"; return; }
-        which apk > /dev/null && { echo "apk"; return; }
-        which apt > /dev/null && { echo "apt"; return; }
+    which brew > /dev/null && { echo "brew"; return; }
+    which yum > /dev/null && { echo "yum"; return; }
+    which apk > /dev/null && { echo "apk"; return; }
+    which apt > /dev/null && { echo "apt"; return; }
 }
 
 function encrypt() {
-  openssl enc -aes-256-cbc -salt -in $1 -out $1.enc
+    openssl enc -aes-256-cbc -salt -in $1 -out $1.enc
 }
 
 function decrypt() {
-  replace=".enc"
-  replacewith=""
-  out="${1/${replace}/${replacewith}}"
-  openssl enc -d -aes-256-cbc -in $1 -out $out
+    replace=".enc"
+    replacewith=""
+    out="${1/${replace}/${replacewith}}"
+    openssl enc -d -aes-256-cbc -in $1 -out $out
+}
+
+function calc() {
+    echo "console.log(eval('$*'))" | node
 }
 
 eval "$(rtx activate)" 2> /dev/null
