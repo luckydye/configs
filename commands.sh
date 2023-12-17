@@ -107,14 +107,15 @@ function package_manager {
 }
 
 function encrypt() {
-    openssl enc -aes-256-cbc -salt -in $1 -out $1.enc
+    # TODO: encrypt/decrypt folders (tar to archive, encrypt archive. Then decrypt archive and deflate)
+    openssl enc -aes-256-cbc -salt -pbkdf2 -in $1 -out $1.enc
 }
 
 function decrypt() {
     replace=".enc"
     replacewith=""
     out="${1/${replace}/${replacewith}}"
-    openssl enc -d -aes-256-cbc -in $1 -out $out
+    openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out
 }
 
 function calc() {
