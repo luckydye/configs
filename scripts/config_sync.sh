@@ -7,10 +7,6 @@ git -C $CONFIGS_DIR/ stash
 git -C $CONFIGS_DIR/ pull
 git -C $CONFIGS_DIR/ stash pop
 
-echo "Rerun setup..."
-
-jetp local -p $CONFIGS_DIR/setup.yml || exit 1
-
 echo "Encrypt env..."
 sleep 1
 
@@ -26,5 +22,9 @@ function push_changes() {
 }
 
 git diff --exit-code || push_changes
+
+echo "Rerun setup..."
+
+jetp local -p $CONFIGS_DIR/setup.yml || exit 1
 
 echo "Done"
