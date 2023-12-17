@@ -115,7 +115,7 @@ function dec() {
     replace=".enc"
     replacewith=""
     out="${1/${replace}/${replacewith}}"
-    openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out && rm $1
+    openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out
 }
 
 function calc() {
