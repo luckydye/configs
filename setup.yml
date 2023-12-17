@@ -76,3 +76,6 @@
       with:
         condition: (eq jet_os_flavor "Debian")
       cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
+
+    - !shell 
+      cmd: dec $CONFIGS_DIR/env.enc
