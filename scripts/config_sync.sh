@@ -1,14 +1,26 @@
 #!/bin/bash
 
-git -C $HOME/configs/ add --all
-git -C $HOME/configs/ stash
-git -C $HOME/configs/ pull
-git -C $HOME/configs/ stash pop
+echo "Stash local changes and pull..." 
+
+git -C $CONFIGS_DIR/ add --all
+git -C $CONFIGS_DIR/ stash
+git -C $CONFIGS_DIR/ pull
+git -C $CONFIGS_DIR/ stash pop
+
+echo "Rerun setup..." 
 
 jetp local -p $CONFIGS_DIR/playbooks/setup.yml || exit 1
 
-sleep 0.5
+echo "Encrypt env..." 
+sleep 1
 
-git -C $HOME/configs/ add --all
-git -C $HOME/configs/ commit -m "sync config"
-git -C $HOME/configs/ push
+enc $CONFIGS_DIR/env
+
+sleep 1
+
+echo "Push configs..." 
+git -C $CONFIGS_DIR/ add --all
+git -C $CONFIGS_DIR/ commit -m "sync config"
+git -C $CONFIGS_DIR/ push
+
+echo "Done" 
