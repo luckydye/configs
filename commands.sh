@@ -70,9 +70,6 @@ alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/sourc
 alias da="run docker_attach"
 alias ds="run docker_shell"
 
-# node
-alias n="npm run"
-
 # tasks
 alias t="task"
 alias u="rtx use -g"
