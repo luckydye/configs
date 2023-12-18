@@ -15,7 +15,7 @@ Answer in short and concise sentences.
 
 `;
 
-let model = "mistral";
+let model = "llama2";
 
 const args = process.argv.slice(2);
 
@@ -43,6 +43,8 @@ while (true) {
     name: "prompt",
     message: "Enter prompt",
   });
+
+  if(!input) continue;
 
   await fetch("http://127.0.0.1:11434/api/generate", {
     method: "POST",
