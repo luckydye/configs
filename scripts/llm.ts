@@ -10,10 +10,7 @@ const info = (...args: string[]) => {
   console.log(chalk.grey(...args));
 };
 
-const systemPrompt = `
-Answer in short and concise sentences.
-
-`;
+const systemPrompt = ``;
 
 let model = "llama2";
 
