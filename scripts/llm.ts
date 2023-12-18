@@ -10,31 +10,10 @@ const info = (...args: string[]) => {
   console.log(chalk.grey(...args));
 };
 
-async function getIndex() {
-  const entries = await fg(["**/*.(md)"], {
-    dot: true,
-    ignore: ["**/node_modules/**"],
-  });
-
-  console.log(entries);
-
-  info(`> Read ${entries.length} files.`);
-
-  let systemPrompt = `
+const systemPrompt = `
 Answer in short and concise sentences.
 
 `;
-
-  for (const entry of entries) {
-    const code = fs.readFileSync(entry, "utf8");
-    let markdown = `\n${code}\n\n`;
-    systemPrompt += markdown;
-  }
-
-  return systemPrompt;
-}
-
-const systemPrompt = await getIndex();
 
 let model = "mistral";
 
@@ -44,6 +23,9 @@ if(args.includes("--mistral")) {
   model = "mistral";
 }
 if(args.includes("--llama")) {
+  model = "llama2";
+}
+if(args.includes("--code")) {
   model = "codellama";
 }
 
