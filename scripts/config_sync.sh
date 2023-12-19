@@ -20,9 +20,8 @@ jetp local -p $CONFIGS_DIR/setup.yml || exit 1
 
 echo "Merge env..."
 # merge new env with old env.swap
-git -C $CONFIGS_DIR/ merge-file -p $CONFIGS_DIR/env $CONFIGS_DIR/env.swap $CONFIGS_DIR/env > $CONFIGS_DIR/env
-
-echo $CONFIGS_DIR/env
+git -C $CONFIGS_DIR/ merge-file -p $CONFIGS_DIR/env $CONFIGS_DIR/env $CONFIGS_DIR/env.swap > $CONFIGS_DIR/env
+rm $CONFIGS_DIR/env.swap
 
 echo "Encrypt env..."
 enc $CONFIGS_DIR/env
