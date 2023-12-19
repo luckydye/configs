@@ -1,19 +1,18 @@
-source $CONFIGS_DIR/vars.sh
-source $CONFIGS_DIR/commands.sh
+alias cfg='/usr/bin/git -C $CONFIGS_DIR/'
 
 function push_changes() {
   echo "Push configs..."
-  cfg -C $CONFIGS_DIR/ add --all
-  cfg -C $CONFIGS_DIR/ commit -m "sync config"
-  cfg -C $CONFIGS_DIR/ push
+  cfg add --all
+  cfg commit -m "sync config"
+  cfg push
 }
 
 echo "Stash local changes and pull..."
 
-cfg -C $CONFIGS_DIR/ add --all
-cfg -C $CONFIGS_DIR/ stash
-cfg -C $CONFIGS_DIR/ pull
-cfg -C $CONFIGS_DIR/ stash pop
+cfg add --all
+cfg stash
+cfg pull
+cfg stash pop
 
 echo "Encrypt env..."
 
