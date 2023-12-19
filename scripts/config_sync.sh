@@ -2,10 +2,10 @@ source $CONFIGS_DIR/commands.sh
 
 echo "Stash local changes and pull..."
 
-git -C $CONFIGS_DIR/ add --all
-git -C $CONFIGS_DIR/ stash
-git -C $CONFIGS_DIR/ pull
-git -C $CONFIGS_DIR/ stash pop
+cfg -C $CONFIGS_DIR/ add --all
+cfg -C $CONFIGS_DIR/ stash
+cfg -C $CONFIGS_DIR/ pull
+cfg -C $CONFIGS_DIR/ stash pop
 
 echo "Encrypt env..."
 sleep 1
@@ -16,12 +16,12 @@ sleep 1
 
 function push_changes() {
   echo "Push configs..."
-  git -C $CONFIGS_DIR/ add --all
-  git -C $CONFIGS_DIR/ commit -m "sync config"
-  git -C $CONFIGS_DIR/ push
+  cfg -C $CONFIGS_DIR/ add --all
+  cfg -C $CONFIGS_DIR/ commit -m "sync config"
+  cfg -C $CONFIGS_DIR/ push
 }
 
-git diff --exit-code || push_changes
+cfg diff --exit-code || push_changes
 
 echo "Rerun setup..."
 
