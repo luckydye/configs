@@ -27,6 +27,6 @@ echo "Encrypt env..."
 enc $CONFIGS_DIR/env
 
 echo "Push changes..."
-# git -C $CONFIGS_DIR/ diff --exit-code || push_changes
+git -C $CONFIGS_DIR/ diff --exit-code || push_changes
 
 echo "Done"
