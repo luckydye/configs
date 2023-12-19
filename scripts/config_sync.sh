@@ -1,3 +1,5 @@
+source $CONFIGS_DIR/commands.sh
+
 function push_changes() {
   echo "Push configs..."
   git -C $CONFIGS_DIR/ add --all
