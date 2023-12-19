@@ -8,7 +8,7 @@ alias sync="run config_sync"
 # scratch
 alias codellm='bun ~/source/llm/converters/src/main.ts'
 alias mdllm='bun ~/source/llm/converters/src/markdown.ts'
-alias llm='run llm'
+alias llm='ollama run jmorgan/phi'
 
 # navigation
 alias ll='ls -alF'
