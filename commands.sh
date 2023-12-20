@@ -10,6 +10,8 @@ alias codellm='bun ~/source/llm/converters/src/main.ts'
 alias mdllm='bun ~/source/llm/converters/src/markdown.ts'
 alias llm='ollama run llama2'
 
+alias toprores='FILE=$(gum file) ffmpeg -i $FILE -r 24 -pix_fmt yuv422p -c:v prores -c:a copy $FILE.mov'
+
 # navigation
 alias ll='ls -alF'
 alias la='ls -A'
