@@ -1,8 +1,8 @@
 export CONFIGS_DIR=~/configs
 export source=~/source
 
-export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:~/bin"
+export PATH="$PATH:~/.local/bin"
 
 export GPG_TTY=$(tty)
 
