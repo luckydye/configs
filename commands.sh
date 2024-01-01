@@ -13,6 +13,7 @@ alias llm='ollama run llama2'
 alias toprores='FILE=$(gum file) ffmpeg -i $FILE -r 24 -pix_fmt yuv422p -c:v prores -c:a copy $FILE.mov'
 
 # navigation
+alias ".."="cd .."
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
