@@ -9,9 +9,6 @@
   // "editor.codeActionsOnSave": {
   //   "source.organizeImports": true
   // },
-  // "emmet.showAbbreviationSuggestions": false,
-  // "emmet.showSuggestionsAsSnippets": false,
-  // "emmet.showExpandedAbbreviation": "never",
   "editor.find.cursorMoveOnType": false,
   "editor.accessibilitySupport": "off",
   "editor.stickyScroll.enabled": true,
@@ -22,10 +19,15 @@
   "editor.fontLigatures": true,
   "editor.acceptSuggestionOnCommitCharacter": false,
   "editor.wordBasedSuggestions": "off",
+  "editor.autoClosingComments": "never",
+  "editor.autoClosingDelete": "never",
+  "editor.autoClosingQuotes": "never",
+  "editor.autoClosingBrackets": "never",
+  "editor.autoClosingOvertype": "never",
   // "editor.quickSuggestionsDelay": 8,
   // "editor.suggest.insertMode": "replace",
   // "editor.suggest.localityBonus": true,
-  "editor.suggest.preview": false,
+  "editor.suggest.preview": true,
   "editor.colorDecorators": true,
   "editor.tabSize": 2,
   "explorer.confirmDragAndDrop": false,
@@ -55,10 +57,6 @@
   "terminal.integrated.env.osx": {
     "FIG_NEW_SESSION": "1"
   },
-  "projectManager.git.baseFolders": ["/Users/tihav/source"],
-  "projectManager.sortList": "Recent",
-  "projectManager.ignoreProjectsWithinProjects": true,
-  "projectManager.removeCurrentProjectFromList": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.preferences.importModuleSpecifierEnding": "js",
   "prettier.printWidth": 100,
@@ -163,7 +161,6 @@
   },
   "workbench.colorTheme": "Vim Dark Medium",
   "git.openRepositoryInParentFolders": "never",
-  "gitlens.graph.minimap.enabled": false,
   "cSpell.enabled": true,
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -173,7 +170,8 @@
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "gitlens.currentLine.enabled": false,
   "workbench.startupEditor": "none",
+  "gitlens.graph.minimap.enabled": false,
+  "gitlens.currentLine.enabled": false,
   "inference.model": "codellama:13b-code-q4_K_M"
 }
