@@ -175,4 +175,5 @@
   },
   "gitlens.currentLine.enabled": false,
   "workbench.startupEditor": "none",
+  "inference.model": "codellama:13b-code-q4_K_M"
 }
