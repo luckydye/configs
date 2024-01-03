@@ -1,13 +1,12 @@
 # https://taskfile.dev
 
-version: '3'
+version: "3"
 
 tasks:
-
   init:
     desc: Create new project structure in directory
     silent: true
-    dir: '/{{.USER_WORKING_DIR}}'
+    dir: "/{{.USER_WORKING_DIR}}"
     preconditions:
       - sh: '[ "$(ls -A .)" ] && exit 1 || exit 0'
         msg: "Directory is not empty {{.USER_WORKING_DIR}}"
@@ -16,8 +15,8 @@ tasks:
       - echo "# " >> README.md
       - echo "node_modules" >> .gitignore
       - echo "dist" >> .gitignore
-      - echo "!.rtx.toml" >> .gitignore
-      - rtx use task
+      - echo "!.mise.toml" >> .gitignore
+      - mise use task
       - task --init
       - mkdir apps
       - mkdir src

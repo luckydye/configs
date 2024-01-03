@@ -16,7 +16,7 @@
       with:
         condition: (eq jet_os_flavor "OSX")
       cmd: brew install stow ripgrep unzip fd fzf tmux watch
-    - !shell 
+    - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
       cmd: sudo apt update -y
@@ -27,7 +27,7 @@
 
     # link configs
     - !shell
-      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim git rtx tmux starship task vscode zed ansible
+      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim git mise tmux starship task vscode zed ansible
 
     # install/update git
     - !echo
@@ -41,17 +41,17 @@
         condition: (eq jet_os_flavor "Debian")
       package: git
 
-    # install/update rtx
+    # install/update mise
     - !echo
-      msg: "Installing rtx"
+      msg: "Installing mise (rtx)"
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install rtx && rtx install
+      cmd: brew install mise && mise install
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
-      cmd: curl -sL https://rtx.pub/install.sh -o ~/install_rtx.sh && sh ~/install_rtx.sh && rm ~/install_rtx.sh && rtx install
+      cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh && mise install
 
     # install/update neovim
     - !echo
@@ -77,5 +77,5 @@
         condition: (eq jet_os_flavor "Debian")
       cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
 
-    - !shell 
+    - !shell
       cmd: zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc"

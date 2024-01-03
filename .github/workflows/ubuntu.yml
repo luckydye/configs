@@ -2,9 +2,9 @@ name: Ubuntu Setup
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
   workflow_dispatch:
 
@@ -19,5 +19,5 @@ jobs:
           curl https://raw.githubusercontent.com/luckydye/configs/main/install | bash
           source ~/.bashrc
           export PATH=$PATH:~/bin
-          rtx -v
-          rtx list
+          mise -v
+          mise list

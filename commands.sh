@@ -90,7 +90,8 @@ alias ds="run docker_shell"
 
 # tasks
 alias t="task"
-alias u="rtx -g use"
+alias rtx="mise"
+alias u="mise -g use"
 
 
 # could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "run find_proejct".
@@ -127,5 +128,5 @@ function calc() {
     echo "console.log(eval('$*'))" | node
 }
 
-eval "$(rtx activate)" 2> /dev/null
+eval "$(mise activate)" 2> /dev/null
 eval "$(starship init zsh)" 2> /dev/null
