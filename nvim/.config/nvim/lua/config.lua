@@ -15,23 +15,11 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
+    { import = "lazyvim.plugins.extras.coding.copilot" },
+
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.rust" },
-
-    {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      build = ":Copilot auth",
-      opts = {
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-        filetypes = {
-          markdown = true,
-          help = true,
-        },
-      },
-    },
 
     {
       "Mofiqul/vscode.nvim",
@@ -48,12 +36,6 @@ require("lazy").setup({
     {
       "nvim-neo-tree/neo-tree.nvim",
       enabled = false,
-      keys = {
-        { "<leader>ft", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-      },
-      config = function()
-        require("neo-tree").setup()
-      end,
     },
 
     {
