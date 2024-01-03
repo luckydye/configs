@@ -2,7 +2,7 @@
 task = "3"
 gum = "0.13.0"
 skate = "latest"
-node = "21"
+node = "20"
 jq = "1.6"
 bun = "1.0.14"
 pnpm = "latest"
