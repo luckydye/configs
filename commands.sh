@@ -91,7 +91,7 @@ alias ds="run docker_shell"
 # tasks
 alias t="task"
 alias rtx="mise"
-alias u="mise -g use"
+alias u="mise use -g"
 
 
 # could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "run find_proejct".
