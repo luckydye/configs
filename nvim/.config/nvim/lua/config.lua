@@ -11,6 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+vim.o.updatetime = 250
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  group = vim.api.nvim_create_augroup("float_diagnostic", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float(nil, { focus = false })
+  end,
+})
+
 require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
@@ -47,6 +55,11 @@ require("lazy").setup({
           require("telescope").load_extension("fzf")
         end,
       },
+    },
+
+    {
+      "folke/trouble.nvim",
+      opts = { use_diagnostic_signs = true },
     },
 
     {

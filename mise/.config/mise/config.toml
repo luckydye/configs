@@ -8,6 +8,7 @@ bun = "1.0.14"
 pnpm = "latest"
 glow = "latest"
 lazygit = "latest"
+go = "latest"
 
 [settings]
 experimental = true

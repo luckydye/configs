@@ -5,6 +5,7 @@
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
   "editor.formatOnSave": true,
+  "editor.wordWrap": "on",
   "editor.inlayHints.enabled": "off",
   // "editor.codeActionsOnSave": {
   //   "source.organizeImports": true
@@ -82,6 +83,7 @@
     "dropzone",
     "fastify",
     "GEOAPI",
+    "GOARCH",
     "Havlicek",
     "langsamer",
     "luckydye",
@@ -166,12 +168,14 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "biome.requireConfiguration": true,
-  "workbench.activityBar.location": "top",
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
   "workbench.startupEditor": "none",
   "gitlens.graph.minimap.enabled": false,
   "gitlens.currentLine.enabled": false,
-  "inference.model": "codellama:13b-code-q4_K_M"
+  "inference.model": "codellama:13b-code-q4_K_M",
+  "editor.lineNumbers": "relative",
+  "workbench.activityBar.location": "top",
+  "go.gopath": "/Users/tihav/.local/share/mise/installs/go/latest/go/bin/go"
 }
