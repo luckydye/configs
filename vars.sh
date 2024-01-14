@@ -3,6 +3,7 @@ export source=~/source
 
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.local/share/mise/shims"
 
 export GPG_TTY=$(tty)
 
