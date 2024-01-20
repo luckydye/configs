@@ -7,9 +7,6 @@
   "editor.formatOnSave": true,
   "editor.wordWrap": "on",
   "editor.inlayHints.enabled": "off",
-  // "editor.codeActionsOnSave": {
-  //   "source.organizeImports": true
-  // },
   "editor.find.cursorMoveOnType": false,
   "editor.accessibilitySupport": "off",
   "editor.stickyScroll.enabled": true,
@@ -177,5 +174,7 @@
   "inference.model": "codellama:13b-code-q4_K_M",
   "editor.lineNumbers": "relative",
   "workbench.activityBar.location": "top",
-  "go.gopath": "/Users/tihav/.local/share/mise/installs/go/latest/go/bin/go"
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  }
 }

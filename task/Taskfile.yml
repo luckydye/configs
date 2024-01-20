@@ -1,6 +1,6 @@
 # https://taskfile.dev
 
-version: '3'
+version: "3"
 
 includes:
   project:
@@ -8,40 +8,36 @@ includes:
     aliases: ["p"]
 
 tasks:
-
-  default:
-    desc: List all tasks with descriptions
-    silent: true
-    cmds:
-      - task --list
-
   clean:
     desc: Reset repository files
-    dir: '{{.USER_WORKING_DIR}}'
+    dir: "{{.USER_WORKING_DIR}}"
     prompt: Do you really want to reset the repository?
     cmds:
+      - git add --all
+      - git stash
       - git clean -xdf .
+      - git pop
 
   up:
     desc: Run docker compose up
-    dir: '{{.USER_WORKING_DIR}}'
+    dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - docker compose up
 
   down:
     desc: Run docker compose down
-    dir: '{{.USER_WORKING_DIR}}'
+    dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - docker compose down
 
   dev:
-    dir: '{{.USER_WORKING_DIR}}'
+    dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - npm run dev
-      
+
   vite:
     desc: vite dev
     silent: true
-    dir: '{{.USER_WORKING_DIR}}'
+    dir: "{{.USER_WORKING_DIR}}"
     cmds:
       - npx vite -c vite.config.ts {{.args}}

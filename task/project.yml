@@ -23,3 +23,17 @@ tasks:
       - npm init -y
       - git add --all
       - git commit -m "Initial commit"
+
+  biome:
+    desc: Copy biome config to cwd
+    silent: true
+    dir: "/{{.USER_WORKING_DIR}}"
+    cmds:
+      - cp $CONFIG_DIR/format/biome.json ./biome.json
+
+  rust:
+    desc: Copy rustfmt config to cwd
+    silent: true
+    dir: "/{{.USER_WORKING_DIR}}"
+    cmds:
+      - cp $CONFIG_DIR/format/rustfmt.toml ./rustfmt.toml
