@@ -29,11 +29,11 @@ tasks:
     silent: true
     dir: "/{{.USER_WORKING_DIR}}"
     cmds:
-      - cp $CONFIG_DIR/format/biome.json ./biome.json
+      - cp $CONFIGS_DIR/format/biome.json ./biome.json
 
   rust:
     desc: Copy rustfmt config to cwd
     silent: true
     dir: "/{{.USER_WORKING_DIR}}"
     cmds:
-      - cp $CONFIG_DIR/format/rustfmt.toml ./rustfmt.toml
+      - cp $CONFIGS_DIR/format/rustfmt.toml ./rustfmt.toml
