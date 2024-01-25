@@ -47,7 +47,7 @@
 			"ctrl-shift-c": "project_panel::CopyPath",
 			"ctrl-v": "project_panel::Paste",
 			"ctrl-n": "project_panel::NewFile",
-			"ctrl-shift-up": "project_panel::NewDirectory",
+			"ctrl-shift-n": "project_panel::NewDirectory",
 			"ctrl-d": "project_panel::Delete",
 			"r": "project_panel::Rename"
 		}
