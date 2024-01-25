@@ -114,11 +114,15 @@ function package_manager {
 }
 
 function enc() {
+    if [ ! -t 1 ] ; then return; fi
+
     # TODO: encrypt/decrypt folders (tar to archive, encrypt archive. Then decrypt archive and deflate)
     openssl enc -aes-256-cbc -salt -pbkdf2 -in $1 -out $1.enc
 }
 
 function dec() {
+    if [ ! -t 1 ] ; then return; fi
+    
     replace=".enc"
     replacewith=""
     out="${1/${replace}/${replacewith}}"
