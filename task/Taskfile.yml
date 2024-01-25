@@ -16,7 +16,7 @@ tasks:
       - git add --all
       - git stash
       - git clean -xdf .
-      - git pop
+      - git stash pop
 
   up:
     desc: Run docker compose up

@@ -176,5 +176,7 @@
   "workbench.activityBar.location": "top",
   "[go]": {
     "editor.defaultFormatter": "golang.go"
-  }
+  },
+  "sqlite3-editor.ui.tableSelector.displayColumns": true,
+  "diffEditor.renderSideBySide": false
 }

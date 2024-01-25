@@ -30,6 +30,20 @@
         }
       }
     },
+    "JSON": {
+      "formatter": {
+        "external": {
+          "command": "bun",
+          "arguments": [
+            "x",
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
     "TypeScript": {
       "formatter": {
         "external": {

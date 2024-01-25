@@ -1,8 +1,19 @@
 [
-  {
-    "context": "Editor",
-    "bindings": {
-      "ctrl-s": "workspace::Save"
-    }
-  }
+	{
+		"bindings": {
+			"ctrl-s": "workspace::Save",
+			"ctrl-z": "editor::Undo",
+			"ctrl-shift-z": "editor::Redo",
+			"ctrl-y": "editor::Redo",
+			"ctrl-w": "pane::CloseActiveItem",
+			"ctrl-shift-f": "workspace::NewSearch",
+			"ctrl-p": "file_finder::Toggle",
+			"ctrl-b": "workspace::ToggleLeftDock",
+			"ctrl-1": "project_panel::ToggleFocus"
+		}
+	},
+	{
+		"context": "Editor",
+		"bindings": {}
+	}
 ]
