@@ -13,6 +13,7 @@
 			"ctrl-shift-f": "workspace::NewSearch",
 			"ctrl-p": "file_finder::Toggle",
 			"ctrl-shift-p": "command_palette::Toggle",
+			"ctrl-shift-r": "projects::OpenRecent",
 			"ctrl-f": "vim::Search",
 			"ctrl-`": "project_panel::ToggleFocus",
 			"enter": "editor::ConfirmCompletion",
