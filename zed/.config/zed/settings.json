@@ -8,12 +8,12 @@
 // from the command palette or from `Zed` application menu.
 {
   "vim_mode": true,
-  "base_keymap": "VSCode",
   "theme": "Andromeda",
   "buffer_font_size": 13,
   "buffer_font_family": "CommitMono",
   "show_whitespaces": "selection",
   "formatter": "language_server",
+  "use_autoclose": false,
   "format_on_save": "on",
   "language_overrides": {
     "TSX": {
