@@ -14,7 +14,7 @@
 			"ctrl-p": "file_finder::Toggle",
 			"ctrl-shift-p": "command_palette::Toggle",
 			"ctrl-f": "vim::Search",
-			"ctrl-0": "project_panel::ToggleFocus",
+			"ctrl-`": "project_panel::ToggleFocus",
 			"enter": "editor::ConfirmCompletion",
 			"ctrl-g": "search::SelectNextMatch",
 			"ctrl-d": "search::SelectPrevMatch",
