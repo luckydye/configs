@@ -19,6 +19,9 @@
 			"enter": "editor::ConfirmCompletion",
 			"ctrl-g": "search::SelectNextMatch",
 			"ctrl-d": "search::SelectPrevMatch",
+			"ctrl-shift-t": "pane::ReopenClosedItem",
+			"ctrl-tab": "pane::GoForward",
+			"ctrl-shift-tab": "pane::GoBack",
 			"ctrl-b": "workspace::ToggleLeftDock",
 			"ctrl-r": "workspace::ToggleRightDock",
 			"ctrl-j": "workspace::ToggleBottomDock",
@@ -40,6 +43,13 @@
 		}
 	},
 	{
+		"context": "Workspace",
+		"bindings": {
+			"ctrl-shift-tab": "workspace::ActivatePreviousPane",
+			"ctrl-tab": "workspace::ActivateNextPane"
+		}
+	},
+	{
 		"context": "ProjectPanel",
 		"bindings": {
 			"ctrl-x": "project_panel::Cut",
@@ -49,7 +59,7 @@
 			"ctrl-n": "project_panel::NewFile",
 			"ctrl-shift-n": "project_panel::NewDirectory",
 			"ctrl-d": "project_panel::Delete",
-			"r": "project_panel::Rename"
+			"ctrl-r": "project_panel::Rename"
 		}
 	}
 ]
