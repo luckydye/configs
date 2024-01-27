@@ -27,7 +27,7 @@
 
     # link configs
     - !shell
-      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim git mise tmux starship task vscode zed ansible
+      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim git mise tmux starship task vscode zed ansible hyper
 
     # install/update git
     - !echo
