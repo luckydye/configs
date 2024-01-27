@@ -10,6 +10,7 @@
 			"ctrl-z": "editor::Undo",
 			"ctrl-shift-z": "editor::Redo",
 			"ctrl-y": "editor::Redo",
+			"ctrl-/": "editor::ToggleComments",
 			"ctrl-shift-f": "workspace::NewSearch",
 			"ctrl-p": "file_finder::Toggle",
 			"ctrl-shift-p": "command_palette::Toggle",
