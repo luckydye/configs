@@ -9,13 +9,17 @@
     - !echo
       msg: "OS Flavor = {{ jet_os_flavor }}"
 
-    # install dependencies
+    # install dependencies and applications
     - !echo
       msg: "Installing dependencies"
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
       cmd: brew install stow ripgrep unzip fd fzf tmux watch
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "OSX")
+      cmd: brew install --cask keeweb fastscripts alt-tab raycast iterm2
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
