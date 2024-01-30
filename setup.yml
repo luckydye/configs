@@ -19,7 +19,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install --cask keeweb fastscripts alt-tab raycast iterm2
+      cmd: brew install --cask keeweb fastscripts alt-tab raycast
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
