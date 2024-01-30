@@ -10,7 +10,7 @@
   "assistant": {
     "dock": "bottom"
   },
-  "show_completions_on_input": false,
+  "show_completions_on_input": true,
   "vim_mode": true,
   "theme": "One Dark",
   "ui_font_family": "Helvetica",
@@ -19,7 +19,7 @@
     "calt": true,
     "liga": true
   },
-  "buffer_font_size": 16,
+  "buffer_font_size": 13,
   "buffer_font_family": "CommitMono",
   "buffer_font_features": {
     "calt": true,
