@@ -6,7 +6,7 @@
 # @raycast.mode silent
 
 # Optional parameters:
-# @raycast.icon 🤖
+# @raycast.icon x
 # @raycast.packageName scripts
 
 echo "Hello World!"
