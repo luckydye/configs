@@ -178,5 +178,8 @@
     "editor.defaultFormatter": "golang.go"
   },
   "sqlite3-editor.ui.tableSelector.displayColumns": true,
-  "diffEditor.renderSideBySide": false
+  "diffEditor.renderSideBySide": false,
+  "[caddyfile]": {
+    "editor.defaultFormatter": "matthewpi.caddyfile-support"
+  }
 }
