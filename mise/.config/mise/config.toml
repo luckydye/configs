@@ -19,13 +19,15 @@ description = "Reset repository files"
 dir = "{{cwd}}"
 run = ["git add --all", "git stash", "git clean -xdf .", "git stash pop"]
 
-[tasks.up]
+[tasks."g:up"]
 description = "Run docker compose up"
+alias = "u"
 dir = "{{cwd}}"
 run = "docker compose up"
 
-[tasks.down]
+[tasks."g:down"]
 description = "Run docker compose down"
+alias = "d"
 dir = "{{cwd}}"
 run = "docker compose down"
 
