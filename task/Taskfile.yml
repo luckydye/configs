@@ -2,42 +2,38 @@
 
 version: "3"
 
-includes:
-  project:
-    taskfile: ~/configs/task/project.yml
-    aliases: ["p"]
-
 tasks:
-  clean:
-    desc: Reset repository files
-    dir: "{{.USER_WORKING_DIR}}"
-    prompt: Do you really want to reset the repository?
-    cmds:
-      - git add --all
-      - git stash
-      - git clean -xdf .
-      - git stash pop
-
-  up:
-    desc: Run docker compose up
-    dir: "{{.USER_WORKING_DIR}}"
-    cmds:
-      - docker compose up
-
-  down:
-    desc: Run docker compose down
-    dir: "{{.USER_WORKING_DIR}}"
-    cmds:
-      - docker compose down
-
-  dev:
-    dir: "{{.USER_WORKING_DIR}}"
-    cmds:
-      - npm run dev
-
-  vite:
-    desc: vite dev
+  init:
+    desc: Create new project structure in directory
     silent: true
-    dir: "{{.USER_WORKING_DIR}}"
+    dir: "/{{.USER_WORKING_DIR}}"
+    preconditions:
+      - sh: '[ "$(ls -A .)" ] && exit 1 || exit 0'
+        msg: "Directory is not empty {{.USER_WORKING_DIR}}"
     cmds:
-      - npx vite -c vite.config.ts {{.args}}
+      - git init
+      - echo "# " >> README.md
+      - echo "node_modules" >> .gitignore
+      - echo "dist" >> .gitignore
+      - echo "!.mise.toml" >> .gitignore
+      - mise use task
+      - task --init
+      - mkdir apps
+      - mkdir src
+      - npm init -y
+      - git add --all
+      - git commit -m "Initial commit"
+
+  biome:
+    desc: Copy biome config to cwd
+    silent: true
+    dir: "/{{.USER_WORKING_DIR}}"
+    cmds:
+      - cp $CONFIGS_DIR/format/biome.json ./biome.json
+
+  rust:
+    desc: Copy rustfmt config to cwd
+    silent: true
+    dir: "/{{.USER_WORKING_DIR}}"
+    cmds:
+      - cp $CONFIGS_DIR/format/rustfmt.toml ./rustfmt.toml
