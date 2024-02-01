@@ -9,6 +9,7 @@ export GPG_TTY=$(tty)
 
 export MISE_INSTALL_PATH=~/bin/mise
 export MISE_EXPERIMENTAL=true
+export MISE_TRUSTED_CONFIG_PATHS=~/.config/mise/config.toml
 
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
