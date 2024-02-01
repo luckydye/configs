@@ -23,6 +23,8 @@ require("lazy").setup({
   spec = {
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
+    { "echasnovski/mini.pairs", enabled = false },
+
     { import = "lazyvim.plugins.extras.coding.copilot" },
 
     { import = "lazyvim.plugins.extras.lang.typescript" },
