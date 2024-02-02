@@ -9,6 +9,7 @@ pnpm = "latest"
 glow = "latest"
 lazygit = "latest"
 go = "latest"
+starship = "latest"
 
 [settings]
 experimental = true
