@@ -13,25 +13,7 @@ go = "latest"
 [settings]
 experimental = true
 
-
 [tasks.clean]
 description = "Reset repository files"
 dir = "{{cwd}}"
 run = ["git add --all", "git stash", "git clean -xdf .", "git stash pop"]
-
-[tasks."g:up"]
-description = "Run docker compose up"
-alias = "u"
-dir = "{{cwd}}"
-run = "docker compose up"
-
-[tasks."g:down"]
-description = "Run docker compose down"
-alias = "d"
-dir = "{{cwd}}"
-run = "docker compose down"
-
-[tasks.vite]
-description = "Execute vite"
-dir = "{{cwd}}"
-run = "bun --bun x vite -c vite.config.ts"
