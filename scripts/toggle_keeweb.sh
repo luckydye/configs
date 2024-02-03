@@ -1,0 +1,14 @@
+#!/bin/bash
+
+active_window=$(xdotool getactivewindow)
+active_window_class=$(xprop -id "$active_window" | grep WM_CLASS | awk '{print $4}')
+terminal_window=$(xdotool search --class keeweb)
+
+# last line of terminal_window
+line=$(echo "$terminal_window" | awk 'END {print}')
+
+if [ "$active_window_class" = "\"Keeweb\"" ]; then
+	xdotool windowminimize "$active_window"
+else
+	xdotool windowactivate "$line"
+fi
