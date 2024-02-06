@@ -19,6 +19,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ff='run find_file'
 alias quit="exit"
+alias q="quit"
 alias x="exit"
 alias s='cd $HOME/source'
 alias fp='run find_project'
