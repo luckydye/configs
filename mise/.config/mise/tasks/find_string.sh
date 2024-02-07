@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ -z "$TMUX" ]
 then
   rg $(gum input --prompt="Search pattern: ")

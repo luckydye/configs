@@ -1,3 +1,5 @@
+#!/bin/bash
+
 file=$(fzf)
 
 if [ -z "$file" ]
