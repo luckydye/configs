@@ -145,5 +145,5 @@ function calc() {
 	echo "console.log(eval('$*'))" | node
 }
 
-eval "$(mise activate)" 2>/dev/null
+eval "$(~/bin/mise activate)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
