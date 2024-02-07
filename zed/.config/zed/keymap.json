@@ -40,7 +40,8 @@
 			"ctrl-alt-s": "workspace::SaveAll",
 			"shift-alt-down": "editor::DuplicateLine",
 			"alt-down": "editor::MoveLineDown",
-			"alt-up": "editor::MoveLineUp"
+			"alt-up": "editor::MoveLineUp",
+			"ctrl-h": "editor::Hover"
 		}
 	},
 	{

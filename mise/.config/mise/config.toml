@@ -2,15 +2,12 @@
 task = "3"
 gum = "0.13.0"
 skate = "latest"
-node = "latest"
 jq = "1.6"
-bun = "1.0.24"
-pnpm = "latest"
 glow = "latest"
 lazygit = "latest"
-go = "latest"
 starship = "latest"
 fd = "latest"
+watchexec = "latest"
 
 [settings]
 experimental = true
