@@ -13,6 +13,4 @@ export MISE_TRUSTED_CONFIG_PATHS=~/.config/mise/config.toml
 
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
 
-export SHELL=/usr/bin/zsh
-
 source $CONFIGS_DIR/env 2> /dev/null
