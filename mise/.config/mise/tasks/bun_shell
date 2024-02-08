@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-# mise.hide=true
+# mise hide=true
 
 import { $ } from "bun";
 import chalk from 'chalk';

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# mise description="Copy rustfmt config to cwd"
+# mise hide="true"
+# mise dir="{{cwd}}"
+
+cp $CONFIGS_DIR/format/rustfmt.toml ./rustfmt.toml

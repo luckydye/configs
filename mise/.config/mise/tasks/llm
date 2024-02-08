@@ -1,5 +1,5 @@
 #!/usr/bin/env bun
-# mise.hide=true
+# mise hide=true
 
 import fs from "fs";
 import fg from "fast-glob";

@@ -1,5 +1,5 @@
 #!/bin/bash
-# mise.hide=true
+# mise hide=true
 # mise.alias=init
 # mise.description=Create new project structure in directory
 # mise.dir={{cwd}}

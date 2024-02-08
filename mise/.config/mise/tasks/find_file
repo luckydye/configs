@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# mise.hide=true
+# mise hide=true
 
 file=$(fzf)
 
