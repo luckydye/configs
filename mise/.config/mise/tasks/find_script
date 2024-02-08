@@ -1,0 +1,10 @@
+#!/bin/bash
+
+name=$(mise tasks --no-header | awk '{ print $1 }' | gum filter)
+
+if [ -z "$name" ]
+then
+  echo "Noop"
+else
+  mise run $name
+fi

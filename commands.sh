@@ -5,13 +5,6 @@ alias rel="reload"
 alias await="gum spin --show-output --spinner minidot"
 alias sync="mise run config_sync"
 
-# scratch
-alias codellm='bun ~/source/llm/converters/src/main.ts'
-alias mdllm='bun ~/source/llm/converters/src/markdown.ts'
-alias llm='ollama run llama2'
-
-alias toprores='FILE=$(gum file) ffmpeg -i $FILE -r 24 -pix_fmt yuv422p -c:v prores -c:a copy $FILE.mov'
-
 # navigation
 alias ".."="cd .."
 alias ll='ls -alF'
@@ -30,19 +23,6 @@ alias files='watch -d ls -l'
 
 alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
-function addToPath() {
-	echo "export PATH=$1:\$PATH" >>~/.bashrc
-	export PATH=$1:$PATH
-}
-
-function linkBin() {
-	ln -s $1 ~/bin/
-}
-
-function toBin() {
-	cp $1 ~/bin/
-}
-
 # tmux
 alias ta="mise run tmux_attach"
 
@@ -58,30 +38,6 @@ alias g="graph"
 alias gg="watch --color -d \"git pull && git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all --max-count=40\""
 alias clone="cd ~/source && git clone"
 
-function commit() {
-	if [ $# -eq 0 ]; then
-		git commit -m "$(gum input --placeholder 'Commit message')"
-	else
-		msg="$*"
-		git commit -m "$msg"
-	fi
-}
-
-# https://gist.github.com/srsholmes/5607e26c187922878943c50edfb245ef
-function grecent() {
-	branches=$(git branch --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]')
-	branch=$(echo "$branches" | gum filter)
-	git checkout $(echo "$branch" | tr -d "*" | awk '{print $1}')
-}
-
-function c() {
-	if [ $# -eq 0 ]; then
-		grecent
-	else
-		git checkout $1
-	fi
-}
-
 # docker
 alias compose="docker compose"
 alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v ~/configs:/configs -w /source luckydye/buildapp:latest"
@@ -95,15 +51,43 @@ alias rtx="mise"
 alias r="mise run"
 alias u="mise use -g"
 
-# could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "mise run find_proejct".
+
+function addToPath() {
+	export PATH=$1:$PATH
+}
+
+function linkBin() {
+	ln -s $1 ~/bin/
+}
+
+function toBin() {
+	cp $1 ~/bin/
+}
+
+function commit() {
+	if [ $# -eq 0 ]; then
+		git commit -m "$(gum input --placeholder 'Commit message')"
+	else
+		msg="$*"
+		git commit -m "$msg"
+	fi
+}
+
 function run() {
-	[ -z "$1" ] && ls -1 ${CONFIGS_DIR}/scripts && return
-	SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
-	find $SCRIPT_FILE >/dev/null 2>&1 && bash $SCRIPT_FILE $2 $3 $4 && return
-	find $SCRIPT_FILE.sh >/dev/null 2>&1 && bash $SCRIPT_FILE.sh $2 $3 $4 && return
-	find $SCRIPT_FILE.js >/dev/null 2>&1 && node $SCRIPT_FILE.js $2 $3 $4 && return
-	find $SCRIPT_FILE.ts >/dev/null 2>&1 && bun $SCRIPT_FILE.ts $2 $3 $4 && return
-	echo "script not found"
+	if [ $# -eq 0 ]; then
+		mise run find_script
+	else
+		script="$*"
+		mise run $script
+	fi
+}
+
+function c() {
+	if [ $# -eq 0 ]; then
+		mise run git_checkout
+	else
+		git checkout $1
+	fi
 }
 
 function package_manager {
