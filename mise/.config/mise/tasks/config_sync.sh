@@ -1,3 +1,5 @@
+#!/bin/bash
+
 source $CONFIGS_DIR/commands.sh
 
 function push_changes() {

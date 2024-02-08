@@ -3,7 +3,7 @@ alias config='/usr/bin/git -C $HOME/configs/'
 alias cfg='config'
 alias rel="reload"
 alias await="gum spin --show-output --spinner minidot"
-alias sync="run config_sync"
+alias sync="mise run config_sync"
 
 # scratch
 alias codellm='bun ~/source/llm/converters/src/main.ts'
@@ -17,13 +17,13 @@ alias ".."="cd .."
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias ff='run find_file'
+alias ff='mise run find_file'
 alias quit="exit"
 alias q="quit"
 alias x="exit"
 alias s='cd $HOME/source'
-alias fp='run find_project'
-alias repo='run open_git_repo'
+alias fp='mise run find_project'
+alias repo='mise run open_git_repo'
 alias v='nvim'
 alias lg='lazygit'
 alias files='watch -d ls -l'
@@ -44,7 +44,7 @@ function toBin() {
 }
 
 # tmux
-alias ta="run tmux_attach"
+alias ta="mise run tmux_attach"
 
 # git
 alias gs="git status"
@@ -85,9 +85,9 @@ function c() {
 # docker
 alias compose="docker compose"
 alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v ~/configs:/configs -w /source luckydye/buildapp:latest"
-alias da="run docker_attach"
-alias ds="run docker_shell"
-alias dk="run docker_kill"
+alias da="mise run docker_attach"
+alias ds="mise run docker_shell"
+alias dk="mise run docker_kill"
 
 # tasks
 alias t="task"
@@ -95,7 +95,7 @@ alias rtx="mise"
 alias r="mise run"
 alias u="mise use -g"
 
-# could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "run find_proejct".
+# could use taskfie to defines these scripts in a declarative way. "task find_project" instead of "mise run find_proejct".
 function run() {
 	[ -z "$1" ] && ls -1 ${CONFIGS_DIR}/scripts && return
 	SCRIPT_FILE=${CONFIGS_DIR}/scripts/$1
