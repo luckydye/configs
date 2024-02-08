@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # mise description="Copy biome config to cwd"
-# mise hide="true"
+# mise hide=true
 # mise dir="{{cwd}}"
 
 cp $CONFIGS_DIR/format/biome.json ./biome.json
