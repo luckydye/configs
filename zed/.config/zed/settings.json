@@ -30,20 +30,6 @@
   "use_autoclose": false,
   "format_on_save": "on",
   "language_overrides": {
-    "TSX": {
-      "formatter": {
-        "external": {
-          "command": "bun",
-          "arguments": [
-            "x",
-            "@biomejs/biome",
-            "format",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
     "JSON": {
       "formatter": {
         "external": {
@@ -59,6 +45,20 @@
       }
     },
     "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "bun",
+          "arguments": [
+            "x",
+            "@biomejs/biome",
+            "format",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "tsx": {
       "formatter": {
         "external": {
           "command": "bun",

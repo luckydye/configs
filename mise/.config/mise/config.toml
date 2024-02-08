@@ -8,6 +8,8 @@ lazygit = "latest"
 starship = "latest"
 fd = "latest"
 watchexec = "latest"
+node = "latest"
+bun = "latest"
 
 [settings]
 experimental = true
