@@ -1,4 +1,5 @@
 #!/bin/bash
+# mise.hide=true
 
 source $CONFIGS_DIR/commands.sh
 

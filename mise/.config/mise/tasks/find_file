@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# mise.hide=true
+
 file=$(fzf)
 
 if [ -z "$file" ]

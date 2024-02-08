@@ -1,4 +1,5 @@
 #!/bin/bash
+# mise.hide=true
 
 project=$(find ~/source -maxdepth 2 -name .git -type d | sed 's/\/.git//g' | gum filter)
 

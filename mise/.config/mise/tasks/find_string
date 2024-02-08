@@ -1,4 +1,5 @@
 #!/bin/bash
+# mise.hide=true
 
 if [ -z "$TMUX" ]
 then

@@ -1,4 +1,5 @@
 #!/bin/bash
+# mise.hide=true
 
 ssh-keygen -t rsa -b 4096 -f id_rsa -N ""
 

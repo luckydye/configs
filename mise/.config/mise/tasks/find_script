@@ -1,6 +1,7 @@
 #!/bin/bash
+# mise.hide=true
 
-name=$(mise tasks --no-header | awk '{ print $1 }' | gum filter)
+name=$(mise tasks --hidden --no-header | awk '{ print $1 }' | gum filter)
 
 if [ -z "$name" ]
 then

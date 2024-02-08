@@ -1,4 +1,5 @@
 #!/bin/bash
+# mise.hide=true
 
 # Required parameters:
 # @raycast.schemaVersion 1

@@ -1,4 +1,5 @@
 #!/bin/bash
+# mise.hide=true
 
 # Get the ID of the active window
 active_window=$(xdotool getactivewindow)

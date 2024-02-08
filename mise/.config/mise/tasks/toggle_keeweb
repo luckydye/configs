@@ -1,4 +1,5 @@
 #!/bin/bash
+# mise.hide=true
 
 active_window=$(xdotool getactivewindow)
 active_window_class=$(xprop -id "$active_window" | grep WM_CLASS | awk '{print $4}')
