@@ -18,3 +18,13 @@ experimental = true
 description = "Reset repository files"
 dir = "{{cwd}}"
 run = ["git add --all", "git stash", "git clean -xdf .", "git stash pop"]
+
+[tasks.config_biome]
+description = "Copy biome config to cwd"
+dir = "{{cwd}}"
+run = ["cp $CONFIGS_DIR/format/biome.json ./biome.json"]
+
+[tasks.config_rust]
+description = "Copy rustfmt config to cwd"
+dir = "{{cwd}}"
+run = ["cp $CONFIGS_DIR/format/rustfmt.toml ./rustfmt.toml"]
