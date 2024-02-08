@@ -10,6 +10,7 @@
   "assistant": {
     "dock": "bottom"
   },
+  "relative_line_numbers": true,
   "show_completions_on_input": true,
   "vim_mode": true,
   "theme": "One Dark",
@@ -33,10 +34,8 @@
     "JSON": {
       "formatter": {
         "external": {
-          "command": "bun",
+          "command": "./node_modules/.bin/biome",
           "arguments": [
-            "x",
-            "@biomejs/biome",
             "format",
             "--stdin-file-path",
             "{buffer_path}"
@@ -47,10 +46,8 @@
     "TypeScript": {
       "formatter": {
         "external": {
-          "command": "bun",
+          "command": "./node_modules/.bin/biome",
           "arguments": [
-            "x",
-            "@biomejs/biome",
             "format",
             "--stdin-file-path",
             "{buffer_path}"
@@ -61,10 +58,8 @@
     "tsx": {
       "formatter": {
         "external": {
-          "command": "bun",
+          "command": "./node_modules/.bin/biome",
           "arguments": [
-            "x",
-            "@biomejs/biome",
             "format",
             "--stdin-file-path",
             "{buffer_path}"
@@ -75,9 +70,8 @@
     "JavaScript": {
       "formatter": {
         "external": {
-          "command": "npx",
+          "command": "./node_modules/.bin/biome",
           "arguments": [
-            "@biomejs/biome",
             "format",
             "--stdin-file-path",
             "{buffer_path}"
