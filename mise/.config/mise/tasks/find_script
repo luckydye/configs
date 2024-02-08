@@ -1,11 +1,11 @@
 #!/bin/bash
 # mise hide=true
 
-name=$(mise tasks --hidden --no-header | awk '{ print $1 }' | gum filter)
+tasks=$(mise tasks --hidden --no-header | awk '{ print $1 }')
+name=$(gum filter $tasks)
 
-if [ -z "$name" ]
-then
-  echo "Noop"
+if [ -z "$name" ]; then
+	echo "Noop"
 else
-  mise run $name
+	mise run $name
 fi
