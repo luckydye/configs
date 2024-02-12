@@ -1,8 +1,7 @@
 [user]
 	email = tim.h4vlicek@gmail.com
 	name = Tim Havlicek
-	# should be in repo config instead
-	# signingkey = BF007352F3B082D4
+	signingkey = BF007352F3B082D4
 
 [alias]
 st = status
