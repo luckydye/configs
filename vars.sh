@@ -12,5 +12,6 @@ export MISE_EXPERIMENTAL=true
 export MISE_TRUSTED_CONFIG_PATHS=~/.config/mise/config.toml
 
 export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export FZF_DEFAULT_OPTS='--height 100% --preview "bat --color=always --tabs=2 --style=plain {}" --info=inline --preview-window="up,70%,border-horizontal"'
 
-source $CONFIGS_DIR/env 2> /dev/null
+source $CONFIGS_DIR/env 2>/dev/null
