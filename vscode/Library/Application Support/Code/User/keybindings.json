@@ -19,16 +19,6 @@
     "command": "workbench.action.closeActiveEditor"
   },
   {
-    "key": "cmd+space",
-    "command": "editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
-  },
-  {
-    "key": "ctrl+space",
-    "command": "-editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly && !suggestWidgetVisible"
-  },
-  {
     "key": "alt+s",
     "command": "editor.action.insertSnippet"
   },
@@ -91,5 +81,15 @@
   {
     "key": "shift+cmd+p",
     "command": "-workbench.action.showCommands"
+  },
+  {
+    "key": "ctrl+q",
+    "command": "editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+[Period]",
+    "command": "-editor.action.quickFix",
+    "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
   }
 ]

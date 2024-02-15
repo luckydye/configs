@@ -13,7 +13,7 @@
   "relative_line_numbers": true,
   "show_completions_on_input": true,
   "vim_mode": true,
-  "theme": "One Dark",
+  "theme": "Andromeda",
   "ui_font_family": "Helvetica",
   "ui_font_size": 16,
   "ui_font_features": {
@@ -27,65 +27,18 @@
     "liga": true
   },
   "show_whitespaces": "selection",
-  "formatter": "language_server",
-  "use_autoclose": false,
-  "format_on_save": "on",
-  "language_overrides": {
-    "JSON": {
-      "formatter": {
-        "external": {
-          "command": "bun",
-          "arguments": [
-            "x",
-            "biome",
-            "format",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
-    "TypeScript": {
-      "formatter": {
-        "external": {
-          "command": "bun",
-          "arguments": [
-            "x",
-            "biome",
-            "format",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
-    "tsx": {
-      "formatter": {
-        "external": {
-          "command": "bun",
-          "arguments": [
-            "x",
-            "biome",
-            "format",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
-    "JavaScript": {
-      "formatter": {
-        "external": {
-          "command": "bun",
-          "arguments": [
-            "x",
-            "biome",
-            "format",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
+  "formatter": {
+    "external": {
+      "command": "bun",
+      "arguments": [
+        "x",
+        "biome@1.5",
+        "format",
+        "--stdin-file-path",
+        "{buffer_path}"
+      ]
     }
-  }
+  },
+  "use_autoclose": false,
+  "format_on_save": "on"
 }

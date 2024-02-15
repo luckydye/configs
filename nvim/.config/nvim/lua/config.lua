@@ -21,34 +21,25 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 
 require("lazy").setup({
   spec = {
-    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    { import = "lazyvim.plugins.extras.lang.go" },
+    { "loctvl842/monokai-pro.nvim" },
+
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins",
+      opts = {
+        colorscheme = "monokai-pro",
+      },
+    },
 
     { "echasnovski/mini.pairs", enabled = false },
 
     { import = "lazyvim.plugins.extras.coding.copilot" },
 
+    { import = "lazyvim.plugins.extras.lang.go" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.rust" },
-
-    {
-      "Mofiqul/vscode.nvim",
-      enabled = true,
-      name = "vscode",
-      lazy = false,
-      priority = 1000,
-      config = function()
-        require("vscode").setup({})
-        require("vscode").load()
-      end,
-    },
-
-    {
-      "nvim-neo-tree/neo-tree.nvim",
-      enabled = false,
-    },
 
     {
       "telescope.nvim",
@@ -88,7 +79,21 @@ require("lazy").setup({
       },
     },
 
-    -- add any tools you want to have installed below
+    { "folke/noice.nvim", enabled = false },
+
+    {
+      "stevearc/conform.nvim",
+      opts = {
+        formatters = { "biome" },
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = { "biome" },
+          typescriptreact = { "biome" },
+          typescript = { "biome" },
+        },
+      },
+    },
+
     {
       "williamboman/mason.nvim",
       opts = {
@@ -103,7 +108,6 @@ require("lazy").setup({
   },
   defaults = {
     lazy = true,
-    version = false, -- always use the latest git commit
   },
   checker = { enabled = false },
   performance = {
