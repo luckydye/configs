@@ -6,6 +6,12 @@ else
   require("config")
 end
 
+vim.filetype.add({
+  extension = {
+    mdx = "markdown",
+  },
+})
+
 -- Alt+Up/Down to move lines
 vim.api.nvim_set_keymap("n", "<A-Up>", ":m--<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<A-Down>", ":m+<CR>", { noremap = true, silent = true })

@@ -61,6 +61,8 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
       opts = {
         ensure_installed = {
+          "astro",
+          "css",
           "bash",
           "html",
           "javascript",
