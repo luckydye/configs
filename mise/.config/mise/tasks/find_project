@@ -2,7 +2,7 @@
 
 # mise hide=true
 
-project=$(find ~/source -maxdepth 2 -name .git -type d | sed 's/\/.git//g' | gum filter --sort --reverse --header="Find Project")
+project=$(find ~/source -maxdepth 2 -name .git -type d | sed 's/\/.git//g' | fzf --preview-window="30%" --preview="glow {}/README.md")
 
 if [ -z "$project" ]; then
 	echo "You need to select a project."

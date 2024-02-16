@@ -2,11 +2,10 @@
 
 # mise hide=true
 
-file=$(fzf)
+file=$(fzf --preview "bat --color=always --tabs=2 --style=plain {}")
 
-if [ -z "$file" ]
-then
-  echo "Canceled"
+if [ -z "$file" ]; then
+	echo "Canceled"
 else
-  nvim $file
+	nvim $file
 fi
