@@ -32,7 +32,7 @@
       "command": "bun",
       "arguments": [
         "x",
-        "biome@1.5",
+        "@biomejs/biom",
         "format",
         "--stdin-file-path",
         "{buffer_path}"
