@@ -132,3 +132,4 @@ function calc() {
 
 eval "$(~/bin/mise activate)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
+eval "$(zoxide init --cmd cd zsh)" 2>/dev/null
