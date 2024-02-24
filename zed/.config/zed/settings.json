@@ -13,7 +13,7 @@
   "relative_line_numbers": true,
   "show_completions_on_input": true,
   "vim_mode": true,
-  "theme": "Andromeda",
+  "theme": "Github Dark",
   "ui_font_family": "Helvetica",
   "ui_font_size": 16,
   "ui_font_features": {
@@ -29,11 +29,10 @@
   "show_whitespaces": "selection",
   "formatter": {
     "external": {
-      "command": "bun",
+      "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
       "arguments": [
-        "x",
-        "@biomejs/biom",
-        "format",
+        "check",
+        "--apply-unsafe",
         "--stdin-file-path",
         "{buffer_path}"
       ]

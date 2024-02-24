@@ -23,6 +23,9 @@ vim.api.nvim_set_keymap("n", "<C-S-Tab>", ":bprevious<CR>", { noremap = true, si
 -- Ctrl+w -- Close buffer
 vim.api.nvim_set_keymap("n", "<C-w>", ":bd<CR>", { noremap = true, silent = true })
 
+-- Ctrl+a -- Select all
+vim.api.nvim_set_keymap("n", "<C-a>", ":ggVG<CR>", { noremap = true, silent = true })
+
 -- Ctrl+q -- Open Code Actions
 vim.api.nvim_set_keymap(
   "n",
