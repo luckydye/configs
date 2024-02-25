@@ -27,15 +27,45 @@
     "liga": true
   },
   "show_whitespaces": "selection",
-  "formatter": {
-    "external": {
-      "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
-      "arguments": [
-        "check",
-        "--apply-unsafe",
-        "--stdin-file-path",
-        "{buffer_path}"
-      ]
+  "language_overrides": {
+    "TypeScript": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
+          "arguments": [
+            "check",
+            "--apply-unsafe",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "TSX": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
+          "arguments": [
+            "check",
+            "--apply-unsafe",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
+          "arguments": [
+            "check",
+            "--apply-unsafe",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
     }
   },
   "use_autoclose": false,
