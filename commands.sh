@@ -25,6 +25,8 @@ alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
 alias clip="pbcopy"
 
+alias zed="~/source/zed/target/release/Zed"
+
 # tmux
 alias ta="mise run tmux_attach"
 
