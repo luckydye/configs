@@ -23,6 +23,8 @@ alias files='watch -d ls -l'
 
 alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
+alias clip="pbcopy"
+
 # tmux
 alias ta="mise run tmux_attach"
 
