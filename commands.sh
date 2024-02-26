@@ -24,7 +24,10 @@ alias files='watch -d ls -l'
 alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
 alias clip="pbcopy"
-alias pw="key get $(key list | gum filter | xargs) | clip"
+
+function pw() {
+	key get $(key list | gum filter | xargs) | clip
+}
 
 alias zed="~/source/zed/target/release/Zed"
 
