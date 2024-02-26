@@ -24,6 +24,7 @@ alias files='watch -d ls -l'
 alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
 alias clip="pbcopy"
+alias pw="key get $(key list | gum filter | xargs) | clip"
 
 alias zed="~/source/zed/target/release/Zed"
 
@@ -132,11 +133,6 @@ function dec() {
 
 function calc() {
 	echo "console.log(eval('$*'))" | node
-}
-
-function pw() {
-	k=$(key list | gum filter); 
- 	key get $(echo $k | xargs) | clip
 }
 
 eval "$(~/bin/mise activate)" 2>/dev/null
