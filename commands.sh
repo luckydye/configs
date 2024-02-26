@@ -134,6 +134,11 @@ function calc() {
 	echo "console.log(eval('$*'))" | node
 }
 
+function pw() {
+	k=$(key list | gum filter); 
+ 	key get $(echo $k | xargs)
+}
+
 eval "$(~/bin/mise activate)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
 eval "$(zoxide init --cmd cd zsh)" 2>/dev/null
