@@ -26,7 +26,8 @@ alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 alias clip="pbcopy"
 
 function pw() {
-	key get $(key list | gum filter | xargs) | clip
+	x=$(key list | gum filter | xargs)
+	key get $x | clip
 }
 
 alias zed="~/source/zed/target/release/Zed"
