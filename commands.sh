@@ -136,7 +136,7 @@ function calc() {
 
 function pw() {
 	k=$(key list | gum filter); 
- 	key get $(echo $k | xargs)
+ 	key get $(echo $k | xargs) | clip
 }
 
 eval "$(~/bin/mise activate)" 2>/dev/null
