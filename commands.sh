@@ -18,6 +18,7 @@ alias s='cd $HOME/source'
 alias fp='mise run find_project'
 alias repo='mise run open_git_repo'
 alias v='nvim'
+alias z="zed ."
 alias lg='lazygit'
 alias files='watch -d ls -l'
 
