@@ -33,10 +33,9 @@
       "ctrl-7": ["workspace::ActivatePane", 6],
       "ctrl-8": ["workspace::ActivatePane", 7],
       "ctrl-9": ["workspace::ActivatePane", 8],
-      "ctrl-alt-s": "workspace::SaveAll",
 
-      "ctrl-<": "editor::Indent",
-      "ctrl->": "editor::Outdent",
+      "ctrl->": "editor::Indent",
+      "ctrl-<": "editor::Outdent",
       "ctrl-c": "editor::Copy",
       "ctrl-v": "editor::Paste",
       "ctrl-x": "editor::Cut",
@@ -70,8 +69,17 @@
       "shift-right": "editor::MoveToNextWordEnd",
       "shift-left": "editor::MoveToPreviousWordStart",
 
-      "shift-up": ["workspace::SendKeystrokes", "up up up up up"],
-      "shift-down": ["workspace::SendKeystrokes", "down down down down down"],
+      "shift-up": ["workspace::sendkeystrokes", "up up up up up"],
+      "shift-down": ["workspace::sendkeystrokes", "down down down down down"],
+
+      "ctrl-down": [
+        "workspace::sendkeystrokes",
+        "ctrl-e ctrl-e ctrl-e ctrl-e ctrl-e"
+      ],
+      "ctrl-up": [
+        "workspace::sendkeystrokes",
+        "ctrl-y ctrl-y ctrl-y ctrl-y ctrl-y"
+      ],
 
       "g c": "editor::ToggleComments"
     }
