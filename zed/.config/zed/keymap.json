@@ -17,7 +17,6 @@
       "ctrl-tab": "pane::GoForward",
       "ctrl-shift-tab": "pane::GoBack",
       "ctrl-\"": "pane::SplitDown",
-      "ctrl-w": "pane::CloseActiveItem",
 
       "ctrl-s": "workspace::Save",
       "ctrl-F": "workspace::NewSearch",
@@ -45,6 +44,8 @@
 
       "ctrl-enter": "editor::ConfirmCompletion",
       "ctrl-space": "editor::ShowCompletions",
+      "ctrl-k": "editor::Hover",
+      "ctrl-q": "editor::ToggleCodeActions",
 
       "ctrl-l": "editor::SelectLine",
       "ctrl-a": "editor::SelectAll",
@@ -58,9 +59,7 @@
       "ctrl-alt-down": "vim::WindowBottom",
 
       "alt-shift-up": ["workspace::SendKeystrokes", "ctrl-d alt-up"],
-      "alt-shift-down": ["workspace::SendKeystrokes", "ctrl-d"],
-
-      "ctrl-k": "editor::Hover"
+      "alt-shift-down": ["workspace::SendKeystrokes", "ctrl-d"]
     }
   },
   {
@@ -69,17 +68,8 @@
       "shift-right": "editor::MoveToNextWordEnd",
       "shift-left": "editor::MoveToPreviousWordStart",
 
-      "shift-up": ["workspace::sendkeystrokes", "up up up up up"],
-      "shift-down": ["workspace::sendkeystrokes", "down down down down down"],
-
-      "ctrl-down": [
-        "workspace::sendkeystrokes",
-        "ctrl-e ctrl-e ctrl-e ctrl-e ctrl-e"
-      ],
-      "ctrl-up": [
-        "workspace::sendkeystrokes",
-        "ctrl-y ctrl-y ctrl-y ctrl-y ctrl-y"
-      ],
+      "shift-up": "editor::MoveToStartOfParagraph",
+      "shift-down": "editor::MoveToEndOfParagraph",
 
       "g c": "editor::ToggleComments"
     }
