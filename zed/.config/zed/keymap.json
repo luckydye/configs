@@ -44,9 +44,6 @@
       "ctrl-z": "editor::Undo",
       "ctrl-shift-z": "editor::Redo",
 
-      "ctrl-/": "editor::ToggleComments",
-      "ctrl-#": "editor::ToggleComments",
-
       "ctrl-enter": "editor::ConfirmCompletion",
       "ctrl-space": "editor::ShowCompletions",
 
@@ -68,13 +65,13 @@
     }
   },
   {
-    "context": "editor::normal",
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "shift-right": "editor::MoveToNextWordEnd",
       "shift-left": "editor::MoveToPreviousWordStart",
 
-      "shift-up": ["workspace::SendKeystrokes", "up up up up"],
-      "shift-down": ["workspace::SendKeystrokes", "down down down down"],
+      "shift-up": ["workspace::SendKeystrokes", "up up up up up"],
+      "shift-down": ["workspace::SendKeystrokes", "down down down down down"],
 
       "g c": "editor::ToggleComments"
     }

@@ -8,6 +8,11 @@
 // from the command palette or from `Zed` application menu.
 {
   "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always",
+    "use_multiline_find": true
+  },
+
   "theme": "Github Dark",
   "assistant": {
     "dock": "bottom"
