@@ -1,67 +1,102 @@
 [
-	{
-		"bindings": {
-			"ctrl-,": "zed::OpenSettings",
-			"ctrl-.": "zed::OpenKeymap",
-			"ctrl-s": "workspace::Save",
-			"ctrl-c": "editor::Copy",
-			"ctrl-v": "editor::Paste",
-			"ctrl-x": "editor::Cut",
-			"ctrl-z": "editor::Undo",
-			"ctrl-shift-z": "editor::Redo",
-			"ctrl-y": "editor::Redo",
-			"ctrl-/": "editor::ToggleComments",
-			"ctrl-shift-f": "workspace::NewSearch",
-			"ctrl-p": "file_finder::Toggle",
-			"ctrl-shift-p": "command_palette::Toggle",
-			"ctrl-shift-r": "projects::OpenRecent",
-			"ctrl-f": "vim::Search",
-			"ctrl-`": "project_panel::ToggleFocus",
-			"enter": "editor::ConfirmCompletion",
-			"ctrl-g": "search::SelectNextMatch",
-			"ctrl-d": "search::SelectPrevMatch",
-			"ctrl-shift-t": "pane::ReopenClosedItem",
-			"ctrl-tab": "pane::GoForward",
-			"ctrl-shift-tab": "pane::GoBack",
-			"ctrl-b": "workspace::ToggleLeftDock",
-			"ctrl-r": "workspace::ToggleRightDock",
-			"ctrl-j": "workspace::ToggleBottomDock",
-			"ctrl-\"": "pane::SplitDown",
-			"ctrl-w": "pane::CloseActiveItem",
-			"ctrl-1": ["workspace::ActivatePane", 0],
-			"ctrl-2": ["workspace::ActivatePane", 1],
-			"ctrl-3": ["workspace::ActivatePane", 2],
-			"ctrl-4": ["workspace::ActivatePane", 3],
-			"ctrl-5": ["workspace::ActivatePane", 4],
-			"ctrl-6": ["workspace::ActivatePane", 5],
-			"ctrl-7": ["workspace::ActivatePane", 6],
-			"ctrl-8": ["workspace::ActivatePane", 7],
-			"ctrl-9": ["workspace::ActivatePane", 8],
-			"ctrl-alt-s": "workspace::SaveAll",
-			"shift-alt-down": "editor::DuplicateLine",
-			"alt-down": "editor::MoveLineDown",
-			"alt-up": "editor::MoveLineUp",
-			"ctrl-h": "editor::Hover"
-		}
-	},
-	{
-		"context": "Workspace",
-		"bindings": {
-			"ctrl-shift-tab": "workspace::ActivatePreviousPane",
-			"ctrl-tab": "workspace::ActivateNextPane"
-		}
-	},
-	{
-		"context": "ProjectPanel",
-		"bindings": {
-			"ctrl-x": "project_panel::Cut",
-			"ctrl-c": "project_panel::Copy",
-			"ctrl-shift-c": "project_panel::CopyPath",
-			"ctrl-v": "project_panel::Paste",
-			"ctrl-n": "project_panel::NewFile",
-			"ctrl-shift-n": "project_panel::NewDirectory",
-			"ctrl-d": "project_panel::Delete",
-			"ctrl-r": "project_panel::Rename"
-		}
-	}
+  {
+    "bindings": {
+      "ctrl-,": "zed::OpenSettings",
+      "ctrl-.": "zed::OpenKeymap",
+
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-shift-p": "command_palette::Toggle",
+      "ctrl-r": "projects::OpenRecent",
+
+      "ctrl-f": "vim::Search",
+      "ctrl-n": "search::SelectNextMatch",
+      "ctrl-shift-n": "search::SelectPrevMatch",
+
+      "ctrl-`": "project_panel::ToggleFocus",
+      "ctrl-shift-t": "pane::ReopenClosedItem",
+      "ctrl-tab": "pane::GoForward",
+      "ctrl-shift-tab": "pane::GoBack",
+      "ctrl-\"": "pane::SplitDown",
+      "ctrl-w": "pane::CloseActiveItem",
+
+      "ctrl-s": "workspace::Save",
+      "ctrl-F": "workspace::NewSearch",
+      "ctrl-b": "workspace::ToggleLeftDock",
+      "ctrl-B": "workspace::ToggleRightDock",
+      "ctrl-j": "workspace::ToggleBottomDock",
+      "ctrl-1": ["workspace::ActivatePane", 0],
+      "ctrl-2": ["workspace::ActivatePane", 1],
+      "ctrl-3": ["workspace::ActivatePane", 2],
+      "ctrl-4": ["workspace::ActivatePane", 3],
+      "ctrl-5": ["workspace::ActivatePane", 4],
+      "ctrl-6": ["workspace::ActivatePane", 5],
+      "ctrl-7": ["workspace::ActivatePane", 6],
+      "ctrl-8": ["workspace::ActivatePane", 7],
+      "ctrl-9": ["workspace::ActivatePane", 8],
+      "ctrl-alt-s": "workspace::SaveAll",
+
+      "ctrl-<": "editor::Indent",
+      "ctrl->": "editor::Outdent",
+      "ctrl-c": "editor::Copy",
+      "ctrl-v": "editor::Paste",
+      "ctrl-x": "editor::Cut",
+      "ctrl-d": "editor::DuplicateLine",
+      "ctrl-z": "editor::Undo",
+      "ctrl-shift-z": "editor::Redo",
+
+      "ctrl-/": "editor::ToggleComments",
+      "ctrl-#": "editor::ToggleComments",
+
+      "ctrl-enter": "editor::ConfirmCompletion",
+      "ctrl-space": "editor::ShowCompletions",
+
+      "ctrl-l": "editor::SelectLine",
+      "ctrl-a": "editor::SelectAll",
+
+      "ctrl-left": "editor::MoveToBeginningOfLine",
+      "ctrl-right": "editor::MoveToEndOfLine",
+      "alt-up": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+
+      "ctrl-alt-up": "vim::WindowTop",
+      "ctrl-alt-down": "vim::WindowBottom",
+
+      "alt-shift-up": ["workspace::SendKeystrokes", "ctrl-d alt-up"],
+      "alt-shift-down": ["workspace::SendKeystrokes", "ctrl-d"],
+
+      "ctrl-k": "editor::Hover"
+    }
+  },
+  {
+    "context": "editor::normal",
+    "bindings": {
+      "shift-right": "editor::MoveToNextWordEnd",
+      "shift-left": "editor::MoveToPreviousWordStart",
+
+      "shift-up": ["workspace::SendKeystrokes", "up up up up"],
+      "shift-down": ["workspace::SendKeystrokes", "down down down down"],
+
+      "g c": "editor::ToggleComments"
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-tab": "workspace::ActivatePreviousPane",
+      "ctrl-tab": "workspace::ActivateNextPane"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-x": "project_panel::Cut",
+      "ctrl-c": "project_panel::Copy",
+      "ctrl-shift-c": "project_panel::CopyPath",
+      "ctrl-v": "project_panel::Paste",
+      "ctrl-n": "project_panel::NewFile",
+      "ctrl-shift-n": "project_panel::NewDirectory",
+      "ctrl-d": "project_panel::Delete",
+      "ctrl-r": "project_panel::Rename"
+    }
+  }
 ]

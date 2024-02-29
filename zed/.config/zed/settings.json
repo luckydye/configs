@@ -7,26 +7,32 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "vim_mode": true,
+  "theme": "Github Dark",
   "assistant": {
     "dock": "bottom"
   },
+
+  "show_completions_on_input": false,
   "relative_line_numbers": true,
-  "show_completions_on_input": true,
-  "vim_mode": true,
-  "theme": "Github Dark",
+  "show_whitespaces": "selection",
+  "use_autoclose": false,
+  "format_on_save": "on",
+
   "ui_font_family": "Helvetica",
   "ui_font_size": 16,
   "ui_font_features": {
     "calt": true,
     "liga": true
   },
+
   "buffer_font_size": 13,
   "buffer_font_family": "CommitMono",
   "buffer_font_features": {
     "calt": true,
     "liga": true
   },
-  "show_whitespaces": "selection",
+
   "language_overrides": {
     "TypeScript": {
       "formatter": {
@@ -67,7 +73,5 @@
         }
       }
     }
-  },
-  "use_autoclose": false,
-  "format_on_save": "on"
+  }
 }
