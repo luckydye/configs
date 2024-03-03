@@ -43,7 +43,6 @@ alias pull="git pull"
 alias fetch="git fetch --all"
 alias push="git push"
 alias P="git push"
-alias merge="git merge"
 alias gd="git diff --stat --cached ':!*lock'"
 alias graph="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
 alias g="graph"
@@ -91,6 +90,14 @@ function run() {
 	else
 		script="$*"
 		mise run $script
+	fi
+}
+
+function merge() {
+	if [ $# -eq 0 ]; then
+		mise run git_merge
+	else
+		git checkout $1
 	fi
 }
 
