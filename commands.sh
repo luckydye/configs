@@ -37,9 +37,10 @@ alias zed="~/source/zed/target/release/Zed"
 alias ta="mise run tmux_attach"
 
 # git
-alias gs="git status"
+alias gs="git status"s
 alias adda="git add --all"
 alias pull="git pull"
+alias fetch="git fetch --all"
 alias push="git push"
 alias P="git push"
 alias merge="git merge"
