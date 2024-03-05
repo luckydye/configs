@@ -12,6 +12,7 @@
     "use_system_clipboard": "always",
     "use_multiline_find": true
   },
+  "cursor_blink": false,
 
   "theme": "Github Dark",
   "assistant": {
