@@ -22,6 +22,8 @@ alias z="zed ."
 alias lg='lazygit'
 alias files='watch -d ls -l'
 
+alias disk="diskonaut"
+
 alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
 alias clip="pbcopy"
