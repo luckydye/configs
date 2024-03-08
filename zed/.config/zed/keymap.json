@@ -1,5 +1,20 @@
 [
   {
+    // Tasks
+    "bindings": {
+      "ctrl-t": ["task::Spawn", "print vars"]
+    }
+  },
+  {
+    // Workspace navigation
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-shift-tab": "workspace::ActivatePreviousPane",
+      "ctrl-tab": "workspace::ActivateNextPane"
+    }
+  },
+  {
+    // Editor bindings
     "bindings": {
       "ctrl-,": "zed::OpenSettings",
       "ctrl-.": "zed::OpenKeymap",
@@ -21,7 +36,7 @@
       "ctrl-s": "workspace::Save",
       "ctrl-F": "workspace::NewSearch",
       "ctrl-b": "workspace::ToggleLeftDock",
-      "ctrl-B": "workspace::ToggleRightDock",
+      "ctrl-shift-b": "workspace::ToggleRightDock",
       "ctrl-j": "workspace::ToggleBottomDock",
       "ctrl-1": ["workspace::ActivatePane", 0],
       "ctrl-2": ["workspace::ActivatePane", 1],
@@ -63,25 +78,20 @@
     }
   },
   {
+    // Vim bindings
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "shift-right": "editor::MoveToNextWordEnd",
       "shift-left": "editor::MoveToPreviousWordStart",
 
-      "shift-up": "editor::MoveToStartOfParagraph",
-      "shift-down": "editor::MoveToEndOfParagraph",
+      "shift-up": ["workspace::SendKeystrokes", "up up up up up"],
+      "shift-down": ["workspace::SendKeystrokes", "down down down down down"],
 
       "g c": "editor::ToggleComments"
     }
   },
   {
-    "context": "Workspace",
-    "bindings": {
-      "ctrl-shift-tab": "workspace::ActivatePreviousPane",
-      "ctrl-tab": "workspace::ActivateNextPane"
-    }
-  },
-  {
+    // Explorer bindings
     "context": "ProjectPanel",
     "bindings": {
       "ctrl-x": "project_panel::Cut",
