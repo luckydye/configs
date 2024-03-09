@@ -33,7 +33,7 @@ function pw() {
 	key get $x | clip
 }
 
-alias zed="~/source/zed/target/release/Zed"
+alias zed="~/source/zed/target/debug/Zed"
 
 # tmux
 alias ta="mise run tmux_attach"
