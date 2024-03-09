@@ -2,7 +2,8 @@
   {
     // Tasks
     "bindings": {
-      "ctrl-t": ["task::Spawn", "print vars"]
+      "ctrl-t p": ["task::Spawn", ["print vars"]],
+      "ctrl-t o": ["task::Spawn", ["open path"]]
     }
   },
   {

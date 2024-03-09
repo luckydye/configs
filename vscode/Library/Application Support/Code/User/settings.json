@@ -107,7 +107,7 @@
   "[svg]": {
     "editor.defaultFormatter": "jock.svg"
   },
-  "workbench.colorTheme": "Vim Dark Hard",
+  "workbench.colorTheme": "GitHub Dark",
   "git.openRepositoryInParentFolders": "never",
   "cSpell.enabled": true,
   "[typescript]": {
@@ -134,5 +134,6 @@
   },
   "editor.defaultFormatter": "biomejs.biome",
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-  "diffEditor.hideUnchangedRegions.enabled": true
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "github.copilot.editor.enableCodeActions": false
 }

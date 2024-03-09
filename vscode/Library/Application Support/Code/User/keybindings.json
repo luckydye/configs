@@ -88,36 +88,12 @@
     "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
   },
   {
-    "key": "cmd+[Period]",
-    "command": "-editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
-  },
-  {
     "key": "ctrl+shift+t",
     "command": "workbench.action.reopenClosedEditor"
   },
   {
     "key": "shift+cmd+t",
     "command": "-workbench.action.reopenClosedEditor"
-  },
-  {
-    "key": "cmd+w",
-    "command": "-workbench.action.closeWindow",
-    "when": "!editorIsOpen && !multipleEditorGroups"
-  },
-  {
-    "key": "cmd+w",
-    "command": "-workbench.action.closeActiveEditor"
-  },
-  {
-    "key": "cmd+w",
-    "command": "-workbench.action.closeGroup",
-    "when": "activeEditorGroupEmpty && multipleEditorGroups"
-  },
-  {
-    "key": "cmd+w",
-    "command": "-workbench.action.terminal.killEditor",
-    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
   },
   {
     "key": "ctrl+a",
@@ -150,17 +126,8 @@
     "when": "listFocus && listSupportsMultiselect && !inputFocus && !treestickyScrollFocused"
   },
   {
-    "key": "cmd+a",
-    "command": "-list.selectAll",
-    "when": "listFocus && listSupportsMultiselect && !inputFocus && !treestickyScrollFocused"
-  },
-  {
     "key": "ctrl+a",
     "command": "editor.action.selectAll"
-  },
-  {
-    "key": "cmd+a",
-    "command": "-editor.action.selectAll"
   },
   {
     "key": "ctrl+k",

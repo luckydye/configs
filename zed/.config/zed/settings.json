@@ -23,7 +23,7 @@
   "relative_line_numbers": true,
   "show_whitespaces": "selection",
   "use_autoclose": false,
-  "format_on_save": "off",
+  "format_on_save": "on",
 
   "ui_font_family": "Helvetica",
   "ui_font_size": 16,
@@ -41,59 +41,51 @@
 
   "language_overrides": {
     "TypeScript": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
-          "arguments": [
-            "check",
-            "--apply-unsafe",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
-    "TSX": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
-          "arguments": [
-            "check",
-            "--apply-unsafe",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
+      "external": {
+        "command": "npx",
+        "arguments": [
+          "biome",
+          "check",
+          "--apply-unsafe",
+          "--stdin-file-path",
+          "{buffer_path}"
+        ]
       }
     },
     "JavaScript": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
-          "arguments": [
-            "check",
-            "--apply-unsafe",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
+      "external": {
+        "command": "npx",
+        "arguments": [
+          "biome",
+          "check",
+          "--apply-unsafe",
+          "--stdin-file-path",
+          "{buffer_path}"
+        ]
+      }
+    },
+    "TSX": {
+      "external": {
+        "command": "npx",
+        "arguments": [
+          "biome",
+          "check",
+          "--apply-unsafe",
+          "--stdin-file-path",
+          "{buffer_path}"
+        ]
       }
     },
     "JSON": {
-      "format_on_save": "on",
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/cli-darwin-arm64/biome",
-          "arguments": [
-            "check",
-            "--apply-unsafe",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
+      "external": {
+        "command": "npx",
+        "arguments": [
+          "biome",
+          "check",
+          "--apply-unsafe",
+          "--stdin-file-path",
+          "{buffer_path}"
+        ]
       }
     }
   }

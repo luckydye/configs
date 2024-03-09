@@ -23,5 +23,9 @@
   {
     "label": "print vars",
     "command": "echo \"$ZED_SELECTED_TEXT \n $ZED_ROW \n $ZED_COLUMN \n $ZED_SYMBOL\n $ZED_WORKTREE_ROOT \n $ZED_FILE\""
+  },
+  {
+    "label": "open path",
+    "command": "zed $ZED_SELECTED_TEXT"
   }
 ]
