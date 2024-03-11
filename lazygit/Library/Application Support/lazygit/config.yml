@@ -2,14 +2,10 @@
 gui:
   showRandomTip: false
   showBottomLine: false
-  theme:
-    activeBorderColor:
-      - black
-    inactiveBorderColor:
-      - black
   branchColors:
     'main': '#11aaff'
     'develop': '#11aaff'
+  border: 'hidden'
 
   authorColors:
     'Tim Havlicek': '#11aaff'
