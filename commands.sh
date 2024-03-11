@@ -33,7 +33,7 @@ function pw() {
 	key get $x | clip
 }
 
-alias zed="~/source/zed/target/debug/Zed"
+alias zed="~/source/zed/target/release/Zed"
 
 # tmux
 alias ta="mise run tmux_attach"
@@ -63,7 +63,6 @@ alias t="task"
 alias rtx="mise"
 alias r="mise run"
 alias u="mise use -g"
-
 
 function addToPath() {
 	export PATH=$1:$PATH
