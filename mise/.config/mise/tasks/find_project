@@ -11,7 +11,7 @@ else
 	id=$project
 
 	tmux new-session -d -s $id
-	tmux send 'ls -la && git-stack' ENTER
+	#tmux send 'ls -la && git-stack' ENTER
 
 	if [ -z "$TMUX" ]; then
 		tmux attach -t $id
