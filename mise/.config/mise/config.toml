@@ -8,9 +8,9 @@ lazygit = "latest"
 starship = "latest"
 fd = "latest"
 watchexec = "latest"
-node = "latest"
-bun = "latest"
-python = "3"
+# node = "latest"
+# bun = "latest"
+# python = "3"
 
 [settings]
 experimental = true

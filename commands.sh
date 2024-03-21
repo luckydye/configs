@@ -60,7 +60,6 @@ alias dk="mise run docker_kill"
 
 # tasks
 alias t="task"
-alias rtx="mise"
 alias r="mise run"
 alias u="mise use -g"
 
@@ -74,6 +73,16 @@ function linkBin() {
 
 function toBin() {
 	cp $1 ~/bin/
+}
+
+# mise task
+function mt() {
+	if [ $# -eq 0 ]; then
+		mise task ls
+	else
+		msg="$*"
+		mise run $msg
+	fi
 }
 
 function commit() {
