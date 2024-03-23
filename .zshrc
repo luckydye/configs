@@ -1,6 +1,6 @@
 source ~/configs/vars.sh
 
-alias reload="source ~/.zshrc && clear"
+alias reload="source ~/.zshrc; clear"
 
 # select entry of command history
 bindkey -s '^h' ' gum filter < ~/.zsh_history --height 40\n'
@@ -18,4 +18,3 @@ if grep -qi microsoft /proc/version 2> /dev/null; then
 fi
 
 source ${CONFIGS_DIR}/commands.sh
-

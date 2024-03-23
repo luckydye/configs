@@ -1,9 +1,9 @@
 # config util
-alias config='/usr/bin/git -C $HOME/configs/'
-alias cfg='config'
+alias config='cd $HOME/configs'
+alias cfg='/usr/bin/git -C $HOME/configs/'
 alias rel="reload"
-alias await="gum spin --show-output --spinner minidot"
 alias sync="mise run config_sync"
+alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
 # navigation
 alias ".."="cd .."
@@ -16,30 +16,20 @@ alias q="quit"
 alias x="exit"
 alias s='cd $HOME/source'
 alias fp='mise run find_project'
-alias repo='mise run open_git_repo'
 alias v='nvim'
 alias z="zed ."
 alias lg='lazygit'
 alias files='watch -d ls -l'
-
-alias disk="diskonaut"
-
-alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
-
 alias clip="pbcopy"
-
-function pw() {
-	x=$(key list | gum filter | xargs)
-	key get $x | clip
-}
-
+alias disk="diskonaut"
+alias pass="mise run pass"
 alias zed="~/source/zed/target/release/Zed"
 
 # tmux
 alias ta="mise run tmux_attach"
 
 # git
-alias gs="git status"s
+alias gs="git status"
 alias adda="git add --all"
 alias pull="git pull"
 alias fetch="git fetch --all"
@@ -49,59 +39,6 @@ alias gd="git diff --stat --cached ':!*lock'"
 alias graph="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all"
 alias g="graph"
 alias gg="watch --color -d \"git pull && git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all --max-count=40\""
-alias clone="cd ~/source && git clone"
-
-# docker
-alias compose="docker compose"
-alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v ~/configs:/configs -w /source luckydye/buildapp:latest"
-alias da="mise run docker_attach"
-alias ds="mise run docker_shell"
-alias dk="mise run docker_kill"
-
-# tasks
-alias t="task"
-alias r="mise run"
-alias u="mise use -g"
-
-function addToPath() {
-	export PATH=$1:$PATH
-}
-
-function linkBin() {
-	ln -s $1 ~/bin/
-}
-
-function toBin() {
-	cp $1 ~/bin/
-}
-
-# mise task
-function mt() {
-	if [ $# -eq 0 ]; then
-		mise task ls
-	else
-		msg="$*"
-		mise run $msg
-	fi
-}
-
-function commit() {
-	if [ $# -eq 0 ]; then
-		git commit -m "$(gum input --placeholder 'Commit message')"
-	else
-		msg="$*"
-		git commit -m "$msg"
-	fi
-}
-
-function run() {
-	if [ $# -eq 0 ]; then
-		mise run find_script
-	else
-		script="$*"
-		mise run $script
-	fi
-}
 
 function merge() {
 	if [ $# -eq 0 ]; then
@@ -117,6 +54,58 @@ function c() {
 	else
 		git checkout $1
 	fi
+}
+
+function commit() {
+	if [ $# -eq 0 ]; then
+		git commit -m "$(gum input --placeholder 'Commit message')"
+	else
+		msg="$*"
+		git commit -m "$msg"
+	fi
+}
+
+# docker
+alias compose="docker compose"
+alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v ~/configs:/configs -w /source luckydye/buildapp:latest"
+alias da="mise run docker_attach"
+alias ds="mise run docker_shell"
+alias dk="mise run docker_kill"
+
+# tasks
+alias t="task"
+alias r="mise run"
+alias u="mise use"
+
+# mise task
+function mt() {
+	if [ $# -eq 0 ]; then
+		mise task ls
+	else
+		msg="$*"
+		mise run $msg
+	fi
+}
+
+function run() {
+	if [ $# -eq 0 ]; then
+		mise run find_script
+	else
+		script="$*"
+		mise run $script
+	fi
+}
+
+function addToPath() {
+	export PATH=$1:$PATH
+}
+
+function linkBin() {
+	ln -s $1 ~/bin/
+}
+
+function toBin() {
+	cp $1 ~/bin/
 }
 
 function package_manager {
@@ -154,10 +143,6 @@ function dec() {
 	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out
 }
 
-function calc() {
-	echo "console.log(eval('$*'))" | node
-}
-
-eval "$(~/bin/mise activate)" 2>/dev/null
+eval "$(mise activate)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
 eval "$(zoxide init --cmd cd zsh)" 2>/dev/null

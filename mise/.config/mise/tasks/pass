@@ -1,0 +1,16 @@
+#!/bin/bash
+# mise hide=true
+# mise.description=Access a password from the kdbx database
+
+pw=$(gum input --password --placeholder="Master Password" --prompt="> ")
+
+if [ "$pw" != "" ]
+then
+    list=$(key --password="$pw" list)
+
+    if [ "$list" != "" ]
+    then
+        name=$(echo "$list" | gum filter)
+        key --password="$pw" get "$name"
+    fi
+fi
