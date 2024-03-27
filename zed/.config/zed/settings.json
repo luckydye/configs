@@ -31,5 +31,10 @@
     "calt": true,
     "liga": true
   },
-  "formatter": "language_server"
+  "formatter": "language_server",
+  "language_overrides": {
+    "CSS": {
+      "formatter": "prettier"
+    }
+  }
 }

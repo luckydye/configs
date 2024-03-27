@@ -27,24 +27,12 @@
     "command": "workbench.action.files.save"
   },
   {
-    "key": "cmd+s",
-    "command": "-workbench.action.files.save"
-  },
-  {
     "key": "ctrl+z",
     "command": "undo"
   },
   {
-    "key": "cmd+z",
-    "command": "-undo"
-  },
-  {
     "key": "ctrl+shift+z",
     "command": "redo"
-  },
-  {
-    "key": "shift+cmd+z",
-    "command": "-redo"
   },
   {
     "key": "ctrl+x",
