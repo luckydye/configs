@@ -9,9 +9,8 @@ starship = "latest"
 fd = "latest"
 watchexec = "latest"
 node = "latest"
-# node = "latest"
-# bun = "latest"
-# python = "3"
+bun = "latest"
+yq = "latest"
 
 [settings]
 experimental = true

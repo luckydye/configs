@@ -4,17 +4,26 @@
 # mise.description=Create new project structure in directory
 # mise.dir={{cwd}}
 
-[ "$(ls -A .)" ] && echo "Directory is not empty {{.USER_WORKING_DIR}}" && exit 1 || exit 0
+[ "$(ls -A .)" ] && echo "Directory is not empty {{.USER_WORKING_DIR}}" && exit 1
 
 git init
-echo "# " >> README.md
-echo "node_modules" >> .gitignore
-echo "dist" >> .gitignore
-echo "!.mise.toml" >> .gitignore
-mise use task
+
+mise use task bun
+
 task --init
+bun init
+bun install
+
 mkdir apps
 mkdir src
-npm init -y
+
+echo "# $(cat package.json | jq -r .name)" >>README.md
+echo "node_modules" >>.gitignore
+echo "dist" >>.gitignore
+
+bun x @sv/codestyle editorconfig
+bun x @sv/codestyle biome
+bun x @sv/codestyle tsconfig
+
 git add --all
 git commit -m "Initial commit"
