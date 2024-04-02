@@ -33,6 +33,7 @@
   {
     // Editor bindings
     "bindings": {
+      "alt-shift-g": "editor::ToggleGitBlame",
       "ctrl-,": "zed::OpenSettings",
       "ctrl-.": "zed::OpenKeymap",
       "ctrl-p": "file_finder::Toggle",
