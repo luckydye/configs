@@ -36,4 +36,4 @@ rm-ignored=git ls-files -i --exclude-from=.gitignore | xargs git rm --cached
 	excludesfile = /Users/tihav/.gitignore_global
 	editor = nvim
 [commit]
-	# gpgsign = true
+	gpgsign = true
