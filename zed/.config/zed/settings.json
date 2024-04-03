@@ -12,6 +12,7 @@
     "use_system_clipboard": "always",
     "use_multiline_find": true
   },
+  "git": {},
   "cursor_blink": false,
   "theme": "Github Dark",
   "show_completions_on_input": false,
@@ -30,11 +31,5 @@
   "buffer_font_features": {
     "calt": true,
     "liga": true
-  },
-  "formatter": "language_server",
-  "language_overrides": {
-    "CSS": {
-      "formatter": "prettier"
-    }
   }
 }

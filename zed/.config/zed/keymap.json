@@ -2,18 +2,8 @@
   {
     // Tasks
     "bindings": {
-      "ctrl-t p": [
-        "task::Spawn",
-        [
-          "print vars"
-        ]
-      ],
-      "ctrl-t o": [
-        "task::Spawn",
-        [
-          "open path"
-        ]
-      ]
+      "ctrl-t p": ["task::Spawn", ["print vars"]],
+      "ctrl-t o": ["task::Spawn", ["open path"]]
     }
   },
   {
@@ -33,6 +23,7 @@
   {
     // Editor bindings
     "bindings": {
+      "ctrl-shift-x": "zed::Extensions",
       "alt-shift-g": "editor::ToggleGitBlame",
       "ctrl-,": "zed::OpenSettings",
       "ctrl-.": "zed::OpenKeymap",
@@ -40,6 +31,7 @@
       "ctrl-shift-p": "command_palette::Toggle",
       "ctrl-r": "projects::OpenRecent",
       "ctrl-f": "vim::Search",
+      "ctrl-shift-f": "pane::DeploySearch",
       "ctrl-n": "search::SelectNextMatch",
       "ctrl-shift-n": "search::SelectPrevMatch",
       "ctrl-`": "project_panel::ToggleFocus",
@@ -49,52 +41,26 @@
       "ctrl-alt-right": "pane::GoForward",
       "ctrl-\"": "pane::SplitDown",
       "ctrl-s": "workspace::Save",
+      "ctrl-shift-s": "workspace::SaveWithoutFormat",
       "ctrl-F": "workspace::NewSearch",
       "ctrl-b": "workspace::ToggleLeftDock",
       "ctrl-shift-b": "workspace::ToggleRightDock",
       "ctrl-j": "workspace::ToggleBottomDock",
-      "ctrl-1": [
-        "workspace::ActivatePane",
-        0
-      ],
-      "ctrl-2": [
-        "workspace::ActivatePane",
-        1
-      ],
-      "ctrl-3": [
-        "workspace::ActivatePane",
-        2
-      ],
-      "ctrl-4": [
-        "workspace::ActivatePane",
-        3
-      ],
-      "ctrl-5": [
-        "workspace::ActivatePane",
-        4
-      ],
-      "ctrl-6": [
-        "workspace::ActivatePane",
-        5
-      ],
-      "ctrl-7": [
-        "workspace::ActivatePane",
-        6
-      ],
-      "ctrl-8": [
-        "workspace::ActivatePane",
-        7
-      ],
-      "ctrl-9": [
-        "workspace::ActivatePane",
-        8
-      ],
+      "ctrl-1": ["workspace::ActivatePane", 0],
+      "ctrl-2": ["workspace::ActivatePane", 1],
+      "ctrl-3": ["workspace::ActivatePane", 2],
+      "ctrl-4": ["workspace::ActivatePane", 3],
+      "ctrl-5": ["workspace::ActivatePane", 4],
+      "ctrl-6": ["workspace::ActivatePane", 5],
+      "ctrl-7": ["workspace::ActivatePane", 6],
+      "ctrl-8": ["workspace::ActivatePane", 7],
+      "ctrl-9": ["workspace::ActivatePane", 8],
       "ctrl->": "editor::Indent",
       "ctrl-<": "editor::Outdent",
       "ctrl-c": "editor::Copy",
       "ctrl-v": "editor::Paste",
       "ctrl-x": "editor::Cut",
-      "ctrl-d": "editor::DuplicateLine",
+      "ctrl-d": "editor::DuplicateLineDown",
       "ctrl-z": "editor::Undo",
       "ctrl-shift-z": "editor::Redo",
       "ctrl-enter": "editor::ConfirmCompletion",
@@ -109,14 +75,8 @@
       "alt-down": "editor::MoveLineDown",
       "ctrl-alt-up": "vim::WindowTop",
       "ctrl-alt-down": "vim::WindowBottom",
-      "alt-shift-up": [
-        "workspace::SendKeystrokes",
-        "ctrl-d alt-up"
-      ],
-      "alt-shift-down": [
-        "workspace::SendKeystrokes",
-        "ctrl-d"
-      ]
+      "alt-shift-up": "editor::DuplicateLineUp",
+      "alt-shift-down": "editor::DuplicateLineDown"
     }
   },
   {
@@ -125,14 +85,8 @@
     "bindings": {
       "shift-right": "editor::MoveToNextWordEnd",
       "shift-left": "editor::MoveToPreviousWordStart",
-      "shift-up": [
-        "workspace::SendKeystrokes",
-        "up up up up up"
-      ],
-      "shift-down": [
-        "workspace::SendKeystrokes",
-        "down down down down down"
-      ],
+      "shift-up": ["workspace::SendKeystrokes", "up up up up up"],
+      "shift-down": ["workspace::SendKeystrokes", "down down down down down"],
       "g c": "editor::ToggleComments"
     }
   },
