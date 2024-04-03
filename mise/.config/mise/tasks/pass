@@ -11,6 +11,6 @@ then
     if [ "$list" != "" ]
     then
         name=$(echo "$list" | gum filter)
-        key --password="$pw" get "$name" | clip
+        key --password="$pw" get "$name" | pbcopy
     fi
 fi
