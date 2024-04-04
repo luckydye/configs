@@ -19,7 +19,6 @@
   "relative_line_numbers": true,
   "show_whitespaces": "selection",
   "use_autoclose": false,
-  "format_on_save": "on",
   "ui_font_family": "Helvetica",
   "ui_font_size": 16,
   "ui_font_features": {
@@ -31,5 +30,21 @@
   "buffer_font_features": {
     "calt": true,
     "liga": true
+  },
+  "format_on_save": "on",
+  "formatter": {
+    "code_actions": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    }
+    //   "external": {
+    //     "command": "./node_modules/@biomejs/biome/bin/biome",
+    //     "arguments": [
+    //       "check",
+    //       "--apply-unsafe",
+    //       "--stdin-file-path",
+    //       "{buffer_path}"
+    //     ]
+    //   }
   }
 }
