@@ -1,3 +1,3 @@
 ```bash
-curl https://raw.githubusercontent.com/luckydye/configs/main/install | bash
+curl https://luckydye.github.io/configs/install | bash
 ```
