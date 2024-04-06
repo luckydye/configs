@@ -142,7 +142,3 @@ function dec() {
 	out="${1/${replace}/${replacewith}}"
 	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out
 }
-
-eval "$(mise activate)" 2>/dev/null
-eval "$(starship init zsh)" 2>/dev/null
-eval "$(zoxide init --cmd cd zsh)" 2>/dev/null

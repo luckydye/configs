@@ -18,3 +18,7 @@ if grep -qi microsoft /proc/version 2> /dev/null; then
 fi
 
 source ${CONFIGS_DIR}/commands.sh
+
+eval "$(mise activate zsh)" 2>/dev/null
+eval "$(starship init zsh)" 2>/dev/null
+eval "$(zoxide init --cmd cd zsh)" 2>/dev/null

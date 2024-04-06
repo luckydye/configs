@@ -12,14 +12,16 @@
     # install dependencies and applications
     - !echo
       msg: "Installing dependencies"
+
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install stow ripgrep unzip fd fzf tmux watch zoxide
+      cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
       cmd: brew install --cask keeweb raycast
+
     - !shell
       with:
         condition: (eq jet_os_flavor "Debian")
@@ -31,19 +33,7 @@
 
     # link configs
     - !shell
-      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R xbindkeys nvim git mise tmux starship vscode zed lazygit
-
-    # install/update git
-    - !echo
-      msg: "Installing git"
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "OSX")
-      cmd: brew install git
-    - !apt
-      with:
-        condition: (eq jet_os_flavor "Debian")
-      package: git
+      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R xbindkeys nvim git mise tmux starship zed lazygit vscode
 
     # install/update mise
     - !echo
@@ -81,5 +71,8 @@
         condition: (eq jet_os_flavor "Debian")
       cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
 
+    # decrypt env
+    - !echo
+      msg: "Decrypt env"
     - !shell
       cmd: zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc"
