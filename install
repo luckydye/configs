@@ -5,7 +5,6 @@ function explain() {
     echo ""
     echo "#######################################################"
     echo ""
-    echo "Link skate to access enviroment secrets: r skate_link"
     echo "Installation complete. Open a new Terminal."
     echo ""
     echo "To sync config to the latest commit run: sync"
