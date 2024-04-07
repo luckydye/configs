@@ -21,12 +21,12 @@ alias z="zed ."
 alias lg='lazygit'
 alias files='watch -d ls -l'
 alias clip="pbcopy"
+alias k="mise run pass | clip"
 alias disk="diskonaut"
 alias pass="mise run pass"
-alias zed="~/source/zed/target/release/Zed"
-
-# tmux
+alias otp="mise run otp"
 alias ta="mise run tmux_attach"
+alias zed="~/source/zed/target/release/Zed"
 
 # git
 alias gs="git status"

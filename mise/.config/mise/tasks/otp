@@ -1,6 +1,6 @@
 #!/bin/bash
 # mise hide=true
-# mise.description=Access a password from the kdbx database
+# mise.description=Create a one time password from the kdbx database
 
 source $CONFIGS_DIR/commands.sh
 
@@ -13,6 +13,6 @@ then
     if [ "$list" != "" ]
     then
         name=$(echo "$list" | gum filter)
-        key --password="$pw" get "$name"
+        key --password="$pw" otp "$name"
     fi
 fi

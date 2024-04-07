@@ -31,10 +31,6 @@
     "liga": true
   },
   "format_on_save": "on",
-  // "code_actions_on_format": {
-  //   "source.fixAll": true,
-  //   "source.organizeImports": true
-  // },
   "formatter": {
     "external": {
       "command": "./node_modules/@biomejs/biome/bin/biome",
@@ -42,6 +38,18 @@
     }
   },
   "languages": {
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll": true,
+        "source.organizeImports": true
+      }
+    },
+    "Rust": {
+      "formatter": "language_server"
+    },
+    "Astro": {
+      "formatter": "language_server"
+    },
     "HTML": {
       "formatter": "prettier"
     }
