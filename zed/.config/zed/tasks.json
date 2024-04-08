@@ -21,8 +21,8 @@
     "allow_concurrent_runs": false
   },
   {
-    "label": "print vars",
-    "command": "echo \"$ZED_SELECTED_TEXT \n $ZED_ROW \n $ZED_COLUMN \n $ZED_SYMBOL\n $ZED_WORKTREE_ROOT \n $ZED_FILE\""
+    "label": "run test",
+    "command": "task test -- --watch --test-name-pattern $ZED_SELECTED_TEXT"
   },
   {
     "label": "open path",

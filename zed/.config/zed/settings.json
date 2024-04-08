@@ -48,7 +48,7 @@
       "formatter": "language_server"
     },
     "Astro": {
-      "formatter": "language_server"
+      "formatter": "auto"
     },
     "HTML": {
       "formatter": "prettier"
