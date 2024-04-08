@@ -7,8 +7,7 @@ alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
 
 # navigation
 alias ".."="cd .."
-alias ll='ls -alF'
-alias la='ls -A'
+alias ll='ls -lah'
 alias l='ls -CF'
 alias ff='mise run find_file'
 alias quit="exit"
