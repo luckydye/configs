@@ -23,6 +23,8 @@ fi
 
 pm=$(package_manager())
 
+echo $pm
+
 if [ "$pm" == "apt" ]; then 
   alias pbcopy=’xclip -selection clipboard’
   alias pbpaste=’xclip -selection clipboard -o’
