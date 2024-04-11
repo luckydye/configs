@@ -14,7 +14,18 @@ bindkey "\033[H" beginning-of-line; bindkey "\033[F" end-of-line
 
 if grep -qi microsoft /proc/version 2> /dev/null; then
   # is wsl
-  source ${CONFIGS_DIR}/.wsl
+  steam="/mnt/c/Program\ Files\ \(x86\)/Steam"
+
+  # start csgo
+  alias csgo="$steam/steam.exe -applaunch 730"
+  alias csgo_config="cp $CONFIGS_DIR/apps/csgo/autoexec.cfg $steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
+fi
+
+pm=$(package_manager())
+
+if [ "$pm" == "apt" ]; then 
+  alias pbcopy=’xclip -selection clipboard’
+  alias pbpaste=’xclip -selection clipboard -o’
 fi
 
 source ${CONFIGS_DIR}/commands.sh
