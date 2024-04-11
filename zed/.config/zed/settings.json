@@ -6,6 +6,9 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "features": {
+    "copilot": false
+  },
   "vim_mode": true,
   "vim": {
     "use_system_clipboard": "always",
@@ -40,30 +43,6 @@
       "code_actions_on_format": {
         "source.fixAll": true,
         "source.organizeImports.biome": true
-      },
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/biome/bin/biome",
-          "arguments": [
-            "format",
-            "--write",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
-    "TSX": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/biome/bin/biome",
-          "arguments": [
-            "format",
-            "--write",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
       }
     },
     "TOML": {
@@ -76,6 +55,9 @@
       "formatter": "auto"
     },
     "HTML": {
+      "formatter": "prettier"
+    },
+    "CSS": {
       "formatter": "prettier"
     }
   }
