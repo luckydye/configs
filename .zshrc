@@ -10,7 +10,7 @@ bindkey -s '^l' ' run docker_attach\n'
 bindkey -s '^f' ' run find_string\n'
 bindkey -s '^g' ' run git_graph\n'
 
-pm=$(package_manager())
+pm=$(package_manager)
 
 echo $pm
 
