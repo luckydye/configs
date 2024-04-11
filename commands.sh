@@ -149,3 +149,9 @@ function dec() {
 	out="${1/${replace}/${replacewith}}"
 	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out
 }
+
+bindkey -s '^p' ' run find_file\n'
+bindkey -s '^x' ' run find_project\n'
+bindkey -s '^l' ' run docker_attach\n'
+bindkey -s '^f' ' run find_string\n'
+bindkey -s '^g' ' run git_graph\n'
