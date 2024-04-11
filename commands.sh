@@ -72,9 +72,17 @@ alias ds="mise run docker_shell"
 alias dk="mise run docker_kill"
 
 # tasks
-alias t="task"
 alias r="mise run"
 alias u="mise use"
+
+function t() {
+	if [ $# -eq 0 ]; then
+		name=$(task --list --json | jq -r ".tasks[].name" | gum filter)
+  		task $name
+	else
+		task $1
+	fi
+}
 
 # mise task
 function mt() {
