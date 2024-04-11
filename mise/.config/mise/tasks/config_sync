@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/zsh
 # mise hide=true
 
 source $CONFIGS_DIR/commands.sh
