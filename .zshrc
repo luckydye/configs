@@ -10,6 +10,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
   bindkey "\033[H" beginning-of-line; bindkey "\033[F" end-of-line
 
+  eval "$(zoxide init --cmd cd zsh)" 2>/dev/null
+
 elif grep -qi microsoft /proc/version 2> /dev/null; then
   # is wsl
   steam="/mnt/c/Program\ Files\ \(x86\)/Steam"
@@ -21,4 +23,3 @@ fi
 
 eval "$(mise activate zsh)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
-eval "$(zoxide init --cmd cd zsh)" 2>/dev/null
