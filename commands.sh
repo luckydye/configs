@@ -15,7 +15,7 @@ alias x="exit"
 alias s='cd $HOME/source'
 alias fp='mise run find_project'
 alias v='nvim'
-alias z="zed ."
+alias z="~/source/zed/target/release/Zed ."
 alias lg='lazygit'
 alias files='watch -d ls -l'
 alias clip="pbcopy"
@@ -24,7 +24,6 @@ alias disk="diskonaut"
 alias pass="mise run pass"
 alias otp="mise run otp"
 alias ta="mise run tmux_attach"
-alias zed="~/source/zed/target/release/Zed"
 
 # git
 alias gs="git status"
