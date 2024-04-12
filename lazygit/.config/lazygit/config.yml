@@ -2,23 +2,25 @@
 gui:
   showRandomTip: false
   showBottomLine: false
+  sidePanelWidth: 0.25
+  showFileTree: true
+  # windowSize: "half"
+  expandFocusedSidePanel: true
   branchColors:
-    'main': '#11aaff'
-    'develop': '#11aaff'
-  border: 'hidden'
+    "main": "#11aaff"
+    "develop": "#11aaff"
+  border: "hidden"
 
   authorColors:
-    'Tim Havlicek': '#11aaff'
-    '*': '#ff0000'
+    "Tim Havlicek": "#11aaff"
+    "*": "#ff0000"
 
 git:
   branchLogCmd: "git log --graph --author-date-order --color=always --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' {{branchName}}"
   disableForcePushing: true
-  notARepository: 'skip'
+  notARepository: "skip"
 
   commitPrefixes:
     greentrails:
       pattern: "^(feat|fix).*\\/(\\w+)"
-      replace: '$1(frontend): $2'
-
-
+      replace: "$1(frontend): $2"
