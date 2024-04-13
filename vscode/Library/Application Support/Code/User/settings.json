@@ -26,14 +26,17 @@
   "editor.suggest.preview": true,
   "editor.colorDecorators": true,
   "editor.tabSize": 2,
+  "editor.lineNumbers": "relative",
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.fileNesting.enabled": false,
   "workbench.editor.showTabs": "none",
   "workbench.settings.editor": "json",
-  "git.enableSmartCommit": true,
-  "git.autofetch": true,
-  "diffEditor.ignoreTrimWhitespace": false,
+  "workbench.startupEditor": "none",
+  "workbench.activityBar.location": "top",
+  "workbench.editor.splitSizing": "split",
+  "workbench.colorTheme": "GitHub Dark",
+
   "files.associations": {
     "*.twig": "twig",
     "*.mustache": "twig",
@@ -42,32 +45,12 @@
     "TODO": "markdown",
     "nginx": "plaintext"
   },
-  "git.showCommitInput": false,
-  "git.alwaysShowStagedChangesResourceGroup": true,
-  "git-graph.graph.style": "angular",
-  "javascript.preferences.importModuleSpecifierEnding": "js",
-  "[typescriptreact]": {
-    "tailwindCSS.suggestions": true,
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "security.workspace.trust.untrustedFiles": "open",
-  "javascript.updateImportsOnFileMove.enabled": "never",
-  "typescript.preferences.importModuleSpecifierEnding": "js",
-  "prettier.printWidth": 100,
   "files.autoSaveDelay": 500,
-  "terminal.integrated.gpuAcceleration": "on",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-  "cSpell.diagnosticLevel": "Hint",
-  "typescript.updateImportsOnFileMove.enabled": "never",
-  "cSpell.files": ["**/*.md", "**/*.ts", "**/*.tsx", "**/*.json"],
-  "terminal.external.linuxExec": "tabby",
-  "window.titleBarStyle": "custom",
-  "terminal.integrated.env.windows": {},
-  "terminal.integrated.env.linux": {},
-  "livePreview.serverRoot": "dist",
-  "extensions.ignoreRecommendations": true,
-  "workbench.editor.splitSizing": "split",
+
+  "git.showCommitInput": false,
+  "git.alwaysShowStagedChangesResourceGroup": true,
   "github.branchProtection": true,
   "github.gitProtocol": "ssh",
   "github.copilot.enable": {
@@ -76,21 +59,31 @@
     "markdown": true,
     "scminput": false
   },
-  "go.toolsManagement.autoUpdate": true,
-  "extensions.experimental.affinity": {
-    "asvetliakov.vscode-neovim": 1
+
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "[typescriptreact]": {
+    "tailwindCSS.suggestions": true,
+    "editor.defaultFormatter": "biomejs.biome"
   },
-  "workbench.colorTheme": "GitHub Dark",
-  "git.openRepositoryInParentFolders": "never",
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+
   "cSpell.enabled": true,
-  "workbench.startupEditor": "none",
-  "gitlens.graph.minimap.enabled": false,
-  "gitlens.currentLine.enabled": false,
-  "inference.model": "codellama:13b-code-q4_K_M",
-  "editor.lineNumbers": "relative",
-  "workbench.activityBar.location": "top",
+  "cSpell.diagnosticLevel": "Hint",
+  "cSpell.files": ["**/*.md", "**/*.ts", "**/*.tsx", "**/*.json"],
+
   "sqlite3-editor.ui.tableSelector.displayColumns": true,
-  "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "github.copilot.editor.enableCodeActions": false
+
+  "javascript.preferences.autoImportFileExcludePatterns": [
+    "~*",
+    "@*",
+    "#*"
+  ],
+  "typescript.preferences.autoImportFileExcludePatterns": [
+    "~*",
+    "@*",
+    "#*"
+  ],
+  "typescript.preferences.importModuleSpecifier": "non-relative"
 }

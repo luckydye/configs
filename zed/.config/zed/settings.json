@@ -37,13 +37,19 @@
     "show_nav_history_buttons": false
   },
   "format_on_save": "on",
-  "formatter": "auto",
+  "code_actions_on_format": {
+    "source.fixAll": true,
+    "source.organizeImports.biome": true
+  },
   "languages": {
     "TypeScript": {
-      "code_actions_on_format": {
-        "source.fixAll": true,
-        "source.organizeImports.biome": true
-      }
+      "formatter": "language_server"
+    },
+    "TSX": {
+      "formatter": "language_server"
+    },
+    "JSON": {
+      "formatter": "language_server"
     },
     "TOML": {
       "formatter": "auto"
