@@ -1,22 +1,5 @@
 [
   {
-    // Tasks
-    "bindings": {
-      "ctrl-t p": [
-        "task::Spawn",
-        [
-          "print vars"
-        ]
-      ],
-      "ctrl-t o": [
-        "task::Spawn",
-        [
-          "open path"
-        ]
-      ]
-    }
-  },
-  {
     // Workspace navigation
     "context": "Workspace",
     "bindings": {
@@ -41,11 +24,12 @@
       "ctrl-shift-p": "command_palette::Toggle",
       "ctrl-r": "projects::OpenRecent",
       "ctrl-w": "pane::CloseActiveItem",
+      "ctrl-f": "vim::Search",
       "ctrl-shift-f": "pane::DeploySearch",
-      "ctrl-f": "search::SelectNextMatch",
+      "ctrl-n": "search::SelectNextMatch",
       "ctrl-g": "search::SelectPrevMatch",
-      "ctrl-`": "project_panel::ToggleFocus",
       "ctrl-shift-t": "pane::ReopenClosedItem",
+      "ctrl-t": "task::Spawn",
       "ctrl-tab": "tab_switcher::Toggle",
       "ctrl-alt-left": "pane::GoBack",
       "ctrl-alt-right": "pane::GoForward",
@@ -121,6 +105,8 @@
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "ctrl-w": "pane::CloseActiveItem",
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent",
       "shift-right": "editor::MoveToNextWordEnd",
       "shift-left": "editor::MoveToPreviousWordStart",
       "shift-up": [
@@ -143,10 +129,10 @@
       "ctrl-c": "project_panel::Copy",
       "ctrl-shift-c": "project_panel::CopyPath",
       "ctrl-v": "project_panel::Paste",
-      "ctrl-n": "project_panel::NewFile",
-      "ctrl-shift-n": "project_panel::NewDirectory",
+      "n": "project_panel::NewFile",
+      "shift-n": "project_panel::NewDirectory",
       "ctrl-d": "project_panel::Delete",
-      "ctrl-r": "project_panel::Rename"
+      "r": "project_panel::Rename"
     }
   }
 ]

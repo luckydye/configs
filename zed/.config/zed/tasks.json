@@ -4,7 +4,6 @@
 // ("ZED_ROW".into(), "1".into()),
 // ("ZED_COLUMN".into(), "1".into()),
 // ("ZED_SELECTED_TEXT".into(), "".into()),
-
 [
   {
     "label": "run test",
@@ -13,5 +12,9 @@
   {
     "label": "open path",
     "command": "zed $ZED_SELECTED_TEXT"
+  },
+  {
+    "label": "fix",
+    "command": "task fix || task fe:fix"
   }
 ]
