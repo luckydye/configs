@@ -20,7 +20,7 @@
     - !shell
       with:
         condition: (eq jet_os_flavor "OSX")
-      cmd: brew install --cask keeweb raycast
+      cmd: brew install --cask raycast alacritty
 
     - !shell
       with:
