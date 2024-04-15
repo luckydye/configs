@@ -41,21 +41,33 @@
     "show_nav_history_buttons": false
   },
   "format_on_save": "on",
-  "formatter": "auto",
+  "formatter": "language_server",
   "languages": {
     "TypeScript": {
-      "code_actions_on_format": {
-        "source.fixAll": true,
-        "source.organizeImports.biome": true
-      },
-      "formatter": "language_server"
+      "formatter": {
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
     },
     "TSX": {
-      "code_actions_on_format": {
-        "source.fixAll": true,
-        "source.organizeImports.biome": true
-      },
-      "formatter": "language_server"
+      "formatter": {
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
     },
     "JSON": {
       "formatter": "language_server"
