@@ -18,6 +18,7 @@
     "bindings": {
       "ctrl-shift-x": "zed::Extensions",
       "alt-shift-g": "editor::ToggleGitBlame",
+      "alt-shift-i": "editor::ToggleGitBlameInline",
       "ctrl-,": "zed::OpenSettings",
       "ctrl-.": "zed::OpenKeymap",
       "ctrl-p": "file_finder::Toggle",
@@ -129,10 +130,10 @@
       "ctrl-c": "project_panel::Copy",
       "ctrl-shift-c": "project_panel::CopyPath",
       "ctrl-v": "project_panel::Paste",
-      "n": "project_panel::NewFile",
+      "ctrl-n": "project_panel::NewFile",
       "shift-n": "project_panel::NewDirectory",
       "ctrl-d": "project_panel::Delete",
-      "r": "project_panel::Rename"
+      "ctrl-r": "project_panel::Rename"
     }
   }
 ]
