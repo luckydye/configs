@@ -72,6 +72,7 @@ alias dk="mise run docker_kill"
 # tasks
 alias r="mise run"
 alias u="mise use"
+alias n="cat package.json | jq -r \".scripts | keys[]\" | gum filter"
 
 function t() {
 	if [ $# -eq 0 ]; then
