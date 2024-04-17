@@ -31,6 +31,10 @@
     "calt": true,
     "liga": true
   },
+  "inlay_hints": {
+    "enabled": true,
+    "show_parameter_hints": false
+  },
   "buffer_font_size": 13,
   "buffer_font_family": "CommitMono",
   "buffer_font_features": {
