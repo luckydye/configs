@@ -19,6 +19,7 @@
       "enabled": true
     }
   },
+  "format_on_save": "on",
   "cursor_blink": false,
   "theme": "Github Dark",
   "show_completions_on_input": false,
@@ -33,7 +34,8 @@
   },
   "inlay_hints": {
     "enabled": true,
-    "show_parameter_hints": false
+    "show_parameter_hints": false,
+    "show_type_hints": false
   },
   "buffer_font_size": 13,
   "buffer_font_family": "CommitMono",
@@ -44,52 +46,23 @@
   "tab_bar": {
     "show_nav_history_buttons": false
   },
-  "format_on_save": "on",
-  "formatter": "language_server",
   "languages": {
-    "TypeScript": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/biome/bin/biome",
-          "arguments": [
-            "format",
-            "--write",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
     "TSX": {
-      "formatter": {
-        "external": {
-          "command": "./node_modules/@biomejs/biome/bin/biome",
-          "arguments": [
-            "format",
-            "--write",
-            "--stdin-file-path",
-            "{buffer_path}"
-          ]
-        }
-      }
+      "formatter": "language_server",
+      "code_actions_on_format": {
+        "source.fixAll.biome": true
+      },
+      "language_servers": ["!eslint", "!prettier", "..."]
+    },
+    "TypeScript": {
+      "formatter": "language_server",
+      "code_actions_on_format": {
+        "source.fixAll.biome": true
+      },
+      "language_servers": ["!eslint", "!prettier", "..."]
     },
     "JSON": {
-      "formatter": "language_server"
-    },
-    "TOML": {
-      "formatter": "auto"
-    },
-    "Rust": {
-      "formatter": "language_server"
-    },
-    "Astro": {
-      "formatter": "auto"
-    },
-    "HTML": {
-      "formatter": "prettier"
-    },
-    "CSS": {
-      "formatter": "prettier"
+      "language_servers": ["!biome", "..."]
     }
   }
 }
