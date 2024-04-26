@@ -25,7 +25,7 @@
       "ctrl-shift-p": "command_palette::Toggle",
       "ctrl-r": "projects::OpenRecent",
       "ctrl-w": "pane::CloseActiveItem",
-      "ctrl-f": "vim::Search",
+      "ctrl-f": "buffer_search::Deploy",
       "ctrl-shift-f": "pane::DeploySearch",
       "ctrl-n": "search::SelectNextMatch",
       "ctrl-g": "search::SelectPrevMatch",
@@ -41,42 +41,15 @@
       "ctrl-b": "workspace::ToggleLeftDock",
       "ctrl-shift-b": "workspace::ToggleRightDock",
       "ctrl-j": "workspace::ToggleBottomDock",
-      "ctrl-1": [
-        "workspace::ActivatePane",
-        0
-      ],
-      "ctrl-2": [
-        "workspace::ActivatePane",
-        1
-      ],
-      "ctrl-3": [
-        "workspace::ActivatePane",
-        2
-      ],
-      "ctrl-4": [
-        "workspace::ActivatePane",
-        3
-      ],
-      "ctrl-5": [
-        "workspace::ActivatePane",
-        4
-      ],
-      "ctrl-6": [
-        "workspace::ActivatePane",
-        5
-      ],
-      "ctrl-7": [
-        "workspace::ActivatePane",
-        6
-      ],
-      "ctrl-8": [
-        "workspace::ActivatePane",
-        7
-      ],
-      "ctrl-9": [
-        "workspace::ActivatePane",
-        8
-      ],
+      "ctrl-1": ["workspace::ActivatePane", 0],
+      "ctrl-2": ["workspace::ActivatePane", 1],
+      "ctrl-3": ["workspace::ActivatePane", 2],
+      "ctrl-4": ["workspace::ActivatePane", 3],
+      "ctrl-5": ["workspace::ActivatePane", 4],
+      "ctrl-6": ["workspace::ActivatePane", 5],
+      "ctrl-7": ["workspace::ActivatePane", 6],
+      "ctrl-8": ["workspace::ActivatePane", 7],
+      "ctrl-9": ["workspace::ActivatePane", 8],
       "ctrl->": "editor::Indent",
       "ctrl-<": "editor::Outdent",
       "ctrl-c": "editor::Copy",
@@ -110,14 +83,8 @@
       "shift-tab": "editor::Outdent",
       "shift-right": "editor::MoveToNextWordEnd",
       "shift-left": "editor::MoveToPreviousWordStart",
-      "shift-up": [
-        "workspace::SendKeystrokes",
-        "up up up up up"
-      ],
-      "shift-down": [
-        "workspace::SendKeystrokes",
-        "down down down down down"
-      ],
+      "shift-up": ["workspace::SendKeystrokes", "up up up up up"],
+      "shift-down": ["workspace::SendKeystrokes", "down down down down down"],
       "g r": "editor::FindAllReferences",
       "g c": "editor::ToggleComments"
     }
