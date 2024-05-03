@@ -63,6 +63,23 @@ function commit() {
 	fi
 }
 
+function clone() {
+    cd ~/source
+
+	repo="$*"
+	git clone --depth 1 "$repo"
+
+	id=$(basename -s .git $repo)
+
+    tmux new-session -d -s $id
+
+    if [ -z "$TMUX" ]; then
+  		tmux attach -t $id
+    else
+  		tmux switch-client -t $id
+    fi
+}
+
 # docker
 alias compose="docker compose"
 alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v ~/configs:/configs -w /source luckydye/buildapp:latest"
