@@ -47,23 +47,34 @@
   "project_panel": {
     "auto_fold_dirs": true
   },
+  "formatter": "language_server",
+  "language_servers": [
+    "biome",
+    "typescript-language-server",
+    "!eslint",
+    "..."
+  ],
   "languages": {
+    "JSON": {
+      "language_servers": [
+        "!biome",
+        "..."
+      ]
+    },
     "TSX": {
-      "formatter": "language_server",
       "code_actions_on_format": {
         "source.fixAll.biome": true
-      },
-      "language_servers": ["!eslint", "!prettier", "..."]
+      }
     },
     "TypeScript": {
-      "formatter": "language_server",
       "code_actions_on_format": {
         "source.fixAll.biome": true
-      },
-      "language_servers": ["!eslint", "!prettier", "..."]
+      }
     },
-    "JSON": {
-      "language_servers": ["!biome", "..."]
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.biome": true
+      }
     },
     "HTML": {
       "use_autoclose": true

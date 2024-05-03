@@ -88,5 +88,8 @@
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }

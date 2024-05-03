@@ -1,0 +1,46 @@
+#!/bin/bash
+# mise hide=true
+# mise.alias=init
+# mise.description=Create new project directory
+# mise.dir={{cwd}}
+
+project="$HOME/source/$(gum input --placeholder="Project Name" --header="Create Project")"
+
+# create project dir
+
+if test -d $project; then
+  echo "Project exists."
+  exit 1
+fi
+
+mkdir $project || exit 1
+cd $project || exit 1
+
+# init project
+git init
+
+mkdir src
+
+mise use bun
+
+bun init -y
+
+echo "# $(cat package.json | jq -r .name)" >>README.md
+
+echo "node_modules" >>.gitignore
+echo "dist" >>.gitignore
+echo "target" >>.gitignore
+
+git add --all
+git commit -m "Initial commit"
+
+# attatch to new project
+id=$project
+
+tmux new-session -d -s $id
+
+if [ -z "$TMUX" ]; then
+	tmux attach -t $id
+else
+	tmux switch-client -t $id
+fi
