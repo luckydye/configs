@@ -33,7 +33,7 @@
 
     # link configs
     - !shell
-      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R xbindkeys nvim git mise tmux starship zed lazygit vscode
+      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R xbindkeys nvim git mise tmux starship zed lazygit vscode alacritty
 
     # install/update mise
     - !echo
