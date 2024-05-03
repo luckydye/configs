@@ -67,9 +67,10 @@ function clone() {
     cd ~/source
 
 	repo="$*"
-	git clone --depth 1 "$repo"
+	git clone --depth 1 $repo
 
-	id=$(basename -s .git $repo)
+	id="$HOME/source/$(basename -s .git $repo)"
+	cd $id
 
     tmux new-session -d -s $id
 
