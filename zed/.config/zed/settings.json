@@ -35,7 +35,7 @@
   },
   "inlay_hints": {
     "enabled": true,
-    "show_parameter_hints": false,
+    "show_parameter_hints": true,
     "show_type_hints": false
   },
   "buffer_font_size": 13,
@@ -47,34 +47,13 @@
   "project_panel": {
     "auto_fold_dirs": true
   },
-  "formatter": "language_server",
-  "language_servers": [
-    "biome",
-    "typescript-language-server",
-    "!eslint",
-    "..."
-  ],
+  "formatter": {
+    "language_server_name": "biome"
+  },
+  "language_servers": ["!eslint", "biome", "typescript-language-server", "..."],
   "languages": {
     "JSON": {
-      "language_servers": [
-        "!biome",
-        "..."
-      ]
-    },
-    "TSX": {
-      "code_actions_on_format": {
-        "source.fixAll.biome": true
-      }
-    },
-    "TypeScript": {
-      "code_actions_on_format": {
-        "source.fixAll.biome": true
-      }
-    },
-    "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.biome": true
-      }
+      "language_servers": ["!biome", "..."]
     },
     "HTML": {
       "use_autoclose": true
