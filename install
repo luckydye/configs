@@ -20,7 +20,7 @@ echo "# luckydye configs" >> ~/.zshrc
 echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc
 source $CONFIGS_DIR/.zshrc
 
-sudo apt install pkg-config libssl-dev
+sudo apt install pkg-config libssl-dev gcc -y
 
 # After jetporch is published to package regestries, we dont need to install rust anymore.
 # install rust and cargo
