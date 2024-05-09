@@ -2,7 +2,7 @@
 alias config='cd $HOME/configs'
 alias cfg='/usr/bin/git -C $HOME/configs/'
 alias sync="mise run config_sync"
-alias nuke="gum confirm 'Nuke configs?' && rm -rf ~/configs"
+alias nuke="gum confirm 'Nuke configs?' && rm -rf $CONFIGS_DIR"
 
 # navigation
 alias ".."="cd .."
@@ -83,7 +83,7 @@ function clone() {
 
 # docker
 alias compose="docker compose"
-alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v ~/configs:/configs -w /source luckydye/buildapp:latest"
+alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v $CONFIGS_DIR:/configs -w /source luckydye/buildapp:latest"
 alias da="mise run docker_attach"
 alias ds="mise run docker_shell"
 alias dk="mise run docker_kill"

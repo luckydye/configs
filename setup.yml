@@ -1,78 +1,72 @@
-# yaml-language-server: $schema=https://my.url.to/the/schema
-- name: Setup enviroment
+version: '3'
 
-  groups:
-    - all
+tasks:
+  default:
+    cmds:
+      - echo "Installing dependencies"
+      - task: dependencies
 
-  tasks:
-    - !facts
-    - !echo
-      msg: "OS Flavor = {{ jet_os_flavor }}"
+      - echo "Decrypt env"
+      - task: env
 
-    # install dependencies and applications
-    - !echo
-      msg: "Installing dependencies"
+      - echo "Link configs"
+      - task: link
 
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "OSX")
-      cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "OSX")
-      cmd: brew install --cask raycast alacritty
+      - echo "Installing neovim"
+      - task: install-neovim
 
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "Debian")
-      cmd: sudo apt update -y
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "Debian")
-      cmd: sudo apt install -y stow git unzip fd-find fzf watch ripgrep zsh tmux build-essential libfuse2 zoxide
+      - echo "Installing starship"
+      - task: install-starship
 
-    # link configs
-    - !shell
-      cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R xbindkeys nvim git mise tmux starship zed lazygit vscode alacritty
+      - echo "install/update mise"
+      - task: install-mise
 
-    # install/update neovim
-    - !echo
-      msg: "Installing neovim"
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "OSX")
-      cmd: brew install neovim
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "Debian")
-      cmd: mkdir -p $HOME/bin && cd $HOME/bin && curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin/nvim && chmod u+x ~/bin/nvim
+  env:
+      cmds:
+      - zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc"
 
-    # install/update starship
-    - !echo
-      msg: "Installing starship"
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "OSX")
-      cmd: brew install starship
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "Debian")
-      cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
+  dependencies:
+    cmds:
+      # mac
+      - cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide
+        platforms: [darwin]
+      - cmd: brew install --cask raycast alacritty
+        platforms: [darwin]
+      # linux
+      - cmd: sudo apt update -y
+        platforms: [linux]
+      - cmd: sudo apt install -y stow git unzip fd-find fzf watch ripgrep zsh tmux build-essential libfuse2 zoxide
+        platforms: [linux]
 
-    # decrypt env
-    - !echo
-      msg: "Decrypt env"
-    - !shell
-      cmd: zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc"
+  link:
+    cmds:
+      - stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R xbindkeys nvim git mise tmux starship zed lazygit vscode alacritty
 
-    # install/update mise
-    - !echo
-      msg: "Installing mise (rtx)"
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "OSX")
-      cmd: brew install mise && mise install
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "Debian")
-      cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh && mise install
+  install-neovim:
+    cmds:
+    # mac
+    - cmd: brew install neovim
+      platforms: [darwin]
+    # linux
+    - cmd: mkdir -p $HOME/bin && cd $HOME/bin && curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin/nvim && chmod u+x ~/bin/nvim
+      platforms: [linux]
+
+  install-starship:
+    cmds:
+    # mac
+    - cmd: brew install starship
+      platforms: [darwin]
+    # linux
+    - cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
+      platforms: [linux]
+
+  install-mise:
+    cmds:
+    # mac
+    - cmd: brew install mise
+      platforms: [darwin]
+    # linux
+    - cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh
+      platforms: [linux]
+
+    - mise install -y

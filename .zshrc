@@ -1,5 +1,5 @@
 source ~/configs/vars.sh
-source ${CONFIGS_DIR}/commands.sh
+source $CONFIGS_DIR/commands.sh
 
 alias rel="source ~/.zshrc; clear"
 
@@ -22,6 +22,5 @@ elif grep -qi microsoft /proc/version 2> /dev/null; then
 fi
 
 eval "$(mise env)" 2>/dev/null
-
 eval "$(mise activate zsh)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
