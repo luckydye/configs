@@ -35,18 +35,6 @@
     - !shell
       cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R xbindkeys nvim git mise tmux starship zed lazygit vscode alacritty
 
-    # install/update mise
-    - !echo
-      msg: "Installing mise (rtx)"
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "OSX")
-      cmd: brew install mise && mise install
-    - !shell
-      with:
-        condition: (eq jet_os_flavor "Debian")
-      cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh && mise install
-
     # install/update neovim
     - !echo
       msg: "Installing neovim"
@@ -76,3 +64,15 @@
       msg: "Decrypt env"
     - !shell
       cmd: zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc"
+
+    # install/update mise
+    - !echo
+      msg: "Installing mise (rtx)"
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "OSX")
+      cmd: brew install mise && mise install
+    - !shell
+      with:
+        condition: (eq jet_os_flavor "Debian")
+      cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh && mise install
