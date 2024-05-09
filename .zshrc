@@ -25,5 +25,3 @@ eval "$(mise env)" 2>/dev/null
 
 eval "$(mise activate zsh)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
-
-zsh
