@@ -21,5 +21,8 @@ elif grep -qi microsoft /proc/version 2> /dev/null; then
   alias csgo_config="cp $CONFIGS_DIR/apps/csgo/autoexec.cfg $steam/steamapps/common/Counter-Strike\ Global\ Offensive/csgo/cfg/autoexec.cfg"
 fi
 
+
+eval "$(mise env)" 2>/dev/null
+
 eval "$(mise activate zsh)" 2>/dev/null
 eval "$(starship init zsh)" 2>/dev/null
