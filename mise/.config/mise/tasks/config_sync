@@ -19,7 +19,7 @@ git -C $CONFIGS_DIR/ stash pop
 cp $CONFIGS_DIR/env $CONFIGS_DIR/env.swap
 
 echo "Rerun setup..."
-jetp local -p $CONFIGS_DIR/setup.yml || exit 1
+task -t $CONFIGS_DIR/setup.yml || exit 1
 
 echo "Merge env..."
 # merge new env with old env.swap
