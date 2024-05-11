@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -21,9 +21,28 @@ tasks:
       - echo "install/update mise"
       - task: install-mise
 
-  env:
-      cmds:
-      - zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc"
+  push:
+    predoncition:
+      sh: "git -C $CONFIGS_DIR/ diff --exit-code"
+    cmds:
+      - echo "Encrypt env..."
+      - zsh -c "source $CONFIGS_DIR/commands.sh; enc $CONFIGS_DIR/env"
+      - echo "Pushing configs"
+      - git -C $CONFIGS_DIR/ add --all
+      - git -C $CONFIGS_DIR/ commit -m "sync config"
+      - git -C $CONFIGS_DIR/ push
+
+  pull:
+    cmds:
+      - cp $CONFIGS_DIR/env $CONFIGS_DIR/env.swap
+      - echo "Stashing local changes and pulling"
+      - git -C $CONFIGS_DIR/ add --all
+      - git -C $CONFIGS_DIR/ stash
+      - git -C $CONFIGS_DIR/ pull
+      - git -C $CONFIGS_DIR/ stash pop
+      # merge new env with old env.swap
+      - git -C $CONFIGS_DIR/ merge-file -p $CONFIGS_DIR/env $CONFIGS_DIR/env $CONFIGS_DIR/env.swap >$CONFIGS_DIR/env
+      - rm $CONFIGS_DIR/env.swap
 
   dependencies:
     cmds:
@@ -44,29 +63,29 @@ tasks:
 
   install-neovim:
     cmds:
-    # mac
-    - cmd: brew install neovim
-      platforms: [darwin]
-    # linux
-    - cmd: mkdir -p $HOME/bin && cd $HOME/bin && curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin/nvim && chmod u+x ~/bin/nvim
-      platforms: [linux]
+      # mac
+      - cmd: brew install neovim
+        platforms: [darwin]
+      # linux
+      - cmd: mkdir -p $HOME/bin && cd $HOME/bin && curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin/nvim && chmod u+x ~/bin/nvim
+        platforms: [linux]
 
   install-starship:
     cmds:
-    # mac
-    - cmd: brew install starship
-      platforms: [darwin]
-    # linux
-    - cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
-      platforms: [linux]
+      # mac
+      - cmd: brew install starship
+        platforms: [darwin]
+      # linux
+      - cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
+        platforms: [linux]
 
   install-mise:
     cmds:
-    # mac
-    - cmd: brew install mise
-      platforms: [darwin]
-    # linux
-    - cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh
-      platforms: [linux]
+      # mac
+      - cmd: brew install mise
+        platforms: [darwin]
+      # linux
+      - cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh
+        platforms: [linux]
 
-    - mise install -y
+      - mise install -y
