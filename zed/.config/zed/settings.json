@@ -38,8 +38,8 @@
     "show_parameter_hints": true,
     "show_type_hints": false
   },
-  "buffer_font_size": 13,
-  "buffer_font_family": "CommitMono",
+  "buffer_font_size": 14,
+  "buffer_font_family": "ZedMono NF",
   "buffer_font_features": {
     "calt": true,
     "liga": true
