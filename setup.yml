@@ -11,7 +11,7 @@ tasks:
       - task: dependencies
 
       - echo "Decrypt env"
-      - task: env
+      - task: pull
 
       - echo "Link configs"
       - task: link
