@@ -5,6 +5,8 @@ export PATH="$PATH:$HOME/bin"
 
 export GPG_TTY=$(tty)
 
+export EDITOR=zed
+
 export MISE_EXPERIMENTAL=true
 export MISE_TRUSTED_CONFIG_PATHS=~$HOME/.config/mise/config.toml
 
