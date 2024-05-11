@@ -1,5 +1,9 @@
 version: "3"
 
+vars:
+  VAULT_PW:
+    sh: 'gum input --password --placeholder="Password" --header="Vault"'
+
 tasks:
   default:
     cmds:
@@ -26,7 +30,7 @@ tasks:
       sh: "git -C $CONFIGS_DIR/ diff --exit-code"
     cmds:
       - echo "Encrypt env..."
-      - zsh -c "source $CONFIGS_DIR/commands.sh; enc $CONFIGS_DIR/env"
+      - zsh -c "source $CONFIGS_DIR/commands.sh; enc $CONFIGS_DIR/env --pass=pass:{{.VAULT_PW}}"
       - echo "Pushing configs"
       - git -C $CONFIGS_DIR/ add --all
       - git -C $CONFIGS_DIR/ commit -m "sync config"
@@ -39,10 +43,11 @@ tasks:
       - git -C $CONFIGS_DIR/ add --all
       - git -C $CONFIGS_DIR/ stash
       - git -C $CONFIGS_DIR/ pull
-      - git -C $CONFIGS_DIR/ stash pop
+      - git -C $CONFIGS_DIR/ stash pop || true
+      - zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc --pass=pass:{{.VAULT_PW}}"
       # merge new env with old env.swap
       - git -C $CONFIGS_DIR/ merge-file -p $CONFIGS_DIR/env $CONFIGS_DIR/env $CONFIGS_DIR/env.swap >$CONFIGS_DIR/env
-      - rm $CONFIGS_DIR/env.swap
+      # - rm $CONFIGS_DIR/env.swap
 
   dependencies:
     cmds:

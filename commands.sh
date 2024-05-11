@@ -161,7 +161,7 @@ function enc() {
 	if [ ! -t 1 ]; then return; fi
 
 	# TODO: encrypt/decrypt folders (tar to archive, encrypt archive. Then decrypt archive and deflate)
-	openssl enc -aes-256-cbc -salt -pbkdf2 -in $1 -out $1.enc
+	openssl enc -aes-256-cbc -salt -pbkdf2 -in $1 -out $1.enc $2
 }
 
 function dec() {
@@ -170,7 +170,7 @@ function dec() {
 	replace=".enc"
 	replacewith=""
 	out="${1/${replace}/${replacewith}}"
-	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out
+	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out $2
 }
 
 bindkey -s '^p' ' run find_file\n'
