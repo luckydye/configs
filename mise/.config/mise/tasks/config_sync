@@ -1,8 +1,6 @@
 #!/bin/zsh
 # mise hide=true
 
-task -t $CONFIGS_DIR/setup.yml pull || exit 1
-
 echo "[sync] Rerun setup"
 task -t $CONFIGS_DIR/setup.yml || exit 1
 

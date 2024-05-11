@@ -7,11 +7,11 @@ vars:
 tasks:
   default:
     cmds:
-      - echo "Installing dependencies"
-      - task: dependencies
-
       - echo "Decrypt env"
       - task: pull
+
+      - echo "Installing dependencies"
+      - task: dependencies
 
       - echo "Link configs"
       - task: link
@@ -29,9 +29,9 @@ tasks:
     predoncition:
       sh: "git -C $CONFIGS_DIR/ diff --exit-code"
     cmds:
-      - echo "Encrypt env..."
+      - echo "[push] Encrypt env"
       - zsh -c "source $CONFIGS_DIR/commands.sh; enc $CONFIGS_DIR/env --pass=pass:{{.VAULT_PW}}"
-      - echo "Pushing configs"
+      - echo "[push] Pushing configs"
       - git -C $CONFIGS_DIR/ add --all
       - git -C $CONFIGS_DIR/ commit -m "sync config"
       - git -C $CONFIGS_DIR/ push
@@ -39,11 +39,12 @@ tasks:
   pull:
     cmds:
       - cp $CONFIGS_DIR/env $CONFIGS_DIR/env.swap
-      - echo "Stashing local changes and pulling"
+      - echo "[pull] Stashing local changes and pulling"
       - git -C $CONFIGS_DIR/ add --all
       - git -C $CONFIGS_DIR/ stash
       - git -C $CONFIGS_DIR/ pull
       - git -C $CONFIGS_DIR/ stash pop || true
+      - echo "[pull] Merge env"
       - zsh -c "source $CONFIGS_DIR/commands.sh; dec $CONFIGS_DIR/env.enc --pass=pass:{{.VAULT_PW}}"
       # merge new env with old env.swap
       - git -C $CONFIGS_DIR/ merge-file -p $CONFIGS_DIR/env $CONFIGS_DIR/env $CONFIGS_DIR/env.swap >$CONFIGS_DIR/env
