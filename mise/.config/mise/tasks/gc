@@ -4,4 +4,6 @@
 # mise hide=true
 # mise dir="{{cwd}}"
 
-git add --all && git stash && git clean -xdf . && git stash pop
+git add --all
+git stash
+git clean -xdf . && git stash pop
