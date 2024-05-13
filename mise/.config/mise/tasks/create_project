@@ -9,7 +9,7 @@ project="$HOME/source/$(gum input --placeholder="Project Name" --header="Create 
 # create project dir
 
 if test -d $project; then
-  echo "Project exists."
+  gum log --time rfc822 --level error "Project exists."
   exit 1
 fi
 
