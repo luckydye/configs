@@ -29,9 +29,10 @@ alias ta="mise run tmux_attach"
 
 # git
 alias gs="git status"
+alias stash="git stash"
 alias adda="git add --all"
 alias pull="git pull"
-alias fetch="git fetch --all"
+alias fetch="git fetch"
 alias push="git push"
 alias P="git push"
 alias gd="git diff --stat --cached ':!*lock'"
