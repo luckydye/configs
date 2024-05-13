@@ -21,6 +21,7 @@
       "enabled": true
     }
   },
+  "hover_popover_enabled": false,
   "cursor_blink": false,
   "seed_search_query_from_cursor": "selection",
   "relative_line_numbers": true,
