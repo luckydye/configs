@@ -1,10 +1,10 @@
 #!/bin/zsh
 # mise hide=true
 
-echo "[sync] Rerun setup"
+gum log --time rfc822 --prefix=sync --level info "Rerun setup"
 task -t $CONFIGS_DIR/setup.yml || exit 1
 
-echo "[sync] Push changes"
+gum log --time rfc822 --prefix=sync --level info "Push changes"
 task -t $CONFIGS_DIR/setup.yml push || exit 1
 
 echo "Done"
