@@ -48,11 +48,18 @@
   "project_panel": {
     "auto_fold_dirs": true
   },
-  "formatter": {
-    "language_server_name": "biome"
-  },
   "language_servers": ["!eslint", "biome", "typescript-language-server", "..."],
   "languages": {
+    "TypeScript": {
+      "formatter": {
+        "language_server_name": "biome"
+      }
+    },
+    "TSX": {
+      "formatter": {
+        "language_server_name": "biome"
+      }
+    },
     "JSON": {
       "language_servers": ["!biome", "..."]
     },

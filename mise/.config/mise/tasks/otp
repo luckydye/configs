@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/zsh
 # mise hide=true
-# mise.description=Create a one time password from the kdbx database
+# mise.description=Access a password from the kdbx database
 
 source $CONFIGS_DIR/commands.sh
 
@@ -8,11 +8,5 @@ pw=$(security find-generic-password -ws "$KEY_DATABASE_URL")
 
 if [ "$pw" != "" ]
 then
-    list=$(key --password="$pw" list)
-
-    if [ "$list" != "" ]
-    then
-        name=$(echo "$list" | gum filter)
-        key --password="$pw" otp "$name"
-    fi
+    key --password="$pw" choose --clipboard --otp
 fi
