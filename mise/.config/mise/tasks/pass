@@ -4,9 +4,11 @@
 
 source $CONFIGS_DIR/commands.sh
 
-pw=$(security find-generic-password -ws "$KEY_DATABASE_URL")
+where security && pw=$(security find-generic-password -ws "$KEY_DATABASE_URL")
 
 if [ "$pw" != "" ]
 then
     key --password="$pw" choose --clipboard
+else
+    key choose --clipboard
 fi
