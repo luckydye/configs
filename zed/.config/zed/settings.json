@@ -45,6 +45,9 @@
     "calt": true,
     "liga": true
   },
+  "tab_bar": {
+    "show": false
+  },
   "project_panel": {
     "auto_fold_dirs": true
   },
