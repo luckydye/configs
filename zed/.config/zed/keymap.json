@@ -8,12 +8,6 @@
     }
   },
   {
-    "context": "TabSwitcher",
-    "bindings": {
-      "ctrl-shift-tab": "menu::SelectPrev"
-    }
-  },
-  {
     // Editor bindings
     "bindings": {
       "ctrl-shift-x": "zed::Extensions",
@@ -30,7 +24,6 @@
       "ctrl-n": "search::SelectNextMatch",
       "ctrl-g": "search::SelectPrevMatch",
       "ctrl-shift-t": "pane::ReopenClosedItem",
-      "ctrl-t": "task::Spawn",
       "ctrl-tab": "tab_switcher::Toggle",
       "ctrl-alt-left": "pane::GoBack",
       "ctrl-alt-right": "pane::GoForward",
@@ -75,6 +68,13 @@
     }
   },
   {
+    // Tasks
+    "bindings": {
+      "ctrl-t": "task::Spawn",
+      "ctrl-alt-t f": ["task::Spawn", { "task_name": "fix" }]
+    }
+  },
+  {
     // Vim bindings
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
@@ -101,6 +101,12 @@
       "shift-n": "project_panel::NewDirectory",
       "ctrl-d": "project_panel::Delete",
       "ctrl-r": "project_panel::Rename"
+    }
+  },
+  {
+    "context": "TabSwitcher",
+    "bindings": {
+      "ctrl-shift-tab": "menu::SelectPrev"
     }
   }
 ]

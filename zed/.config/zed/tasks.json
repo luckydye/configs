@@ -6,8 +6,12 @@
 // ("ZED_SELECTED_TEXT".into(), "".into()),
 [
   {
-    "label": "run test",
+    "label": "task run test: $ZED_SELECTED_TEXT",
     "command": "task test -- --watch --test-name-pattern $ZED_SELECTED_TEXT"
+  },
+  {
+    "label": "js eval: $ZED_SELECTED_TEXT",
+    "command": "bun -e '$ZED_SELECTED_TEXT'"
   },
   {
     "label": "open path",

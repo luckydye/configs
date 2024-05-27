@@ -1,10 +1,3 @@
-// Zed settings
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run the `open default settings` command
-// from the command palette or from `Zed` application menu.
 {
   "theme": "Github Dark",
   "features": {
@@ -51,7 +44,10 @@
   "project_panel": {
     "auto_fold_dirs": true
   },
-  "language_servers": ["!eslint", "biome", "typescript-language-server", "..."],
+  "language_servers": ["!eslint", "..."],
+  "code_actions_on_format": {
+    "source.fixAll": true
+  },
   "languages": {
     "TypeScript": {
       "formatter": {
@@ -66,8 +62,19 @@
     "JSON": {
       "language_servers": ["!biome", "..."]
     },
+    "Markdown": {
+      "format_on_save": "off"
+    },
     "HTML": {
       "use_autoclose": true
+    }
+  },
+  "lsp": {
+    "biome": {
+      "binary": {
+        "path": "/Users/tihav/source/biome/target/debug/biome",
+        "arguments": ["lsp-proxy"]
+      }
     }
   }
 }
