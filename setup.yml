@@ -7,9 +7,6 @@ vars:
 tasks:
   default:
     cmds:
-      - echo "Decrypt env"
-      - task: pull
-
       - echo "Installing dependencies"
       - task: dependencies
 
@@ -24,6 +21,9 @@ tasks:
 
       - echo "install/update mise"
       - task: install-mise
+      
+      - echo "Decrypt env"
+      - task: pull
 
   push:
     predoncition:
