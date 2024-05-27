@@ -1,6 +1,6 @@
 #!/bin/bash
 # mise hide=true
 
-ssh-keygen -t rsa -b 4096 -f id_rsa -N ""
+ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
 
 cat ~/.ssh/id_rsa.pub
