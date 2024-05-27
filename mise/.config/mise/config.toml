@@ -1,14 +1,13 @@
 [tools]
 task = "3"
-gum = "latest"
-skate = "latest"
-glow = "latest"
-lazygit = "latest"
-starship = "latest"
 fd = "latest"
-watchexec = "latest"
+gum = "latest"
+lazygit = "latest"
 jq = "1.6"
 yq = "latest"
+glow = "latest"
+starship = "latest"
+watchexec = "latest"
 
 [settings]
 experimental = true
