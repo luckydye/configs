@@ -21,11 +21,10 @@ git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR} || exit 1
 # install task
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b $HOME/bin || exit 1
 
-task -t $CONFIGS_DIR/setup.yml || exit 1
-
 echo "# luckydye configs" >> ~/.zshrc || exit 1
 echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc || exit 1
-
 source $CONFIGS_DIR/.zshrc || exit 1
+
+task -t $CONFIGS_DIR/setup.yml || exit 1
 
 explain
