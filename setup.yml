@@ -1,9 +1,5 @@
 version: "3"
 
-vars:
-  VAULT_PW:
-    sh: 'gum input --password --placeholder="Password" --header="Vault"'
-
 tasks:
   default:
     cmds:
@@ -26,6 +22,9 @@ tasks:
       - task: pull
 
   push:
+    vars:
+      VAULT_PW:
+        sh: 'gum input --password --placeholder="Password" --header="Vault"'
     predoncition:
       sh: "git -C $CONFIGS_DIR/ diff --exit-code"
     cmds:
@@ -37,6 +36,9 @@ tasks:
       - git -C $CONFIGS_DIR/ push
 
   pull:
+    vars:
+      VAULT_PW:
+        sh: 'gum input --password --placeholder="Password" --header="Vault"'
     cmds:
       - cp $CONFIGS_DIR/env $CONFIGS_DIR/env.swap
       - echo "[pull] Stashing local changes and pulling"
