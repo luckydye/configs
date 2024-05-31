@@ -2,7 +2,7 @@
 task = "3"
 fd = "9.0.0"
 gum = "0.13.0"
-lazygit = "2.45.0"
+lazygit = "latest"
 jq = "1.6"
 yq = "latest"
 glow = "latest"
