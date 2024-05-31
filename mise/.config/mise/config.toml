@@ -1,8 +1,8 @@
 [tools]
 task = "3"
-fd = "latest"
-gum = "latest"
-lazygit = "latest"
+fd = "9.0.0"
+gum = "0.13.0"
+lazygit = "2.45.0"
 jq = "1.6"
 yq = "latest"
 glow = "latest"
