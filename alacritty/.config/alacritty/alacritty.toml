@@ -10,8 +10,8 @@ opacity = 0.9
 decorations = "Transparent"
 
 [font]
-normal = { family = "ZedMono NF", style = "Regular" }
-size = 14
+normal = { family = "Geist Mono", style = "Regular" }
+size = 13
 
 [selection]
 save_to_clipboard = true
