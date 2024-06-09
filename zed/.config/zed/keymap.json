@@ -10,6 +10,8 @@
   {
     // Editor bindings
     "bindings": {
+      "ctrl-cmd-down": "editor::ExpandExcerptsDown",
+      "ctrl-cmd-up": "editor::ExpandExcerptsUp",
       "ctrl-shift-x": "zed::Extensions",
       "alt-shift-g": "editor::ToggleGitBlame",
       "alt-shift-i": "editor::ToggleGitBlameInline",
