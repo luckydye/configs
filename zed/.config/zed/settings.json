@@ -1,5 +1,9 @@
 {
-	"theme": "Github Dark",
+	"theme": {
+		"mode": "system",
+		"light": "Github Light",
+		"dark": "Andromeda"
+	},
 	"features": {
 		"copilot": false,
 		"inline_completion_provider": "supermaven"
@@ -33,7 +37,7 @@
 		"show_parameter_hints": true,
 		"show_type_hints": false
 	},
-	"buffer_font_size": 13,
+	"buffer_font_size": 14,
 	"ui_font_family": "Geist Mono",
 	"buffer_font_family": "Geist Mono",
 	"buffer_font_features": {
@@ -43,10 +47,7 @@
 	"tab_bar": {
 		"show": false
 	},
-	"file_types": {
-		"JSONC": ["*/.zed/*.json", "*/zed/*.json"]
-	},
-	"language_servers": ["!eslint", "..."],
+	"language_servers": ["!eslint", "!vtsls", "..."],
 	"languages": {
 		"TypeScript": {
 			"formatter": {
