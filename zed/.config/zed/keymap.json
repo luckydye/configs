@@ -1,10 +1,9 @@
 [
   {
-    // Workspace navigation
-    "context": "Workspace",
+    // Tasks
     "bindings": {
-      "ctrl-shift-tab": "workspace::ActivatePreviousPane",
-      "ctrl-tab": "workspace::ActivateNextPane"
+      "ctrl-t": "task::Spawn",
+      "ctrl-alt-t f": ["task::Spawn", { "task_name": "fix" }]
     }
   },
   {
@@ -66,13 +65,6 @@
       "ctrl-alt-down": "vim::WindowBottom",
       "alt-shift-up": "editor::DuplicateLineUp",
       "alt-shift-down": "editor::DuplicateLineDown"
-    }
-  },
-  {
-    // Tasks
-    "bindings": {
-      "ctrl-t": "task::Spawn",
-      "ctrl-alt-t f": ["task::Spawn", { "task_name": "fix" }]
     }
   },
   {
