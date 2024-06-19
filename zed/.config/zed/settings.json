@@ -5,7 +5,6 @@
 		"dark": "Andromeda"
 	},
 	"features": {
-		"copilot": false,
 		"inline_completion_provider": "supermaven"
 	},
 	"vim_mode": true,
@@ -42,7 +41,7 @@
 	"buffer_font_family": "Geist Mono",
 	"buffer_font_features": {
 		"calt": true,
-		"liga": true
+		"liga": false
 	},
 	"tab_bar": {
 		"show": false
