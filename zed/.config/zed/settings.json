@@ -1,3 +1,4 @@
+// Zed Settings
 {
 	"theme": {
 		"mode": "system",
@@ -46,7 +47,7 @@
 	"tab_bar": {
 		"show": false
 	},
-	"language_servers": ["!eslint", "!vtsls", "..."],
+	"language_servers": ["!eslint", "..."],
 	"languages": {
 		"TypeScript": {
 			"formatter": {
