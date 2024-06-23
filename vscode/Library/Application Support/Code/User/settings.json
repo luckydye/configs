@@ -12,7 +12,7 @@
   "editor.accessibilitySupport": "off",
   "editor.stickyScroll.enabled": true,
   "editor.find.seedSearchStringFromSelection": "selection",
-  "editor.fontSize": 13,
+  "editor.fontSize": 14,
   "editor.fontFamily": "Geist Mono",
   "terminal.integrated.fontFamily": "Geist Mono",
   "editor.fontLigatures": true,
@@ -45,44 +45,24 @@
     "TODO": "markdown",
     "nginx": "plaintext"
   },
-  "files.autoSaveDelay": 500,
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
 
   "git.showCommitInput": false,
   "git.alwaysShowStagedChangesResourceGroup": true,
+
   "github.branchProtection": true,
   "github.gitProtocol": "ssh",
-  "github.copilot.enable": {
-    "*": true,
-    "plaintext": true,
-    "markdown": true,
-    "scminput": false
-  },
 
-  "javascript.preferences.importModuleSpecifierEnding": "js",
-  "[typescriptreact]": {
-    "tailwindCSS.suggestions": true,
-    "editor.defaultFormatter": "biomejs.biome"
-  },
   "javascript.updateImportsOnFileMove.enabled": "never",
   "typescript.updateImportsOnFileMove.enabled": "never",
-  "typescript.preferences.importModuleSpecifierEnding": "js",
 
   "cSpell.enabled": true,
   "cSpell.diagnosticLevel": "Hint",
   "cSpell.files": ["**/*.md", "**/*.ts", "**/*.tsx", "**/*.json"],
 
   "sqlite3-editor.ui.tableSelector.displayColumns": true,
-
-  "javascript.preferences.autoImportFileExcludePatterns": ["~*", "@*", "#*"],
-  "typescript.preferences.autoImportFileExcludePatterns": ["~*", "@*", "#*"],
-  "typescript.preferences.importModuleSpecifier": "non-relative",
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "github.copilot.editor.enableAutoCompletions": true
 }

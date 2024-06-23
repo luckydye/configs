@@ -7,6 +7,7 @@ jq = "1.6"
 yq = "latest"
 glow = "latest"
 watchexec = "latest"
+bun = "latest"
 
 [settings]
 experimental = true
