@@ -5,20 +5,20 @@
 // ("ZED_COLUMN".into(), "1".into()),
 // ("ZED_SELECTED_TEXT".into(), "".into()),
 [
-  {
-    "label": "task run test: $ZED_SELECTED_TEXT",
-    "command": "task test -- --watch --test-name-pattern $ZED_SELECTED_TEXT"
-  },
-  {
-    "label": "js eval: $ZED_SELECTED_TEXT",
-    "command": "bun -e '$ZED_SELECTED_TEXT'"
-  },
-  {
-    "label": "open path",
-    "command": "zed $ZED_SELECTED_TEXT"
-  },
-  {
-    "label": "fix",
-    "command": "task fix || task fe:fix"
-  }
+	{
+		"label": "task run test: $ZED_SELECTED_TEXT",
+		"command": "task test -- --watch --test-name-pattern $ZED_SELECTED_TEXT"
+	},
+	{
+		"label": "js eval: $ZED_SELECTED_TEXT",
+		"command": "bun -e '$ZED_SELECTED_TEXT'"
+	},
+	{
+		"label": "open path",
+		"command": "zed $ZED_SELECTED_TEXT"
+	},
+	{
+		"label": "fix",
+		"command": "task fix || task fe:fix"
+	}
 ]
