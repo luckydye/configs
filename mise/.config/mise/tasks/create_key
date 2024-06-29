@@ -1,0 +1,12 @@
+#!/bin/bash
+# mise hide=true
+# mise.description=Create new, or overwrite entry in key keepass database
+
+title=$(gum input --prompt="Name: ")
+username=$(gum input --prompt="Username: ")
+password=$(gum input --password --prompt="Password: ")
+
+key_password=$(gum input --password --prompt="Key: ")
+
+key set --password=$key_password --field UserName "$title" "$username"
+key set --password=$key_password "$title" "$password"
