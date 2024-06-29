@@ -8,5 +8,5 @@ password=$(gum input --password --prompt="Password: ")
 
 key_password=$(gum input --password --prompt="Key: ")
 
-key set --password=$key_password --field UserName "$title" "$username"
-key set --password=$key_password "$title" "$password"
+key --password=$key_password set --field UserName "$title" "$username"
+key --password=$key_password set "$title" "$password"
