@@ -82,6 +82,11 @@
 				"language_server_name": "biome"
 			}
 		},
+		"Astro": {
+			"formatter": {
+				"language_server_name": "biome"
+			}
+		},
 		"Markdown": {
 			"format_on_save": "off"
 		},

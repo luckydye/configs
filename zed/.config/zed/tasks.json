@@ -19,6 +19,12 @@
 	},
 	{
 		"label": "fix",
-		"command": "task fix || task fe:fix"
+		"command": "task fix || task fe:fix || mise run fix"
+	},
+	{
+		"label": "start",
+		"command": "mise run dev",
+		"use_new_terminal": false,
+		"allow_concurrent_runs": true
 	}
 ]

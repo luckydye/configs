@@ -3,8 +3,8 @@
 		// Tasks
 		"bindings": {
 			"ctrl-t": "task::Spawn",
-			"ctrl-alt-t f": ["task::Spawn", { "task_name": "fix" }],
-			"f5": ["task::Spawn", { "task_name": "start" }]
+			"f5": ["task::Spawn", { "task_name": "start" }],
+			"f6": ["task::Spawn", { "task_name": "fix" }]
 		}
 	},
 	{

@@ -1,12 +1,14 @@
 [tools]
 task = "3"
 fd = "9.0.0"
-gum = "0.13.0"
+gum = "latest"
 lazygit = "latest"
 jq = "1.6"
 yq = "latest"
 glow = "latest"
 watchexec = "latest"
+bun = "latest"
+rust = "nightly"
 
 [settings]
 experimental = true
