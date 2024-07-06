@@ -71,7 +71,7 @@ tasks:
 
   link:
     cmds:
-      - stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim git mise tmux starship zed lazygit vscode alacritty
+      - stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim ansible git mise tmux starship zed lazygit vscode alacritty
 
   install-neovim:
     cmds:
