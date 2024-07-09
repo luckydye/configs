@@ -3,13 +3,16 @@
 	name = Tim Havlicek
 	signingkey = BF007352F3B082D4
 
+[color "decorate"]
+  HEAD = bold italic 196
+  branch = 214
+  tag = bold 222
+
+[log]
+
 [alias]
 st = status
 br = branch -a -v
-#lol = log --graph --decorate --pretty=oneline --abbrev-commit
-#lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
-lol = log --graph --pretty=format:‘%Cred%h%Creset %C(auto)%d%Creset - %s’ --abbrev-commit --date=relative
-lola = log --graph --pretty=format:‘%Cred%h%Creset -%C(auto)%d%Creset %s %C(cyan)<%an>%Creset’ --abbrev-commit --date=relative --all
 reset-tag = “!f() { git tag -d $1 && git push origin :$1 && git tag $1 && git push origin $1; }; f”
 del = branch -D
 clear = stash clear
