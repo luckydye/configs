@@ -51,48 +51,103 @@
     "show": false
   },
   "language_servers": [
-    "!biome",
     "!eslint",
     "vtsls",
     "!typescript-language-server",
     "..."
   ],
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    }
+  },
   "languages": {
     "JavaScript": {
       "formatter": {
-        "language_server_name": "biome"
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
       }
     },
     "TypeScript": {
       "formatter": {
-        "language_server_name": "biome"
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
       }
     },
     "TSX": {
       "formatter": {
-        "language_server_name": "biome"
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
       }
     },
-    // "JSON": {
-    // 	"formatter": {
-    // 		"language_server_name": "biome"
-    // 	}
-    // },
-    // "JSONC": {
-    // 	"formatter": {
-    // 		"language_server_name": "biome"
-    // 	}
-    // },
+    "JSON": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "JSONC": {
+      "formatter": {
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
     "Astro": {
       "formatter": {
-        "language_server_name": "biome"
+        "external": {
+          "command": "./node_modules/@biomejs/biome/bin/biome",
+          "arguments": [
+            "format",
+            "--write",
+            "--stdin-file-path",
+            "{buffer_path}"
+          ]
+        }
       }
     },
     "Markdown": {
       "format_on_save": "off"
     },
     "HTML": {
-      "use_autoclose": true
+      "use_autoclose": true,
+      "use_auto_surround": true
     }
   }
 }
