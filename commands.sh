@@ -69,7 +69,7 @@ function clone() {
     cd ~/source
 
 	repo="$*"
-	git clone --depth 1 $repo
+	git clone $repo
 
 	id="$HOME/source/$(basename -s .git $repo)"
 	cd $id
