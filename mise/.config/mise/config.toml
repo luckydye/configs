@@ -15,3 +15,4 @@ python_venv_auto_create = true
 
 [env]
 RUST_LOG = "info"
+HUSKY = 0

@@ -1,106 +1,107 @@
 // Zed Settings
 {
-  "theme": {
-    "mode": "system",
-    "light": "Github Light",
-    "dark": "Andromeda"
-  },
-  "features": {
-    "inline_completion_provider": "supermaven"
-  },
-  "vim_mode": true,
-  "vim": {
-    "use_system_clipboard": "always",
-    "use_smartcase_find": true,
-    "use_multiline_find": true
-  },
-  "git": {
-    "inline_blame": {
-      "enabled": true
-    }
-  },
-  "hover_popover_enabled": false,
-  "cursor_blink": false,
-  "scroll_beyond_last_line": "vertical_scroll_margin",
-  "vertical_scroll_margin": 5,
-  "seed_search_query_from_cursor": "selection",
-  "relative_line_numbers": true,
-  "format_on_save": "on",
-  "show_completions_on_input": true,
-  "show_whitespaces": "selection",
-  "use_autoclose": false,
-  "use_auto_surround": true,
-  "ui_font_size": 16,
-  "ui_font_features": {
-    "calt": true,
-    "liga": true
-  },
-  "inlay_hints": {
-    "enabled": true,
-    "show_parameter_hints": true,
-    "show_type_hints": false
-  },
-  "buffer_font_size": 14,
-  "ui_font_family": "Geist Mono",
-  "buffer_font_family": "Geist Mono",
-  "buffer_font_features": {
-    "calt": true,
-    "liga": false
-  },
-  "tab_bar": {
-    "show": false
-  },
-  "language_servers": [
-    "biome",
-    "!eslint",
-    "vtsls",
-    "!typescript-language-server",
-    "..."
-  ],
-  // "lsp": {
-  //   "biome": {
-  //     "settings": {
-  //       "require_config_file": true
-  //     }
-  //   }
-  // },
-  "languages": {
-    "JavaScript": {
-      "formatter": {
-        "language_server_name": "biome"
-      }
-    },
-    "TypeScript": {
-      "formatter": {
-        "language_server_name": "biome"
-      }
-    },
-    "TSX": {
-      "formatter": {
-        "language_server_name": "biome"
-      }
-    },
-    "JSON": {
-      "formatter": {
-        "language_server_name": "biome"
-      }
-    },
-    "JSONC": {
-      "formatter": {
-        "language_server_name": "biome"
-      }
-    },
-    "Astro": {
-      "formatter": {
-        "language_server_name": "biome"
-      }
-    },
-    "Markdown": {
-      "format_on_save": "off"
-    },
-    "HTML": {
-      "use_autoclose": true,
-      "use_auto_surround": true
-    }
-  }
+	"theme": {
+		"mode": "system",
+		"light": "Github Light",
+		"dark": "Andromeda"
+	},
+	"features": {
+		"inline_completion_provider": "supermaven"
+	},
+	"vim_mode": true,
+	"vim": {
+		"use_system_clipboard": "always",
+		"use_smartcase_find": true,
+		"use_multiline_find": true
+	},
+	"git": {
+		"inline_blame": {
+			"enabled": true
+		}
+	},
+	"hover_popover_enabled": false,
+	"cursor_blink": false,
+	"scroll_beyond_last_line": "vertical_scroll_margin",
+	"vertical_scroll_margin": 5,
+	"seed_search_query_from_cursor": "selection",
+	"relative_line_numbers": true,
+	"format_on_save": "on",
+	"show_completions_on_input": true,
+	"show_whitespaces": "selection",
+	"use_autoclose": false,
+	"use_auto_surround": true,
+	"ui_font_size": 16,
+	"ui_font_features": {
+		"calt": true,
+		"liga": true
+	},
+	"inlay_hints": {
+		"enabled": true,
+		"show_parameter_hints": true,
+		"show_type_hints": false
+	},
+	"buffer_font_size": 14,
+	"ui_font_family": "Geist Mono",
+	"buffer_font_family": "Geist Mono",
+	"buffer_font_features": {
+		"calt": true,
+		"liga": false
+	},
+	"tab_bar": {
+		"show": false
+	},
+	"language_servers": [
+		"biome",
+		"!eslint",
+		"vtsls",
+		"!typescript-language-server",
+		"..."
+	],
+	"lsp": {
+		"biome": {
+			"settings": {
+				// "config_path": "test/biome.json",
+				// "require_config_file": true
+			}
+		}
+	},
+	"languages": {
+		"JavaScript": {
+			"formatter": {
+				"language_server_name": "biome"
+			}
+		},
+		"TypeScript": {
+			"formatter": {
+				"language_server_name": "biome"
+			}
+		},
+		"TSX": {
+			"formatter": {
+				"language_server_name": "biome"
+			}
+		},
+		"JSON": {
+			"formatter": {
+				"language_server_name": "biome"
+			}
+		},
+		"JSONC": {
+			"formatter": {
+				"language_server_name": "biome"
+			}
+		},
+		"Astro": {
+			"formatter": {
+				"language_server_name": "biome"
+			}
+		},
+		"Markdown": {
+			"format_on_save": "off"
+		},
+		"HTML": {
+			"use_autoclose": true,
+			"use_auto_surround": true
+		}
+	}
 }
