@@ -8,6 +8,9 @@ glow = "latest"
 watchexec = "latest"
 bun = "latest"
 rust = "nightly"
+pnpm = "latest"
+node = "latest"
+just = "latest"
 
 [settings]
 experimental = true
