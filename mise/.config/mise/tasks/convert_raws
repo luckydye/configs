@@ -1,6 +1,4 @@
 #!/bin/bash
 # mise hide=true
 
-# find . -type f -name "*.CR3" -exec sh -c 'file={}; dir=$(dirname $file); name=$(basename $file .CR3); test -f $dir/$name.jpg || (dnglab analyze --srgb $file | ffmpeg -f image2pipe -vcodec ppm -i - -f image2 -q:v 6 $dir/$name.jpg && exiftool -TagsFromFile $file "-all:all>all:all" $dir/$name.jpg && cp --attributes-only --preserve $file $dir/$name.jpg) && rm $dir/$name.jpg_original' \;
-
-find . -type f -name "*.CR3" | parallel --bar -j 3 'file={}; dir=$(dirname $file); name=$(basename $file .CR3); test -f $dir/$name.jpg || (dnglab analyze --srgb $file | ffmpeg -f image2pipe -vcodec ppm -i - -f image2 -q:v 6 $dir/$name.jpg && exiftool -TagsFromFile $file "-all:all>all:all" $dir/$name.jpg && cp --attributes-only --preserve $file $dir/$name.jpg) && rm $dir/$name.jpg_original';
+find . -type f -name "*.CR3" | parallel --halt soon,fail=3 --bar -j 3 'd={//}; n={/.}; dest=$d/$n.jpg; test -f "$dest" || (dnglab analyze --srgb {} | ffmpeg -f image2pipe -vcodec ppm -i - -f image2 -q:v 6 "$dest" && exiftool -TagsFromFile {} "-all:all>all:all" "$dest" && cp --attributes-only --preserve {} "$dest") && rm "$dest_original"';
