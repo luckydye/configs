@@ -1,0 +1,4 @@
+#!/bin/bash
+# mise hide=true
+
+find . -type f -name "*.CR3" -exec sh -c 'file={}; dir=$(dirname $file); name=$(basename $file .CR3); if [ -f $dir/$name.jpg ]; then echo "File exists!" else dnglab analyze --srgb $file | ffmpeg -f image2pipe -vcodec ppm -i - -f image2 -q:v 6 $dir/$name.jpg && exiftool -TagsFromFile $file "-all:all>all:all" $dir/$name.jpg && cp --attributes-only --preserve $file $dir/$name.jpg fi' \;
