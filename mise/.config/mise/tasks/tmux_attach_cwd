@@ -3,4 +3,4 @@
 # mise alias="tac"
 
 SESSION=$(pwd)
-tmux switch-client -t $SESSION || tmux attach -t $SESSION
+tmux new-session -s $SESSION || tmux attach -t $SESSION
