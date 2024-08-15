@@ -19,6 +19,18 @@
       "enabled": true
     }
   },
+  // "terminal": {
+  //   "shell": {
+  //     "with_arguments": {
+  //       "program": "tmux",
+  //       "args": [
+  //         "switch-client",
+  //         "-t",
+  //         "XX"
+  //       ]
+  //     }
+  //   }
+  // },
   "hover_popover_enabled": false,
   "cursor_blink": false,
   "scroll_beyond_last_line": "vertical_scroll_margin",
@@ -83,8 +95,14 @@
       "format_on_save": "off"
     },
     "HTML": {
+      "formatter": "prettier",
       "use_autoclose": true,
       "use_auto_surround": true
     }
+  },
+  "file_types": {
+    "HTML": [
+      "*.svg"
+    ]
   }
 }

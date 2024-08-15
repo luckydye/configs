@@ -43,7 +43,8 @@
     "*.mdx": "mdx",
     ".env": "ini",
     "TODO": "markdown",
-    "nginx": "plaintext"
+    "nginx": "plaintext",
+    "*.svg": "html"
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
@@ -64,5 +65,8 @@
   "sqlite3-editor.ui.tableSelector.displayColumns": true,
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 }
