@@ -1,0 +1,6 @@
+#!/bin/bash
+# mise hide=true
+# mise alias="tac"
+
+SESSION=$(pwd)
+tmux switch-client -t $SESSION || tmux attach -t $SESSION
