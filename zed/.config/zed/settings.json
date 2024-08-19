@@ -1,5 +1,6 @@
 // Zed Settings
 {
+  // Editor
   "theme": {
     "mode": "system",
     "light": "Github Light",
@@ -14,36 +15,38 @@
     "use_smartcase_find": true,
     "use_multiline_find": true
   },
+  "seed_search_query_from_cursor": "selection",
+  "hover_popover_enabled": false,
+  "cursor_blink": false,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "vertical_scroll_margin": 5,
+  "relative_line_numbers": true,
+  "show_completions_on_input": false,
+  "show_whitespaces": "selection",
+  "use_autoclose": false,
+  "use_auto_surround": true,
+  "inlay_hints": {
+    "enabled": true,
+    "show_parameter_hints": true,
+    "show_type_hints": false
+  },
+  // Git
   "git": {
     "inline_blame": {
       "enabled": true
     }
   },
+  // Terminal
   "terminal": {
     "shell": {
       "program": "/Users/tihav/configs/mise/.config/mise/tasks/tmux_attach_cwd"
     }
   },
-  "hover_popover_enabled": false,
-  "cursor_blink": false,
-  "scroll_beyond_last_line": "vertical_scroll_margin",
-  "vertical_scroll_margin": 5,
-  "seed_search_query_from_cursor": "selection",
-  "relative_line_numbers": true,
-  "format_on_save": "on",
-  "show_completions_on_input": false,
-  "show_whitespaces": "selection",
-  "use_autoclose": false,
-  "use_auto_surround": true,
+  // Fonts
   "ui_font_size": 16,
   "ui_font_features": {
     "calt": true,
     "liga": true
-  },
-  "inlay_hints": {
-    "enabled": true,
-    "show_parameter_hints": true,
-    "show_type_hints": false
   },
   "buffer_font_size": 14,
   "ui_font_family": "Geist Mono",
@@ -52,14 +55,21 @@
     "calt": true,
     "liga": false
   },
+  // UI
+  "toolbar": {
+    "selections_menu": false,
+    "quick_actions": false,
+    "breadcrumbs": false
+  },
   "tab_bar": {
     "show": false
   },
+  // Language Servers
   "language_servers": [
+    "typescript-language-server",
     "biome",
     "!eslint",
-    "vtsls",
-    "!typescript-language-server",
+    "!vtsls",
     "..."
   ],
   "lsp": {
@@ -70,16 +80,16 @@
       }
     }
   },
+  "format_on_save": "on",
   "formatter": [
     {
-      "language_server": {
-        "name": "biome"
+      "code_actions": {
+        "source.fixAll.biome": true
       }
     },
     {
-      "code_actions": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true
+      "language_server": {
+        "name": "biome"
       }
     }
   ],
