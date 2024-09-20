@@ -37,6 +37,8 @@
     "show_parameter_hints": true,
     "show_type_hints": false
   },
+  "tab_size": 2,
+  "hard_tabs": false,
   "format_on_save": "on",
   // Git
   "git": {
@@ -65,25 +67,12 @@
     "liga": false
   },
   // UI
-  "toolbar": {
-    "selections_menu": false,
-    "quick_actions": false,
-    "breadcrumbs": true
-  },
   "tab_bar": {
-    "show": false
+    "show": true
   },
   // Language Servers
-  "language_servers": [
-    "typescript-language-server",
-    "biome",
-    "!eslint",
-    "!vtsls",
-    "..."
-  ],
   "code_actions_on_format": {
-    "quickfix.biome": true,
-    "source.fixAll": true,
+    "source.fixAll.biome": true,
     "source.organizeImports.biome": true
   },
   "formatter": {
@@ -91,21 +80,19 @@
       "name": "biome"
     }
   },
-  "lsp": {
-    "biome": {
-      "settings": {
-        "require_config_file": true
-      }
-    }
-  },
   "languages": {
-    "Markdown": {
-      "format_on_save": "off"
+    "Shell Script": {
+      "formatter": "prettier"
     },
     "HTML": {
+      "formatter": "prettier"
+    },
+    "YAML": {
+      "formatter": "prettier"
+    },
+    "Markdown": {
       "formatter": "prettier",
-      "use_autoclose": true,
-      "use_auto_surround": true
+      "format_on_save": "off"
     }
   },
   "file_types": {
