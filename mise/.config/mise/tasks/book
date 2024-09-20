@@ -1,0 +1,23 @@
+#!/bin/bash
+# mise hide=true
+
+since=$1
+until=$2
+
+base=$(pwd)
+projects=$(find ~/source -maxdepth 2 -name .git -type d | sed 's/\/.git//g')
+
+for project in $projects; do
+  cd $project
+
+  work=$(git log --decorate --author-date-order --abbrev-commit --format=format:'%C(bold yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset) %C(dim white)- %an%C(reset) %C(bold dim white)(%cd)%C(reset) ' --all --since="$since" --until="$until" | cat | grep "Tim Havlicek")
+
+  if [[ $work ]]; then
+    echo ""
+    echo "|"
+    echo "|" $project
+    echo "|"
+    printf "$work\n"
+    echo ""
+  fi
+done
