@@ -4,13 +4,7 @@ fd = "9.0.0"
 gum = "latest"
 lazygit = "latest"
 yq = "latest"
-glow = "latest"
-watchexec = "latest"
-bun = "1.1.21"
-rust = "nightly"
-pnpm = "latest"
-node = "latest"
-just = "latest"
+bun = "latest"
 
 [settings]
 experimental = true
