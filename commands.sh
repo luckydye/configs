@@ -27,6 +27,7 @@ alias pass="mise run pass"
 alias otp="mise run otp"
 alias ta="mise run tmux_attach"
 alias book="mise run book"
+alias bookai="mise run bookai"
 
 # git
 alias gs="git status"
