@@ -1,6 +1,13 @@
-#!/bin/bash
+#!/bin/zsh
 # mise hide=true
 
-prompt="Write me a summary of work to put in my work record. Write it as a 1 level deep list, Ignore all commits with "Merge" nane. Keep it short and simple. Maximum of 5 entries."
+prompt='Write me a summary of work to put in my work record. Write it as a 1 level deep list, Ignore all commits with "Merge" nane. Keep it short and simple. Maximum of 5 entries.'
 
-ollama run llama3.2 "$prompt \n$(book $1 $2)"
+log=$(mise run book $1)
+
+fullprompt="""
+$prompt
+$log
+"""
+
+ollama run llama3.2 $fullprompt
