@@ -5,7 +5,7 @@ since=$1
 until=$2
 
 base=$(pwd)
-projects=$(find ~/source -maxdepth 2 -name .git -type d | sed 's/\/.git//g')
+projects=$(find . -maxdepth 2 -name .git -type d | sed 's/\/.git//g')
 
 for project in $projects; do
   cd $project
