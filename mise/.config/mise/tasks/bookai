@@ -1,8 +1,21 @@
 #!/bin/zsh
 # mise hide=true
 
-prompt='Write me a summary of work to put in my work record. Write it as a 1 level deep list, Ignore all commits with "Merge" nane. Keep it short and simple. Maximum of 5 entries.'
+prompt="""
+The logs for each project:
 
-log=$(mise run book $1 $2)
+$(mise run book $1 $2)
 
-ollama run llama3.2 "$prompt\n$log"
+--------------------------------------------------------------------------------
+
+Write me a summary of work to put in my work jurnal with the following guidelines:
+
+- Write it as a unordered list, with every entry in short, plain english sentences.
+- Combine duplicate and similar log entries into one.
+- A maximum of 5 entries per day.
+- Ignore log entires with 'Merge'.
+- Ignore lockfile changes.
+"""
+
+# echo $prompt
+ollama run llama3.2 "$prompt"

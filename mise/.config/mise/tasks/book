@@ -14,9 +14,8 @@ for project in $projects; do
 
   if [[ $work ]]; then
     echo ""
-    echo "|"
-    echo "|" $project
-    echo "|"
+    echo "----------------------"
+    echo "$project\n"
     printf "$work\n"
     echo ""
   fi
