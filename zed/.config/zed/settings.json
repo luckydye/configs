@@ -70,6 +70,10 @@
 	"tab_bar": {
 		"show": true
 	},
+	"gutter": {
+		"code_actions": false,
+		"runnables": false
+	},
 	// Language Servers
 	"formatter": [
 		{
@@ -97,9 +101,6 @@
 		"Markdown": {
 			"formatter": "prettier",
 			"format_on_save": "off"
-		},
-		"TypeScript": {
-			"language_servers": ["tailwindcss-language-server", "..."]
 		}
 	},
 	"file_types": {
