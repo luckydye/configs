@@ -13,6 +13,9 @@ tasks:
       - echo "Link configs"
       - task: link
 
+      - task: macos-configuration
+        platform: [darwin]
+
       - echo "Installing neovim"
       - task: install-neovim
 
@@ -101,3 +104,9 @@ tasks:
         platforms: [linux]
 
       - mise install -y
+
+  macos-configuration:
+    cmds:
+      - defaults write -g InitialKeyRepeat -int 15
+      - defaults write -g KeyRepeat -int 1
+      - defaults write http://com.apple.finder AppleShowAllFiles YES
