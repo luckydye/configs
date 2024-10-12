@@ -5,6 +5,9 @@ gum = "latest"
 lazygit = "latest"
 yq = "latest"
 bun = "latest"
+node = "latest"
+rust = "latest"
+jq = "latest"
 
 [settings]
 experimental = true
