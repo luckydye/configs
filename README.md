@@ -2,4 +2,7 @@
 curl https://luckydye.github.io/configs/install | bash
 ```
 
-Font: [Geist Mono](https://vercel.com/font)
+Download Font
+```bash
+mise run download_font
+```
