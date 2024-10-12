@@ -2,4 +2,4 @@
 curl https://luckydye.github.io/configs/install | bash
 ```
 
-Font: https://github.com/zed-industries/zed-fonts
+Font: [Geist Mono](https://vercel.com/font)
