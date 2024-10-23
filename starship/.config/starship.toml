@@ -23,7 +23,7 @@ $character\
 
 [cmd_duration]
 format = """
-took [$duration]($style)
+< took [$duration]($style)
 """
 
 # Disable the package module, hiding it from the prompt completely
