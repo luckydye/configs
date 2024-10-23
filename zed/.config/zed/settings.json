@@ -74,7 +74,7 @@
 		"code_actions": false,
 		"runnables": false
 	},
-	// Language Servers
+	// Language Servers and Formatting
 	"formatter": [
 		{
 			"language_server": {
@@ -101,9 +101,25 @@
 		"Markdown": {
 			"formatter": "prettier",
 			"format_on_save": "off"
+		},
+		"MDX": {
+			"formatter": "prettier",
+			"format_on_save": "on",
+			"language_servers": ["...", "tailwindcss-language-server"]
+		},
+		"TypeScript": {
+			// "language_servers": ["...", "vtsls", "tailwindcss-language-server"]
 		}
 	},
 	"file_types": {
 		"HTML": ["*.svg"]
+	},
+	"lsp": {
+		"biome": {
+			"settings": {
+				"config_path": "./src/biome.json"
+				// "require_config_file": true
+			}
+		}
 	}
 }

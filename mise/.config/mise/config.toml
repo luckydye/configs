@@ -4,10 +4,10 @@ fd = "9.0.0"
 gum = "latest"
 lazygit = "latest"
 yq = "latest"
-bun = "latest"
-node = "latest"
+# node = "22"
+glow = "latest"
 rust = "latest"
-jq = "latest"
+node = "latest"
 
 [settings]
 experimental = true
