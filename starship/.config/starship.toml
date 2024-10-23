@@ -1,10 +1,11 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 # Inserts a blank line between shell prompts
 add_newline = false
 
 format = """
 $username\
 $hostname\
-$localip\
 $env_var\
 $cmd_duration\
 $jobs\
@@ -14,12 +15,15 @@ $container\
 $shell\
 $battery\
 $directory\
+$git_branch\
+$git_status\
+$git_state\
 $character\
 """
 
 # Disable the package module, hiding it from the prompt completely
 [package]
-disabled = false
+disabled = true
 
 [battery]
 full_symbol = ''
@@ -29,3 +33,20 @@ discharging_symbol = ''
 [[battery.display]]
 threshold = 10
 style = 'bold red'
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style)'
+
+[git_branch]
+format = '[\($branch\)]($style)'
+
+[git_status]
+format = '$ahead_behind $renamed$deleted$untracked$modified$staged($style) '
+ahead = "⇡"
+behind = "⇣"
+up_to_date = "[✓](green)"
+renamed = "[R](red)"
+deleted = "[D](red)"
+untracked = "[?](red)"
+modified = "[M](red)"
+staged = "[M](green)"
