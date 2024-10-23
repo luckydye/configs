@@ -20,14 +20,6 @@ alias z="~/source/zed/target/release/Zed ."
 alias lg='lazygit'
 alias files='yazi'
 alias f='spf .'
-alias clip="pbcopy"
-alias k="mise run pass | clip"
-alias disk="diskonaut"
-alias pass="mise run pass"
-alias otp="mise run otp"
-alias ta="mise run tmux_attach"
-alias book="mise run book"
-alias bookai="mise run bookai"
 
 # git
 alias gs="git status"
@@ -93,8 +85,16 @@ alias ds="mise run docker_shell"
 alias dk="mise run docker_kill"
 
 # tasks
+alias clip="pbcopy"
+alias k="mise run pass | clip"
+alias disk="diskonaut"
+alias pass="mise run pass"
+alias otp="mise run otp"
+alias ta="mise run tmux_attach"
+alias book="mise run book"
+alias bookai="mise run bookai"
+alias use="mise use"
 alias r="mise run"
-alias u="mise use"
 
 function n() {
 	script=$(task --list --json | jq -r ".tasks[].name" | gum filter)
@@ -111,15 +111,6 @@ function t() {
 }
 
 # mise task
-function mt() {
-	if [ $# -eq 0 ]; then
-		mise task ls
-	else
-		msg="$*"
-		mise run $msg
-	fi
-}
-
 function run() {
 	if [ $# -eq 0 ]; then
 		mise run find_script
