@@ -42,8 +42,8 @@ format = '[\($branch\)]($style)'
 
 [git_status]
 format = '$ahead_behind $renamed$deleted$untracked$modified$staged($style) '
-ahead = "⇡"
-behind = "⇣"
+ahead = "[⇡](green)"
+behind = "[⇣](green)"
 up_to_date = "[✓](green)"
 renamed = "[R](red)"
 deleted = "[D](red)"
