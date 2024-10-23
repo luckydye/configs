@@ -21,6 +21,9 @@ $git_state\
 $character\
 """
 
+[cmd_duration]
+format = 'took [$duration]($style) \n'
+
 # Disable the package module, hiding it from the prompt completely
 [package]
 disabled = true
