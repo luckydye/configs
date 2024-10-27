@@ -9,34 +9,27 @@ tasks:
     cmds:
       - echo "Windwos setup"
       - task: windows-configuration
-        platforms: [windows]
         
       - echo "Installing dependencies"
       - task: dependencies
-        platforms: [darwin, linux]
 
       - echo "Link configs"
       - task: link
-        platforms: [darwin, linux]
 
+      - echo "MacOS configuration"
       - task: macos-configuration
-        platform: [darwin]
 
       - echo "Installing neovim"
       - task: install-neovim
-        platforms: [darwin, linux]
 
       - echo "Installing starship"
       - task: install-starship
-        platforms: [darwin, linux]
 
       - echo "install/update mise"
       - task: install-mise
-        platforms: [darwin, linux]
       
       - echo "Decrypt env"
       - task: pull
-        platforms: [darwin, linux]
 
   push:
     vars:
@@ -118,14 +111,19 @@ tasks:
       - cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh
         platforms: [linux]
 
-      - mise install -y
+      - cmd: mise install -y
+        platforms: [linux, darwin]
 
   macos-configuration:
     cmds:
-      - defaults write -g InitialKeyRepeat -int 15
-      - defaults write -g KeyRepeat -int 1
-      - defaults write http://com.apple.finder AppleShowAllFiles YES
+      - cmd: defaults write -g InitialKeyRepeat -int 15
+        platforms: [darwin]
+      - cmd: defaults write -g KeyRepeat -int 1
+        platforms: [darwin]
+      - cmd: defaults write http://com.apple.finder AppleShowAllFiles YES
+        platforms: [darwin]
 
   windows-configuration:
     cmds:
-      - echo test
+      - cmd: echo test
+        platforms: [windows]
