@@ -115,5 +115,5 @@ tasks:
     platforms: [windows]
     cmds:
       - echo link obs config
-      - New-Item -Path "$env:USERPROFILE\AppData\Roaming\obs-studio\basic" -ItemType SymbolicLink -Value  "$env:USERPROFILE\configs\obs\basic"
+      - mklink \D "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
         
