@@ -16,11 +16,11 @@ function explain() {
     echo ""
 }
 
-git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR} || exit 1
+git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR} 
 
 # install task
 scoop install task
 
-task -t $CONFIGS_DIR/setup.yml || exit 1
+task -t $CONFIGS_DIR/setup.yml
 
 explain
