@@ -20,7 +20,7 @@ tasks:
         platforms: [darwin, linux]
 
       - task: macos-configuration
-        platforms: [darwin]
+        platform: [darwin]
 
       - echo "Installing neovim"
       - task: install-neovim
