@@ -2,7 +2,7 @@
 
 # install enrry for windows
 
-set CONFIGS_DIR=~/configs
+$CONFIGS_DIR = "~/configs"
 
 function explain() {
     echo ""
