@@ -1,5 +1,3 @@
-@echo off
-
 # install enrry for windows
 
 $CONFIGS_DIR = "~/configs"
