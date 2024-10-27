@@ -7,6 +7,10 @@ vars:
 tasks:
   default:
     cmds:
+      - echo "Windwos setup"
+      - task: windows-configuration
+        platforms: [windows]
+        
       - echo "Installing dependencies"
       - task: dependencies
         platforms: [darwin, linux]
@@ -33,10 +37,6 @@ tasks:
       - echo "Decrypt env"
       - task: pull
         platforms: [darwin, linux]
-
-      - echo "Windwos setup"
-      - task: windows-configuration
-        platforms: [windows]
 
   push:
     vars:
