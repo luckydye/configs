@@ -21,6 +21,7 @@ git clone https://github.com/luckydye/configs.git
 # install task
 scoop install task
 
-task -t $CONFIGS_DIR/setup.yml
+cd $CONFIGS_DIR
+task -t setup.yml
 
 explain
