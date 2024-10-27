@@ -14,7 +14,9 @@ function explain() {
     echo ""
 }
 
-git clone https://github.com/luckydye/configs.git $CONFIGS_DIR
+mkdir $CONFIGS_DIR
+cd $CONFIGS_DIR
+git clone https://github.com/luckydye/configs.git
 
 # install task
 scoop install task
