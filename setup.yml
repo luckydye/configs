@@ -127,6 +127,7 @@ tasks:
       - defaults write http://com.apple.finder AppleShowAllFiles YES
 
   windows-configuration:
+    platforms: [windows]
     cmds:
-      - cmd: echo test
-        platforms: [windows]
+      - echo test
+        
