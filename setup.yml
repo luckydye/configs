@@ -35,6 +35,10 @@ tasks:
       - task: pull
         platforms: [darwin, linux]
 
+      - echo "Windwos setup"
+      - task: windows-configuration
+        platforms: [windows]
+
   push:
     vars:
       VAULT_PW:
@@ -122,3 +126,7 @@ tasks:
       - defaults write -g InitialKeyRepeat -int 15
       - defaults write -g KeyRepeat -int 1
       - defaults write http://com.apple.finder AppleShowAllFiles YES
+
+  windows-configuration:
+    cmds:
+      - echo test
