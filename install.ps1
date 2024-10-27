@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+@echo off
 
 # install enrry for windows
 
