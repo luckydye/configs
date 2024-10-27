@@ -32,6 +32,7 @@ tasks:
       - task: pull
 
   push:
+    platforms: [darwin, linux]
     vars:
       VAULT_PW:
         sh: 'gum input --password --placeholder="Password" --header="Vault"'
@@ -46,6 +47,7 @@ tasks:
       - git -C $CONFIGS_DIR/ push
 
   pull:
+    platforms: [darwin, linux]
     vars:
       VAULT_PW:
         sh: 'gum input --password --placeholder="Password" --header="Vault"'
@@ -85,6 +87,7 @@ tasks:
         platforms: [linux]
 
   install-neovim:
+    platforms: [darwin, linux]
     cmds:
       # mac
       - cmd: brew install neovim
@@ -94,6 +97,7 @@ tasks:
         platforms: [linux]
 
   install-starship:
+    platforms: [darwin, linux]
     cmds:
       # mac
       - cmd: brew install starship
@@ -103,6 +107,7 @@ tasks:
         platforms: [linux]
 
   install-mise:
+    platforms: [darwin, linux]
     cmds:
       # mac
       - cmd: brew install mise
@@ -115,13 +120,11 @@ tasks:
         platforms: [linux, darwin]
 
   macos-configuration:
+    platforms: [darwin]
     cmds:
-      - cmd: defaults write -g InitialKeyRepeat -int 15
-        platforms: [darwin]
-      - cmd: defaults write -g KeyRepeat -int 1
-        platforms: [darwin]
-      - cmd: defaults write http://com.apple.finder AppleShowAllFiles YES
-        platforms: [darwin]
+      - defaults write -g InitialKeyRepeat -int 15
+      - defaults write -g KeyRepeat -int 1
+      - defaults write http://com.apple.finder AppleShowAllFiles YES
 
   windows-configuration:
     cmds:
