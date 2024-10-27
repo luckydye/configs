@@ -9,24 +9,31 @@ tasks:
     cmds:
       - echo "Installing dependencies"
       - task: dependencies
+        platforms: [darwin, linux]
 
       - echo "Link configs"
       - task: link
+        platforms: [darwin, linux]
 
       - task: macos-configuration
         platform: [darwin]
+        platforms: [darwin, linux]
 
       - echo "Installing neovim"
       - task: install-neovim
+        platforms: [darwin, linux]
 
       - echo "Installing starship"
       - task: install-starship
+        platforms: [darwin, linux]
 
       - echo "install/update mise"
       - task: install-mise
+        platforms: [darwin, linux]
       
       - echo "Decrypt env"
       - task: pull
+        platforms: [darwin, linux]
 
   push:
     vars:
