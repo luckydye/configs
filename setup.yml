@@ -7,28 +7,13 @@ vars:
 tasks:
   default:
     cmds:
-      - echo "Windwos setup"
       - task: windows-configuration
-        
-      - echo "Installing dependencies"
       - task: dependencies
-
-      - echo "Link configs"
       - task: link
-
-      - echo "MacOS configuration"
       - task: macos-configuration
-
-      - echo "Installing neovim"
       - task: install-neovim
-
-      - echo "Installing starship"
       - task: install-starship
-
-      - echo "install/update mise"
       - task: install-mise
-      
-      - echo "Decrypt env"
       - task: pull
 
   push:
