@@ -2,12 +2,11 @@ version: "3"
 
 vars:
   CONFIGS_DIR:
-    sh: 'echo $HOME/configs'
+    sh: "echo $HOME/configs"
 
 tasks:
   default:
     cmds:
-      - task: windows-configuration
       - task: dependencies
       - task: link
       - task: macos-configuration
@@ -70,6 +69,12 @@ tasks:
       # linux
       - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim ansible git mise tmux starship zed lazygit alacritty
         platforms: [linux]
+      # mac obs
+      - cmd: 'ln -s {{.CONFIGS_DIR}}/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
+        platforms: [darwin]
+      # windows obs
+      - cmd: mklink \D "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
+        platforms: [windows]
 
   install-neovim:
     platforms: [darwin, linux]
@@ -110,10 +115,3 @@ tasks:
       - defaults write -g InitialKeyRepeat -int 15
       - defaults write -g KeyRepeat -int 1
       - defaults write http://com.apple.finder AppleShowAllFiles YES
-
-  windows-configuration:
-    platforms: [windows]
-    cmds:
-      - echo link obs config
-      - mklink \D "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
-        
