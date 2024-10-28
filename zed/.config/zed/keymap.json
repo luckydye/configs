@@ -1,125 +1,160 @@
 [
-	{
-		// Tasks
-		"bindings": {
-			"ctrl-t": "task::Spawn",
-			"f5": [
-				"task::Spawn",
-				{
-					"task_name": "start"
-				}
-			],
-			"f6": [
-				"task::Spawn",
-				{
-					"task_name": "fix"
-				}
-			]
-		}
-	},
-	{
-		// Editor bindings
-		"bindings": {
-			"ctrl-cmd-down": "editor::ExpandExcerptsDown",
-			"ctrl-cmd-up": "editor::ExpandExcerptsUp",
-			"ctrl-shift-x": "zed::Extensions",
-			"ctrl-,": "zed::OpenSettings",
-			"ctrl-.": "zed::OpenKeymap",
-			"ctrl-p": "file_finder::Toggle",
-			"ctrl-shift-p": "command_palette::Toggle",
-			"ctrl-r": "projects::OpenRecent",
-			"ctrl-w": "pane::CloseActiveItem",
-			"ctrl-f": "buffer_search::Deploy",
-			"ctrl-shift-f": "pane::DeploySearch",
-			"ctrl-n": "search::SelectNextMatch",
-			"ctrl-g": "search::SelectPrevMatch",
-			"ctrl-shift-t": "pane::ReopenClosedItem",
-			"ctrl-tab": "tab_switcher::Toggle",
-			"ctrl-alt-left": "pane::GoBack",
-			"ctrl-alt-right": "pane::GoForward",
-			"ctrl-\"": "pane::SplitDown",
-			"ctrl-s": "workspace::Save",
-			"ctrl-shift-s": "workspace::SaveWithoutFormat",
-			"ctrl-F": "workspace::NewSearch",
-			"ctrl-b": "workspace::ToggleLeftDock",
-			"ctrl-shift-b": "workspace::ToggleRightDock",
-			"ctrl-j": "workspace::NewCenterTerminal",
-			"ctrl-1": ["workspace::ActivatePane", 0],
-			"ctrl-2": ["workspace::ActivatePane", 1],
-			"ctrl-3": ["workspace::ActivatePane", 2],
-			"ctrl-4": ["workspace::ActivatePane", 3],
-			"ctrl-5": ["workspace::ActivatePane", 4],
-			"ctrl-6": ["workspace::ActivatePane", 5],
-			"ctrl-7": ["workspace::ActivatePane", 6],
-			"ctrl-8": ["workspace::ActivatePane", 7],
-			"ctrl-9": ["workspace::ActivatePane", 8],
-			"ctrl->": "editor::Indent",
-			"ctrl-<": "editor::Outdent",
-			"ctrl-c": "editor::Copy",
-			"ctrl-v": "editor::Paste",
-			"ctrl-x": "editor::Cut",
-			"ctrl-d": "editor::DuplicateLineDown",
-			"ctrl-z": "editor::Undo",
-			"ctrl-shift-z": "editor::Redo",
-			"ctrl-enter": "editor::ConfirmCompletion",
-			"ctrl-space": "editor::ShowCompletions",
-			"ctrl-k": "editor::Hover",
-			"ctrl-q": "editor::ToggleCodeActions",
-			"ctrl-l": "editor::SelectLine",
-			"ctrl-a": "editor::SelectAll",
-			"ctrl-left": "editor::MoveToBeginningOfLine",
-			"ctrl-right": "editor::MoveToEndOfLine",
-			"alt-up": "editor::MoveLineUp",
-			"alt-down": "editor::MoveLineDown",
-			"ctrl-alt-up": "vim::WindowTop",
-			"ctrl-alt-down": "vim::WindowBottom",
-			"alt-shift-up": "editor::DuplicateLineUp",
-			"alt-shift-down": "editor::DuplicateLineDown"
-		}
-	},
-	{
-		// Vim bindings
-		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
-		"bindings": {
-			"g g": "editor::ToggleGitBlame",
-			"ctrl-w": "pane::CloseActiveItem",
-			"tab": "editor::Indent",
-			"shift-tab": "editor::Outdent",
-			"shift-right": "editor::MoveToNextWordEnd",
-			"shift-left": "editor::MoveToPreviousWordStart",
-			"shift-up": ["workspace::SendKeystrokes", "up up up up up"],
-			"shift-down": ["workspace::SendKeystrokes", "down down down down down"],
-			"g r": "editor::FindAllReferences",
-			"g c": "editor::ToggleComments",
-			"=": "editor::Format"
-		}
-	},
-	{
-		// Explorer bindings
-		"context": "ProjectPanel",
-		"bindings": {
-			"ctrl-x": "project_panel::Cut",
-			"ctrl-c": "project_panel::Copy",
-			"ctrl-shift-c": "project_panel::CopyPath",
-			"ctrl-v": "project_panel::Paste",
-			"ctrl-n": "project_panel::NewFile",
-			"ctrl-shift-n": "project_panel::NewDirectory",
-			"ctrl-d": "project_panel::Delete",
-			"ctrl-r": "project_panel::Rename"
-		}
-	},
-	{
-		// Terminal bindings
-		"context": "Terminal",
-		"bindings": {
-			"ctrl-b": "zed::NoAction"
-		}
-	},
-	{
-		// TabSwitcher bindings
-		"context": "TabSwitcher",
-		"bindings": {
-			"ctrl-shift-tab": "menu::SelectPrev"
-		}
-	}
+  {
+    // Tasks
+    "bindings": {
+      "ctrl-t": "task::Spawn",
+      "f5": [
+        "task::Spawn",
+        {
+          "task_name": "start"
+        }
+      ],
+      "f6": [
+        "task::Spawn",
+        {
+          "task_name": "fix"
+        }
+      ]
+    }
+  },
+  {
+    // Editor bindings
+    "bindings": {
+      "ctrl-shift-r": "editor::RestartLanguageServer",
+      "ctrl-cmd-down": "editor::ExpandExcerptsDown",
+      "ctrl-cmd-up": "editor::ExpandExcerptsUp",
+      "ctrl-shift-x": "zed::Extensions",
+      "ctrl-,": "zed::OpenSettings",
+      "ctrl-.": "zed::OpenKeymap",
+      "ctrl-p": "file_finder::Toggle",
+      "ctrl-shift-p": "command_palette::Toggle",
+      "ctrl-r": "projects::OpenRecent",
+      "ctrl-w": "pane::CloseActiveItem",
+      "ctrl-f": "buffer_search::Deploy",
+      "ctrl-shift-f": "pane::DeploySearch",
+      "ctrl-n": "search::SelectNextMatch",
+      "ctrl-g": "search::SelectPrevMatch",
+      "ctrl-shift-t": "pane::ReopenClosedItem",
+      "ctrl-tab": "tab_switcher::Toggle",
+      "ctrl-alt-left": "pane::GoBack",
+      "ctrl-alt-right": "pane::GoForward",
+      "ctrl-\"": "pane::SplitDown",
+      "ctrl-s": "workspace::Save",
+      "ctrl-shift-s": "workspace::SaveWithoutFormat",
+      "ctrl-F": "workspace::NewSearch",
+      "ctrl-b": "workspace::ToggleLeftDock",
+      "ctrl-shift-b": "workspace::ToggleRightDock",
+      "ctrl-j": "workspace::NewCenterTerminal",
+      "ctrl-1": [
+        "workspace::ActivatePane",
+        0
+      ],
+      "ctrl-2": [
+        "workspace::ActivatePane",
+        1
+      ],
+      "ctrl-3": [
+        "workspace::ActivatePane",
+        2
+      ],
+      "ctrl-4": [
+        "workspace::ActivatePane",
+        3
+      ],
+      "ctrl-5": [
+        "workspace::ActivatePane",
+        4
+      ],
+      "ctrl-6": [
+        "workspace::ActivatePane",
+        5
+      ],
+      "ctrl-7": [
+        "workspace::ActivatePane",
+        6
+      ],
+      "ctrl-8": [
+        "workspace::ActivatePane",
+        7
+      ],
+      "ctrl-9": [
+        "workspace::ActivatePane",
+        8
+      ],
+      "ctrl->": "editor::Indent",
+      "ctrl-<": "editor::Outdent",
+      "ctrl-c": "editor::Copy",
+      "ctrl-v": "editor::Paste",
+      "ctrl-x": "editor::Cut",
+      "ctrl-d": "editor::DuplicateLineDown",
+      "ctrl-z": "editor::Undo",
+      "ctrl-shift-z": "editor::Redo",
+      "ctrl-enter": "editor::ConfirmCompletion",
+      "ctrl-space": "editor::ShowCompletions",
+      "ctrl-k": "editor::Hover",
+      "ctrl-q": "editor::ToggleCodeActions",
+      "ctrl-l": "editor::SelectLine",
+      "ctrl-a": "editor::SelectAll",
+      "ctrl-left": "editor::MoveToBeginningOfLine",
+      "ctrl-right": "editor::MoveToEndOfLine",
+      "alt-up": "editor::MoveLineUp",
+      "alt-down": "editor::MoveLineDown",
+      "ctrl-alt-up": "vim::WindowTop",
+      "ctrl-alt-down": "vim::WindowBottom",
+      "alt-shift-up": "editor::DuplicateLineUp",
+      "alt-shift-down": "editor::DuplicateLineDown"
+    }
+  },
+  {
+    // Vim bindings
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "g g": "editor::ToggleGitBlame",
+      "ctrl-w": "pane::CloseActiveItem",
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent",
+      "shift-right": "editor::MoveToNextWordEnd",
+      "shift-left": "editor::MoveToPreviousWordStart",
+      "shift-up": [
+        "workspace::SendKeystrokes",
+        "up up up up up"
+      ],
+      "shift-down": [
+        "workspace::SendKeystrokes",
+        "down down down down down"
+      ],
+      "g r": "editor::FindAllReferences",
+      "g c": "editor::ToggleComments",
+      "=": "editor::Format"
+    }
+  },
+  {
+    // Explorer bindings
+    "context": "ProjectPanel",
+    "bindings": {
+      "ctrl-x": "project_panel::Cut",
+      "ctrl-c": "project_panel::Copy",
+      "ctrl-shift-c": "project_panel::CopyPath",
+      "ctrl-v": "project_panel::Paste",
+      "ctrl-n": "project_panel::NewFile",
+      "ctrl-shift-n": "project_panel::NewDirectory",
+      "ctrl-d": "project_panel::Delete",
+      "ctrl-r": "project_panel::Rename"
+    }
+  },
+  {
+    // Terminal bindings
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-b": "zed::NoAction",
+      "ctrl-r": "zed::NoAction"
+    }
+  },
+  {
+    // TabSwitcher bindings
+    "context": "TabSwitcher",
+    "bindings": {
+      "ctrl-shift-tab": "menu::SelectPrev"
+    }
+  }
 ]
