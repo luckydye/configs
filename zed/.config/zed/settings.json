@@ -1,129 +1,124 @@
 // Zed Settings
 {
-  // Editor
-  "assistant": {
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
-    },
-    "version": "2"
-  },
-  "theme": {
-    "mode": "system",
-    "light": "Github Light",
-    "dark": "Andromeda"
-  },
-  "features": {
-    "inline_completion_provider": "supermaven"
-  },
-  "vim_mode": true,
-  "vim": {
-    "use_system_clipboard": "always",
-    "use_smartcase_find": true,
-    "use_multiline_find": true
-  },
-  "seed_search_query_from_cursor": "selection",
-  "hover_popover_enabled": false,
-  "cursor_blink": false,
-  "scroll_beyond_last_line": "vertical_scroll_margin",
-  "vertical_scroll_margin": 5,
-  "relative_line_numbers": true,
-  "show_completions_on_input": false,
-  "show_whitespaces": "selection",
-  "use_autoclose": false,
-  "use_auto_surround": false,
-  "inlay_hints": {
-    "enabled": true,
-    "show_parameter_hints": true,
-    "show_type_hints": false
-  },
-  "tab_size": 2,
-  "hard_tabs": false,
-  "format_on_save": "on",
-  // Git
-  "git": {
-    "inline_blame": {
-      "enabled": true
-    }
-  },
-  // Terminal
-  "terminal": {
-    "line_height": "standard",
-    "shell": {
-      "program": "/Users/tihav/configs/mise/.config/mise/tasks/tmux_attach_cwd"
-    }
-  },
-  // Fonts
-  "ui_font_size": 16,
-  "ui_font_features": {
-    "calt": true,
-    "liga": true
-  },
-  "buffer_font_size": 14,
-  "ui_font_family": "Geist Mono",
-  "buffer_font_family": "Geist Mono",
-  "buffer_font_features": {
-    "calt": true,
-    "liga": false
-  },
-  // UI
-  "tab_bar": {
-    "show": true
-  },
-  "gutter": {
-    "code_actions": false,
-    "runnables": false
-  },
-  // Language Servers and Formatting
-  "formatter": [
-    {
-      "language_server": {
-        "name": "biome"
-      }
-    },
-    {
-      "code_actions": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true
-      }
-    }
-  ],
-  "languages": {
-    "Shell Script": {
-      "formatter": "prettier"
-    },
-    "HTML": {
-      "formatter": "prettier"
-    },
-    "YAML": {
-      "formatter": "prettier"
-    },
-    "Markdown": {
-      "formatter": "prettier",
-      "format_on_save": "off"
-    },
-    "MDX": {
-      "formatter": "prettier",
-      "format_on_save": "on",
-      "language_servers": [
-        "...",
-        "tailwindcss-language-server"
-      ]
-    },
-    "TypeScript": {
-      // "language_servers": ["...", "vtsls", "tailwindcss-language-server"]
-    }
-  },
-  "file_types": {
-    "HTML": [
-      "*.svg"
-    ]
-  },
-  "lsp": {
-    "biome": {
-      "settings": {
-        // "require_config_file": true
-      }
-    }
-  }
+	// Editor
+	"assistant": {
+		"default_model": {
+			"provider": "zed.dev",
+			"model": "claude-3-5-sonnet-20240620"
+		},
+		"version": "2"
+	},
+	"theme": {
+		"mode": "system",
+		"light": "Github Light",
+		"dark": "Andromeda"
+	},
+	"features": {
+		"inline_completion_provider": "supermaven"
+	},
+	"vim_mode": true,
+	"vim": {
+		"use_system_clipboard": "always",
+		"use_smartcase_find": true,
+		"use_multiline_find": true
+	},
+	"seed_search_query_from_cursor": "selection",
+	"hover_popover_enabled": false,
+	"cursor_blink": false,
+	"scroll_beyond_last_line": "vertical_scroll_margin",
+	"vertical_scroll_margin": 5,
+	"relative_line_numbers": true,
+	"show_completions_on_input": false,
+	"show_whitespaces": "selection",
+	"use_autoclose": false,
+	"use_auto_surround": false,
+	"inlay_hints": {
+		"enabled": true,
+		"show_parameter_hints": true,
+		"show_type_hints": false
+	},
+	"tab_size": 2,
+	"hard_tabs": false,
+	"format_on_save": "on",
+	// Git
+	"git": {
+		"inline_blame": {
+			"enabled": true
+		}
+	},
+	// Terminal
+	"terminal": {
+		"line_height": "standard",
+		"shell": {
+			"program": "/Users/tihav/configs/mise/.config/mise/tasks/tmux_attach_cwd"
+		}
+	},
+	// Fonts
+	"ui_font_size": 16,
+	"ui_font_features": {
+		"calt": true,
+		"liga": true
+	},
+	"buffer_font_size": 14,
+	"ui_font_family": "Geist Mono",
+	"buffer_font_family": "Geist Mono",
+	"buffer_font_features": {
+		"calt": true,
+		"liga": false
+	},
+	// UI
+	"tab_bar": {
+		"show": true
+	},
+	"gutter": {
+		"code_actions": false,
+		"runnables": false
+	},
+	// Language Servers and Formatting
+	"formatter": [
+		{
+			"language_server": {
+				"name": "biome"
+			}
+		},
+		{
+			"code_actions": {
+				"source.fixAll.biome": true,
+				"source.organizeImports.biome": true
+			}
+		}
+	],
+	"languages": {
+		"Shell Script": {
+			"formatter": "prettier"
+		},
+		"HTML": {
+			"formatter": "prettier"
+		},
+		"YAML": {
+			"formatter": "prettier"
+		},
+		"Markdown": {
+			"formatter": "prettier",
+			"format_on_save": "off"
+		},
+		"MDX": {
+			"formatter": "prettier",
+			"format_on_save": "on",
+			"language_servers": ["...", "tailwindcss-language-server"]
+		},
+		"JavaScript": {
+			"formatter": "prettier"
+		}
+	},
+	"file_types": {
+		"HTML": ["*.svg"]
+	}
+	// "lsp": {
+	// 	"biome": {
+	// 		"settings": {
+	// 			// "require_config_file": true
+	// 		}
+	// 	}
+	// }
 }
