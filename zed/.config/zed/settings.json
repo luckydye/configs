@@ -89,6 +89,14 @@
 		}
 	],
 	"languages": {
+		"TypeScript": {
+			"language_servers": [
+				"typescript-language-server",
+				"!vtsls",
+				"biome",
+				"tailwindcss-language-server"
+			]
+		},
 		"Shell Script": {
 			"formatter": "prettier"
 		},
@@ -112,7 +120,7 @@
 		}
 	},
 	"file_types": {
-		"HTML": ["*.svg"]
+		"HTML": ["*.svg", "*.hbs"]
 	}
 	// "lsp": {
 	// 	"biome": {

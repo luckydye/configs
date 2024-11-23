@@ -8,6 +8,7 @@ yq = "latest"
 glow = "latest"
 rust = "latest"
 node = "latest"
+bun = "latest"
 
 [settings]
 experimental = true
