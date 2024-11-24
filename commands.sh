@@ -20,6 +20,7 @@ alias z="~/source/zed/target/release/Zed ."
 alias lg='lazygit'
 alias files='yazi'
 alias f='spf .'
+alias vcs="ssh vcs"
 
 # git
 alias gs="git status"
