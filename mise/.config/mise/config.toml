@@ -14,6 +14,7 @@ bun = "latest"
 experimental = true
 python_venv_auto_create = true
 env_file = '.env'
+disable_hints = ["python_multi"]
 
 [env]
 RUST_LOG = "info"
