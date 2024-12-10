@@ -36,7 +36,7 @@
 			"ctrl-p": "file_finder::Toggle",
 			"ctrl-shift-p": "command_palette::Toggle",
 			"ctrl-r": "projects::OpenRecent",
-			"ctrl-w": "pane::CloseActiveItem",
+			// "ctrl-w": "pane::CloseActiveItem
 			"ctrl-f": "buffer_search::Deploy",
 			"ctrl-shift-f": "pane::DeploySearch",
 			"ctrl-n": "search::SelectNextMatch",
@@ -90,13 +90,15 @@
 		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
 		"bindings": {
 			"g g": "editor::ToggleGitBlame",
-			"ctrl-w": "pane::CloseActiveItem",
 			"tab": "editor::Indent",
 			"shift-tab": "editor::Outdent",
-			"shift-right": "editor::MoveToNextWordEnd",
-			"shift-left": "editor::MoveToPreviousWordStart",
 			"shift-up": ["workspace::SendKeystrokes", "up up up up up"],
 			"shift-down": ["workspace::SendKeystrokes", "down down down down down"],
+			"g D": ["workspace::SendKeystrokes", "ctrl-w v ctrl-w right g d"],
+			"w": "vim::NextWordEnd",
+			"shift-w": "vim::PreviousWordEnd",
+			"[": "editor::SelectLargerSyntaxNode",
+			"]": "editor::SelectSmallerSyntaxNode",
 			"g r": "editor::FindAllReferences",
 			"g c": "editor::ToggleComments",
 			"=": "editor::Format"
