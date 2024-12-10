@@ -91,10 +91,11 @@
 	"languages": {
 		"TypeScript": {
 			"language_servers": [
-				"typescript-language-server",
-				"!vtsls",
-				"biome",
-				"tailwindcss-language-server"
+				"!typescript-language-server",
+				"vtsls",
+				// "biome",
+				// "tailwindcss-language-server"
+				"..."
 			]
 		},
 		"Shell Script": {

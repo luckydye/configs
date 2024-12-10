@@ -53,7 +53,7 @@ tasks:
       # mac
       - cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide
         platforms: [darwin]
-      - cmd: brew install --cask raycast alacritty
+      - cmd: brew install --cask raycast
         platforms: [darwin]
       # linux
       - cmd: sudo apt update -y
@@ -64,10 +64,10 @@ tasks:
   link:
     cmds:
       # mac
-      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R mac nvim ansible git mise tmux starship zed lazygit vscode alacritty
+      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R mac nvim ansible git mise tmux starship zed lazygit vscode ghostty
         platforms: [darwin]
       # linux
-      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim ansible git mise tmux starship zed lazygit alacritty
+      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim ansible git mise tmux starship zed lazygit ghostty
         platforms: [linux]
       # mac obs
       - cmd: 'ln -s {{.CONFIGS_DIR}}/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
