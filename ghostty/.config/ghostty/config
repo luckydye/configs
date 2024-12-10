@@ -1,5 +1,14 @@
-background = 282c34
-foreground = ffffff
+foreground = FFFFFF
+background = 22242B
+background-opacity = 0.95
+background-blur-radius = 28
 
 font-family = Geist Mono
-font-size = 13
+font-style = Semibold
+font-size = 14
+
+shell-integration-features = no-cursor
+cursor-style = block
+cursor-style-blink = false
+
+copy-on-select = true
