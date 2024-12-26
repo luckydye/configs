@@ -4,7 +4,7 @@
 	"assistant": {
 		"default_model": {
 			"provider": "zed.dev",
-			"model": "claude-3-5-sonnet-20240620"
+			"model": "claude-3-5-sonnet-latest"
 		},
 		"version": "2"
 	},
@@ -13,9 +13,9 @@
 		"light": "Github Light",
 		"dark": "Andromeda"
 	},
-	"features": {
-		"inline_completion_provider": "supermaven"
-	},
+	// "features": {
+	// 	"inline_completion_provider": "supermaven"
+	// },
 	"vim_mode": true,
 	"vim": {
 		"use_system_clipboard": "always",
