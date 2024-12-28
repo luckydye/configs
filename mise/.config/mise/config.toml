@@ -9,6 +9,7 @@ glow = "latest"
 rust = "latest"
 node = "latest"
 bun = "latest"
+python = "latest"
 
 [settings]
 experimental = true
