@@ -90,13 +90,13 @@
 	],
 	"languages": {
 		"TypeScript": {
-			"language_servers": [
-				"!typescript-language-server",
-				"vtsls",
-				// "biome",
-				// "tailwindcss-language-server"
-				"..."
-			]
+			// "language_servers": [
+			// 	"!typescript-language-server",
+			// 	"vtsls",
+			// 	// "biome",
+			// 	// "tailwindcss-language-server"
+			// 	"..."
+			// ]
 		},
 		"Shell Script": {
 			"formatter": "prettier"
