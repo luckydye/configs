@@ -1,6 +1,6 @@
 #!/bin/bash
 transmit_png() {
-    data=$(base64 "$1")
+    data=$(base64 -i "$1")
     data="${data//[[:space:]]}"
     builtin local pos=0
     builtin local chunk_size=4096
