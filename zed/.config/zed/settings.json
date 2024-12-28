@@ -50,7 +50,7 @@
 	"terminal": {
 		"line_height": "standard",
 		"shell": {
-			"program": "/Users/tihav/configs/mise/.config/mise/tasks/tmux_attach_cwd"
+			"program": "/Users/tihav/configs/mise/.config/mise/tasks/session_attach_cwd"
 		}
 	},
 	// Fonts

@@ -35,6 +35,7 @@ alias gd="git diff --stat --cached ':!*lock'"
 alias graph="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%>(10,trunc) %C(bold yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset) %C(dim white)- %an%C(reset) %C(bold dim white)(%cd)%C(reset) ' --all"
 alias g="graph"
 alias gg="watch --color -d \"git pull && git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all --max-count=40\""
+alias clone="mise run clone"
 
 function merge() {
 	if [ $# -eq 0 ]; then
@@ -61,24 +62,6 @@ function commit() {
 	fi
 }
 
-function clone() {
-	cd ~/source
-
-	repo="$*"
-	git clone $repo
-
-	id="$HOME/source/$(basename -s .git $repo)"
-	cd $id
-
-	tmux new-session -d -s $id
-
-	if [ -z "$TMUX" ]; then
-		tmux attach -t $id
-	else
-		tmux switch-client -t $id
-	fi
-}
-
 # docker
 alias compose="docker compose"
 alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v $CONFIGS_DIR:/configs -w /source luckydye/buildapp:latest"
@@ -92,7 +75,7 @@ alias k="mise run pass | clip"
 alias disk="diskonaut"
 alias pass="mise run pass"
 alias otp="mise run otp"
-alias ta="mise run tmux_attach"
+alias ta="mise run session_attach"
 alias book="mise run book"
 alias bookai="mise run bookai"
 alias use="mise use"

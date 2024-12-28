@@ -37,10 +37,4 @@ git commit -m "Initial commit"
 # attatch to new project
 id=$project
 
-tmux new-session -d -s $id
-
-if [ -z "$TMUX" ]; then
-	tmux attach -t $id
-else
-	tmux switch-client -t $id
-fi
+zellij -s ${id//\//_} || zellij attach ${id//\//_}

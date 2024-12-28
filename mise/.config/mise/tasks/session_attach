@@ -1,0 +1,13 @@
+#!/bin/bash
+# mise hide=true
+
+# mise alias="ta"
+
+function info() {
+    gum log --time rfc822 --prefix=session_attach --level info $0
+}
+
+id=$(zellij list-sessions -ns | gum choose --cursor="💘 " --cursor.background="8" --cursor.foreground="255")
+info "Switching to $id"
+
+zellij -s ${id//\//_} || zellij attach ${id//\//_}

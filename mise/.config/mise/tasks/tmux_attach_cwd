@@ -1,6 +1,0 @@
-#!/bin/bash
-# mise hide=true
-# mise alias="tac"
-
-SESSION=$(pwd)
-tmux new-session -s $SESSION || tmux attach -t $SESSION

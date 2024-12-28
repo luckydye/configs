@@ -1,0 +1,7 @@
+#!/bin/bash
+# mise hide=true
+# mise alias="tac"
+
+id=$(pwd)
+
+zellij -s ${id//\//_} || zellij attach ${id//\//_}

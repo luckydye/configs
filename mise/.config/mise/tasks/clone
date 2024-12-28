@@ -1,0 +1,13 @@
+#!/bin/zsh
+# mise hide=true
+
+cd ~/source
+
+repo="$*"
+git clone $repo
+
+id="$HOME/source/$(basename -s .git $repo)"
+cd $id
+
+SESSION=${id//\//_}
+zellij -s $SESSION || zellij attach $SESSION
