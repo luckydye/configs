@@ -21,6 +21,7 @@ alias lg='lazygit'
 alias files='yazi'
 alias f='spf .'
 alias vcs="ssh vcs"
+alias icat="mise run icat"
 
 # git
 alias gs="git status"
