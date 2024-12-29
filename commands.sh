@@ -155,7 +155,7 @@ function package_manager {
 
 function backup() {
 	echo Backing up $1 to S3
-	zip -r $1.zip $1 -X **/node_modules **/.git
+	zip -r $1.zip $1 -x "node_modules/**/*" ".git/**/*"
  	mc put $1.zip storage/backups/$1.zip
   	echo Done
 }
