@@ -55,6 +55,8 @@ tasks:
         platforms: [darwin]
       - cmd: brew install --cask raycast
         platforms: [darwin]
+      - cmd: brew install --cask ghostty
+        platforms: [darwin]
       # linux
       - cmd: sudo apt update -y
         platforms: [linux]
