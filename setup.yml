@@ -47,7 +47,7 @@ tasks:
       # merge new env with old env.swap
       - git -C $CONFIGS_DIR/ merge-file -p $CONFIGS_DIR/env $CONFIGS_DIR/env $CONFIGS_DIR/env.swap >$CONFIGS_DIR/env
       - rm $CONFIGS_DIR/env.swap
-      - echo $SSH_CONFIG > ~/.ssh/config_configs
+      - echo "$SSH_CONFIG" > ~/.ssh/config_configs
 
   dependencies:
     cmds:
