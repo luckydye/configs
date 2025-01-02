@@ -1,9 +1,3 @@
-// ("ZED_FILE".into(), "/dir/a.ts".into()),
-// ("ZED_WORKTREE_ROOT".into(), "/dir".into()),
-// ("ZED_SYMBOL".into(), "this_is_a_test".into()),
-// ("ZED_ROW".into(), "1".into()),
-// ("ZED_COLUMN".into(), "1".into()),
-// ("ZED_SELECTED_TEXT".into(), "".into()),
 [
 	{
 		"label": "task run test: $ZED_SELECTED_TEXT",
@@ -26,5 +20,19 @@
 		"command": "mise run dev",
 		"use_new_terminal": false,
 		"allow_concurrent_runs": true
+	},
+	{
+		"label": "lazygit",
+		"command": "lazygit",
+		"hide": "on_success",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": false
+	},
+	{
+		"label": "rename current file",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": true,
+		"hide": "on_success",
+		"command": "mv $ZED_FILE ${mise exec gum -- gum input --value $ZED_FILE}"
 	}
 ]

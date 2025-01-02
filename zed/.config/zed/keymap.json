@@ -1,23 +1,5 @@
 [
 	{
-		// Tasks
-		"bindings": {
-			"ctrl-t": "task::Spawn",
-			"f5": [
-				"task::Spawn",
-				{
-					"task_name": "start"
-				}
-			],
-			"f6": [
-				"task::Spawn",
-				{
-					"task_name": "fix"
-				}
-			]
-		}
-	},
-	{
 		"context": "Editor && inline_completion && !showing_completions",
 		"bindings": {
 			"tab": "editor::Tab",
@@ -131,6 +113,37 @@
 		"context": "TabSwitcher",
 		"bindings": {
 			"ctrl-shift-tab": "menu::SelectPrev"
+		}
+	},
+	{
+		// Tasks
+		"bindings": {
+			"ctrl-t": "task::Spawn",
+			"f4": [
+				"task::Spawn",
+				{
+					"task_name": "lazygit",
+					"reveal_target": "center"
+				}
+			],
+			"f3": [
+				"task::Spawn",
+				{
+					"task_name": "rename current file"
+				}
+			],
+			"f5": [
+				"task::Spawn",
+				{
+					"task_name": "start"
+				}
+			],
+			"f6": [
+				"task::Spawn",
+				{
+					"task_name": "fix"
+				}
+			]
 		}
 	}
 ]
