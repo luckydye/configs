@@ -73,7 +73,7 @@ tasks:
       - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim ansible git mise tmux starship zed lazygit ghostty
         platforms: [linux]
       # mac obs
-      - cmd: 'ln -s {{.CONFIGS_DIR}}/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
+      - cmd: 'ln -sF {{.CONFIGS_DIR}}/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
         platforms: [darwin]
       # windows obs
       - cmd: mklink \D "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
