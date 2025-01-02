@@ -16,15 +16,28 @@ function explain() {
     echo ""
 }
 
-git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR} || exit 1
+function install_zshrc() {
+  echo "# luckydye configs" >> ~/.zshrc || exit 1
+  echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc || exit 1
+}
+
+function install_ssh_config() {
+  echo "# luckydye configs" >> ~/.ssh/config || exit 1
+  echo "Include ~/.ssh/config_configs" >> ~/.ssh/config || exit 1
+}
+
+
+git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 
 # install task
 sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b $HOME/bin || exit 1
 
-echo "# luckydye configs" >> ~/.zshrc || exit 1
-echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc || exit 1
-source $CONFIGS_DIR/.zshrc || exit 1
 
+grep -Fxq "# luckydye configs" ~/.zshrc || install_zshrc
+grep -Fxq "# luckydye configs" ~/.ssh/config || install_ssh_config
+
+
+source $CONFIGS_DIR/.zshrc || exit 1
 task -t $CONFIGS_DIR/setup.yml || exit 1
 
 explain
