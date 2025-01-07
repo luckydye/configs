@@ -33,6 +33,6 @@
 		"use_new_terminal": true,
 		"allow_concurrent_runs": true,
 		"hide": "on_success",
-		"command": "mv $ZED_FILE ${mise exec gum -- gum input --value $ZED_FILE}"
+		"command": "mv $ZED_FILE $(gum input --width=200 --value $ZED_FILE)"
 	}
 ]

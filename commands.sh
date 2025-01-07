@@ -30,6 +30,7 @@ alias pull="git pull"
 alias fetch="git fetch"
 alias gfp="git fetch --prune"
 alias gp="git cherry-pick"
+alias rebase="git rebase"
 alias push="git push"
 alias P="git push"
 alias gd="git diff --stat --cached ':!*lock'"
@@ -157,8 +158,8 @@ function package_manager {
 function backup() {
 	echo Backing up $1 to S3
 	zip -r $1.zip $1 -x "node_modules/**/*" ".git/**/*"
- 	mc put $1.zip storage/backups/$1.zip
-  	echo Done
+	mc put $1.zip storage/backups/$1.zip
+	echo Done
 }
 
 function enc() {
