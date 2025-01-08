@@ -87,7 +87,8 @@ alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/sourc
 alias da="mise run docker_attach"
 alias ds="mise run docker_shell"
 alias dk="mise run docker_kill"
-alias dr='docker run -it --name dev -w "/app" -v "./:/app" --platform linux/amd64'
+alias dr='docker run -it --rm --name dev -w "/app" -v "./:/app" --platform linux/amd64'
+alias dr='docker exec -it -w "/app" dev'
 
 # tasks
 alias clip="pbcopy"
