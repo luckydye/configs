@@ -87,16 +87,6 @@ function t() {
 	fi
 }
 
-# mise task
-function run() {
-	if [ $# -eq 0 ]; then
-		mise run find_script
-	else
-		script="$*"
-		mise run $script
-	fi
-}
-
 function addToPath() {
 	export PATH=$1:$PATH
 }
