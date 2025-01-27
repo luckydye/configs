@@ -2,6 +2,7 @@
 # mise hide=true
 
 echo Backing up "$1" to S3
+echo zip -r "$1.zip" "$1"
 zip -r "$1.zip" "$1"
 
 PW=$(mise exec gum -- gum input --password --placeholder="Password" --header="Vault")
