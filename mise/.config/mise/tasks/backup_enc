@@ -3,5 +3,11 @@
 
 echo Backing up $1 to S3
 zip -r $1.zip $1 -x "node_modules/**/*" ".git/**/*"
-mc put $1.zip storage/backups/$1.zip
+
+PW=$(mise exec gum -- gum input --password --placeholder="Password" --header="Vault")
+
+openssl enc -aes-256-cbc -salt -pbkdf2 -in $1.zip -out $1.enc --pass=pass:$PW
+
+mc put $1.enc storage/backups/$1.zip.enc
+
 echo Done
