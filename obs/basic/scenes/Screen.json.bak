@@ -576,7 +576,7 @@
                         "name": "Video Capture Device",
                         "source_uuid": "f56b8ce2-0c2d-4978-af3d-b9b6b0966094",
                         "visible": true,
-                        "locked": true,
+                        "locked": false,
                         "rot": 0.0,
                         "scale_ref": {
                             "x": 1920.0,
@@ -587,18 +587,18 @@
                         "bounds_align": 0,
                         "bounds_crop": false,
                         "crop_left": 490,
-                        "crop_top": 203,
+                        "crop_top": 0,
                         "crop_right": 478,
                         "crop_bottom": 341,
                         "id": 18,
                         "group_item_backup": false,
                         "pos": {
                             "x": 0.0,
-                            "y": 1080.0
+                            "y": 1189.0
                         },
                         "pos_rel": {
                             "x": -1.7777777910232544,
-                            "y": 1.0
+                            "y": 1.2018518447875977
                         },
                         "scale": {
                             "x": 2.0152130126953125,
@@ -1701,7 +1701,7 @@
                     "versioned_id": "clut_filter",
                     "settings": {
                         "image_path": "/Users/tihav/configs/obs/luts/+1EV.md_3.2024-11-23 10-41-03.cube",
-                        "clut_amount": 0.42109999999999997,
+                        "clut_amount": 0.14130000000000001,
                         "passthrough_alpha": false
                     },
                     "mixers": 0,

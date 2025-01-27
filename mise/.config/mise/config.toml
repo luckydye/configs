@@ -1,7 +1,7 @@
 [tools]
 task = "3"
 fd = "9.0.0"
-gum = "latest"
+gum = "0.13.0"
 lazygit = "latest"
 yq = "latest"
 rust = "latest"
