@@ -1,8 +1,8 @@
 #!/bin/zsh
 # mise hide=true
 
-echo Backing up $1 to S3
-zip -r $1.zip $1
+echo Backing up "$1" to S3
+zip -r "$1.zip" "$1"
 
 PW=$(mise exec gum -- gum input --password --placeholder="Password" --header="Vault")
 
