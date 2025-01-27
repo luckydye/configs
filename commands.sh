@@ -90,17 +90,13 @@ alias dk="mise run docker_kill"
 alias drun='docker run -it --rm --name dev -w "/app" -v "./:/app" --platform linux/amd64'
 alias dexec='docker exec -it -w "/app" dev'
 
-# tasks
+# misc
 alias clip="pbcopy"
-alias k="mise run pass | clip"
 alias disk="diskonaut"
-alias pass="mise run pass"
-alias otp="mise run otp"
 alias ta="mise run tmux_attach"
-alias book="mise run book"
-alias bookai="mise run bookai"
 alias use="mise use"
-alias r="mise run"
+alias run="mise run"
+alias s3="s3rs"
 
 function n() {
 	script=$(task --list --json | jq -r ".tasks[].name" | gum filter)
