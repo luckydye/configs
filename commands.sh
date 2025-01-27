@@ -71,7 +71,7 @@ alias disk="diskonaut"
 alias ta="mise run tmux_attach"
 alias use="mise use"
 alias run="mise run"
-alias s3="s3rs"
+alias s3="ss3"
 
 function n() {
 	script=$(task --list --json | jq -r ".tasks[].name" | gum filter)
