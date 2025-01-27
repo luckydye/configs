@@ -38,31 +38,6 @@ alias graph="git log --graph --author-date-order --abbrev-commit --decorate --fo
 alias g="graph"
 alias gg="watch --color -d \"git pull && git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all --max-count=40\""
 
-function merge() {
-	if [ $# -eq 0 ]; then
-		mise run git_merge
-	else
-		git checkout $1
-	fi
-}
-
-function c() {
-	if [ $# -eq 0 ]; then
-		mise run git_checkout
-	else
-		git checkout $1
-	fi
-}
-
-function commit() {
-	if [ $# -eq 0 ]; then
-		git commit -m "$(gum input --placeholder 'Commit message')"
-	else
-		msg="$*"
-		git commit -m "$msg"
-	fi
-}
-
 function clone() {
 	cd ~/source
 
