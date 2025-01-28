@@ -21,6 +21,7 @@ alias lg='lazygit'
 alias files='yazi'
 alias f='spf .'
 alias vcs="ssh vcs"
+alias t="task"
 
 # git
 alias gs="git status"
@@ -76,15 +77,6 @@ alias s3="ss3"
 function n() {
 	script=$(task --list --json | jq -r ".tasks[].name" | gum filter)
 	bun run $script
-}
-
-function t() {
-	if [ $# -eq 0 ]; then
-		name=$(task --list --json | jq -r ".tasks[].name" | gum filter)
-		task $name
-	else
-		task $1
-	fi
 }
 
 function addToPath() {
