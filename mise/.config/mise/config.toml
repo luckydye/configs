@@ -5,7 +5,7 @@ gum = "0.13.0"
 lazygit = "latest"
 yq = "latest"
 rust = "latest"
-node = "latest"
+# node = "latest"
 bun = "latest"
 python = "latest"
 
