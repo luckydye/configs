@@ -128,8 +128,8 @@ function dec() {
 	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out $2
 }
 
-bindkey -s '^p' 'run find_file\n'
-bindkey -s '^x' 'run find_project\n'
-bindkey -s '^l' 'da\n'
-bindkey -s '^f' 'ff\n'
-bindkey -s '^g' 'graph\n'
+bindkey -s '^p' 'ff ^M'
+bindkey -s '^x' 'fp ^M'
+bindkey -s '^l' 'da ^M'
+bindkey -s '^f' 'ff ^M'
+bindkey -s '^g' 'g ^M'
