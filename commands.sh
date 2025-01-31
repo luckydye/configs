@@ -22,6 +22,8 @@ alias files='yazi'
 alias f='spf .'
 alias vcs="ssh vcs"
 alias t="task"
+alias backup='mise run backup'
+alias backup_enc='mise run backup_enc'
 
 # git
 alias gs="git status"
@@ -126,8 +128,8 @@ function dec() {
 	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out $2
 }
 
-bindkey -s '^p' ' run find_file\n'
-bindkey -s '^x' ' run find_project\n'
-bindkey -s '^l' ' run docker_attach\n'
-bindkey -s '^f' ' run find_string\n'
-bindkey -s '^g' ' run git_graph\n'
+bindkey -s '^p' 'run find_file'
+bindkey -s '^x' 'run find_project'
+bindkey -s '^l' 'da'
+bindkey -s '^f' 'ff'
+bindkey -s '^g' 'graph'
