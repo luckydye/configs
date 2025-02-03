@@ -2,5 +2,4 @@
 #MISE hide=true
 #MISE dir="~/Music/yt/likes"
 
-echo $(cwd)
-# yt-dlp --extract-audio 'https://music.youtube.com/playlist?list=PLTuVdvJXyCcTXd571QbnpsOXeypBq_wFc'
+yt-dlp --download-archive .archive -x 'https://music.youtube.com/playlist?list=PLTuVdvJXyCcTXd571QbnpsOXeypBq_wFc'
