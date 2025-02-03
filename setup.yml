@@ -14,6 +14,7 @@ tasks:
       - task: install-starship
       - task: install-mise
       - task: pull
+      - task: download-configs
 
   push:
     platforms: [darwin, linux]
@@ -111,6 +112,15 @@ tasks:
 
       - cmd: mise install -y
         platforms: [linux, darwin]
+
+  download-configs:
+    dir: ./
+    vars:
+      PASS:
+        sh: key get "storage - crypt"
+    cmds:
+      - cmd: rclone sync --crypt-password={{.PASS}} crypt:/ssh ./ssh
+        platforms: [darwin, linux]
 
   macos-configuration:
     platforms: [darwin]
