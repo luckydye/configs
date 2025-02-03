@@ -111,6 +111,13 @@ function package_manager {
 	}
 }
 
+function toArchive() {
+    YEAR=$(date +%Y)
+    ARCHIVE_LOCATION=/mnt/pool2/share/tim/Media/footage/$YEAR/
+    echo Uploading to $ARCHIVE_LOCATION
+    rsync --exclude=".DS_Store" --progress -rtuvz -e 'ssh -p 9002' $1 $ARCHIVE_USER@localhost:$ARCHIVE_LOCATION
+}
+
 function enc() {
 	if [ ! -t 1 ]; then return; fi
 
