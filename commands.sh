@@ -1,7 +1,7 @@
 # config util
 alias config='cd $HOME/configs'
 alias cfg='/usr/bin/git -C $HOME/configs/'
-alias sync="mise run config_sync"
+alias sync="rclone sync --progress"
 alias nuke="gum confirm 'Nuke configs?' && rm -rf $CONFIGS_DIR"
 
 # navigation
