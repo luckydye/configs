@@ -53,7 +53,7 @@ tasks:
   dependencies:
     cmds:
       # mac
-      - cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide
+      - cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide croc
         platforms: [darwin]
       - cmd: brew install --cask raycast
         platforms: [darwin]
