@@ -3,3 +3,5 @@
 env
 env.swap
 node_modules
+/ssh
+/rclone
