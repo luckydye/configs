@@ -24,7 +24,7 @@ alias backup='mise run backup'
 alias backup_enc='mise run backup_enc'
 alias sync="rclone sync --progress"
 
-# TODO: make a "migrate" command to send files like ssh keys and env vars over p2p securely to another machein
+# TODO: make a "migrate" command to send files like ssh keys and env vars over p2p securely to another machein using "croc"
 
 # git
 alias gs="git status"
