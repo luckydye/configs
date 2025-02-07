@@ -13,6 +13,7 @@
 		"light": "Github Light",
 		"dark": "Andromeda"
 	},
+	"icon_theme": "Catppuccin Latte",
 	"features": {
 		"inline_completion_provider": "supermaven"
 	},
