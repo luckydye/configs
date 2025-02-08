@@ -11,7 +11,6 @@ python = "latest"
 yt-dlp = "latest"
 go = "latest"
 fzf = "latest"
-glow = "1"
 rclone = "latest"
 
 [settings]
