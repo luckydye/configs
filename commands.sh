@@ -30,7 +30,6 @@ alias vcs="ssh vcs"
 alias backup='mise run backup'
 alias backup_enc='mise run backup_enc'
 alias sync="rclone sync --progress"
-alias migrate="croc send --local --zip ~/.ssh"
 
 function secure() {
  PASS=$(key get "storage - crypt")

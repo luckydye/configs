@@ -80,3 +80,8 @@ tasks:
       - defaults write -g InitialKeyRepeat -int 15
       - defaults write -g KeyRepeat -int 1
       - defaults write http://com.apple.finder AppleShowAllFiles YES
+
+  migrate:
+    dir: ./
+    cmds:
+      - croc send --local --zip ~/.ssh ~/configs/sops ~/configs/ssh ~/configs/key
