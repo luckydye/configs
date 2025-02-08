@@ -2,7 +2,7 @@ version: "3"
 
 # All vars required to run setup tasks should be defined here
 vars:
-  sync_dirs: ["/ssh"]
+  upload_dirs: ["/ssh", "/obs"]
 
 tasks:
   default:
@@ -66,7 +66,7 @@ tasks:
       RCLONE_CRYPT_PASSWORD:
         sh: key get "storage - crypt"
     cmds:
-      - for: { var: sync_dirs }
+      - for: { var: upload_dirs }
         cmd: rclone sync crypt:{{.ITEM}} .{{.ITEM}}
 
   upload:
@@ -75,10 +75,11 @@ tasks:
       RCLONE_CRYPT_PASSWORD:
         sh: key get "storage - crypt"
     cmds:
-      - for: { var: sync_dirs }
+      - for: { var: upload_dirs }
         cmd: rclone sync .{{.ITEM}} crypt:{{.ITEM}}
 
   migrate:
     dir: ./
     cmds:
-      - croc send --zip ~/.ssh ~/configs/sops ~/configs/ssh ~/configs/key
+      # ssh keys, key .key and sops key need to be migrated manually
+      - croc send --zip ~/.ssh ~/configs/key ~/configs/sops
