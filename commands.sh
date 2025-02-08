@@ -29,6 +29,7 @@ alias run="mise run"
 alias vcs="ssh vcs"
 alias backup='mise run backup'
 alias backup_crypt='mise run backup_crypt'
+alias upload='mise run upload'
 alias sync="rclone sync --progress"
 
 function secure() {
