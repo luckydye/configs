@@ -24,17 +24,15 @@ alias disk="diskonaut"
 alias ta="mise run tmux_attach"
 alias use="mise use"
 alias run="mise run"
-alias s3="mise run s3"
 
 # data transfer
 alias vcs="ssh vcs"
 alias backup='mise run backup'
-alias backup_enc='mise run backup_enc'
+alias backup_crypt='mise run backup_crypt'
 alias sync="rclone sync --progress"
 
 function secure() {
- PASS=$(key get "storage - crypt")
- alias sync="rclone sync --crypt-password=$PASS"
+ export RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")
 }
 
 function toArchive() {

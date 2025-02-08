@@ -1,0 +1,16 @@
+#!/bin/zsh
+#MISE description="Backup Files to remote storage with an encryption layer"
+#MISE hide=true
+set -e
+
+#USAGE flag "-r --recover" help="Recover the target from the secure storage"
+#USAGE arg "<target>" help="The target to backup"
+
+REMOTE=crypt:/secure/
+RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")
+
+if [ "$usage_recover" = "true" ]; then
+  rclone sync --progress $REMOTE/$usage_target $usage_target
+else
+  rclone sync --progress $usage_target $REMOTE/$usage_target
+fi

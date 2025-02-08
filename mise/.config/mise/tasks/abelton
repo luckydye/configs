@@ -1,4 +1,5 @@
 #!/bin/zsh
+#MISE description="Download Abelton User Library from remote storage"
 #MISE hide=true
 #MISE dir="~/Music"
 
