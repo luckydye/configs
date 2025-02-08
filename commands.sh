@@ -1,6 +1,5 @@
-alias rel="source ~/.zshrc; clear"
-
 # config util
+alias rel="source ~/.zshrc; clear"
 alias cfg='/usr/bin/git -C $HOME/configs/'
 alias nuke="gum confirm 'Nuke configs?' && rm -rf $CONFIGS_DIR"
 
@@ -12,21 +11,38 @@ alias ff='mise run find_file'
 alias quit="exit"
 alias q="quit"
 alias x="exit"
-alias s='cd $HOME/source'
 alias fp='mise run find_project'
 alias new='mise run create_project'
 alias v='nvim'
-alias z="~/source/zed/target/release/Zed ."
+alias f='spf .'
 alias lg='lazygit'
 alias files='yazi'
-alias f='spf .'
-alias vcs="ssh vcs"
 alias t="task"
+alias clip="pbcopy"
+alias disk="diskonaut"
+alias ta="mise run tmux_attach"
+alias use="mise use"
+alias run="mise run"
+alias s3="mise run s3"
+
+# data transfer
+alias vcs="ssh vcs"
 alias backup='mise run backup'
 alias backup_enc='mise run backup_enc'
 alias sync="rclone sync --progress"
+alias migrate="croc send --local --zip ~/.ssh"
 
-# TODO: make a "migrate" command to send files like ssh keys and env vars over p2p securely to another machein using "croc"
+function secure() {
+ PASS=$(key get "storage - crypt")
+ alias sync="rclone sync --crypt-password=$PASS"
+}
+
+function toArchive() {
+    YEAR=$(date +%Y)
+    ARCHIVE_LOCATION=/mnt/pool2/share/tim/Media/footage/$YEAR/
+    echo Uploading to $ARCHIVE_LOCATION
+    rsync --filter=':- .gitignore' --progress -rtuvz -e 'ssh -p 9002' $1 archive:$ARCHIVE_LOCATION
+}
 
 # git
 alias gs="git status"
@@ -64,25 +80,12 @@ function clone() {
 
 # docker
 alias compose="docker compose"
-alias dd="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v $CONFIGS_DIR:/configs -w /source luckydye/buildapp:latest"
+alias ddev="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v $CONFIGS_DIR:/configs -w /source luckydye/buildapp:latest"
 alias da="mise run docker_attach"
-alias ds="mise run docker_shell"
-alias dk="mise run docker_kill"
+alias dshell="mise run docker_shell"
+alias dkill="mise run docker_kill"
 alias drun='docker run -it --rm --name dev -w "/app" -v "./:/app" --platform linux/amd64'
 alias dexec='docker exec -it -w "/app" dev'
-
-# misc
-alias clip="pbcopy"
-alias disk="diskonaut"
-alias ta="mise run tmux_attach"
-alias use="mise use"
-alias run="mise run"
-alias s3="mise run s3"
-
-function n() {
-	script=$(task --list --json | jq -r ".tasks[].name" | gum filter)
-	bun run $script
-}
 
 function addToPath() {
 	export PATH=$1:$PATH
@@ -90,41 +93,6 @@ function addToPath() {
 
 function linkBin() {
 	ln -s $1 ~/bin/
-}
-
-function toBin() {
-	cp $1 ~/bin/
-}
-
-function package_manager {
-	which brew >/dev/null && {
-		echo "brew"
-		return
-	}
-	which yum >/dev/null && {
-		echo "yum"
-		return
-	}
-	which apk >/dev/null && {
-		echo "apk"
-		return
-	}
-	which apt >/dev/null && {
-		echo "apt"
-		return
-	}
-}
-
-function toArchive() {
-    YEAR=$(date +%Y)
-    ARCHIVE_LOCATION=/mnt/pool2/share/tim/Media/footage/$YEAR/
-    echo Uploading to $ARCHIVE_LOCATION
-    rsync --filter=':- .gitignore' --progress -rtuvz -e 'ssh -p 9002' $1 $ARCHIVE_USER@localhost:$ARCHIVE_LOCATION
-}
-
-function secure() {
- PASS=$(key get "storage - crypt")
- alias sync="rclone sync --crypt-password=$PASS"
 }
 
 function enc() {
@@ -143,8 +111,7 @@ function dec() {
 	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out $2
 }
 
-bindkey -s '^p' 'ff ^M'
-bindkey -s '^x' 'fp ^M'
-bindkey -s '^l' 'da ^M'
-bindkey -s '^f' 'ff ^M'
-bindkey -s '^g' 'g ^M'
+# tool configs
+
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
+export FZF_DEFAULT_OPTS='--height=100% --info=inline --preview-window="up,70%,border-horizontal"'

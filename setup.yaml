@@ -1,5 +1,6 @@
 version: "3"
 
+# All vars required to run setup tasks should be defined here
 vars:
   CONFIGS_DIR:
     sh: "echo $HOME/configs"
@@ -12,7 +13,6 @@ tasks:
       - task: macos-configuration
       - task: install-neovim
       - task: install-starship
-      - task: install-mise
       - task: pull
       - task: download-configs
 
@@ -48,7 +48,6 @@ tasks:
       # merge new env with old env.swap
       - git -C $CONFIGS_DIR/ merge-file -p $CONFIGS_DIR/env $CONFIGS_DIR/env $CONFIGS_DIR/env.swap >$CONFIGS_DIR/env
       - rm $CONFIGS_DIR/env.swap
-      - echo "$SSH_CONFIG" > ~/.ssh/config_configs
 
   dependencies:
     cmds:
@@ -68,14 +67,14 @@ tasks:
   link:
     cmds:
       # mac
-      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R mac nvim ansible git mise tmux starship zed lazygit vscode ghostty ssh rclone
+      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R mac nvim ansible git mise tmux starship zed lazygit vscode ghostty ssh rclone sops
         platforms: [darwin]
       # linux
-      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim ansible git mise tmux starship zed lazygit ghostty ssh rclone
+      - cmd: stow --ignore=".DS_Store" --target $HOME --dir {{.CONFIGS_DIR}} -R xbindkeys nvim ansible git mise tmux starship zed lazygit ghostty ssh rclone sops
         platforms: [linux]
       # mac obs
-      - cmd: 'ln -sF {{.CONFIGS_DIR}}/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
-        platforms: [darwin]
+      # - cmd: 'ln -sF {{.CONFIGS_DIR}}/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
+      #   platforms: [darwin]
       # windows obs
       # - cmd: fling -i ".DS_Store" -s "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
       #   platforms: [windows]
@@ -99,19 +98,6 @@ tasks:
       # linux
       - cmd: curl -sL https://starship.rs/install.sh -o ~/install_starship.sh && sh ~/install_starship.sh --yes && rm ~/install_starship.sh
         platforms: [linux]
-
-  install-mise:
-    platforms: [darwin, linux]
-    cmds:
-      # mac
-      - cmd: brew install mise
-        platforms: [darwin]
-      # linux
-      - cmd: curl -sL https://mise.jdx.dev/install.sh -o ~/install_mise.sh && sh ~/install_mise.sh && rm ~/install_mise.sh
-        platforms: [linux]
-
-      - cmd: mise install -y
-        platforms: [linux, darwin]
 
   download-configs:
     dir: ./

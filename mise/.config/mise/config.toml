@@ -12,11 +12,17 @@ yt-dlp = "latest"
 go = "latest"
 fzf = "latest"
 rclone = "latest"
+sops = "latest"
+age = "latest"
 
 [settings]
 experimental = true
 python_venv_auto_create = true
 disable_hints = ["python_multi"]
+sops.age_key_file = "~/.config/sops/age/keys.txt"
 
 [env]
-_.file = '.env'
+_.file = ["~/configs/.env.json"]
+EDITOR = "zed"
+RUST_LOG = "info"
+HUSKY = 0

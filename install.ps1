@@ -18,10 +18,12 @@ mkdir $CONFIGS_DIR/..
 cd $CONFIGS_DIR/..
 git clone https://github.com/luckydye/configs.git
 
-# install task
-scoop install task
+# install mise
+scoop install mise
+
+mise install -y
 
 cd $CONFIGS_DIR
-task -t setup.yml
+task -t setup.yaml
 
 explain
