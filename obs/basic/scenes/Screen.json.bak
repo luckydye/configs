@@ -239,7 +239,7 @@
             "id": "scene",
             "versioned_id": "scene",
             "settings": {
-                "id_counter": 18,
+                "id_counter": 19,
                 "custom_size": false,
                 "items": [
                     {
@@ -573,8 +573,8 @@
                         "private_settings": {}
                     },
                     {
-                        "name": "Video Capture Device",
-                        "source_uuid": "f56b8ce2-0c2d-4978-af3d-b9b6b0966094",
+                        "name": "Audio Input Capture 2",
+                        "source_uuid": "bd018f7e-0d6f-4d85-9c51-ee019fed5e41",
                         "visible": true,
                         "locked": false,
                         "rot": 0.0,
@@ -586,27 +586,82 @@
                         "bounds_type": 0,
                         "bounds_align": 0,
                         "bounds_crop": false,
-                        "crop_left": 490,
+                        "crop_left": 0,
                         "crop_top": 0,
-                        "crop_right": 478,
-                        "crop_bottom": 341,
-                        "id": 18,
+                        "crop_right": 0,
+                        "crop_bottom": 0,
+                        "id": 19,
                         "group_item_backup": false,
                         "pos": {
                             "x": 0.0,
-                            "y": 1189.0
+                            "y": 0.0
                         },
                         "pos_rel": {
                             "x": -1.7777777910232544,
-                            "y": 1.2018518447875977
+                            "y": -1.0
                         },
                         "scale": {
-                            "x": 2.0152130126953125,
-                            "y": -2.014925479888916
+                            "x": 1.0,
+                            "y": 1.0
                         },
                         "scale_rel": {
-                            "x": 2.0152130126953125,
-                            "y": -2.014925479888916
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_rel": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "scale_filter": "disable",
+                        "blend_method": "default",
+                        "blend_type": "normal",
+                        "show_transition": {
+                            "duration": 0
+                        },
+                        "hide_transition": {
+                            "duration": 0
+                        },
+                        "private_settings": {}
+                    },
+                    {
+                        "name": "Video Capture Device",
+                        "source_uuid": "f56b8ce2-0c2d-4978-af3d-b9b6b0966094",
+                        "visible": true,
+                        "locked": true,
+                        "rot": 0.0,
+                        "scale_ref": {
+                            "x": 1920.0,
+                            "y": 1080.0
+                        },
+                        "align": 5,
+                        "bounds_type": 0,
+                        "bounds_align": 0,
+                        "bounds_crop": false,
+                        "crop_left": 297,
+                        "crop_top": 0,
+                        "crop_right": 266,
+                        "crop_bottom": 310,
+                        "id": 18,
+                        "group_item_backup": false,
+                        "pos": {
+                            "x": -332.0,
+                            "y": 1186.0
+                        },
+                        "pos_rel": {
+                            "x": -2.3925926685333252,
+                            "y": 1.196296215057373
+                        },
+                        "scale": {
+                            "x": 2.0478997230529785,
+                            "y": -2.0480518341064453
+                        },
+                        "scale_rel": {
+                            "x": 2.0478997230529785,
+                            "y": -2.0480518341064453
                         },
                         "bounds": {
                             "x": 0.0,
@@ -655,7 +710,9 @@
                 "libobs.show_scene_item.17": [],
                 "libobs.hide_scene_item.17": [],
                 "libobs.show_scene_item.18": [],
-                "libobs.hide_scene_item.18": []
+                "libobs.hide_scene_item.18": [],
+                "libobs.show_scene_item.19": [],
+                "libobs.hide_scene_item.19": []
             },
             "deinterlace_mode": 0,
             "deinterlace_field_order": 0,
@@ -1709,7 +1766,7 @@
                     "flags": 0,
                     "volume": 1.0,
                     "balance": 0.5,
-                    "enabled": true,
+                    "enabled": false,
                     "muted": false,
                     "push-to-mute": false,
                     "push-to-mute-delay": 0,
@@ -1729,7 +1786,8 @@
                     "versioned_id": "color_filter_v2",
                     "settings": {
                         "gamma": -0.13,
-                        "contrast": 0.040000000000000001
+                        "contrast": 0.040000000000000001,
+                        "saturation": 0.10000000000000001
                     },
                     "mixers": 0,
                     "sync": 0,
@@ -1851,6 +1909,37 @@
             "mixers": 255,
             "sync": 0,
             "flags": 0,
+            "volume": 1.0,
+            "balance": 0.5,
+            "enabled": true,
+            "muted": false,
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.unmute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": []
+            },
+            "deinterlace_mode": 0,
+            "deinterlace_field_order": 0,
+            "monitoring_type": 0,
+            "private_settings": {}
+        },
+        {
+            "prev_ver": 520093697,
+            "name": "Audio Input Capture 2",
+            "uuid": "bd018f7e-0d6f-4d85-9c51-ee019fed5e41",
+            "id": "coreaudio_input_capture",
+            "versioned_id": "coreaudio_input_capture",
+            "settings": {
+                "device_id": "AppleUSBAudioEngine:Audient:Audient iD14:2140000:1,2"
+            },
+            "mixers": 255,
+            "sync": 0,
+            "flags": 2,
             "volume": 1.0,
             "balance": 0.5,
             "enabled": true,
