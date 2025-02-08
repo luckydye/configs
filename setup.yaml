@@ -70,9 +70,14 @@ tasks:
     vars:
       PASS:
         sh: key get "storage - crypt"
-    cmds:
-      - cmd: rclone sync --crypt-password={{.PASS}} crypt:/ssh ./ssh
-        platforms: [darwin, linux]
+    cmd: rclone sync --crypt-password={{.PASS}} crypt:/ssh ./ssh
+
+  upload-configs:
+    dir: ./
+    vars:
+      PASS:
+        sh: key get "storage - crypt"
+    cmd: rclone sync --crypt-password={{.PASS}} ./ssh crypt:/ssh
 
   macos-configuration:
     platforms: [darwin]
