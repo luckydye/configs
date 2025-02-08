@@ -1,3 +1,5 @@
+alias rel="source ~/.zshrc; clear"
+
 # config util
 alias cfg='/usr/bin/git -C $HOME/configs/'
 alias nuke="gum confirm 'Nuke configs?' && rm -rf $CONFIGS_DIR"

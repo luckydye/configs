@@ -77,8 +77,8 @@ tasks:
       - cmd: 'ln -sF {{.CONFIGS_DIR}}/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
         platforms: [darwin]
       # windows obs
-      - cmd: mklink \D "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
-        platforms: [windows]
+      # - cmd: fling -i ".DS_Store" -s "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
+      #   platforms: [windows]
 
   install-neovim:
     platforms: [darwin, linux]
