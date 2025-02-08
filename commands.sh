@@ -46,6 +46,7 @@ function toArchive() {
 
 # git
 alias gs="git status"
+alias gc="mise run gc"
 alias stash="git stash"
 alias adda="git add --all"
 alias pull="git pull"

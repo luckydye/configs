@@ -1,0 +1,5 @@
+#!/bin/zsh
+#MISE hide=true
+#MISE dir="~/Music"
+
+rclone sync --progress storage:/media/music/UserLibrary ./User\ Library
