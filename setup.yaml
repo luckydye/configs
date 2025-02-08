@@ -9,11 +9,11 @@ tasks:
   default:
     cmds:
       - task: dependencies
-      - task: link
       - task: macos-configuration
       - task: install-neovim
       - task: install-starship
       - task: download-configs
+      - task: link
 
   dependencies:
     cmds:
