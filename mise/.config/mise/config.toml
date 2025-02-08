@@ -14,6 +14,7 @@ fzf = "latest"
 rclone = "latest"
 sops = "latest"
 age = "latest"
+starship = "latest"
 
 [settings]
 experimental = true
