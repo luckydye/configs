@@ -1,0 +1,15 @@
+#!/bin/zsh
+#MISE description="Backup Files to remote storage"
+#MISE hide=true
+#MISE dir="{{cwd}}"
+
+#USAGE arg "<target>" help="The target to backup relative to the current directory"
+
+REMOTE=storage:/pub
+
+rclone sync --progress $usage_target $REMOTE/$usage_target
+
+echo ""
+echo "Upload complete"
+echo "Link: https://storage.luckydye.de/pub/$usage_target"
+echo ""

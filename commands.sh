@@ -79,7 +79,6 @@ function clone() {
 
 # docker
 alias compose="docker compose"
-alias ddev="docker run --rm -it --entrypoint "/configs/devcontainer.sh" -v ~/source:/source -v $CONFIGS_DIR:/configs -w /source luckydye/buildapp:latest"
 alias da="mise run docker_attach"
 alias dshell="mise run docker_shell"
 alias dkill="mise run docker_kill"

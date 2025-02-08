@@ -2,7 +2,7 @@ version: "3"
 
 # All vars required to run setup tasks should be defined here
 vars:
-  upload_dirs: ["/ssh", "/obs"]
+  upload_dirs: ["ssh", "obs"]
 
 tasks:
   default:
@@ -30,12 +30,11 @@ tasks:
 
   link:
     cmds:
-      # mac
-      - cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R mac nvim ansible git mise tmux starship zed lazygit vscode ghostty ssh rclone sops
-        platforms: [darwin]
-      # linux
       - cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim ansible git mise tmux starship zed lazygit ghostty ssh rclone sops
-        platforms: [linux]
+        platforms: [darwin, linux]
+      # mac
+      - cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R vscode mac
+        platforms: [darwin]
       # mac obs
       # - cmd: 'ln -sF $CONFIGS_DIR/obs/basic "$HOME/Library/Application Support/obs-studio/basic"'
       #   platforms: [darwin]
@@ -61,22 +60,14 @@ tasks:
         platforms: [linux]
 
   download:
-    dir: ./
-    env:
-      RCLONE_CRYPT_PASSWORD:
-        sh: key get "storage - crypt"
     cmds:
       - for: { var: upload_dirs }
-        cmd: rclone sync crypt:{{.ITEM}} .{{.ITEM}}
+        cmd: mise run backup_crypt --recover {{.ITEM}}
 
   upload:
-    dir: ./
-    env:
-      RCLONE_CRYPT_PASSWORD:
-        sh: key get "storage - crypt"
     cmds:
       - for: { var: upload_dirs }
-        cmd: rclone sync .{{.ITEM}} crypt:{{.ITEM}}
+        cmd: mise run backup_crypt {{.ITEM}}
 
   migrate:
     dir: "$HOME"
