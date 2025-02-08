@@ -89,4 +89,4 @@ tasks:
   migrate:
     dir: ./
     cmds:
-      - croc send --local --zip ~/.ssh ~/configs/sops ~/configs/ssh ~/configs/key
+      - croc send --zip ~/.ssh ~/configs/sops ~/configs/ssh ~/configs/key
