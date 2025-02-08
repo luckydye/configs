@@ -2,6 +2,7 @@ version: "3"
 
 # All vars required to run setup tasks should be defined here
 vars:
+  sync_dirs: ["/ssh"]
 
 tasks:
   default:
@@ -9,7 +10,7 @@ tasks:
       - task: dependencies
       - task: macos-configuration
       - task: install-neovim
-      - task: download-configs
+      - task: download
       - task: link
 
   dependencies:
@@ -42,6 +43,13 @@ tasks:
       # - cmd: fling -i ".DS_Store" -s "%USERPROFILE%\AppData\Roaming\obs-studio\basic" "%USERPROFILE%\configs\obs\basic"
       #   platforms: [windows]
 
+  macos-configuration:
+    platforms: [darwin]
+    cmds:
+      - defaults write -g InitialKeyRepeat -int 15
+      - defaults write -g KeyRepeat -int 1
+      - defaults write http://com.apple.finder AppleShowAllFiles YES
+
   install-neovim:
     platforms: [darwin, linux]
     cmds:
@@ -52,26 +60,23 @@ tasks:
       - cmd: mkdir -p $HOME/bin && cd $HOME/bin && curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin/nvim && chmod u+x ~/bin/nvim
         platforms: [linux]
 
-  download-configs:
+  download:
     dir: ./
     env:
       RCLONE_CRYPT_PASSWORD:
         sh: key get "storage - crypt"
-    cmd: rclone sync crypt:/ssh ./ssh
-
-  upload-configs:
-    dir: ./
-    env:
-      RCLONE_CRYPT_PASSWORD:
-        sh: key get "storage - crypt"
-    cmd: rclone sync crypt:/ssh ./ssh
-
-  macos-configuration:
-    platforms: [darwin]
     cmds:
-      - defaults write -g InitialKeyRepeat -int 15
-      - defaults write -g KeyRepeat -int 1
-      - defaults write http://com.apple.finder AppleShowAllFiles YES
+      - for: { var: sync_dirs }
+        cmd: rclone sync crypt:{{.ITEM}} .{{.ITEM}}
+
+  upload:
+    dir: ./
+    env:
+      RCLONE_CRYPT_PASSWORD:
+        sh: key get "storage - crypt"
+    cmds:
+      - for: { var: sync_dirs }
+        cmd: rclone sync .{{.ITEM}} crypt:{{.ITEM}}
 
   migrate:
     dir: ./
