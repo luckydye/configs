@@ -7,4 +7,3 @@ node_modules
 /key
 /secret
 /sops
-.env.json
