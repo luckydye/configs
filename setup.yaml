@@ -79,7 +79,7 @@ tasks:
         cmd: rclone sync .{{.ITEM}} crypt:{{.ITEM}}
 
   migrate:
-    dir: ./
+    dir: "$HOME"
     cmds:
-      # ssh keys, key .key and sops key need to be migrated manually
-      - croc send --zip ~/.ssh ~/configs/key ~/configs/sops
+      # ssh keys, key .key and sops key need to be migrated manually for a new setup
+      - croc send --zip $(gum choose --no-limit .ssh configs/key configs/sops source Downloads Documents)
