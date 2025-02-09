@@ -10,13 +10,14 @@ tasks:
       - task: dependencies
       - task: macos-configuration
       - task: install-neovim
+      - task: install-croc
       - task: download
       - task: link
 
   dependencies:
     cmds:
       # mac
-      - cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide croc
+      - cmd: brew install git stow ripgrep unzip fd fzf tmux watch zoxide
         platforms: [darwin]
       - cmd: brew install --cask raycast
         platforms: [darwin]
@@ -52,11 +53,17 @@ tasks:
   install-neovim:
     platforms: [darwin, linux]
     cmds:
-      # mac
       - cmd: brew install neovim
         platforms: [darwin]
-      # linux
       - cmd: mkdir -p $HOME/bin && cd $HOME/bin && curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o ~/bin/nvim && chmod u+x ~/bin/nvim
+        platforms: [linux]
+
+  install-croc:
+    platforms: [darwin, linux]
+    cmds:
+      - cmd: brew install croc
+        platforms: [darwin]
+      - cmd: curl https://getcroc.schollz.com | bash
         platforms: [linux]
 
   download:
