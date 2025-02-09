@@ -8,7 +8,7 @@
 
 REMOTE=storage:/backups
 
-REMOTE_TARGET=$REMOTE$usage_target
+REMOTE_TARGET=$REMOTE/$usage_target
 LOCAL_TARGET=./$usage_target
 
 if [ "$usage_recover" = "true" ]; then
