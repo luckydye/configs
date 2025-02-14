@@ -1,5 +1,6 @@
 #!/bin/bash
-# mise hide=true
+#MISE hide=true
+#MISE dir="{{cwd}}"
 
 tasks=$(mise tasks --hidden --no-header | awk '{ print $1 }')
 name=$(gum filter $tasks)

@@ -1,9 +1,57 @@
 {
-  "logging": {
-    "prefix": "log",
-    "body": [
-      "console.log($1)"
-    ],
-    "description": "Expand `log` to `console.log()`"
-  }
+	"logging": {
+		"prefix": "log",
+		"body": ["console.log($1)"],
+		"description": "Expand `log` to `console.log()`"
+	},
+	"story": {
+		"prefix": "story",
+		"body": [
+			"import type { Meta, StoryObj } from \"@storybook/web-components\";",
+			"import { html } from \"lit\";",
+			"import \"@fraport/ui\";",
+			"",
+			"export default {",
+			"  tags: [\"public\"],",
+			"  args: {",
+			"    home: \"/\",",
+			"  },",
+			"  render: (args) => html`",
+			"    <fra-teaser>",
+			"      Text",
+			"    </fra-teaser>",
+			"  `,",
+			"} satisfies Meta;",
+			"",
+			"export const Default: StoryObj = {};"
+		],
+		"description": "Strybook boilerplate"
+	},
+	"lit": {
+		"prefix": "lit",
+		"body": [
+			"import { css, html, LitElement, unsafeCSS } from \"lit\";",
+			"import TAILWIND_CSS from \"shadow-tailwind:css\";",
+			"import { property } from \"lit/decorators.js\";",
+			"",
+			"export class FraTeaserElement extends LitElement {",
+			"  static styles = [unsafeCSS(TAILWIND_CSS)];",
+			"",
+			"  render() {",
+			"    return html`",
+			"      <div class=\"relative\">",
+			"        <div>",
+			"          <slot />",
+			"        </div>",
+			"      </div>",
+			"    `;",
+			"  }",
+			"}",
+			"",
+			"if (!customElements.get(\"fra-teaser\")) {",
+			"  customElements.define(\"fra-teaser\", FraTeaserElement);",
+			"}"
+		],
+		"description": "Lit component"
+	}
 }

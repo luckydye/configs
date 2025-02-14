@@ -1,6 +1,6 @@
 #!/bin/bash
-
-# mise hide=true
+#MISE hide=true
+#MISE dir="{{cwd}}"
 
 file=$(fzf --preview "bat --color=always --tabs=2 --style=plain {}")
 

@@ -1,5 +1,6 @@
 #!/bin/bash
-# mise hide=true
+#MISE hide=true
+#MISE dir="{{cwd}}"
 
 if [ -z "$TMUX" ]
 then

@@ -9,6 +9,7 @@ alias ".."="cd .."
 alias ll='ls -lah'
 alias l='ls -CF'
 alias ff='mise run find_file'
+alias fs='mise run find_string'
 alias quit="exit"
 alias q="quit"
 alias x="exit"
