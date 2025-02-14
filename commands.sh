@@ -110,8 +110,3 @@ function dec() {
 	out="${1/${replace}/${replacewith}}"
 	openssl enc -d -aes-256-cbc -salt -pbkdf2 -in $1 -out $out $2
 }
-
-# tool configs
-
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix'
-export FZF_DEFAULT_OPTS='--height=100% --info=inline --preview-window="up,70%,border-horizontal"'

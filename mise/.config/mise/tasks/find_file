@@ -2,10 +2,11 @@
 #MISE hide=true
 #MISE dir="{{cwd}}"
 
-file=$(fzf --preview "bat --color=always --tabs=2 --style=plain {}")
+file=$(fd --type f --strip-cwd-prefix --hidden |\
+      fzf --preview-window="right,60%,border-horizontal" --preview "bat --color=always --tabs=2 --style=plain {}")
 
 if [ -z "$file" ]; then
 	echo "Canceled"
 else
-	nvim $file
+	$EDITOR $file
 fi
