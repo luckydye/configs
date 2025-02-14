@@ -25,6 +25,7 @@ alias disk="diskonaut"
 alias ta="mise run tmux_attach"
 alias use="mise use"
 alias run="mise run"
+alias u="tmux resize-pane -U 20"
 
 # data transfer
 alias vcs="ssh vcs"
