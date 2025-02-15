@@ -3,7 +3,7 @@
 
 project=$(find ~/source -maxdepth 2 -name .git -type d |\
           sed 's/\/.git//g' |\
-          fzf --preview-window="right:60%" --preview="bat {}/README.md")
+          fzf --reverse --preview-window="right:60%" --preview="bat {}/README.md")
 
 if [ -z "$project" ]; then
 	echo "You need to select a project."
