@@ -33,6 +33,7 @@ alias backup='mise run backup'
 alias backup_crypt='mise run backup_crypt'
 alias upload='mise run upload'
 alias sync="rclone sync --progress"
+alias repos="mise run list_repos"
 
 function secure() {
  export RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")

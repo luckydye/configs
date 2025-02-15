@@ -1,0 +1,25 @@
+#!/bin/zsh
+#MISE description="List all my repos on github"
+#MISE hide=true
+#MISE dir="{{cwd}}"
+
+REPOS=$(curl -s -L -H "Authorization: Bearer $(key get GITHUB_TOKEN)" "https://api.github.com/user/repos?per_page=100&sort=updated")
+
+GIT_URL=$(echo "$REPOS" | jq -r '.[].ssh_url' | gum filter)
+
+echo $GIT_URL
+
+cd ~/source
+git clone $GIT_URL
+
+id=$(basename -s .git "$GIT_URL")
+
+cd $id
+
+tmux new-session -d -s $id
+
+if [ -z "$TMUX" ]; then
+	tmux attach -t $id
+else
+	tmux switch-client -t $id
+fi
