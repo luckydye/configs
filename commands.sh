@@ -24,6 +24,7 @@ alias clip="pbcopy"
 alias disk="diskonaut"
 alias ta="mise run tmux_attach"
 alias use="mise use"
+alias pin="mise use --pin"
 alias run="mise run"
 alias u="tmux resize-pane -U 20"
 
