@@ -11,6 +11,7 @@ tasks:
       - task: link
       - task: mise-install
       - task: macos-configuration
+      - task: ubuntu-configuration
       - task: install-neovim
       - task: install-croc
       - task: download
@@ -19,6 +20,11 @@ tasks:
   git:
     dir: ./
     cmd: git {{.CLI_ARGS}}
+
+  ubuntu-configuration:
+    cmds:
+      - cmd: chsh /usr/bin/zsh
+        platforms: [linux]
 
   mise-install:
     cmds:
