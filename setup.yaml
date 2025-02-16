@@ -23,7 +23,7 @@ tasks:
 
   ubuntu-configuration:
     cmds:
-      - cmd: chsh /usr/bin/zsh
+      - cmd: chsh -s /usr/bin/zsh
         platforms: [linux]
 
   mise-install:
