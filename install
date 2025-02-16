@@ -31,6 +31,6 @@ curl https://mise.run | sh
 mise install -y
 
 source $CONFIGS_DIR/.zshrc || exit 1
-task -t $CONFIGS_DIR/setup.yaml || exit 1
+mise exec task@latest -- task -t $CONFIGS_DIR/setup.yaml || exit 1
 
 explain
