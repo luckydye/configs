@@ -9,6 +9,7 @@ tasks:
     cmds:
       - task: dependencies
       - task: link
+      - task: mise-install
       - task: macos-configuration
       - task: install-neovim
       - task: install-croc
@@ -18,6 +19,10 @@ tasks:
   git:
     dir: ./
     cmd: git {{.CLI_ARGS}}
+
+  mise-install:
+    cmds:
+      - mise install -y
 
   dependencies:
     cmds:
