@@ -55,14 +55,17 @@ alias adda="git add --all"
 alias pull="git pull"
 alias fetch="git fetch"
 alias gfp="git fetch --prune"
-alias gp="git cherry-pick"
+alias gcp="git cherry-pick"
 alias rebase="git rebase"
 alias push="git push"
 alias P="git push"
 alias gd="git diff --stat --cached ':!*lock'"
-alias graph="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%>(10,trunc) %C(bold yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset) %C(dim white)- %an%C(reset) %C(bold dim white)(%cd)%C(reset) ' --all"
-alias g="graph"
+alias g="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%>(10,trunc) %C(bold yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset) %C(dim white)- %an%C(reset) %C(bold dim white)(%cd)%C(reset) ' --all"
 alias gg="watch --color -d \"git pull && git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all --max-count=40\""
+
+function mr() {
+	git push -o merge_request.create -o merge_request.assign="$(git config user.name)" -o merge_request.title="$1"
+}
 
 function clone() {
 	cd ~/source
