@@ -9,6 +9,7 @@
 	{
 		// Editor bindings
 		"bindings": {
+			"ctrl-shift-enter": "editor::SwapSelectionEnds",
 			"ctrl-shift-r": "editor::RestartLanguageServer",
 			"ctrl-cmd-down": "editor::ExpandExcerptsDown",
 			"ctrl-cmd-up": "editor::ExpandExcerptsUp",
