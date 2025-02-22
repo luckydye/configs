@@ -6,4 +6,4 @@
 #USAGE arg "<target>" help="The target to backup relative to the current directory"
 
 >&2 rclone copyto --progress $usage_target storage:/pub/$usage_target
-echo -n "https://storage.luckydye.de/pub/$usage_target"
+echo -n "https://share.luckydye.de/$usage_target"
