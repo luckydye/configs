@@ -90,7 +90,7 @@ alias compose="docker compose"
 alias da="mise run docker_attach"
 alias dshell="mise run docker_shell"
 alias dkill="mise run docker_kill"
-alias drun='docker run -it --rm --name dev -w "/app" -v "./:/app" --platform linux/amd64'
+alias drun='docker run -it --rm --name dev -w "/app" -v "./:/app" --platform linux/arm64 jdxcode/mise:latest'
 alias dexec='docker exec -it -w "/app" dev'
 
 function addToPath() {
