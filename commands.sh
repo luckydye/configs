@@ -27,7 +27,7 @@ alias use="mise use"
 alias pin="mise use --pin"
 alias run="mise run"
 alias u="tmux resize-pane -U 20"
-alias lines='git ls-files | rg -w ".+\.(js|ts|tsx)" | xargs wc -l'
+alias lines='git ls-files | rg -w ".+\.(js|jsx|ts|tsx|rs)" | xargs wc -l'
 
 # data transfer
 alias vcs="ssh vcs"
