@@ -29,6 +29,8 @@ alias run="mise run"
 alias u="tmux resize-pane -U 20"
 alias lines='git ls-files | rg -w ".+\.(js|jsx|ts|tsx|rs)" | xargs wc -l'
 
+alias clear="no clearing!"
+
 # data transfer
 alias vcs="ssh vcs"
 alias backup='mise run backup'
