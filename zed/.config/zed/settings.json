@@ -15,7 +15,7 @@
 	},
 	"icon_theme": "Catppuccin Latte",
 	"features": {
-		"inline_completion_provider": "copilot"
+		"inline_completion_provider": "supermaven"
 	},
 	"vim_mode": true,
 	"vim": {
