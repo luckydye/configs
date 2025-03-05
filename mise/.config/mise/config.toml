@@ -15,7 +15,7 @@ rclone = "latest"
 sops = "latest"
 age = "latest"
 starship = "latest"
-node = "latest"
+#node = "latest"
 
 [settings]
 experimental = true
