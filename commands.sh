@@ -16,16 +16,11 @@ alias disk="diskonaut"
 alias use="mise use"
 alias pin="mise use --pin"
 alias run="mise run"
+alias compose="docker compose"
 alias u="tmux resize-pane -U 20"
 alias clear="echo no clearing!"
-
-function secure() {
- export RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")
-}
-
 # git
 alias gs="git status"
-alias gc="mise run gc"
 alias stash="git stash"
 alias adda="git add --all"
 alias pull="git pull"
@@ -39,13 +34,9 @@ alias gd="git diff --stat --cached ':!*lock'"
 alias g="git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%>(10,trunc) %C(bold yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset) %C(dim white)- %an%C(reset) %C(bold dim white)(%cd)%C(reset) ' --all"
 alias gg="watch --color -d \"git pull && git log --graph --author-date-order --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)' --all --max-count=40\""
 
-# docker
-alias compose="docker compose"
-alias da="mise run docker_attach"
-alias dshell="mise run docker_shell"
-alias dkill="mise run docker_kill"
-alias drun='docker run -it --rm --name dev -w "/app" -v "./:/app" --platform linux/arm64 jdxcode/mise:latest'
-alias dexec='docker exec -it -w "/app" dev'
+function secure() {
+  export RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")
+}
 
 function addToPath() {
 	export PATH=$1:$PATH
