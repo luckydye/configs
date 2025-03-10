@@ -28,7 +28,7 @@ alias gcp="git cherry-pick"
 alias rebase="git rebase"
 alias push="git push"
 alias P="git push"
-alias gg="watch --color -d \"g\"
+alias gg="watch --color -d 'git pull && g'"
 
 function secure() {
   export RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")
