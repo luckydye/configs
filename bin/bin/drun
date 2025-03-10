@@ -1,3 +1,0 @@
-#!/bin/bash
-
-docker run -it --rm --name dev -w "/app" -v "./:/app" --platform linux/arm64 jdxcode/mise:latest $@
