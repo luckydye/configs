@@ -1,5 +1,4 @@
 #!/bin/bash
-#MISE hide=true
 
 project=$(find ~/source -maxdepth 2 -name .git -type d |\
           sed 's/\/.git//g' |\

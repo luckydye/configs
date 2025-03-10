@@ -1,9 +1,8 @@
 export CONFIGS_DIR=~/configs
 export GPG_TTY=$(tty)
+export PATH=~/bin:$PATH
 
 source ~/configs/commands.sh
-
-addToPath ~/bin
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   alias pbcopy="xclip -selection clipboard"

@@ -1,6 +1,5 @@
 #!/bin/zsh
 #MISE description="Backup Files to remote storage"
-#MISE hide=true
 #MISE dir="{{cwd}}"
 
 #USAGE flag "-r --recover" help="Recover the target from the secure storage"

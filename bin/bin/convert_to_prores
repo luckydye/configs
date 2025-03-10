@@ -1,4 +1,3 @@
 #!/bin/bash
-# mise hide=true
 
 FILE=$(gum file) ffmpeg -i $FILE -r 24 -pix_fmt yuv422p -c:v prores -c:a copy $FILE.mov

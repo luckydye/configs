@@ -1,4 +1,3 @@
 #!/bin/bash
-# mise hide=true
 
 find . -type f -name "*.CR3" | parallel --halt soon,fail=3 --bar -j 3 'd={//}; n={/.}; dest=$d/$n.jpg; test -f "$dest" || (dnglab analyze --srgb {} | ffmpeg -f image2pipe -vcodec ppm -i - -f image2 -q:v 6 "$dest" && exiftool -TagsFromFile {} "-all:all>all:all" "$dest" && cp --attributes-only --preserve {} "$dest" && rm "${dest}_original")';

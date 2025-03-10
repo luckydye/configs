@@ -1,5 +1,4 @@
 #!/bin/bash
-#MISE hide=true
 #MISE dir="{{cwd}}"
 
 file=$(fd --type f --strip-cwd-prefix --hidden |\

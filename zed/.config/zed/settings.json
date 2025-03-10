@@ -11,12 +11,13 @@
 	"theme": {
 		"mode": "system",
 		"light": "Github Light",
-		"dark": "Andromeda"
+		"dark": "Github Dark Dimmed"
 	},
 	"icon_theme": "Catppuccin Latte",
 	"features": {
-		"inline_completion_provider": "supermaven"
+		"edit_prediction_provider": "zed"
 	},
+	"on_last_window_closed": "quit_app",
 	"vim_mode": true,
 	"vim": {
 		"use_system_clipboard": "always",
@@ -140,7 +141,7 @@
 		}
 		// "biome": {
 		// 	"settings": {
-		// 		// "require_config_file": true
+		// 		"require_config_file": true
 		// 	}
 		// }
 	}

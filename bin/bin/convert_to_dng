@@ -1,4 +1,3 @@
 #!/bin/bash
-# mise hide=true
 
 dnglab convert ./ ./DNG

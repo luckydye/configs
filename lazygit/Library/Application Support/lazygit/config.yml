@@ -10,17 +10,14 @@ gui:
     "main": "#11aaff"
     "develop": "#11aaff"
   border: "hidden"
-
   authorColors:
     "Tim Havlicek": "#11aaff"
     "*": "#ff0000"
-
 git:
   branchLogCmd: "git log --graph --author-date-order --color=always --abbrev-commit --decorate --format=format:'%>(10,trunc) %C(bold yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset) %C(dim white)- %an%C(reset) %C(bold dim white)(%ar)%C(reset) ' {{branchName}}"
   disableForcePushing: true
   notARepository: "skip"
-
   commitPrefixes:
-    greentrails:
-      pattern: "^(feat|fix).*\\/(\\w+)"
-      replace: "$1(frontend): $2"
+    default:
+      - pattern: "^(feat|fix).*\\/(\\w+)"
+        replace: "$1(frontend): $2"

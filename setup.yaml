@@ -47,7 +47,7 @@ tasks:
 
   link:
     cmds:
-      - cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim ansible git mise tmux starship zed lazygit ghostty ssh rclone sops
+      - cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R nvim ansible git mise tmux starship zed lazygit ghostty ssh rclone sops bin
         platforms: [darwin, linux]
       # mac
       - cmd: stow --ignore=".DS_Store" --target $HOME --dir $CONFIGS_DIR -R vscode mac
@@ -85,12 +85,12 @@ tasks:
   download:
     cmds:
       - for: { var: upload_dirs }
-        cmd: mise run backup_crypt --recover {{.ITEM}}
+        cmd: backup_crypt --recover {{.ITEM}}
 
   upload:
     cmds:
       - for: { var: upload_dirs }
-        cmd: mise run backup_crypt {{.ITEM}}
+        cmd: backup_crypt {{.ITEM}}
 
   migrate:
     dir: "$HOME"

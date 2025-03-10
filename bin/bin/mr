@@ -1,0 +1,4 @@
+#!/bin/bash
+
+TITLE=$(gum input --placeholder="Enter merge request title")
+git push -o merge_request.create -o merge_request.assign="$(git config user.name)" -o merge_request.title="$TITLE"

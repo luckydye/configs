@@ -1,5 +1,4 @@
 #!/bin/zsh
-#MISE hide=true
 #MISE dir="~/Music/yt/likes"
 
 yt-dlp --download-archive .archive -x 'https://music.youtube.com/playlist?list=PLTuVdvJXyCcTXd571QbnpsOXeypBq_wFc'

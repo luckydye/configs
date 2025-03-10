@@ -1,5 +1,4 @@
 #!/bin/bash
-#MISE hide=true
 #MISE dir="{{cwd}}"
 
 file=$(rg --color=always --line-number --no-heading --smart-case "${*:-}" |
