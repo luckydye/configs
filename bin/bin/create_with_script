@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ln -s ~/configs/bin/bin/with_$1 ~/configs/bin/bin/$2

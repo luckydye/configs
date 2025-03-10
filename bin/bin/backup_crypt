@@ -1,18 +1,1 @@
-#!/bin/zsh
-#MISE description="Backup Files to remote storage with an encryption layer"
-#MISE dir="{{cwd}}"
-
-#USAGE flag "--recover" help="Recover the target from the secure storage"
-#USAGE arg "<target>" help="The target to backup"
-
-REMOTE=crypt:
-SECRET_KEY="storage - crypt"
-
-REMOTE_TARGET=$REMOTE$usage_target
-LOCAL_TARGET=./$usage_target
-
-if [ "$usage_recover" = "true" ]; then
-  RCLONE_CRYPT_PASSWORD=$(key get $SECRET_KEY) rclone sync --progress $REMOTE_TARGET $LOCAL_TARGET
-else
-  RCLONE_CRYPT_PASSWORD=$(key get $SECRET_KEY) rclone sync --progress $LOCAL_TARGET $REMOTE_TARGET
-fi
+/Users/tihav/configs/bin/bin/with_usage

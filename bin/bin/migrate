@@ -1,4 +1,1 @@
-#!/bin/bash
-
-# $0 takes the command name and passes it to the cfg command
-cfg $(basename $0)
+/Users/tihav/configs/bin/bin/with_cfg

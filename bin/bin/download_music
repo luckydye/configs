@@ -1,4 +1,3 @@
 #!/bin/zsh
-#MISE dir="~/Music"
 
-rclone sync --progress storage:/media/music/yt ./yt/Likes
+rclone sync --progress storage:/media/music/yt ~/Music/yt/Likes

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# mise alias="ta"
-
 function info() {
     gum log --time rfc822 --prefix=tmux_attach --level info $0
 }

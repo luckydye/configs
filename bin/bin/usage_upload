@@ -1,6 +1,5 @@
 #!/bin/zsh
 #MISE description="Upload a file to public remote storage"
-#MISE dir="{{cwd}}"
 
 #USAGE arg "<target>" help="The target to backup relative to the current directory"
 

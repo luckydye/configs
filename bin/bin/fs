@@ -1,5 +1,4 @@
 #!/bin/bash
-#MISE dir="{{cwd}}"
 
 file=$(rg --color=always --line-number --no-heading --smart-case "${*:-}" |
       fzf --ansi \

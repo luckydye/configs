@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # mise description="Reset repository files"
-# mise dir="{{cwd}}"
 
 git add --all
 git stash

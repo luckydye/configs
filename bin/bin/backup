@@ -1,17 +1,1 @@
-#!/bin/zsh
-#MISE description="Backup Files to remote storage"
-#MISE dir="{{cwd}}"
-
-#USAGE flag "-r --recover" help="Recover the target from the secure storage"
-#USAGE arg "<target>" help="The target to backup relative to the current directory"
-
-REMOTE=storage:/backups
-
-REMOTE_TARGET=$REMOTE/$usage_target
-LOCAL_TARGET=./$usage_target
-
-if [ "$usage_recover" = "true" ]; then
-  rclone sync --progress $REMOTE_TARGET $LOCAL_TARGET
-else
-  rclone sync --progress $LOCAL_TARGET $REMOTE_TARGET
-fi
+/Users/tihav/configs/bin/bin/with_usage

@@ -1,6 +1,5 @@
 #!/bin/zsh
 #MISE description="List all my repos on github"
-#MISE dir="{{cwd}}"
 
 REPOS=$(curl -s -L -H "Authorization: Bearer $(key get GITHUB_TOKEN)" "https://api.github.com/user/repos?per_page=100&sort=updated")
 

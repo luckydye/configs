@@ -1,7 +1,5 @@
 #!/bin/bash
-# mise.alias=init
 # mise.description=Create new project directory
-# mise.dir={{cwd}}
 
 project="$HOME/source/$(gum input --placeholder="Project Name" --header="Create Project")"
 
