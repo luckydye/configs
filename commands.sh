@@ -30,10 +30,6 @@ alias push="git push"
 alias P="git push"
 alias gg="watch --color -d 'git pull && g'"
 
-function secure() {
-  export RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")
-}
-
 function addToPath() {
 	export PATH=$1:$PATH
 }

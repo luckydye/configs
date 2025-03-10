@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export RCLONE_CRYPT_PASSWORD=$(key get "storage - crypt")
+rclone $1 crypt:/ $2
