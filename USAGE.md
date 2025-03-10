@@ -7,8 +7,7 @@ rclone s3
 
 # encrypted env
 
-./env
-
+sops
 
 # p2p tranfers
 
@@ -19,14 +18,6 @@ croc
 
 stow
 
-
-# scripts/tasks
-
-mise tasks
-
-
 # Missing in setup
 
-- ubiquity identyty
-- Mos (fixing the mouse in macos)
-- p2p migration
+tbs
