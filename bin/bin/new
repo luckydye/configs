@@ -1,5 +1,4 @@
 #!/bin/bash
-# mise hide=true
 # mise.alias=init
 # mise.description=Create new project directory
 # mise.dir={{cwd}}

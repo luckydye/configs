@@ -1,5 +1,4 @@
 #!/bin/zsh
-# mise hide=true
 # mise.description=Access a password from the kdbx database
 
 source $CONFIGS_DIR/commands.sh
