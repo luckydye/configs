@@ -1,2 +1,3 @@
 #!/bin/bash
+# ./with_ssh
 ssh $(basename $0) $@

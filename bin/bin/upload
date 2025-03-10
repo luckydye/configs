@@ -1,2 +1,3 @@
 #!/bin/bash
+# ./with_usage
 usage bash $(which usage_$(basename $0)) $@
