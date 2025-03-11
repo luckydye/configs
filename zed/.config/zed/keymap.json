@@ -45,8 +45,8 @@
 			"ctrl-alt-left": "pane::GoBack",
 			"ctrl-alt-right": "pane::GoForward",
 
-			"ctrl-}": "workspace::ActivateNextPane",
-			"ctrl-{": "workspace::ActivatePreviousPane",
+			"ctrl-]": "workspace::ActivateNextPane",
+			"ctrl-[": "workspace::ActivatePreviousPane",
 
 			"ctrl-1": ["workspace::ActivatePane", 0],
 			"ctrl-2": ["workspace::ActivatePane", 1],
