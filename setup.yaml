@@ -21,6 +21,10 @@ tasks:
     dir: ./
     cmd: git {{.CLI_ARGS}}
 
+  pull:
+    dir: ./
+    cmd: git pull
+
   ubuntu-configuration:
     cmds:
       - cmd: chsh -s /usr/bin/zsh
