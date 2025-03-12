@@ -1,0 +1,121 @@
+#!/bin/bash
+
+UPLOAD_DIRS=("ssh" "obs")
+CONFIGS_DIR="$HOME/configs"
+
+# Default task
+run_default() {
+    dependencies
+    link
+    mise_install
+    macos_configuration
+    ubuntu_configuration
+    install_neovim
+    install_croc
+    download
+    link
+}
+
+# Git commands
+git_cmd() {
+    git "$@"
+}
+
+pull() {
+    git pull
+}
+
+# Ubuntu configuration
+ubuntu_configuration() {
+    [[ "$(uname -s)" == "Linux" ]] && chsh -s /usr/bin/zsh
+}
+
+# Install mise
+mise_install() {
+    mise install -y
+}
+
+# Install dependencies
+dependencies() {
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        brew install git stow ripgrep unzip fd fzf tmux watch zoxide
+        brew install --cask raycast ghostty
+    elif [[ "$(uname -s)" == "Linux" ]]; then
+        sudo apt update -y
+        sudo apt install -y stow git unzip fd-find fzf watch ripgrep zsh tmux build-essential libfuse2 zoxide
+    fi
+}
+
+# Link configuration files
+link() {
+    stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R nvim ansible git mise tmux starship zed lazygit ghostty ssh rclone sops
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R vscode mac
+    fi
+}
+
+# macOS configuration
+macos_configuration() {
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        defaults write -g InitialKeyRepeat -int 15
+        defaults write -g KeyRepeat -int 1
+        defaults write com.apple.finder AppleShowAllFiles YES
+    fi
+}
+
+# Install Neovim
+install_neovim() {
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        brew install neovim
+    elif [[ "$(uname -s)" == "Linux" ]]; then
+        mkdir -p "$HOME/bin" && cd "$HOME/bin"
+        curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "$HOME/bin/nvim"
+        chmod u+x "$HOME/bin/nvim"
+    fi
+}
+
+# Install Croc
+install_croc() {
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        brew install croc
+    elif [[ "$(uname -s)" == "Linux" ]]; then
+        curl https://getcroc.schollz.com | bash
+    fi
+}
+
+# Download backup
+download() {
+    for dir in "${UPLOAD_DIRS[@]}"; do
+        backup_crypt --recover "$dir"
+    done
+}
+
+# Upload backup
+upload() {
+    for dir in "${UPLOAD_DIRS[@]}"; do
+        backup_crypt "$dir"
+    done
+}
+
+# Migrate data
+migrate() {
+    croc send --zip $(gum choose --no-limit .ssh configs/key configs/sops source Downloads Documents)
+}
+
+# Main
+case "$1" in
+    default) run_default ;;
+    git) shift; git_cmd "$@" ;;
+    pull) pull ;;
+    ubuntu-configuration) ubuntu_configuration ;;
+    mise-install) mise_install ;;
+    dependencies) dependencies ;;
+    link) link ;;
+    macos-configuration) macos_configuration ;;
+    install-neovim) install_neovim ;;
+    install-croc) install_croc ;;
+    download) download ;;
+    upload) upload ;;
+    migrate) migrate ;;
+    *) echo "Usage: $0 {default|git|pull|ubuntu-configuration|mise-install|dependencies|link|macos-configuration|install-neovim|install-croc|download|upload|migrate}" ;;
+esac
