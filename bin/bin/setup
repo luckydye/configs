@@ -117,5 +117,5 @@ case "$1" in
     download) download ;;
     upload) upload ;;
     migrate) migrate ;;
-    *) echo "Usage: $0 {default|git|pull|ubuntu-configuration|mise-install|dependencies|link|macos-configuration|install-neovim|install-croc|download|upload|migrate}" ;;
+    *) run_default ;;
 esac
