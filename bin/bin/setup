@@ -5,6 +5,7 @@ CONFIGS_DIR="$HOME/configs"
 
 # Default task
 run_default() {
+    echo "Running default task"
     dependencies
     link
     mise_install
@@ -27,16 +28,19 @@ pull() {
 
 # Ubuntu configuration
 ubuntu_configuration() {
+    echo "Ubuntu configuration"
     [[ "$(uname -s)" == "Linux" ]] && chsh -s /usr/bin/zsh
 }
 
 # Install mise
 mise_install() {
+    echo "Installing mise"
     mise install -y
 }
 
 # Install dependencies
 dependencies() {
+    echo "Installing dependencies"
     if [[ "$(uname -s)" == "Darwin" ]]; then
         brew install git stow ripgrep unzip fd fzf tmux watch zoxide
         brew install --cask raycast ghostty
@@ -48,6 +52,7 @@ dependencies() {
 
 # Link configuration files
 link() {
+    echo "Linking configuration files"
     stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R nvim ansible git mise tmux starship zed lazygit ghostty ssh rclone sops
     if [[ "$(uname -s)" == "Darwin" ]]; then
         stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R vscode mac
@@ -56,6 +61,7 @@ link() {
 
 # macOS configuration
 macos_configuration() {
+    echo "Configuring macOS"
     if [[ "$(uname -s)" == "Darwin" ]]; then
         defaults write -g InitialKeyRepeat -int 15
         defaults write -g KeyRepeat -int 1
@@ -65,6 +71,7 @@ macos_configuration() {
 
 # Install Neovim
 install_neovim() {
+    echo "Installing Neovim"
     if [[ "$(uname -s)" == "Darwin" ]]; then
         brew install neovim
     elif [[ "$(uname -s)" == "Linux" ]]; then
@@ -76,6 +83,7 @@ install_neovim() {
 
 # Install Croc
 install_croc() {
+    echo "Installing Croc"
     if [[ "$(uname -s)" == "Darwin" ]]; then
         brew install croc
     elif [[ "$(uname -s)" == "Linux" ]]; then
@@ -85,6 +93,7 @@ install_croc() {
 
 # Download backup
 download() {
+    echo "Downloading backup"
     for dir in "${UPLOAD_DIRS[@]}"; do
         backup_crypt --recover "$dir"
     done
@@ -92,6 +101,7 @@ download() {
 
 # Upload backup
 upload() {
+    echo "Uploading backup"
     for dir in "${UPLOAD_DIRS[@]}"; do
         backup_crypt "$dir"
     done
@@ -99,6 +109,7 @@ upload() {
 
 # Migrate data
 migrate() {
+    echo "Migrating data"
     croc send --zip $(gum choose --no-limit .ssh configs/key configs/sops source Downloads Documents)
 }
 
