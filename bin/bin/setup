@@ -94,6 +94,7 @@ install_croc() {
 # Download backup
 download() {
     echo "Downloading backup"
+    cd $CONFIGS_DIR
     for dir in "${UPLOAD_DIRS[@]}"; do
         backup_crypt --recover "$dir"
     done
@@ -102,6 +103,7 @@ download() {
 # Upload backup
 upload() {
     echo "Uploading backup"
+    cd $CONFIGS_DIR
     for dir in "${UPLOAD_DIRS[@]}"; do
         backup_crypt "$dir"
     done

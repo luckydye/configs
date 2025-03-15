@@ -29,6 +29,9 @@ sops.age_key_file = "~/.config/sops/age/keys.txt"
 
 [env]
 _.file = "~/configs/mise/.config/mise/.env.json"
+_.path = [
+  "{{cwd}}/node_modules/.bin",
+]
 EDITOR = "zed"
 RUST_LOG = "info"
 HUSKY = 0
