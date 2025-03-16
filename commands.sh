@@ -10,7 +10,6 @@ alias v='nvim'
 alias f='spf .'
 alias lg='lazygit'
 alias files='yazi'
-alias t="task"
 alias clip="pbcopy"
 alias disk="diskonaut"
 alias use="mise use"
