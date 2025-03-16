@@ -19,10 +19,12 @@ run_default() {
 
 # Git commands
 git_cmd() {
+    cd $CONFIGS_DIR
     git "$@"
 }
 
 pull() {
+    cd $CONFIGS_DIR
     git pull
 }
 
@@ -34,6 +36,7 @@ ubuntu_configuration() {
 
 # Install mise
 mise_install() {
+    cd $CONFIGS_DIR
     echo "Installing mise"
     mise install -y
 }
@@ -112,6 +115,7 @@ upload() {
 # Migrate data
 migrate() {
     echo "Migrating data"
+    cd $HOME
     croc send --zip $(gum choose --no-limit .ssh configs/key configs/sops source Downloads Documents)
 }
 
