@@ -1,8 +1,6 @@
 #!/bin/zsh
 # mise.description=Access a password from the kdbx database
 
-source $CONFIGS_DIR/commands.sh
-
 pw=$(security find-generic-password -ws "$KEY_DATABASE_URL")
 
 if [ "$pw" != "" ]
