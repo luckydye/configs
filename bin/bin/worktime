@@ -1,0 +1,3 @@
+#!/bin/zsh
+
+cd ~/source/worktime && mise exec bun@latest -- bun ./index.ts

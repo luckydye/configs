@@ -3,4 +3,9 @@
 TITLE=$(gum input --placeholder="Enter merge request title")
 BRANCH=$(git branch --show-current)
 ASIGNEE=$(git config user.name)
-git push -o merge_request.create -o merge_request.assign="$ASIGNEE" -o merge_request.title="$TITLE" --set-upstream  origin $BRANCH
+
+OUTPUT=$(git push -o merge_request.create -o merge_request.assign="$ASIGNEE" -o merge_request.title="$TITLE" --set-upstream  origin $BRANCH | tee /dev/tty)
+
+URL=$(echo $OUTPUT | awk '/https?:\/\/[^\s]+/ {print $NF}')
+
+echo URL: $URL
