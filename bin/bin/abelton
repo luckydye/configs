@@ -2,3 +2,4 @@
 #MISE description="Download Abelton User Library from remote storage"
 
 rclone sync --progress storage:/media/music/UserLibrary ~/Music/User\ Library
+# rclone sync --progress ~/Music/User\ Library storage:/media/music/UserLibrary

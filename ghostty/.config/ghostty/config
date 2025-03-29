@@ -8,9 +8,11 @@ font-style = Semibold
 font-size = 14
 
 shell-integration-features = no-cursor
+
 cursor-style = block
 cursor-style-blink = false
 
 copy-on-select = true
 
-title = Ghostty
+window-width = 100
+window-height = 100
