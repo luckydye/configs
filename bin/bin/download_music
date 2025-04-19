@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-rclone sync --progress storage:/media/music/yt ~/Music/yt/Likes
