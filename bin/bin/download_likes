@@ -1,4 +1,4 @@
 #!/bin/zsh
 
 cd ~/Music/yt/Likes
-yt-dlp --download-archive .archive -x 'https://music.youtube.com/playlist?list=PLTuVdvJXyCcTCwrSTEu07Y6uhx8hKkVii&si=3hAcxyMByyn_5km1'
+yt-dlp --audio-format mp3  --download-archive .archive -x 'https://music.youtube.com/playlist?list=PLTuVdvJXyCcTCwrSTEu07Y6uhx8hKkVii&si=3hAcxyMByyn_5km1'
