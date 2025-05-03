@@ -31,6 +31,6 @@ curl https://mise.run | sh
 mise install -y || true
 
 source $CONFIGS_DIR/.zshrc || exit 1
-$CONFIGS_DIR/setup || exit 1
+$CONFIGS_DIR/bin/bin/setup || exit 1
 
 explain
