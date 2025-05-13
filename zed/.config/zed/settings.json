@@ -3,8 +3,8 @@
 	// Editor
 	"assistant": {
 		"default_model": {
-			"provider": "zed.dev",
-			"model": "gemini-2.5-pro-exp-03-25"
+			"provider": "copilot_chat",
+			"model": "gpt-4o"
 		},
 		"version": "2"
 	},
@@ -32,8 +32,8 @@
 	"relative_line_numbers": true,
 	"show_completions_on_input": false,
 	"show_whitespaces": "selection",
-	"use_autoclose": false,
-	"use_auto_surround": false,
+	"use_autoclose": true,
+	"use_auto_surround": true,
 	"inlay_hints": {
 		"enabled": true,
 		"show_parameter_hints": true,
@@ -101,9 +101,6 @@
 		}
 	],
 	"languages": {
-		// "TypeScript": {
-		// 	"language_servers": ["...", "tailwindcss-language-server"]
-		// },
 		"Shell Script": {
 			"formatter": "prettier"
 		},
