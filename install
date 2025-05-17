@@ -10,7 +10,8 @@ function explain() {
     echo ""
     echo "Installation complete. Open a new Terminal."
     echo ""
-    echo "To sync config to the latest commit run: sync"
+    echo "Run `cfg` to setup configurations."
+    echo "Run `cfg pull` to pull latest configs."
     echo ""
     echo "#######################################################"
     echo ""
@@ -21,16 +22,22 @@ function install_zshrc() {
   echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc || exit 1
 }
 
+if which pacman >/dev/null 2>&1; then
+    # arch yo
+    sudo pacman -S --needed zed cosmic-session glide chromium mise steam discord wine croc usage sops stow ripgrep fzf zoxide git obs-studio tmux
+else
+    echo "pacman is not available"
+
+    # install mise
+    curl https://mise.run | sh
+fi
+
 git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
 
 grep -Fxq "# luckydye configs" ~/.zshrc || install_zshrc
 
-# install mise
-curl https://mise.run | sh
+source $CONFIGS_DIR/.zshrc || exit 1
 
 mise install -y || true
-
-source $CONFIGS_DIR/.zshrc || exit 1
-$CONFIGS_DIR/bin/bin/setup || exit 1
 
 explain
