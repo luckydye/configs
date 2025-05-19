@@ -1,14 +1,15 @@
 // Zed Settings
 {
 	// Editor
-	"assistant": {
-		"default_model": {
-			"provider": "copilot_chat",
-			"model": "gpt-4o"
-		},
-		"version": "2"
-	},
-	"theme": {
+	"agent": {
+  "model_parameters": [],
+  "inline_assistant_model": {
+   "provider": "google",
+   "model": "gemini-2.5-flash-preview-04-17"
+  },
+  "version": "2"
+ },
+ "theme": {
 		"mode": "system",
 		"light": "Github Light",
 		"dark": "Github Dark Dimmed"
