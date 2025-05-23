@@ -15,6 +15,7 @@ rclone = "latest"
 sops = "latest"
 age = "latest"
 starship = "latest"
+node = "latest"
 #node = "latest"
 
 [task_config]

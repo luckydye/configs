@@ -1,0 +1,25 @@
+{
+  "filesystem": {
+    "command": "mise",
+    "args": [
+      "exec",
+      "node@latest",
+      "--",
+      "npx",
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "/Users/tihav/Desktop"
+    ]
+  },
+  "figma": {
+    "command": "mise",
+    "args": [
+      "exec",
+      "node@latest",
+      "--",
+      "npx",
+      "-y",
+      "cursor-talk-to-figma-mcp@latest"
+    ]
+  }
+}
