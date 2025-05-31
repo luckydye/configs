@@ -1,9 +1,9 @@
 [
 	{
-		"context": "Editor && inline_completion && !showing_completions",
+		"context": "Editor && edit_prediction && !showing_completions",
 		"bindings": {
 			"tab": "editor::Tab",
-			"cmd-enter": "editor::AcceptInlineCompletion"
+			"cmd-enter": "editor::AcceptEditPrediction"
 		}
 	},
 	{
@@ -126,7 +126,7 @@
 		// TabSwitcher bindings
 		"context": "TabSwitcher",
 		"bindings": {
-			"ctrl-shift-tab": "menu::SelectPrev"
+			"ctrl-shift-tab": "menu::SelectPrevious"
 		}
 	},
 	{

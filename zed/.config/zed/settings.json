@@ -84,11 +84,11 @@
   },
   // Language Servers and Formatting
   "formatter": [
-    // {
-    // 	"language_server": {
-    // 		"name": "astro"
-    // 	}
-    // },
+    {
+    	"language_server": {
+    		"name": "astro"
+    	}
+    },
     // "prettier",
     {
       "language_server": {
