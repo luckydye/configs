@@ -2,6 +2,25 @@
 {
   // Editor
   "agent": {
+    "profiles": {
+      "custom": {
+        "name": "Custom",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {
+            "mcp-server-figma": {
+                "tools": {
+                    "get_figma_data": true,
+                    "download_figma_images": true
+                }
+            }
+        }
+      }
+    },
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.5-flash-preview-04-17"
+    },
     "model_parameters": [],
     "inline_assistant_model": {
       "provider": "google",
