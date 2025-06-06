@@ -13,6 +13,7 @@ rclone = "latest"
 sops = "latest"
 age = "latest"
 starship = "latest"
+uv = "latest"
 
 [task_config]
 dir = "{{cwd}}"

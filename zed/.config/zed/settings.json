@@ -1,22 +1,17 @@
 // Zed Settings
 {
   // Editor
-  "agent": {
-    "profiles": {
-      "custom": {
-        "name": "Custom",
-        "tools": {},
-        "enable_all_context_servers": false,
-        "context_servers": {
-            "mcp-server-figma": {
-                "tools": {
-                    "get_figma_data": true,
-                    "download_figma_images": true
-                }
-            }
-        }
+  "context_servers": {
+    "figma": {
+      "command": {
+        "path": "/Users/tihav/.local/share/uv/tools/mcp-proxy/bin/mcp-proxy",
+        "args": [
+          "http://127.0.0.1:3845/sse"
+        ]
       }
-    },
+    }
+  },
+  "agent": {
     "default_model": {
       "provider": "google",
       "model": "gemini-2.5-flash-preview-04-17"
@@ -104,9 +99,9 @@
   // Language Servers and Formatting
   "formatter": [
     {
-    	"language_server": {
-    		"name": "astro"
-    	}
+      "language_server": {
+        "name": "astro"
+      }
     },
     // "prettier",
     {
@@ -122,6 +117,9 @@
     }
   ],
   "languages": {
+    "TypeScript": {
+      // "language_servers": ["...", "tailwindcss-language-server"]
+    },
     "Shell Script": {
       "formatter": "prettier"
     },
@@ -138,7 +136,10 @@
     "MDX": {
       "formatter": "prettier",
       "format_on_save": "on",
-      "language_servers": ["...", "tailwindcss-language-server"]
+      "language_servers": [
+        "...",
+        "tailwindcss-language-server"
+      ]
     },
     "JavaScript": {
       "formatter": "prettier"
@@ -157,7 +158,7 @@
     },
     "biome": {
       "settings": {
-        "require_config_file": true
+        // "require_config_file": true
       }
     }
   }
