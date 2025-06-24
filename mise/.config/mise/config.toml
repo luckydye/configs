@@ -24,6 +24,7 @@ includes = [
 [settings]
 python_venv_auto_create = true
 sops.age_key_file = "~/configs/sops/.config/sops/age/keys.txt"
+idiomatic_version_file_enable_tools = ["node"]
 
 [env]
 _.file = "~/configs/mise/.config/mise/.env.json"
