@@ -2,3 +2,4 @@
 
 git config user.name "lkydy"
 git config user.email "tim.h4vlicek@gmail.com"
+git config user.signingkey BF007352F3B082D4
