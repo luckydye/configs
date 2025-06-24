@@ -1,0 +1,4 @@
+#!/bin/sh
+
+git config user.name "Tim Havlicek"
+git config user.email "t.havlicek@s-v.de"
