@@ -1,8 +1,3 @@
-[user]
-	email = tim.h4vlicek@gmail.com
-	name = Tim Havlicek
-	signingkey = BF007352F3B082D4
-
 [color "decorate"]
   HEAD = bold italic 196
   branch = 214
