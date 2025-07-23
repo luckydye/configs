@@ -22,9 +22,9 @@ function install_zshrc() {
   echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc || exit 1
 }
 
-if which pacman >/dev/null 2>&1; then
+if where pacman >/dev/null 2>&1; then
     # arch yo
-    sudo pacman -S --needed zed cosmic-session glide chromium mise steam discord wine croc usage sops stow ripgrep fzf zoxide git obs-studio tmux
+    sudo pacman -S --needed mise croc usage sops stow ripgrep fzf zoxide tmux
 else
     echo "pacman is not available"
 
