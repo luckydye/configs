@@ -47,15 +47,8 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   alias pbpaste="xclip -selection clipboard -o"
 
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-  bindkey "\033[H" beginning-of-line; bindkey "\033[F" end-of-line
-
-  bindkey -s '^p' 'ff ^M'
-  bindkey -s '^x' 'fp ^M'
-  bindkey -s '^l' 'da ^M'
-  bindkey -s '^f' 'ff ^M'
-  bindkey -s '^g' 'g ^M'
-
-  eval "$(zoxide init --cmd cd zsh)" 2>/dev/null
+  bindkey "\033[H" beginning-of-line;
+  bindkey "\033[F" end-of-line
 
 elif grep -qi microsoft /proc/version 2> /dev/null; then
   # is wsl

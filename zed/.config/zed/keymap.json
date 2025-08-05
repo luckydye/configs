@@ -85,7 +85,6 @@
 		// Vim bindings
 		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
 		"bindings": {
-			"g g": "editor::ToggleGitBlame",
 			"tab": "editor::Indent",
 			"shift-tab": "editor::Outdent",
 			"shift-up": "editor::HalfPageUp",

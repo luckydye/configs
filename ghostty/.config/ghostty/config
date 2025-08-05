@@ -7,7 +7,7 @@ font-family = Geist Mono
 font-style = Semibold
 font-size = 14
 
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,no-title
 
 cursor-style = block
 cursor-style-blink = false

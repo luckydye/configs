@@ -45,11 +45,11 @@ mise_install() {
 dependencies() {
     echo "Installing dependencies"
     if [[ "$(uname -s)" == "Darwin" ]]; then
-        brew install git stow ripgrep unzip fd fzf tmux watch zoxide
+        brew install git stow ripgrep unzip fd fzf tmux watch
         brew install --cask raycast ghostty alt-tab
     elif [[ "$(uname -s)" == "Linux" ]]; then
         sudo apt update -y
-        sudo apt install -y stow git unzip fd-find fzf watch ripgrep zsh tmux build-essential libfuse2 zoxide
+        sudo apt install -y stow git unzip fd-find fzf watch ripgrep zsh tmux build-essential libfuse2
     fi
 }
 
