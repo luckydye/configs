@@ -1,7 +1,7 @@
 theme = dark:catppuccin-frappe,light:catppuccin-latte
 
-background-opacity = 0.95
-background-blur-radius = 28
+background-opacity = 0.9
+background-blur-radius = 12
 
 font-family = Geist Mono
 font-style = Semibold
