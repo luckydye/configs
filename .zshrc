@@ -32,7 +32,7 @@ alias gcp="git cherry-pick"
 alias rebase="git rebase"
 alias push="git push"
 alias P="git push"
-alias gg="watch --color -d 'git pull && g'"
+alias time="$CONFIGS/bin/bin/time"
 
 function addToPath() {
 	export PATH=$1:$PATH
