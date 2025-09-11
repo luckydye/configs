@@ -17,6 +17,8 @@
 			"ctrl-,": "zed::OpenSettings",
 			"ctrl-.": "zed::OpenKeymap",
 
+			"ctrl-i": "assistant::InlineAssist",
+
 			"ctrl-p": "file_finder::Toggle",
 			"ctrl-shift-p": "command_palette::Toggle",
 			"ctrl-r": "projects::OpenRecent",

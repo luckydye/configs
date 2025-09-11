@@ -1,194 +1,202 @@
 // Zed Settings
 {
-  // Editor
-  "ssh_connections": [
-    {
-      "host": "vm",
-      "projects": [
-        {
-          "paths": ["/home/tihav/source"]
-        }
-      ]
-    },
-    {
-      "host": "futurenet",
-      "projects": []
-    }
-  ],
-  "context_servers": {
-    "mcp-server-figma": {
-      "source": "extension",
-      "settings": {
-        "figma_api_key": ""
-      }
-    },
-    "figma": {
-      "source": "custom",
-      "command": "/Users/tihav/.local/share/uv/tools/mcp-proxy/bin/mcp-proxy",
-      "args": ["http://127.0.0.1:3845/sse"]
-    }
-  },
-  "agent": {
-    "use_modifier_to_send": true,
-    "always_allow_tool_actions": true,
-    "inline_assistant_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
-    },
-    "default_profile": "write",
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
-    }
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "edit_predictions": {
-    "mode": "subtle"
-  },
-  "theme": {
-    "mode": "system",
-    "light": "Github Light",
-    "dark": "Github Dark Dimmed"
-  },
-  "icon_theme": "Catppuccin Latte",
-  "on_last_window_closed": "quit_app",
-  "vim_mode": true,
-  "vim": {
-    "use_system_clipboard": "always",
-    "use_smartcase_find": true
-  },
-  "seed_search_query_from_cursor": "selection",
-  "hover_popover_enabled": false,
-  "cursor_blink": false,
-  "scroll_beyond_last_line": "vertical_scroll_margin",
-  "vertical_scroll_margin": 5,
-  "relative_line_numbers": true,
-  "show_completions_on_input": false,
-  "show_whitespaces": "selection",
-  "unstable.ui_density": "compact",
-  // auto stuff
-  // "use_autoclose": false,
-  // "use_auto_surround": false,
-  // "always_treat_brackets_as_autoclosed": false,
-  //
-  "inlay_hints": {
-    "enabled": true,
-    "show_parameter_hints": true,
-    "show_type_hints": false
-  },
-  "tab_size": 2,
-  "hard_tabs": false,
-  "format_on_save": "on",
-  // Git
-  "git": {
-    "inline_blame": {
-      "enabled": true
-    }
-  },
-  // Terminal
-  "terminal": {
-    "line_height": "standard",
-    "shell": {
-      "program": "/Users/tihav/configs/bin/bin/ta_cwd"
-    }
-  },
-  // Fonts
-  "ui_font_size": 16,
-  "ui_font_features": {
-    "calt": true,
-    "liga": true
-  },
-  "buffer_font_size": 15.0,
-  "ui_font_family": "Geist Mono",
-  "buffer_font_family": "Geist Mono",
-  "buffer_font_features": {
-    "calt": true,
-    "liga": false
-  },
-  // UI
-  "tab_bar": {
-    "show": true
-  },
-  "tabs": {
-    "file_icons": true,
-    "git_status": true,
-    "activate_on_close": "history"
-  },
-  "gutter": {
-    "runnables": false,
-    "breakpoints": false,
-    "folds": true
-  },
-  // Language Servers and Formatting
-  "formatter": "prettier",
-  // "formatter": [
-  // 	{
-  // 		"language_server": {
-  // 			"name": "biome"
-  // 		}
-  // 	}
-  // ],
-  "languages": {
-    "TypeScript": {
-      // "language_servers": ["...", "tailwindcss-language-server"]
-    },
-    "Shell Script": {
-      "formatter": "prettier"
-    },
-    "HTML": {
-      "formatter": "prettier"
-    },
-    "YAML": {
-      "formatter": "prettier"
-    },
-    "Markdown": {
-      "formatter": "prettier",
-      "format_on_save": "off"
-    },
-    "MDX": {
-      "formatter": "prettier",
-      "format_on_save": "on",
-      "language_servers": ["...", "tailwindcss-language-server"]
-    },
-    "JavaScript": {
-      "formatter": "prettier"
-    }
-  },
-  "file_types": {
-    "HTML": ["*.svg", "*.hbs"],
-    "Ansible": [
-      "**.ansible.yml",
-      "**.ansible.yaml",
-      "**/defaults/*.yml",
-      "**/defaults/*.yaml",
-      "**/meta/*.yml",
-      "**/meta/*.yaml",
-      "**/tasks/*.yml",
-      "**/tasks/*.yaml",
-      "**/handlers/*.yml",
-      "**/handlers/*.yaml",
-      "**/group_vars/*.yml",
-      "**/group_vars/*.yaml",
-      "**/playbooks/*.yaml",
-      "**/playbooks/*.yml",
-      "**playbook*.yaml",
-      "**playbook*.yml"
-    ]
-  },
-  "lsp": {
-    "deno": {
-      "settings": {
-        "deno": {
-          "enable": true
-        }
-      }
-    },
-    "biome": {
-      "settings": {
-        // "require_config_file": true
-      }
-    }
-  }
+	// Editor
+	"ssh_connections": [
+		{
+			"host": "vm",
+			"projects": [
+				{
+					"paths": ["/home/tihav/source"]
+				}
+			]
+		},
+		{
+			"host": "futurenet",
+			"projects": []
+		}
+	],
+	"context_servers": {
+		"mcp-server-figma": {
+			"source": "extension",
+			"settings": {
+				"figma_api_key": ""
+			}
+		},
+		"figma": {
+			"source": "custom",
+			"command": "/Users/tihav/.local/share/uv/tools/mcp-proxy/bin/mcp-proxy",
+			"args": ["http://127.0.0.1:3845/sse"]
+		}
+	},
+	"agent": {
+		"single_file_review": true,
+		"use_modifier_to_send": true,
+		"always_allow_tool_actions": true,
+		"inline_assistant_model": {
+			"provider": "anthropic",
+			"model": "claude-sonnet-4-latest"
+		},
+		"default_profile": "write",
+		"default_model": {
+			"provider": "anthropic",
+			"model": "claude-sonnet-4-latest"
+		},
+		"expand_edit_card": false,
+		"expand_terminal_card": true
+	},
+	"features": {
+		"edit_prediction_provider": "zed"
+	},
+	"edit_predictions": {
+		"mode": "subtle"
+	},
+	"theme": {
+		"mode": "system",
+		"light": "Github Light",
+		"dark": "Github Dark Dimmed"
+	},
+	"icon_theme": "Catppuccin Latte",
+	"on_last_window_closed": "quit_app",
+	"vim_mode": true,
+	"vim": {
+		"use_system_clipboard": "always",
+		"use_smartcase_find": true
+	},
+	"seed_search_query_from_cursor": "selection",
+	"hover_popover_enabled": false,
+	"cursor_blink": false,
+	"scroll_beyond_last_line": "vertical_scroll_margin",
+	"vertical_scroll_margin": 5,
+	"relative_line_numbers": true,
+	"show_completions_on_input": false,
+	"show_whitespaces": "selection",
+	"unstable.ui_density": "compact",
+	// auto stuff
+	// "use_autoclose": false,
+	// "use_auto_surround": false,
+	// "always_treat_brackets_as_autoclosed": false,
+	//
+	"inlay_hints": {
+		"enabled": true,
+		"show_parameter_hints": true,
+		"show_type_hints": false
+	},
+	"tab_size": 2,
+	"hard_tabs": false,
+	"format_on_save": "on",
+	// Git
+	"git": {
+		"inline_blame": {
+			"enabled": true
+		}
+	},
+	// Terminal
+	"terminal": {
+		"line_height": "standard",
+		"shell": {
+			"program": "/Users/tihav/configs/bin/bin/ta_cwd"
+		}
+	},
+	// Fonts
+	"ui_font_size": 16,
+	"ui_font_features": {
+		"calt": true,
+		"liga": true
+	},
+	"buffer_font_size": 15.0,
+	"ui_font_family": "Geist Mono",
+	"buffer_font_family": "Geist Mono",
+	"buffer_font_features": {
+		"calt": true,
+		"liga": false
+	},
+	// UI
+	"tab_bar": {
+		"show": true
+	},
+	"tabs": {
+		"file_icons": true,
+		"git_status": true,
+		"activate_on_close": "history"
+	},
+	"gutter": {
+		"runnables": false,
+		"breakpoints": false,
+		"folds": true
+	},
+	// Language Servers and Formatting
+	// "formatter": "prettier",
+	"formatter": [
+		{
+			"language_server": {
+				"name": "biome"
+			}
+		},
+		{
+			"code_actions": {
+				"source.fixAll.biome": true
+			}
+		}
+	],
+	"languages": {
+		"Shell Script": {
+			"formatter": "prettier"
+		},
+		"HTML": {
+			"formatter": "prettier"
+		},
+		"YAML": {
+			"formatter": "prettier"
+		},
+		"CSS": {
+			"formatter": "prettier"
+		},
+		"Markdown": {
+			"formatter": "prettier",
+			"format_on_save": "off"
+		},
+		"MDX": {
+			"formatter": "prettier",
+			"format_on_save": "on",
+			"language_servers": ["...", "tailwindcss-language-server"]
+		},
+		"JavaScript": {
+			"formatter": "prettier"
+		}
+	},
+	"file_types": {
+		"HTML": ["*.svg", "*.hbs"],
+		"Ansible": [
+			"**.ansible.yml",
+			"**.ansible.yaml",
+			"**/defaults/*.yml",
+			"**/defaults/*.yaml",
+			"**/meta/*.yml",
+			"**/meta/*.yaml",
+			"**/tasks/*.yml",
+			"**/tasks/*.yaml",
+			"**/handlers/*.yml",
+			"**/handlers/*.yaml",
+			"**/group_vars/*.yml",
+			"**/group_vars/*.yaml",
+			"**/playbooks/*.yaml",
+			"**/playbooks/*.yml",
+			"**playbook*.yaml",
+			"**playbook*.yml"
+		]
+	},
+	"lsp": {
+		"deno": {
+			"settings": {
+				"deno": {
+					"enable": true
+				}
+			}
+		},
+		"biome": {
+			"settings": {
+				// "require_config_file": true
+			}
+		}
+	}
 }
