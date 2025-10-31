@@ -69,4 +69,6 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "sqlite3-editor.ui.minimizePanel": true,
+  "sqlite3-editor.ui.movePanelIfSpaceAllows": "bottom",
 }

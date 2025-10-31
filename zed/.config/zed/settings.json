@@ -23,12 +23,6 @@
     }
   ],
   "context_servers": {
-    "mcp-server-figma": {
-      "source": "extension",
-      "settings": {
-        "figma_api_key": ""
-      }
-    },
     "figma": {
       "source": "custom",
       "command": "/Users/tihav/.local/share/uv/tools/mcp-proxy/bin/mcp-proxy",
@@ -36,8 +30,9 @@
     }
   },
   "agent": {
+    "play_sound_when_agent_done": true,
     "single_file_review": true,
-    "use_modifier_to_send": true,
+    "use_modifier_to_send": false,
     "always_allow_tool_actions": true,
     "inline_assistant_model": {
       "provider": "anthropic",
@@ -46,7 +41,7 @@
     "default_profile": "write",
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "model": "claude-sonnet-4-5-latest"
     },
     "expand_edit_card": false,
     "expand_terminal_card": true
@@ -59,8 +54,8 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Github Light",
-    "dark": "Github Dark Dimmed"
+    "light": "Panda Light",
+    "dark": "Panda"
   },
   "icon_theme": "VSCode Icons (Dark)",
   "on_last_window_closed": "quit_app",
@@ -136,22 +131,11 @@
   "formatter": [
     {
       "language_server": {
-        "name": "vue-language-server"
+        "name": "biome"
       }
-    }
+    },
+    { "code_action": "source.fixAll.biome" }
   ],
-  // "formatter": [
-  // 	{
-  // 		"language_server": {
-  // 			"name": "biome"
-  // 		}
-  // 	},
-  // 	{
-  // 		"code_actions": {
-  // 			"source.fixAll.biome": true
-  // 		}
-  // 	}
-  // ],
   "languages": {
     "Shell Script": {
       "formatter": "prettier"

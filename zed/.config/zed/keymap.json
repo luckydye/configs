@@ -1,19 +1,20 @@
 [
 	{
-		"context": "Editor && edit_prediction && !showing_completions",
+		// Tasks
 		"bindings": {
-			"tab": "editor::Tab",
-			"cmd-enter": "editor::AcceptEditPrediction"
+			"ctrl-t": "task::Spawn",
+			"f4": [
+				"task::Spawn",
+				{
+					"task_name": "lazygit",
+					"reveal_target": "center"
+				}
+			]
 		}
 	},
 	{
 		// Editor bindings
 		"bindings": {
-			"ctrl-shift-enter": "editor::SwapSelectionEnds",
-			"ctrl-shift-r": "editor::RestartLanguageServer",
-			"ctrl-cmd-down": "editor::ExpandExcerptsDown",
-			"ctrl-cmd-up": "editor::ExpandExcerptsUp",
-			"ctrl-shift-x": "zed::Extensions",
 			"ctrl-,": "zed::OpenSettings",
 			"ctrl-.": "zed::OpenKeymap",
 
@@ -30,26 +31,15 @@
 
 			"ctrl-s": "workspace::Save",
 			"ctrl-shift-s": "workspace::SaveWithoutFormat",
-			"ctrl-F": "workspace::NewSearch",
-			"ctrl-b": "workspace::ToggleLeftDock",
-			"ctrl-shift-b": "workspace::ToggleRightDock",
+
 			"ctrl-j": "workspace::NewCenterTerminal",
 
+			// pane navigation
 			"ctrl-\\": "pane::SplitDown",
-
-			"ctrl-shift-up": "vim::ResizePaneUp",
-			"ctrl-shift-down": "vim::ResizePaneDown",
-			"ctrl-shift-right": "vim::ResizePaneRight",
-			"ctrl-shift-left": "vim::ResizePaneLeft",
-
-			"ctrl-shift-t": "pane::ReopenClosedItem",
-			"ctrl-tab": "tab_switcher::Toggle",
 			"ctrl-alt-left": "pane::GoBack",
 			"ctrl-alt-right": "pane::GoForward",
-
 			"ctrl-]": "workspace::ActivateNextPane",
 			"ctrl-[": "workspace::ActivatePreviousPane",
-
 			"ctrl-1": ["workspace::ActivatePane", 0],
 			"ctrl-2": ["workspace::ActivatePane", 1],
 			"ctrl-3": ["workspace::ActivatePane", 2],
@@ -59,6 +49,13 @@
 			"ctrl-7": ["workspace::ActivatePane", 6],
 			"ctrl-8": ["workspace::ActivatePane", 7],
 			"ctrl-9": ["workspace::ActivatePane", 8],
+			"ctrl-shift-up": "vim::ResizePaneUp",
+			"ctrl-shift-down": "vim::ResizePaneDown",
+			"ctrl-shift-right": "vim::ResizePaneRight",
+			"ctrl-shift-left": "vim::ResizePaneLeft",
+			"ctrl-tab": "tab_switcher::Toggle",
+
+			"ctrl-shift-t": "pane::ReopenClosedItem",
 
 			"ctrl-enter": "editor::ConfirmCompletion",
 			"ctrl-space": "editor::ShowCompletions",
@@ -66,7 +63,6 @@
 			"ctrl-c": "editor::Copy",
 			"ctrl-v": "editor::Paste",
 			"ctrl-x": "editor::Cut",
-			"ctrl-d": "editor::DuplicateLineDown",
 			"ctrl-z": "editor::Undo",
 			"ctrl-shift-z": "editor::Redo",
 			"ctrl-k": "editor::Hover",
@@ -77,10 +73,8 @@
 			"ctrl-right": "editor::MoveToEndOfLine",
 			"alt-up": "editor::MoveLineUp",
 			"alt-down": "editor::MoveLineDown",
-			"ctrl-alt-up": "vim::WindowTop",
-			"ctrl-alt-down": "vim::WindowBottom",
-			"alt-shift-up": "editor::DuplicateLineUp",
-			"alt-shift-down": "editor::DuplicateLineDown"
+			"ctrl-alt-up": "editor::DuplicateLineUp",
+			"ctrl-alt-down": "editor::DuplicateLineDown"
 		}
 	},
 	{
@@ -89,16 +83,8 @@
 		"bindings": {
 			"tab": "editor::Indent",
 			"shift-tab": "editor::Outdent",
-			"shift-up": "editor::HalfPageUp",
-			"shift-down": "editor::HalfPageDown",
-			"g D": ["workspace::SendKeystrokes", "ctrl-w v ctrl-w right g d"],
-			"w": "vim::NextWordEnd",
-			"shift-w": "vim::PreviousWordEnd",
-			"[": "editor::SelectLargerSyntaxNode",
-			"]": "editor::SelectSmallerSyntaxNode",
 			"g r": "editor::FindAllReferences",
-			"g c": "editor::ToggleComments",
-			"=": "editor::Format"
+			"g c": "editor::ToggleComments"
 		}
 	},
 	{
@@ -128,37 +114,6 @@
 		"context": "TabSwitcher",
 		"bindings": {
 			"ctrl-shift-tab": "menu::SelectPrevious"
-		}
-	},
-	{
-		// Tasks
-		"bindings": {
-			"ctrl-t": "task::Spawn",
-			"f4": [
-				"task::Spawn",
-				{
-					"task_name": "lazygit",
-					"reveal_target": "center"
-				}
-			],
-			"f3": [
-				"task::Spawn",
-				{
-					"task_name": "rename current file"
-				}
-			],
-			"f5": [
-				"task::Spawn",
-				{
-					"task_name": "start"
-				}
-			],
-			"f6": [
-				"task::Spawn",
-				{
-					"task_name": "fix"
-				}
-			]
 		}
 	}
 ]
