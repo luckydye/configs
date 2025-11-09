@@ -29,8 +29,7 @@
 			"ctrl-g": "vim::SelectNext",
 			"ctrl-shift-g": "vim::SelectPrevious",
 
-			"ctrl-s": "workspace::Save",
-			"ctrl-shift-s": "workspace::SaveWithoutFormat",
+			"ctrl-s": ["workspace::SendKeystrokes", "cmd-shift-i cmd-s"],
 
 			"ctrl-j": "workspace::NewCenterTerminal",
 
