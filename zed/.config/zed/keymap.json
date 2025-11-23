@@ -29,8 +29,6 @@
 			"ctrl-g": "vim::SelectNext",
 			"ctrl-shift-g": "vim::SelectPrevious",
 
-			"ctrl-s": ["workspace::SendKeystrokes", "cmd-shift-i cmd-s"],
-
 			"ctrl-j": "workspace::NewCenterTerminal",
 
 			// pane navigation
@@ -54,6 +52,8 @@
 			"ctrl-shift-left": "vim::ResizePaneLeft",
 			"ctrl-tab": "tab_switcher::Toggle",
 
+			"ctrl-s": "workspace::Save",
+			"ctrl-w": "pane::CloseActiveItem",
 			"ctrl-shift-t": "pane::ReopenClosedItem",
 
 			"ctrl-enter": "editor::ConfirmCompletion",
@@ -65,15 +65,11 @@
 			"ctrl-z": "editor::Undo",
 			"ctrl-shift-z": "editor::Redo",
 			"ctrl-k": "editor::Hover",
-			"ctrl-q": "editor::ToggleCodeActions",
-			"ctrl-l": "editor::SelectLine",
 			"ctrl-a": "editor::SelectAll",
 			"ctrl-left": "editor::MoveToBeginningOfLine",
 			"ctrl-right": "editor::MoveToEndOfLine",
 			"alt-up": "editor::MoveLineUp",
-			"alt-down": "editor::MoveLineDown",
-			"ctrl-alt-up": "editor::DuplicateLineUp",
-			"ctrl-alt-down": "editor::DuplicateLineDown"
+			"alt-down": "editor::MoveLineDown"
 		}
 	},
 	{
@@ -81,7 +77,7 @@
 		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
 		"bindings": {
 			"tab": "editor::Indent",
-			"shift-tab": "editor::Outdent",
+     	"shift-tab": "editor::Outdent",
 			"g r": "editor::FindAllReferences",
 			"g c": "editor::ToggleComments"
 		}
