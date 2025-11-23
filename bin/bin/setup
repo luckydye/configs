@@ -56,7 +56,7 @@ dependencies() {
 # Link configuration files
 link() {
     echo "Linking configuration files"
-    stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R nvim ansible git mise tmux starship zed lazygit ghostty ssh sops cosmic bin
+    stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R nvim git mise tmux starship zed lazygit ghostty ssh sops bin
     if [[ "$(uname -s)" == "Darwin" ]]; then
         stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R vscode mac
     fi
