@@ -12,18 +12,18 @@
     "always_allow_tool_actions": true,
     "inline_assistant_model": {
       "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "model": "claude-opus-4-5-latest"
     },
     "default_profile": "write",
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
+      "provider": "google",
+      "model": "gemini-3-pro-preview"
     },
     "expand_edit_card": false,
     "expand_terminal_card": true
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
   },
   "edit_predictions": {
     "mode": "subtle"
