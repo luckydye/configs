@@ -33,6 +33,8 @@ alias rebase="git rebase"
 alias push="git push"
 alias P="git push"
 alias time="~/bin/time"
+alias disable_gpg="git config --local commit.gpgsign false"
+alias enable_gpg="git config --local commit.gpgsign true"
 
 function addToPath() {
 	export PATH=$1:$PATH
