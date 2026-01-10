@@ -2,25 +2,23 @@
 {
   "agent_servers": {
     "AMP": {
+      "type": "custom",
       "command": "amp",
       "args": ["--acp"],
       "env": {}
     }
   },
   "agent": {
-    "play_sound_when_agent_done": true,
-    "always_allow_tool_actions": true,
     "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-latest"
+    },
+    "always_allow_tool_actions": true,
+    "default_model": {
       "provider": "anthropic",
       "model": "claude-opus-4-5-latest"
     },
-    "default_profile": "write",
-    "default_model": {
-      "provider": "google",
-      "model": "gemini-3-pro-preview"
-    },
-    "expand_edit_card": false,
-    "expand_terminal_card": true
+    "model_parameters": []
   },
   "features": {
     "edit_prediction_provider": "copilot"
@@ -93,6 +91,7 @@
     "folds": true
   },
   "format_on_save": "off",
+  // "language_servers": [],
   // Language Servers and Formatting
   // "formatter": "prettier",
   "formatter": [
@@ -103,30 +102,6 @@
     },
     { "code_action": "source.fixAll.biome" }
   ],
-  "languages": {
-    "Shell Script": {
-      "formatter": "prettier"
-    },
-    "HTML": {
-      "formatter": "prettier"
-    },
-    "YAML": {
-      "formatter": "prettier"
-    },
-    "CSS": {
-      "formatter": "prettier"
-    },
-    "Markdown": {
-      "formatter": "prettier"
-    },
-    "MDX": {
-      "formatter": "prettier",
-      "language_servers": ["...", "tailwindcss-language-server"]
-    },
-    "JavaScript": {
-      "formatter": "prettier"
-    }
-  },
   "file_types": {
     "HTML": ["*.svg", "*.hbs"],
     "Ansible": [

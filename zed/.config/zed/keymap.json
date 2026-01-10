@@ -110,5 +110,17 @@
 		"bindings": {
 			"ctrl-shift-tab": "menu::SelectPrevious"
 		}
-	}
+	},
+ {
+  "context": "((((vim_operator == a || vim_operator == i) || vim_operator == cs) || vim_operator == helix_next) || vim_operator == helix_previous)",
+  "bindings": {
+   ")": null
+  }
+ },
+ {
+  "context": "(VimControl && !menu)",
+  "bindings": {
+   ")": null
+  }
+ }
 ]
