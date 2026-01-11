@@ -90,6 +90,7 @@
     "breakpoints": false,
     "folds": true
   },
+  "use_on_type_format": false,
   "format_on_save": "off",
   // "language_servers": [],
   // Language Servers and Formatting
