@@ -1,6 +1,15 @@
 // Zed Settings
 {
+  "git_panel": {
+    "tree_view": true
+  },
   "agent_servers": {
+    "claude": {
+      "default_model": "sonnet",
+      "favorite_models": [],
+      "default_config_options": {},
+      "favorite_config_option_values": {}
+    },
     "AMP": {
       "type": "custom",
       "command": "amp",
@@ -16,12 +25,12 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "anthropic",
-      "model": "claude-opus-4-5-latest"
+      "model": "claude-sonnet-4-5-latest"
     },
     "model_parameters": []
   },
   "features": {
-    "edit_prediction_provider": "copilot"
+    "edit_prediction_provider": "zed"
   },
   "edit_predictions": {
     "mode": "subtle"
@@ -29,7 +38,7 @@
   "theme": {
     "mode": "system",
     "light": "Panda Light",
-    "dark": "Panda"
+    "dark": "Vercel Dark"
   },
   "icon_theme": "VSCode Icons (Dark)",
   "vim_mode": true,
@@ -61,12 +70,12 @@
     }
   },
   // Terminal
-  "terminal": {
-    "line_height": "standard",
-    "shell": {
-      "program": "/Users/tihav/configs/bin/bin/ta_cwd"
-    }
-  },
+  // "terminal": {
+  //   "line_height": "standard",
+  //   "shell": {
+  //     "program": "/Users/tihav/configs/bin/bin/ta_cwd"
+  //   }
+  // },
   // Fonts
   "ui_font_size": 16,
   "buffer_font_size": 15.0,
@@ -91,7 +100,10 @@
     "folds": true
   },
   "use_on_type_format": false,
+  "remove_trailing_whitespace_on_save": false,
+  "ensure_final_newline_on_save": false,
   "format_on_save": "off",
+  // "formatter": null,
   // "language_servers": [],
   // Language Servers and Formatting
   // "formatter": "prettier",

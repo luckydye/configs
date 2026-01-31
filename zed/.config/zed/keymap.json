@@ -29,7 +29,7 @@
 			"ctrl-g": "vim::SelectNext",
 			"ctrl-shift-g": "vim::SelectPrevious",
 
-			"ctrl-j": "workspace::NewCenterTerminal",
+			// "ctrl-j": "workspace::NewCenterTerminal",
 
 			// pane navigation
 			"ctrl-\\": "pane::SplitDown",
