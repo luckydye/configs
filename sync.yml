@@ -1,0 +1,19 @@
+# Rclone sync configuration
+# Define directories to sync to S3 storage
+# Paths can use ~ for home directory expansion
+
+remote: "s3:your-bucket-name"  # Your S3 remote name and bucket
+
+# Map local directories to bucket paths
+# Only directories that exist on the current system will be synced
+directories:
+  - local: ~/Documents
+    remote: documents
+  - local: ~/Pictures
+    remote: pictures
+  - local: ~/configs
+    remote: configs
+  - local: ~/.ssh
+    remote: ssh
+  - local: ~/.gnupg
+    remote: gnupg

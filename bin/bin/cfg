@@ -1,3 +1,159 @@
 #!/bin/bash
 
-setup $@
+UPLOAD_DIRS=("ssh")
+CONFIGS_DIR="$HOME/configs"
+
+# Default task
+run_default() {
+    echo "Running default task"
+    dependencies
+    link
+    mise_install
+    macos_configuration
+    ubuntu_configuration
+    install_neovim
+    install_croc
+    download
+    link
+    setup_cron
+}
+
+# Git commands
+git_cmd() {
+    cd $CONFIGS_DIR
+    git "$@"
+}
+
+pull() {
+    cd $CONFIGS_DIR
+    git pull
+}
+
+# Ubuntu configuration
+ubuntu_configuration() {
+    echo "Ubuntu configuration"
+    [[ "$(uname -s)" == "Linux" ]] && chsh -s /usr/bin/zsh
+}
+
+# Install mise
+mise_install() {
+    cd $CONFIGS_DIR
+    echo "Installing mise"
+    mise install -y
+}
+
+# Install dependencies
+dependencies() {
+    echo "Installing dependencies"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        brew install git stow ripgrep unzip fd fzf tmux watch
+        brew install --cask raycast ghostty alt-tab
+    elif [[ "$(uname -s)" == "Linux" ]]; then
+        sudo apt update -y
+        sudo apt install -y stow git unzip fd-find fzf watch ripgrep zsh tmux build-essential libfuse2
+    fi
+}
+
+# Link configuration files
+link() {
+    echo "Linking configuration files"
+    stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R git mise tmux starship zed lazygit ghostty ssh sops bin claude
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R vscode mac
+    fi
+}
+
+# macOS configuration
+macos_configuration() {
+    echo "Configuring macOS"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        defaults write -g InitialKeyRepeat -int 15
+        defaults write -g KeyRepeat -int 1
+        defaults write com.apple.finder AppleShowAllFiles YES
+    fi
+}
+
+# Install Neovim
+install_neovim() {
+    echo "Installing Neovim"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        brew install neovim
+    elif [[ "$(uname -s)" == "Linux" ]]; then
+        mkdir -p "$HOME/bin" && cd "$HOME/bin"
+        curl -L https://github.com/neovim/neovim/releases/latest/download/nvim.appimage -o "$HOME/bin/nvim"
+        chmod u+x "$HOME/bin/nvim"
+    fi
+}
+
+# Install Croc
+install_croc() {
+    echo "Installing Croc"
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        brew install croc
+    elif [[ "$(uname -s)" == "Linux" ]]; then
+        curl https://getcroc.schollz.com | bash
+    fi
+}
+
+# Download backup
+download() {
+    echo "Downloading backup"
+    cd $CONFIGS_DIR
+    for dir in "${UPLOAD_DIRS[@]}"; do
+        backup_crypt --recover "$dir"
+    done
+}
+
+# Upload backup
+upload() {
+    echo "Uploading backup"
+    cd $CONFIGS_DIR
+    for dir in "${UPLOAD_DIRS[@]}"; do
+        backup_crypt "$dir"
+    done
+}
+
+# Migrate data
+migrate() {
+    echo "Migrating data"
+    cd $HOME
+    croc send --zip $(gum choose --no-limit .ssh configs/key configs/sops source Downloads Documents)
+}
+
+# Setup cron job for sync
+setup_cron() {
+    echo "Setting up cron job for sync"
+
+    LOG_DIR="$HOME/.cache/sync"
+    mkdir -p "$LOG_DIR"
+    LOG_FILE="$LOG_DIR/sync.log"
+
+    SYNC_CMD="$HOME/bin/sync"
+    CRON_ENTRY="0 */6 * * * $SYNC_CMD >> $LOG_FILE 2>&1"
+
+    if ! crontab -l 2>/dev/null | grep -qF "$SYNC_CMD"; then
+        (crontab -l 2>/dev/null; echo "$CRON_ENTRY") | crontab -
+        echo "Cron job added: sync runs every 6 hours, logs to $LOG_FILE"
+    else
+        echo "Cron job already exists"
+    fi
+}
+
+# Main
+case "$1" in
+    default) run_default ;;
+    git) shift; git_cmd "$@" ;;
+    pull) pull ;;
+    ubuntu-configuration) ubuntu_configuration ;;
+    mise-install) mise_install ;;
+    dependencies) dependencies ;;
+    link) link ;;
+    macos-configuration) macos_configuration ;;
+    install-neovim) install_neovim ;;
+    install-croc) install_croc ;;
+    download) download ;;
+    upload) upload ;;
+    migrate) migrate ;;
+    setup-cron) setup_cron ;;
+    *) run_default ;;
+esac

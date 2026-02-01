@@ -40,10 +40,6 @@ function addToPath() {
 	export PATH=$1:$PATH
 }
 
-function linkBin() {
-	ln -s $1 ~/bin/
-}
-
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   alias pbcopy="xclip -selection clipboard"
   alias pbpaste="xclip -selection clipboard -o"

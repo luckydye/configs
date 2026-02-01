@@ -5,4 +5,3 @@ env.swap
 node_modules
 /key
 /sops
-/obs
