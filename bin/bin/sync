@@ -7,7 +7,7 @@ CONFIG_FILE="$SCRIPT_DIR/sync.yml"
 
 # If arguments are provided, use old behavior (direct rclone passthrough)
 if [ $# -gt 0 ]; then
-    rclone sync --progress "$@"
+    rclone copy --progress "$@"
     exit $?
 fi
 
@@ -47,10 +47,11 @@ for ((i=0; i<DIR_COUNT; i++)); do
 
     if [ -d "$expanded_dir" ]; then
         echo "Syncing: $expanded_dir → $REMOTE/$REMOTE_PATH"
-        rclone sync --progress "$expanded_dir" "$REMOTE/$REMOTE_PATH"
+        rclone copy --progress --update "$expanded_dir" "$REMOTE/$REMOTE_PATH"
         echo
     else
         echo "Skipping: $expanded_dir (does not exist)"
+        echo "  Expanded path: $expanded_dir"
     fi
 done
 
