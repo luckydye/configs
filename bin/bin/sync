@@ -5,12 +5,6 @@ set -e
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/sync.yml"
 
-# If arguments are provided, use old behavior (direct rclone passthrough)
-if [ $# -gt 0 ]; then
-    rclone copy --progress "$@"
-    exit $?
-fi
-
 # Check if config file exists
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "Error: Config file not found at $CONFIG_FILE"
@@ -31,7 +25,8 @@ if [ -z "$REMOTE" ] || [ "$REMOTE" = "null" ]; then
     exit 1
 fi
 
-echo "Starting sync to $REMOTE..."
+echo "Starting bidirectional sync with $REMOTE..."
+echo "(Copy only - no files will be deleted)"
 echo
 
 # Get number of directories
@@ -45,14 +40,21 @@ for ((i=0; i<DIR_COUNT; i++)); do
     # Expand ~ to home directory
     expanded_dir="${LOCAL_DIR/#\~/$HOME}"
 
-    if [ -d "$expanded_dir" ]; then
-        echo "Syncing: $expanded_dir → $REMOTE/$REMOTE_PATH"
-        rclone copy --progress --update "$expanded_dir" "$REMOTE/$REMOTE_PATH"
-        echo
-    else
-        echo "Skipping: $expanded_dir (does not exist)"
-        echo "  Expanded path: $expanded_dir"
+    # Ensure local directory exists
+    if [ ! -d "$expanded_dir" ]; then
+        echo "Creating local directory: $expanded_dir"
+        mkdir -p "$expanded_dir"
     fi
+
+    # Download: remote → local
+    echo "Downloading: $REMOTE/$REMOTE_PATH → $expanded_dir"
+    rclone copy --progress --update "$REMOTE/$REMOTE_PATH" "$expanded_dir"
+    echo
+
+    # Upload: local → remote
+    echo "Uploading: $expanded_dir → $REMOTE/$REMOTE_PATH"
+    rclone copy --progress --update "$expanded_dir" "$REMOTE/$REMOTE_PATH"
+    echo
 done
 
 echo "Sync complete!"
