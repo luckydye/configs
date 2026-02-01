@@ -13,3 +13,5 @@ directories:
     remote: pictures
   - local: ~/Music/User Library
     remote: abelton
+  - local: /mnt/c/Users/tihav/Documents/Ableton/User\ Library
+    remote: abelton
