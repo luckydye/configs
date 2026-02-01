@@ -11,3 +11,5 @@ directories:
     remote: documents
   - local: ~/Pictures
     remote: pictures
+  - local: ~/Music/User Library
+    remote: abelton
