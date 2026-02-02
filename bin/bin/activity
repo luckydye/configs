@@ -1,0 +1,408 @@
+#!/usr/bin/env bun
+
+import { execSync } from "node:child_process";
+import { readdirSync, statSync } from "node:fs";
+import { join } from "node:path";
+import { homedir } from "node:os";
+
+const SOURCE_DIR = join(homedir(), "source");
+
+function getGitEmail(): string | undefined {
+	try {
+		return execSync("git config user.email", {
+			encoding: "utf-8",
+			stdio: ["pipe", "pipe", "ignore"],
+		}).trim();
+	} catch {
+		return undefined;
+	}
+}
+
+interface CommitData {
+	date: string;
+	count: number;
+	repos: string[];
+}
+
+interface RepoInfo {
+	path: string;
+	name: string;
+	color?: string;
+}
+
+const FINDER_COLORS: Record<number, string> = {
+	1: "gray",
+	2: "green",
+	3: "purple",
+	4: "blue",
+	5: "yellow",
+	6: "red",
+	7: "orange",
+};
+
+function getFolderColor(dirPath: string): string | undefined {
+	try {
+		const xattrOutput = execSync(
+			`xattr -p com.apple.FinderInfo "${dirPath}" 2>/dev/null`,
+			{ encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] },
+		);
+		const hexValue = xattrOutput.trim();
+		if (hexValue && hexValue.length >= 20) {
+			const colorByte = Number.parseInt(hexValue.slice(18, 20), 16);
+			return FINDER_COLORS[colorByte >> 1] || undefined;
+		}
+	} catch {
+		return undefined;
+	}
+}
+
+function findGitRepos(dir: string): RepoInfo[] {
+	const repos: RepoInfo[] = [];
+	const entries = readdirSync(dir, { withFileTypes: true });
+
+	for (const entry of entries) {
+		if (entry.isDirectory()) {
+			const fullPath = join(dir, entry.name);
+			const gitPath = join(fullPath, ".git");
+
+			try {
+				statSync(gitPath);
+				repos.push({
+					path: fullPath,
+					name: entry.name,
+					color: getFolderColor(fullPath),
+				});
+			} catch {
+				// Not a git repo at top level
+				// Recursively check subdirectories
+				try {
+					const subEntries = readdirSync(fullPath, { withFileTypes: true });
+					for (const subEntry of subEntries) {
+						if (subEntry.isDirectory()) {
+							const subPath = join(fullPath, subEntry.name);
+							const subGitPath = join(subPath, ".git");
+							try {
+								statSync(subGitPath);
+								repos.push({
+									path: subPath,
+									name: subEntry.name,
+									color: getFolderColor(fullPath),
+								});
+							} catch {
+								// Ignore
+							}
+						}
+					}
+				} catch {
+					// Ignore permission errors
+				}
+			}
+		}
+	}
+
+	return repos;
+}
+
+function getCommitsForRepo(repoPath: string, since: Date, emails?: string[]): CommitData[] {
+	const commits: CommitData[] = [];
+
+	try {
+		const oneYearAgo = since.toISOString().split("T")[0];
+		const authorFilter = emails && emails.length > 0
+			? emails.map(e => `--author="${e}"`).join(" ")
+			: "";
+		const logOutput = execSync(
+			`git log --all --since="${oneYearAgo}" ${authorFilter} --format="%ad" --date=short --no-merges`,
+			{
+				cwd: repoPath,
+				encoding: "utf-8",
+				stdio: ["pipe", "pipe", "ignore"],
+			},
+		);
+
+		const dates = logOutput.trim().split("\n").filter(Boolean);
+		const dateCounts = new Map<string, number>();
+
+		for (const date of dates) {
+			dateCounts.set(date, (dateCounts.get(date) || 0) + 1);
+		}
+
+		for (const [date, count] of dateCounts) {
+			commits.push({ date, count, repos: [] });
+		}
+	} catch {
+		// No commits or error
+	}
+
+	return commits;
+}
+
+function aggregateCommits(
+	repos: RepoInfo[],
+	since: Date,
+	emails?: string[],
+): Map<string, { count: number; repos: string[] }> {
+	const dailyCommits = new Map<string, { count: number; repos: string[] }>();
+
+	for (let i = 0; i < repos.length; i++) {
+		const repo = repos[i];
+		const repoCommits = getCommitsForRepo(repo.path, since, emails);
+
+		for (const commit of repoCommits) {
+			const existing = dailyCommits.get(commit.date);
+			if (existing) {
+				existing.count += commit.count;
+				if (!existing.repos.includes(repo.name)) {
+					existing.repos.push(repo.name);
+				}
+			} else {
+				dailyCommits.set(commit.date, {
+					count: commit.count,
+					repos: [repo.name],
+				});
+			}
+		}
+
+		const progress = Math.round(((i + 1) / repos.length) * 100);
+		const bar = "█".repeat(Math.floor(progress / 5)) + "░".repeat(20 - Math.floor(progress / 5));
+		process.stderr.write(`\r  [${bar}] ${progress}% (${i + 1}/${repos.length}) ${repo.name}`);
+	}
+
+	process.stderr.write("\n");
+	return dailyCommits;
+}
+
+const COLORS = {
+	empty: "\x1b[38;5;240m▣\x1b[0m",
+	low: "\x1b[38;5;68m▣\x1b[0m",
+	mid: "\x1b[38;5;81m▣\x1b[0m",
+	high: "\x1b[38;5;220m▣\x1b[0m",
+	max: "\x1b[38;5;226m▣\x1b[0m",
+	label: "\x1b[90m",
+	reset: "\x1b[0m",
+};
+
+function renderHeatmap(
+	commits: Map<string, { count: number; repos: string[] }>,
+	filteredRepos: RepoInfo[],
+	emails: string[],
+): void {
+	const now = new Date();
+	const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+
+	const allDates: string[] = [];
+	const current = new Date(oneYearAgo);
+	while (current <= now) {
+		allDates.push(current.toISOString().split("T")[0]);
+		current.setDate(current.getDate() + 1);
+	}
+
+	let totalCommits = 0;
+	let maxDaily = 0;
+	for (const [, data] of commits) {
+		totalCommits += data.count;
+		maxDaily = Math.max(maxDaily, data.count);
+	}
+
+	const emailDisplay = emails.length === 1
+		? emails[0]
+		: `${emails[0]} +${emails.length - 1} more`;
+
+	console.log(`\n  ${COLORS.label}╭─────────────────────────────────────────────────────╮${COLORS.reset}`);
+	console.log(`  ${COLORS.label}│${COLORS.reset}  📊 Contribution Activity                             ${COLORS.label}│${COLORS.reset}`);
+	console.log(`  ${COLORS.label}├─────────────────────────────────────────────────────┤${COLORS.reset}`);
+	console.log(`  ${COLORS.label}│${COLORS.reset}  ${emailDisplay.padEnd(50)}  ${COLORS.label}│${COLORS.reset}`);
+	console.log(`  ${COLORS.label}│${COLORS.reset}  ${`${totalCommits} commits in ${filteredRepos.length} repos`.padEnd(50)}  ${COLORS.label}│${COLORS.reset}`);
+	console.log(`  ${COLORS.label}╰─────────────────────────────────────────────────────╯${COLORS.reset}\n`);
+
+	const weeks: (string | null)[][] = [];
+	let currentWeek: (string | null)[] = new Array(7).fill(null);
+
+	for (const dateStr of allDates) {
+		const date = new Date(dateStr);
+		const dayOfWeek = (date.getDay() + 6) % 7;
+		currentWeek[dayOfWeek] = dateStr;
+
+		if (dayOfWeek === 6 || dateStr === allDates[allDates.length - 1]) {
+			weeks.push([...currentWeek]);
+			currentWeek = new Array(7).fill(null);
+		}
+	}
+
+	const maxWeeks = Math.min(weeks.length, 52);
+	const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+	let monthHeader = "      ";
+	const displayedMonths = new Set<number>();
+	for (let w = 0; w < maxWeeks; w++) {
+		const week = weeks[w];
+		if (!week) {
+			monthHeader += "  ";
+			continue;
+		}
+
+		const monthInWeek = new Set<number>();
+		for (const dateStr of week) {
+			if (dateStr) {
+				const month = Number.parseInt(dateStr.split("-")[1]) - 1;
+				monthInWeek.add(month);
+			}
+		}
+
+		const monthsArray = Array.from(monthInWeek).sort();
+		const firstMonth = monthsArray[0];
+
+		if (firstMonth !== undefined && !displayedMonths.has(firstMonth)) {
+			monthHeader += monthNames[firstMonth].slice(0, 3).padEnd(3);
+			displayedMonths.add(firstMonth);
+			if (w < maxWeeks - 1) {
+				monthHeader = monthHeader.slice(0, -1);
+			}
+		} else {
+			monthHeader += "  ";
+		}
+	}
+	console.log(monthHeader);
+
+	const dayLabels = ["Mon", "", "Wed", "", "Fri", "", ""];
+	for (let day = 0; day < 7; day++) {
+		let row = `${dayLabels[day].padStart(4)}  `;
+
+		for (let w = 0; w < maxWeeks; w++) {
+			const date = weeks[w]?.[day];
+			if (date) {
+				const data = commits.get(date);
+				const count = data?.count || 0;
+
+				if (count === 0) row += COLORS.empty;
+				else if (count <= 2) row += COLORS.low;
+				else if (count <= 5) row += COLORS.mid;
+				else if (count <= 10) row += COLORS.high;
+				else row += COLORS.max;
+				row += " ";
+			} else {
+				row += "  ";
+			}
+		}
+		console.log(row);
+	}
+
+	console.log(`\n  ${COLORS.empty} Less    ${COLORS.low}    ${COLORS.mid}    ${COLORS.high}    ${COLORS.max} More`);
+	console.log(`  ${COLORS.label}        1     3     6     10+${COLORS.reset}\n`);
+}
+
+function printRepoList(repos: RepoInfo[], filterColor?: string): void {
+	console.log("\n📁 Repositories:");
+	console.log("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+
+	const sorted = repos
+		.filter((r) => !filterColor || r.color === filterColor)
+		.sort((a, b) => a.name.localeCompare(b.name));
+
+	for (const repo of sorted) {
+		const colorStr = repo.color ? ` (${repo.color})` : "";
+		console.log(`  • ${repo.name}${colorStr}`);
+	}
+}
+
+function main() {
+	const args = process.argv.slice(2);
+
+	let projectFilter: string | undefined;
+	let colorFilter: string | undefined;
+	let emailsArg: string | undefined;
+	let showRepos = false;
+
+	for (let i = 0; i < args.length; i++) {
+		const arg = args[i];
+		if (arg === "--project" || arg === "-p") {
+			projectFilter = args[++i];
+		} else if (arg === "--color" || arg === "-c") {
+			colorFilter = args[++i];
+		} else if (arg === "--emails" || arg === "-e") {
+			emailsArg = args[++i];
+		} else if (arg === "--list" || arg === "-l") {
+			showRepos = true;
+		} else if (arg === "--help" || arg === "-h") {
+			console.log(`
+Usage: index.ts [options]
+
+Options:
+  -p, --project <name>    Filter by project name (substring match)
+  -c, --color <color>     Filter by folder color (gray, green, purple, blue, yellow, red, orange)
+  -e, --emails <emails>   Comma-separated list of emails to filter commits by
+  -l, --list              List all repositories
+  -h, --help              Show this help message
+
+Examples:
+  index.ts                    # Show heatmap for all repos (uses git config email)
+  index.ts -p "zed"           # Show heatmap for repos matching "zed"
+  index.ts -c "red"           # Show heatmap for red-tagged folders
+  index.ts -e "a@b.com,c@d.com"  # Show heatmap for multiple emails
+  index.ts -l                 # List all repositories
+`);
+			process.exit(0);
+		}
+	}
+
+	console.log("🔍 Scanning for git repositories...\n");
+
+	const allRepos = findGitRepos(SOURCE_DIR);
+
+	if (allRepos.length === 0) {
+		console.log("❌ No git repositories found in ~/source");
+		process.exit(1);
+	}
+
+	// Apply filters
+	let filteredRepos = allRepos;
+
+	if (projectFilter) {
+		const lowerFilter = projectFilter.toLowerCase();
+		filteredRepos = filteredRepos.filter((r) =>
+			r.name.toLowerCase().includes(lowerFilter),
+		);
+	}
+
+	if (colorFilter) {
+		const lowerColor = colorFilter.toLowerCase();
+		filteredRepos = filteredRepos.filter(
+			(r) => r.color?.toLowerCase() === lowerColor,
+		);
+	}
+
+	if (showRepos) {
+		printRepoList(filteredRepos, colorFilter);
+		return;
+	}
+
+	if (filteredRepos.length === 0) {
+		console.log("❌ No repositories match the filter criteria");
+		process.exit(1);
+	}
+
+	const now = new Date();
+	const oneYearAgo = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+
+	let emails: string[];
+	if (emailsArg) {
+		emails = emailsArg.split(",").map(e => e.trim()).filter(Boolean);
+	} else {
+		const gitEmail = getGitEmail();
+		if (!gitEmail) {
+			console.log("⚠️  No git user.email configured. Run: git config --global user.email <your@email.com> or use -e flag");
+			process.exit(1);
+		}
+		emails = [gitEmail];
+	}
+
+	const emailDisplay = emails.length === 1 ? emails[0] : `${emails[0]} +${emails.length - 1} more`;
+	console.log(`👤 Filtering by: ${emailDisplay}`);
+	console.log(`📈 Analyzing ${filteredRepos.length} repositories...\n`);
+
+	const commits = aggregateCommits(filteredRepos, oneYearAgo, emails);
+
+	renderHeatmap(commits, filteredRepos, emails);
+}
+
+main();
