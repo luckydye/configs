@@ -4,6 +4,9 @@
     "tree_view": true
   },
   "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
     "claude": {
       "default_model": "sonnet",
       "favorite_models": [],
@@ -20,19 +23,17 @@
   "agent": {
     "inline_assistant_model": {
       "provider": "anthropic",
-      "model": "claude-haiku-4-5-latest"
+      "model": "claude-sonnet-4-5-latest"
     },
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
+      "provider": "ollama",
+      "model": "ministral-3:8b"
     },
     "model_parameters": []
   },
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
   "edit_predictions": {
+    "provider": "zed",
     "mode": "subtle"
   },
   "theme": {
@@ -77,10 +78,10 @@
   //   }
   // },
   // Fonts
-  "ui_font_size": 16,
-  "buffer_font_size": 15.0,
+  "ui_font_size": 14.0,
+  "buffer_font_size": 14.0,
   "ui_font_family": "Geist Mono",
-  "buffer_font_family": ".ZedMono",
+  "buffer_font_family": "Geist Mono",
   "buffer_font_features": {
     "calt": true,
     "liga": false

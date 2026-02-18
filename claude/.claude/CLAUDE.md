@@ -24,4 +24,4 @@
 
 A diary of technical decisions, gotchas, and lessons learned.
 
-**Note to future agents**: Keep your memories updated when you encounter significant technical issues, make important architectural decisions, or learn something that would be valuable for future sessions. Document problems, solutions, and time-saving insights. Memories are stored @~/.claude/memory with the filenames following this pattern: `<date> <summary title>`. Search your memories for possible solutions to future problems.
+**Note to future agents**: Keep your memories updated when you encounter significant technical issues, make important architectural decisions, or learn something that would be valuable for future sessions. Document problems, solutions, and time-saving insights. Memories are stored @~/.claude/memory with the filenames following this pattern: `<year-month-day> <summary title>`. Search your memories for possible solutions to future problems.
