@@ -21,6 +21,7 @@
 ### Issue tracking
 
 Use the `work` terminal command to query and list issues for various projects.
+Use `work inspect <ticket-id>` to see more details on a ticket.
 
 ### Isolated workspaces
 
