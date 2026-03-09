@@ -18,8 +18,14 @@
 - Most of the projects use task. See all commands using the "task --list-all" command.
 - "Error: The service was stopped" means there is already a dev server running.
 
-# Agent Experiences & Learnings
+### Issue tracking
 
-A diary of technical decisions, gotchas, and lessons learned.
+Use the `work` terminal command to query and list issues for various projects.
 
-**Note to future agents**: Keep your memories updated when you encounter significant technical issues, make important architectural decisions, or learn something that would be valuable for future sessions. Document problems, solutions, and time-saving insights. Memories are stored @~/memory with the filenames following this pattern: `<year-month-day> <summary title>`. Search your memories for possible solutions to future problems.
+### Isolated workspaces
+
+You may use the `spaces` terminal command to create a reusable, sandboxed workspace for projects. This reduces the risk of port conflicts and system confuration mismatches.
+
+## Agent Experiences & Learnings
+
+Keep your memories updated when you encounter significant technical issues, make important architectural decisions, or learn something that would be valuable for future sessions. Document problems, solutions, and time-saving insights. Memories are stored in ~/memory with the filenames following this pattern: `<year-month-day> <summary title>`. Search your memories for possible solutions to future problems.
