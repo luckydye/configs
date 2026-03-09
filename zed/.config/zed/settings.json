@@ -21,14 +21,16 @@
     }
   },
   "agent": {
-    "inline_assistant_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-5-latest"
+    "tool_permissions": {
+      "default": "allow"
     },
-    "always_allow_tool_actions": true,
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
     "default_model": {
-      "provider": "ollama",
-      "model": "ministral-3:8b"
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6-latest"
     },
     "model_parameters": []
   },
@@ -39,7 +41,7 @@
   "theme": {
     "mode": "system",
     "light": "Panda Light",
-    "dark": "Vercel Dark"
+    "dark": "Matte Black"
   },
   "icon_theme": "VSCode Icons (Dark)",
   "vim_mode": true,
@@ -104,18 +106,21 @@
   "remove_trailing_whitespace_on_save": false,
   "ensure_final_newline_on_save": false,
   "format_on_save": "off",
-  // "formatter": null,
   // "language_servers": [],
   // Language Servers and Formatting
-  // "formatter": "prettier",
-  "formatter": [
-    {
-      "language_server": {
-        "name": "biome"
-      }
-    },
-    { "code_action": "source.fixAll.biome" }
-  ],
+  // "formatter": [
+  //   {
+  //     "language_server": {
+  //       "name": "biome"
+  //     }
+  //   },
+  //   { "code_action": "source.fixAll.biome" }
+  // ],
+  "formatter": "prettier",
+  // "formatter": "language_server",
+  "code_actions_on_format": {
+    "source.fixAll.biome": true
+  },
   "file_types": {
     "HTML": ["*.svg", "*.hbs"],
     "Ansible": [

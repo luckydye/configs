@@ -37,3 +37,5 @@ rm-ignored=git ls-files -i --exclude-from=.gitignore | xargs git rm --cached
 	autocrlf = false
 [commit]
 	gpgsign = true
+[credential]
+	helper = store
