@@ -57,7 +57,7 @@ dependencies() {
 # Link configuration files
 link() {
     echo "Linking configuration files"
-    stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R git mise tmux starship zed lazygit ghostty ssh sops bin claude rclone
+    stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R git mise tmux starship zed lazygit ghostty ssh sops bin agents rclone
     if [[ "$(uname -s)" == "Darwin" ]]; then
         stow --ignore=".DS_Store" --target "$HOME" --dir "$CONFIGS_DIR" -R mac
     fi
