@@ -1,4 +1,4 @@
-## General Guidelines
+## Codestyle
 
 - Less code is better than more code.
 - No fallback mechanisms — they hide real failures.
@@ -27,6 +27,23 @@ Use `work inspect <ticket-id>` to see more details on a ticket.
 
 You may use the `spaces` terminal command to create a reusable, sandboxed workspace for projects. This reduces the risk of port conflicts and system confuration mismatches.
 
-## Agent Experiences & Learnings
+### Browser 
 
-Keep your memories updated when you encounter significant technical issues, make important architectural decisions, or learn something that would be valuable for future sessions. Document problems, solutions, and time-saving insights. Memories are stored in ~/memory with the filenames following this pattern: `<year-month-day> <summary title>`. Search your memories for possible solutions to future problems.
+agent-browser for Demo Recording.
+
+```bash
+agent-browser open "http://localhost:3001/iframe.html?id=story-id"
+agent-browser wait --load networkidle
+agent-browser record start /path/to/output.webm   # file must not exist
+sleep 2 && agent-browser eval "/* step 1 */"
+sleep 3 && agent-browser eval "/* step 2 */"
+sleep 3 && agent-browser record stop
+```
+
+- `snapshot -i` lists interactive elements, `click @ref` to interact
+- `screenshot /tmp/check.png` for quick visual checks
+- `eval` runs JS in page context but LitElement constructors fail — use `document.createElement` instead
+- Delete output file before recording (`record start` won't overwrite)
+- Use `sleep` between steps for visible pauses in the video, average sleep duration should be 500ms at maximum
+- Always record the video to .mp4 format.
+
