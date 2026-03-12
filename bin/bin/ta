@@ -6,4 +6,4 @@ function info() {
 
 SESSION=$(tmux list-sessions -F \#S | gum choose --cursor="💘 " --cursor.background="8" --cursor.foreground="255")
 info "Switching to $SESSION"
-tmux switch-client -t $SESSION || tmux attach -t $SESSION
+tmux attach -t $SESSION

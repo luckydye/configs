@@ -4,20 +4,11 @@
     "tree_view": true
   },
   "agent_servers": {
-    "opencode": {
+    "claude-acp": {
       "type": "registry"
     },
-    "claude": {
-      "default_model": "sonnet",
-      "favorite_models": [],
-      "default_config_options": {},
-      "favorite_config_option_values": {}
-    },
-    "AMP": {
-      "type": "custom",
-      "command": "amp",
-      "args": ["--acp"],
-      "env": {}
+    "codex-acp": {
+      "type": "registry"
     }
   },
   "agent": {
