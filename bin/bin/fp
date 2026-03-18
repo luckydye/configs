@@ -1,6 +1,6 @@
 #!/bin/bash
 
-project=$(find ~/source -maxdepth 2 -name .git -type d |\
+project=$(find ~/source -maxdepth 3 -name .git -type d |\
           sed 's/\/.git//g' |\
           fzf --reverse --preview-window="right:60%" --preview="bat {}/README.md")
 
