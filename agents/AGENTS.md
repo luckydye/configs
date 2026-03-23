@@ -12,22 +12,12 @@
 - DO NOT CREATE SUMMARY OR DOCUMENTATION READMES, pls. instead write usage examples etc in code comments.
 - Do not worry about backwards compatibility.
 
-## Tooling
-
-- I use tmux to run all my tasks and processes, capture logs by using tmux command like `tmux capture-pane -t 0 -S - -p`.
-- Most of the projects use task. See all commands using the "task --list-all" command.
-- "Error: The service was stopped" means there is already a dev server running.
-
 ### Issue tracking
 
 Use the `work` terminal command to query and list issues for various projects.
 Use `work inspect <ticket-id>` to see more details on a ticket.
 
-### Isolated workspaces
-
-You may use the `spaces` terminal command to create a reusable, sandboxed workspace for projects. This reduces the risk of port conflicts and system confuration mismatches.
-
-### Browser 
+### Browser use
 
 agent-browser for Demo Recording.
 
@@ -47,3 +37,12 @@ sleep 3 && agent-browser record stop
 - Use `sleep` between steps for visible pauses in the video, average sleep duration should be 500ms at maximum
 - Always record the video to .mp4 format.
 
+### Workspaces
+
+You may use `openshell` (https://docs.nvidia.com/openshell/latest/index.html) to create a reusable, sandboxed workspace for projects. 
+This reduces the risk of port conflicts and system confuration mismatches.
+
+## Tooling
+
+- I use tmux to run all my tasks and processes, capture logs by using tmux command like `tmux capture-pane -t 0 -S - -p`.
+- "Error: The service was stopped" means there is already a dev server running.
