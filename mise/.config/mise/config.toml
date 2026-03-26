@@ -13,6 +13,7 @@ starship = "latest"
 uv = "latest"
 node = "latest"
 fnox = "latest"
+bitwarden = "latest"
 
 [task_config]
 dir = "{{cwd}}"
