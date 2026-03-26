@@ -8,12 +8,12 @@ bun = "latest"
 go = "latest"
 fzf = "latest"
 rclone = "latest"
-sops = "latest"
 age = "latest"
 starship = "latest"
 uv = "latest"
 node = "latest"
 fnox = "latest"
+bitwarden = "latest"
 
 [task_config]
 dir = "{{cwd}}"
@@ -22,7 +22,6 @@ includes = [
 ]
 
 [settings]
-python_venv_auto_create = true
 idiomatic_version_file_enable_tools = ["node"]
 experimental = true
 
