@@ -117,7 +117,7 @@ upload() {
 migrate() {
     echo "Migrating data"
     cd $HOME
-    croc send --zip $(gum choose --no-limit .ssh configs/key configs/sops source Downloads Documents)
+    croc send --zip $(gum choose --no-limit .ssh configs/key source Downloads Documents)
 }
 
 # Setup cron job for sync

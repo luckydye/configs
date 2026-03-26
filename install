@@ -24,7 +24,7 @@ function install_zshrc() {
 
 if where pacman >/dev/null 2>&1; then
     # arch yo
-    sudo pacman -S --needed mise croc usage sops stow ripgrep fzf zoxide tmux
+    sudo pacman -S --needed mise croc usage stow ripgrep fzf zoxide tmux
 else
     echo "pacman is not available"
 
