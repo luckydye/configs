@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git show:*)",
+      "Bash(git status:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git log:*)",
+      "Bash(bun run test)",
+      "Bash(bun run build)",
+      "Bash(curl:*)",
+      "Bash(htmlq:*)",
+      "Bash(tmux ls:*)",
+      "Bash(tmux list-sessions:*)",
+      "Bash(tmux list-windows:*)",
+      "Bash(tmux list-panes:*)",
+      "Bash(tmux capture-pane:*)",
+      "Bash(task build:*)",
+      "Bash(task --list-all:*)",
+      "Bash(curl -s \"http://127.0.0.1:*)",
+      "Bash(agent-browser:*)"
+    ]
+  }
+}
