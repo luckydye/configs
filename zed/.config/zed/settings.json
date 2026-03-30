@@ -4,6 +4,9 @@
     "tree_view": true
   },
   "agent_servers": {
+    "opencode": {
+      "type": "registry"
+    },
     "claude-acp": {
       "type": "registry"
     },

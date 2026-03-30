@@ -14,6 +14,7 @@ uv = "latest"
 node = "latest"
 fnox = "latest"
 bitwarden = "latest"
+yt-dlp = "latest"
 
 [task_config]
 dir = "{{cwd}}"

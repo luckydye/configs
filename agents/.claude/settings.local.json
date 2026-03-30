@@ -17,7 +17,12 @@
       "Bash(task build:*)",
       "Bash(task --list-all:*)",
       "Bash(curl -s \"http://127.0.0.1:*)",
-      "Bash(agent-browser:*)"
+      "Bash(agent-browser:*)",
+      "Bash(grep ./:*)",
+      "Bash(ls ./:*)",
+      "Bash(du:*)",
+      "mcp__thymer__list_workspaces",
+      "mcp__thymer__search"
     ]
   }
 }
