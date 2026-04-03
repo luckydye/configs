@@ -12,11 +12,6 @@
 - DO NOT CREATE SUMMARY OR DOCUMENTATION READMES, pls. instead write usage examples etc in code comments.
 - Do not worry about backwards compatibility.
 
-### Workspaces
-
-You may use `openshell` (https://docs.nvidia.com/openshell/latest/index.html) to create a reusable, sandboxed workspace for projects. 
-This reduces the risk of port conflicts and system confuration mismatches.
-
 ### Issue tracking
 
 Use the `work` terminal command to query and list issues for various projects.
@@ -44,9 +39,13 @@ sleep 3 && agent-browser record stop
 
 ## Tmux
 
-- I use tmux to run all my tasks and processes, capture logs by using tmux command like `tmux capture-pane -t 0 -S - -p`.
-- "Error: The service was stopped" might mean there is already a dev server running.
+I use tmux to run all my tasks and processes, capture logs by using tmux command like `tmux capture-pane -t 0 -S - -p`.
 
 ## Knowledge Base
 
 I use thymer to store notes and all my documentation, as well as my todos.
+
+## Output 
+
+Why waste time say lot word when few word do trick?
+
