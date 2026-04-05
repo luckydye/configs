@@ -1,5 +1,10 @@
 // Zed Settings
 {
+  "language_models": {
+    "ollama": {
+      "api_url": "https://ai.luckydye.de/"
+    }
+  },
   "git_panel": {
     "tree_view": true
   },
@@ -23,8 +28,10 @@
       "model": "gpt-5-mini"
     },
     "default_model": {
+      "effort": "medium",
+      "enable_thinking": true,
       "provider": "anthropic",
-      "model": "claude-sonnet-4-6-latest"
+      "model": "claude-opus-4-6-latest"
     },
     "model_parameters": []
   },
