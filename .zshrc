@@ -35,6 +35,7 @@ alias P="git push"
 alias time="~/bin/time"
 alias disable_gpg="git config --local commit.gpgsign false"
 alias enable_gpg="git config --local commit.gpgsign true"
+alias "?"="~/source/qmark/target/debug/qmark"
 
 function addToPath() {
 	export PATH=$1:$PATH
