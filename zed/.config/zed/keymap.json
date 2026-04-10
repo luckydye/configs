@@ -17,6 +17,7 @@
 		"bindings": {
 			"ctrl-,": "zed::OpenSettings",
 			"ctrl-.": "zed::OpenKeymap",
+			"ctrl-g": "git_graph::Open",
 
 			"ctrl-i": "assistant::InlineAssist",
 
@@ -26,8 +27,8 @@
 			"ctrl-f": "buffer_search::Deploy",
 			"ctrl-shift-f": "pane::DeploySearch",
 
-			"ctrl-g": "vim::SelectNext",
-			"ctrl-shift-g": "vim::SelectPrevious",
+			"cmd-g": "vim::SelectNext",
+			"cmd-shift-g": "vim::SelectPrevious",
 
 			// "ctrl-j": "workspace::NewCenterTerminal",
 

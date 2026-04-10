@@ -19,7 +19,7 @@ Use `work inspect <ticket-id>` to see more details on a ticket.
 
 ### Browser use
 
-agent-browser for Demo Recording.
+If the user provides a URL, ESPECIALLY a localhost url, consider haveing a look with agent-browser!
 
 ```bash
 agent-browser open "http://localhost:3001/iframe.html?id=story-id"
@@ -46,6 +46,8 @@ I use tmux to run all my tasks and processes, capture logs by using tmux command
 I use thymer to store notes and all my documentation, as well as my todos.
 
 ## Output 
+
+Write commit messages always in all lower-case, in Conventional Commits format, without scope.
 
 Why waste time say lot word when few word do trick?
 
