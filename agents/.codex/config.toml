@@ -1,0 +1,87 @@
+model = "gpt-5.4"
+model_reasoning_effort = "medium"
+[projects."/Users/tihav/source/engineering-and-consulting"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/calendar"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/wiki"]
+trust_level = "trusted"
+
+[projects."/Users/tihav"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/affine-export"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/wiki-extensions"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/leto"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/futurenet"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/atrium"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/natureoffice"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/spaces"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/youtrack"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/work"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/radplus-visio"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/vektor-extensions"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/vektor"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/shade"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/fraport/intranet"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/vektor/extensions"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/temp/astro-figma"]
+trust_level = "trusted"
+
+experimental_use_rmcp_client = true
+
+[projects."/Users/tihav/source/thymer-sync"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/poddy"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/jiz-website"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source"]
+trust_level = "trusted"
+
+[projects."/Users/tihav/source/prompt"]
+trust_level = "trusted"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.thymer]
+url = "http://127.0.0.1:13100"
+
+[notice]
+hide_rate_limit_model_nudge = true

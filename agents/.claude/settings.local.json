@@ -14,6 +14,7 @@
       "Bash(tmux list-windows:*)",
       "Bash(tmux list-panes:*)",
       "Bash(tmux capture-pane:*)",
+      "Bash(tmux capture-pane :*)",
       "Bash(task build:*)",
       "Bash(task --list-all:*)",
       "Bash(curl -s \"http://127.0.0.1:*)",
