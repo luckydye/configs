@@ -1,0 +1,6 @@
+#!/bin/bash
+
+if [ ! -t 1 ]; then return; fi
+
+# TODO: encrypt/decrypt folders (tar to archive, encrypt archive. Then decrypt archive and deflate)
+openssl enc -aes-256-cbc -salt -pbkdf2 -in $1 -out $1.enc $2

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+releases=$(curl https://api.github.com/repos/vercel/geist-font/releases)
+url=$(echo $releases | jq '.[0].assets' | jq 'map(select(.name | contains("Mono"))).[0].browser_download_url' -r)
+
+wget $url

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rsync -avr --progress --exclude 'target' --exclude 'node_modules' --exclude 'vendor' --exclude '.zig-cache' --exclude 'Build' --exclude 'build' --exclude 'DerivedData' $1 $2

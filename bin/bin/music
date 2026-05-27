@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+rclone copy --progress storage:/media/music/yt ~/Music/yt/Likes
+rclone copy --progress ~/Music/yt/Likes storage:/media/music/yt

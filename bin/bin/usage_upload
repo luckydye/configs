@@ -1,0 +1,7 @@
+#!/bin/zsh
+#MISE description="Upload a file to public remote storage"
+
+#USAGE arg "<target>" help="The target to backup relative to the current directory"
+
+>&2 rclone copyto --progress $usage_target storage:/share/$usage_target
+echo -n "https://share.luckydye.de/$usage_target"

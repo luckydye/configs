@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+# Required parameters:
+# @raycast.schemaVersion 1
+# @raycast.title Worktime
+# @raycast.mode fullOutput
+
+# Optional parameters:
+# @raycast.icon 💼
+# @raycast.argument1 { "type": "text", "placeholder": "Scope" }
+
+./worktime | rg $1

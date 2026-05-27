@@ -1,0 +1,33 @@
+#!/bin/bash
+# mise.description=Create new project directory
+
+export PROJECT_PATH="$HOME/source/$(gum input --placeholder="Project Name" --header="Create Project")"
+export PROJECT_NAME=$(basename "$PROJECT_PATH")
+
+# create project dir
+
+if test -d $PROJECT_PATH; then
+  gum log --time rfc822 --level error "Project exists."
+  exit 1
+fi
+
+mkdir $PROJECT_PATH || exit 1
+cd $PROJECT_PATH || exit 1
+
+git clone https://github.com/luckydye/new.git ./ && [ -f ./init ] && ./init
+
+# init git project
+rm -rf .git
+git init
+git add --all
+git_personal
+git commit -m "Initial commit"
+
+# attatch to new project
+tmux new-session -d -s $PROJECT_PATH
+
+if [ -z "$TMUX" ]; then
+	tmux attach -t $PROJECT_PATH
+else
+	tmux switch-client -t $PROJECT_PATH
+fi

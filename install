@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+export CONFIGS_DIR=~/configs
+export PATH="$PATH:$HOME/bin"
+export MISE_INSTALL_PATH=$HOME/bin/mise
+
+function explain() {
+    echo ""
+    echo "#######################################################"
+    echo ""
+    echo "Installation complete. Open a new Terminal."
+    echo ""
+    echo "Run `cfg` to setup configurations."
+    echo "Run `cfg pull` to pull latest configs."
+    echo ""
+    echo "#######################################################"
+    echo ""
+}
+
+function install_zshrc() {
+  echo "# luckydye configs" >> ~/.zshrc || exit 1
+  echo "source $CONFIGS_DIR/.zshrc" >> ~/.zshrc || exit 1
+}
+
+if where pacman >/dev/null 2>&1; then
+    # arch yo
+    sudo pacman -S --needed mise croc usage stow ripgrep fzf zoxide tmux
+else
+    echo "pacman is not available"
+
+    # install mise
+    curl https://mise.run | sh
+fi
+
+git clone https://github.com/luckydye/configs.git ${CONFIGS_DIR}
+
+grep -Fxq "# luckydye configs" ~/.zshrc || install_zshrc
+
+source $CONFIGS_DIR/.zshrc || exit 1
+
+mise install -y || true
+
+explain

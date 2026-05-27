@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Enhanced version with options
+SHOW_HIDDEN=true
+RECURSIVE=false
+
+# Parse options
+while getopts "har" opt; do
+    case $opt in
+        h) echo "Usage: $0 [-a] [-r] <path>"
+           echo "  -a: Show hidden files in directories"
+           echo "  -r: Recursive directory listing"
+           exit 0 ;;
+        a) SHOW_HIDDEN=true ;;
+        r) RECURSIVE=true ;;
+        *) echo "Invalid option. Use -h for help."; exit 1 ;;
+    esac
+done
+
+shift $((OPTIND-1))
+path="${1:?Error: Please provide a path}"
+
+if [ ! -e "$path" ]; then
+    echo "Error: '$path' does not exist"
+    exit 1
+fi
+
+if [ -d "$path" ]; then
+    echo "📁 Directory: $path"
+
+    if [ "$RECURSIVE" = true ]; then
+        if [ "$SHOW_HIDDEN" = true ]; then
+            ls -laR "$path"
+        else
+            ls -lR "$path"
+        fi
+    else
+        if [ "$SHOW_HIDDEN" = true ]; then
+            ls -la "$path"
+        else
+            ls -l "$path"
+        fi
+    fi
+
+elif [ -f "$path" ]; then
+    # Check if file is binary
+    if file "$path" | grep -q "text"; then
+        echo "Contents:"
+        cat "$path"
+    else
+        echo "Binary file detected. Showing file info:"
+        file "$path"
+        ls -la "$path"
+    fi
+
+else
+    echo "🔗 Special file: $path"
+    file "$path"
+    ls -la "$path"
+fi

@@ -1,0 +1,171 @@
+// Zed Settings
+{
+  "cli_default_open_behavior": "new_window",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "https://ai.luckydye.de/"
+    }
+  },
+  "git_panel": {
+    "dock": "left",
+    "sort_by_path": true,
+    "tree_view": false
+  },
+  "agent_servers": {
+    "cursor": {
+      "type": "registry"
+    },
+    "pi-acp": {
+      "type": "registry"
+    },
+    "opencode": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    }
+  },
+  "agent": {
+    "dock": "right",
+    "tool_permissions": {
+      "default": "allow"
+    },
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini"
+    },
+    "default_model": {
+      "effort": "medium",
+      "enable_thinking": true,
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6-latest"
+    },
+    "model_parameters": []
+  },
+  "edit_predictions": {
+    "provider": "zed",
+    "mode": "subtle"
+  },
+  "theme": {
+    "light": "Panda Light",
+    "dark": "Vercel Dark"
+  },
+  "icon_theme": {
+    "mode": "light",
+    "light": "VSCode Icons (Dark)",
+    "dark": "VSCode Icons (Dark)"
+  },
+  "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "always"
+  },
+  "use_autoclose": false,
+  "jsx_tag_auto_close": {
+    "enabled": true
+  },
+  "seed_search_query_from_cursor": "selection",
+  "hover_popover_enabled": false,
+  "cursor_blink": false,
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "vertical_scroll_margin": 5,
+  "relative_line_numbers": "enabled",
+  "show_completions_on_input": false,
+  "show_whitespaces": "selection",
+  "unstable.ui_density": "compact",
+  "inlay_hints": {
+    "enabled": true,
+    "show_parameter_hints": true,
+    "show_type_hints": false
+  },
+  // Git
+  "git": {
+    "inline_blame": {
+      "enabled": true
+    }
+  },
+  // Terminal
+  // "terminal": {
+  //   "line_height": "standard",
+  //   "shell": {
+  //     "program": "/Users/tihav/configs/bin/bin/ta_cwd"
+  //   }
+  // },
+  // Fonts
+  "ui_font_size": 14.0,
+  "buffer_font_size": 14.0,
+  "ui_font_family": "Geist Mono",
+  "buffer_font_family": "Geist Mono",
+  "buffer_font_features": {
+    "calt": true,
+    "liga": false
+  },
+  // UI
+  "tab_bar": {
+    "show": false
+  },
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+    "activate_on_close": "history"
+  },
+  "gutter": {
+    "runnables": false,
+    "breakpoints": false,
+    "folds": true
+  },
+  "use_on_type_format": false,
+  "remove_trailing_whitespace_on_save": false,
+  "ensure_final_newline_on_save": false,
+  "format_on_save": "off",
+  // Language Servers and Formatting
+  // "formatter": [
+  //   {
+  //     "language_server": {
+  //       "name": "biome"
+  //     }
+  //   },
+  //   { "code_action": "source.fixAll.biome" }
+  // ],
+  "formatter": "prettier",
+  // "formatter": "language_server",
+  "code_actions_on_format": {
+    "source.fixAll.biome": true
+  },
+  "file_types": {
+    "HTML": ["*.svg", "*.hbs"],
+    "Ansible": [
+      "**.ansible.yml",
+      "**.ansible.yaml",
+      "**/defaults/*.yml",
+      "**/defaults/*.yaml",
+      "**/meta/*.yml",
+      "**/meta/*.yaml",
+      "**/tasks/*.yml",
+      "**/tasks/*.yaml",
+      "**/handlers/*.yml",
+      "**/handlers/*.yaml",
+      "**/group_vars/*.yml",
+      "**/group_vars/*.yaml",
+      "**/playbooks/*.yaml",
+      "**/playbooks/*.yml",
+      "**playbook*.yaml",
+      "**playbook*.yml"
+    ]
+  }
+}

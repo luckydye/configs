@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
+gui:
+  showRandomTip: false
+  showBottomLine: false
+  sidePanelWidth: 0.25
+  showFileTree: true
+  # windowSize: "half"
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 10
+  branchColors:
+    "main": "#11aaff"
+    "develop": "#11aaff"
+  border: "hidden"
+  authorColors:
+    "Tim Havlicek": "#11aaff"
+    "*": "#ff0000"
+git:
+  branchLogCmd: "git log --graph --author-date-order --color=always --abbrev-commit --decorate --format=format:'%>(10,trunc) %C(bold yellow)%h%C(reset) %C(white)%s%C(reset)%C(auto)%d%C(reset) %C(dim white)- %an%C(reset) %C(bold dim white)(%ar)%C(reset) ' {{branchName}}"
+  disableForcePushing: true

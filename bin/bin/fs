@@ -1,0 +1,13 @@
+#!/bin/bash
+
+file=$(rg --color=always --line-number --no-heading --smart-case "${*:-}" |
+      fzf --ansi \
+          --delimiter : \
+          --preview 'bat --color=always {1} --highlight-line {2}' \
+          --preview-window 'right,60%')
+
+if [ -z "$file" ]; then
+	echo "Canceled"
+else
+	$EDITOR $file
+fi

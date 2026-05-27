@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rclone $1 storage:/ $2

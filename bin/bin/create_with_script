@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd ~/configs/bin/bin
+ln -s ./with_$1 ./$2

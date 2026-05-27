@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+set -eu
+
+SOURCE_DIR="${SOURCE_DIR:-$HOME/source}"
+LIMIT="${1:-200}"
+DEPTH="${DEPTH:-2}"
+
+TMPDIR_FEED=$(mktemp -d)
+STATUS_FILE="$TMPDIR_FEED/.status"
+touch "$STATUS_FILE"
+
+cleanup() {
+	if [[ -n "${WATCHER_PID:-}" ]]; then
+		kill "$WATCHER_PID" 2>/dev/null || true
+		wait "$WATCHER_PID" 2>/dev/null || true
+	fi
+	rm -rf "$TMPDIR_FEED"
+	printf "\r\033[K" >&2
+}
+trap cleanup EXIT
+
+log_repo() {
+	local repo="$1"
+	local name="${repo#$SOURCE_DIR/}"
+	local out="$TMPDIR_FEED/$(echo "$name" | tr / _)"
+	echo "$name" >> "$STATUS_FILE"
+	git -C "$repo" log --all --no-merges \
+		--author='t\.havlicek@s-v\.de\|tim\.h4vlicek@gmail\.com' \
+		--pretty=format:"%at%x09%aI%x09%h%x09%an%x09${name}%x09%s%n" 2>/dev/null > "$out" || true
+}
+export -f log_repo
+export SOURCE_DIR TMPDIR_FEED STATUS_FILE
+
+REPO_LIST="$TMPDIR_FEED/.repos"
+find "$SOURCE_DIR" -mindepth 1 -maxdepth "$((DEPTH + 1))" -type d \
+	\( -name node_modules -o -name .venv -o -name target \) -prune -o \
+	-type d -name .git -print 2>/dev/null \
+	| sed 's|/\.git$||' > "$REPO_LIST"
+
+TOTAL=$(wc -l < "$REPO_LIST" | tr -d ' ')
+
+if [[ -t 2 ]]; then
+	(
+		count=0
+		tail -n +1 -f "$STATUS_FILE" 2>/dev/null | while IFS= read -r name; do
+			count=$((count + 1))
+			printf "\r\033[K\033[90m[%d/%d]\033[0m \033[36m%s\033[0m" "$count" "$TOTAL" "$name" >&2
+		done
+	) &
+	WATCHER_PID=$!
+	disown "$WATCHER_PID" 2>/dev/null || true
+fi
+
+xargs -P 16 -I{} bash -c 'log_repo "$@"' _ {} < "$REPO_LIST"
+
+if [[ -n "${WATCHER_PID:-}" ]]; then
+	kill "$WATCHER_PID" 2>/dev/null || true
+fi
+printf "\r\033[K" >&2
+
+cat "$TMPDIR_FEED"/* 2>/dev/null \
+	| sort -rn | head -n "$LIMIT" | tail -r | awk -F'\t' '
+{
+	if (prev && $1 - prev > 43200) print ""
+	prev = $1
+	printf "\033[90m%s\033[0m  \033[33m%-8s\033[0m  \033[36m%-30s\033[0m  \033[35m%-18s\033[0m  %s\n", \
+		substr($2,1,16), substr($3,1,8), substr($5,1,30), substr($4,1,18), $6
+}'

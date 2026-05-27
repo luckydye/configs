@@ -1,0 +1,43 @@
+[
+	{
+		"label": "task run test: $ZED_SELECTED_TEXT",
+		"command": "task test -- --watch --test-name-pattern $ZED_SELECTED_TEXT"
+	},
+	{
+		"label": "js eval: $ZED_SELECTED_TEXT",
+		"command": "bun -e '$ZED_SELECTED_TEXT'"
+	},
+	{
+		"label": "open path",
+		"command": "zed $ZED_SELECTED_TEXT"
+	},
+	{
+		"label": "fix",
+		"command": "task fix || task fe:fix || mise run fix"
+	},
+	{
+		"label": "start",
+		"command": "mise run dev",
+		"use_new_terminal": false,
+		"allow_concurrent_runs": true
+	},
+	{
+		"label": "lazygit",
+		"command": "lazygit",
+		"hide": "on_success",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": false
+	},
+	{
+		"label": "rename current file",
+		"use_new_terminal": true,
+		"allow_concurrent_runs": true,
+		"hide": "on_success",
+		"command": "mv $ZED_FILE $(gum input --width=200 --value $ZED_FILE)"
+	},
+	{
+		"label": "stat current file",
+		"command": "cat",
+		"args": ["$ZED_FILE"]
+	}
+]

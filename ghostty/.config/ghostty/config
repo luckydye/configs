@@ -1,0 +1,15 @@
+theme = dark:Matte Black,light:Monokai Pro Light
+
+background-opacity = 0.69
+background-blur-radius = 8
+
+font-family = Geist Mono
+font-style = Semibold
+font-size = 14
+
+shell-integration-features = no-cursor,no-title
+
+cursor-style = block
+cursor-style-blink = false
+
+copy-on-select = true

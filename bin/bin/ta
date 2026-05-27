@@ -1,0 +1,9 @@
+#!/bin/bash
+
+function info() {
+    gum log --time rfc822 --prefix=tmux_attach --level info $0
+}
+
+SESSION=$(tmux list-sessions -F \#S | gum choose --cursor="💘 " --cursor.background="8" --cursor.foreground="255")
+info "Switching to $SESSION"
+tmux attach -t $SESSION

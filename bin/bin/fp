@@ -1,0 +1,21 @@
+#!/bin/bash
+
+project=$(find ~/source -maxdepth 3 -name .git -type d |\
+          sed 's/\/.git//g' |\
+          fzf --reverse --preview-window="right:60%" --preview="bat {}/README.md")
+
+if [ -z "$project" ]; then
+	echo "You need to select a project."
+else
+	name=$(basename "$project")
+	cd $project
+
+	tmux new-session -d -s "$name" -c "$project"
+	#tmux send 'ls -la && git-stack' ENTER
+
+	if [ -z "$TMUX" ]; then
+		tmux attach -t $name
+	else
+		tmux switch-client -t $name
+	fi
+fi

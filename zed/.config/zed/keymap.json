@@ -1,0 +1,127 @@
+[
+	{
+		// Tasks
+		"bindings": {
+			"ctrl-t": "task::Spawn",
+			"f4": [
+				"task::Spawn",
+				{
+					"task_name": "lazygit",
+					"reveal_target": "center"
+				}
+			]
+		}
+	},
+	{
+		// Editor bindings
+		"bindings": {
+			"ctrl-,": "zed::OpenSettings",
+			"ctrl-.": "zed::OpenKeymap",
+			"ctrl-g": "git_graph::Open",
+
+			"ctrl-i": "assistant::InlineAssist",
+
+			"ctrl-p": "file_finder::Toggle",
+			"ctrl-shift-p": "command_palette::Toggle",
+			"ctrl-r": "projects::OpenRecent",
+			"ctrl-f": "buffer_search::Deploy",
+			"ctrl-shift-f": "pane::DeploySearch",
+
+			"cmd-g": "vim::SelectNext",
+			"cmd-shift-g": "vim::SelectPrevious",
+
+			// "ctrl-j": "workspace::NewCenterTerminal",
+
+			// pane navigation
+			"ctrl-\\": "pane::SplitDown",
+			"ctrl-alt-left": "pane::GoBack",
+			"ctrl-alt-right": "pane::GoForward",
+			"ctrl-]": "workspace::ActivateNextPane",
+			"ctrl-[": "workspace::ActivatePreviousPane",
+			"ctrl-1": ["workspace::ActivatePane", 0],
+			"ctrl-2": ["workspace::ActivatePane", 1],
+			"ctrl-3": ["workspace::ActivatePane", 2],
+			"ctrl-4": ["workspace::ActivatePane", 3],
+			"ctrl-5": ["workspace::ActivatePane", 4],
+			"ctrl-6": ["workspace::ActivatePane", 5],
+			"ctrl-7": ["workspace::ActivatePane", 6],
+			"ctrl-8": ["workspace::ActivatePane", 7],
+			"ctrl-9": ["workspace::ActivatePane", 8],
+			"ctrl-shift-up": "vim::ResizePaneUp",
+			"ctrl-shift-down": "vim::ResizePaneDown",
+			"ctrl-shift-right": "vim::ResizePaneRight",
+			"ctrl-shift-left": "vim::ResizePaneLeft",
+			"ctrl-tab": "tab_switcher::Toggle",
+
+			"ctrl-s": "workspace::Save",
+			"ctrl-w": "pane::CloseActiveItem",
+			"ctrl-shift-t": "pane::ReopenClosedItem",
+
+			"ctrl-enter": "editor::ConfirmCompletion",
+			"ctrl-space": "editor::ShowCompletions",
+
+			"ctrl-c": "editor::Copy",
+			"ctrl-v": "editor::Paste",
+			"ctrl-x": "editor::Cut",
+			"ctrl-z": "editor::Undo",
+			"ctrl-shift-z": "editor::Redo",
+			"ctrl-k": "editor::Hover",
+			"ctrl-a": "editor::SelectAll",
+			"ctrl-left": "editor::MoveToBeginningOfLine",
+			"ctrl-right": "editor::MoveToEndOfLine",
+			"alt-up": "editor::MoveLineUp",
+			"alt-down": "editor::MoveLineDown"
+		}
+	},
+	{
+		// Vim bindings
+		"context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+		"bindings": {
+			"tab": "editor::Indent",
+     	"shift-tab": "editor::Outdent",
+			"g r": "editor::FindAllReferences",
+			"g c": "editor::ToggleComments"
+		}
+	},
+	{
+		// Explorer bindings
+		"context": "ProjectPanel",
+		"bindings": {
+			"ctrl-x": "project_panel::Cut",
+			"ctrl-c": "project_panel::Copy",
+			"ctrl-shift-c": "workspace::CopyPath",
+			"ctrl-v": "project_panel::Paste",
+			"ctrl-n": "project_panel::NewFile",
+			"ctrl-shift-n": "project_panel::NewDirectory",
+			"ctrl-d": "project_panel::Delete",
+			"ctrl-r": "project_panel::Rename"
+		}
+	},
+	{
+		// Terminal bindings
+		"context": "Terminal",
+		"bindings": {
+			"ctrl-b": "zed::NoAction",
+			"ctrl-r": "zed::NoAction"
+		}
+	},
+	{
+		// TabSwitcher bindings
+		"context": "TabSwitcher",
+		"bindings": {
+			"ctrl-shift-tab": "menu::SelectPrevious"
+		}
+	},
+ {
+  "context": "((((vim_operator == a || vim_operator == i) || vim_operator == cs) || vim_operator == helix_next) || vim_operator == helix_previous)",
+  "bindings": {
+   ")": null
+  }
+ },
+ {
+  "context": "(VimControl && !menu)",
+  "bindings": {
+   ")": null
+  }
+ }
+]

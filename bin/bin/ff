@@ -1,0 +1,10 @@
+#!/bin/bash
+
+file=$(fd --type f --strip-cwd-prefix --hidden |\
+      fzf --preview-window="right,60%,border-horizontal" --preview "bat --color=always --tabs=2 --style=plain {}")
+
+if [ -z "$file" ]; then
+	echo "Canceled"
+else
+	$EDITOR $file
+fi
