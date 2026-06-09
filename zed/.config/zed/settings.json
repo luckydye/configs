@@ -1,5 +1,6 @@
 // Zed Settings
 {
+  "diff_view_style": "unified",
   "cli_default_open_behavior": "new_window",
   "telemetry": {
     "diagnostics": false,
@@ -22,7 +23,7 @@
   "git_panel": {
     "dock": "left",
     "sort_by_path": true,
-    "tree_view": false
+    "tree_view": true
   },
   "agent_servers": {
     "cursor": {
@@ -32,9 +33,15 @@
       "type": "registry"
     },
     "opencode": {
+      "default_config_options": {
+        "model": "opencode-go/kimi-k2.6"
+      },
       "type": "registry"
     },
     "claude-acp": {
+      "default_config_options": {
+        "model": "default"
+      },
       "type": "registry"
     },
     "codex-acp": {
@@ -54,7 +61,7 @@
       "effort": "medium",
       "enable_thinking": true,
       "provider": "anthropic",
-      "model": "claude-sonnet-4-6-latest"
+      "model": "claude-sonnet-4-6"
     },
     "model_parameters": []
   },
