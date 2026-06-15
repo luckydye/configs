@@ -17,7 +17,7 @@
   },
   "language_models": {
     "ollama": {
-      "api_url": "https://ai.luckydye.de/"
+      "api_url": "http://localhost:11434"
     }
   },
   "git_panel": {
@@ -34,13 +34,13 @@
     },
     "opencode": {
       "default_config_options": {
-        "model": "opencode-go/kimi-k2.6"
+        "model": "opencode/deepseek-v4-flash-free"
       },
       "type": "registry"
     },
     "claude-acp": {
       "default_config_options": {
-        "model": "default"
+        "model": "opus[1m]"
       },
       "type": "registry"
     },
@@ -54,8 +54,8 @@
       "default": "allow"
     },
     "inline_assistant_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini"
+      "provider": "ollama",
+      "model": "gemma4:e4b"
     },
     "default_model": {
       "effort": "medium",

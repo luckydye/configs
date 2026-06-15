@@ -57,8 +57,7 @@
 			"ctrl-w": "pane::CloseActiveItem",
 			"ctrl-shift-t": "pane::ReopenClosedItem",
 
-			"ctrl-enter": "editor::ConfirmCompletion",
-			"ctrl-space": "editor::ShowCompletions",
+			"alt-space": "editor::ShowCompletions",
 
 			"ctrl-c": "editor::Copy",
 			"ctrl-v": "editor::Paste",

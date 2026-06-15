@@ -11,25 +11,13 @@
 - Always use Conventional Commits syntax for commit messages, examples: `feat: Added blend modes` or `fix: Crop not working`
 - You are NOT allowed in install arbitrary npm packages!!!
 - ALWAYS mark backwards compatible code paths or depricated functions as deprecated
+- Important: Before implementing a "fix" or adding a new feature, ALWAYS look for a reason not to write new code. It may already exist in a similar from in the codebase.
 
 ### Tests
 
 - Do not write unit-tests. Tests should be on an integration level. Testing individual units is not useful for most cases, since it will never catch errors in a combination things.
 - You should prefere writing integration tests. For example, testing a cli should consist of a bash script actually using the cli and expecting a certain output. Or taking a snapshot of visual output, to compare to. etc.
 
-## Browser use
-
-If the user provides a URL, ESPECIALLY a localhost url, consider haveing a look with `agent-browser` cli!
-
-- `snapshot -i` lists interactive elements, `click @ref` to interact
-- Delete output file before recording (`record start` won't overwrite)
-- Use `sleep` between steps for visible pauses in the video, average sleep duration should be 500ms at maximum
-- Always record the video to .mp4 format.
-
-## Tmux
+## Dev Enviroment
 
 I use tmux to run all my tasks and processes, capture logs by using tmux command like `tmux capture-pane -t 0 -S - -p`.
-
-## Knowledge Base
-
-I use thymer to store notes and all my documentation, as well as my todos.
