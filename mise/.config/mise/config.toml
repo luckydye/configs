@@ -1,3 +1,21 @@
+[bootstrap.packages]
+"brew:git" = "latest"
+"brew:stow" = "latest"
+"brew:ripgrep" = "latest"
+"brew:unzip" = "latest"
+"brew:fd" = "latest"
+"brew:fzf" = "latest"
+"brew:tmux" = "latest"
+"brew:watch" = "latest"
+
+# [settings]
+# dotfiles.root = "~/configs"
+# dotfiles.default_mode = "symlink"
+
+# [dotfiles]
+# "~/.gitconfig" = { mode = "symlink" }
+# "~/.config/nvim" = { mode = "symlink" }
+
 [tools]
 task = "3"
 fd = "9.0.0"
@@ -48,3 +66,7 @@ RCLONE_CONFIG_STORAGE_PROVIDER = { age = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IHNzaC
 RCLONE_CONFIG_STORAGE_REGION = { age = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IHNzaC1lZDI1NTE5IGdLTUtHUSByVEZtMW5ZMzRPNEE1aU1PWDE5aEFxWmxjWDkxZ0c3aUFRSnZVdTF3aEY0ClhRVEhhTStqNkJ4QzdsN3hJZmZoOGpGSTZaWnVKV2lPSnFJUTZpdjJrTTAKLT4gK3VXLWdyZWFzZSArM1BNIEE+P2F0Mmx0IFM8ClRnU3RKTkdpd2R4TkNzZwotLS0gSXdYeVlMdFROZmZyWnVlNkpIS1V3VHlUVXJhNlJxUUdMSGVMUk5DcFEwQQoXKJIkFjft70UgMGkfYXndpEFjLVTUYOwn7v72FH3Q88QpNuV+VfA" }
 RCLONE_CONFIG_STORAGE_SECRET_ACCESS_KEY = { age = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IHNzaC1lZDI1NTE5IGdLTUtHUSBFd0dFa1dSeUg0NlZGTkl4M05Da1BYb2E1L2pTUWNnUnlOb1h2WkFPSXljCmZnK210ajRUM1BCSDRmbU54QTBMbytiWm4vYnRpcDZ4cjlObHY1eUExSkEKLT4gai8tZ3JlYXNlCm5qV0t5bUtxU3owTjRXa0NrYXc0Yjl5WEZJUy96RHB6MnlNa3I2NHNHTmg5QmtuZnFQR09GNDZZRHEyWktkajgKbDlPSnc4d3V1TU5mSnZlWHhITnpaNlZLVUNlRGZubkNpUWRqcVFjVGNDMAotLS0gd01xVE5TTHpzN0lTdGlZQTBwWmloVlBnZHBjanhvTmZXUUFLcnlxemUrYwpd65YTfnAnwVzDVISvUyCBfUeUskmsw9csCYbTsRFplLL25I8owkpKmUtAneS9cX41RsQHDpBhKDnBlntS0HIade9GchJSIbs" }
 RCLONE_CONFIG_STORAGE_TYPE = { age = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IHNzaC1lZDI1NTE5IGdLTUtHUSBBV1RaeFFYaUdBbCtmcGtOQWJMRFZla21helB5VFFMeHE0RkFtTXp5eGhvCm0wV1RyVGFRSUthV2pZcmVGUi8rbklnNkdVc3AyTFhwc1d1dElVbGRHVVEKLT4geT11dz97VHctZ3JlYXNlCllnV1Q1Z1NObEQ0RTkxSTJ6QTVyblYxNW9wQ21ZZ2l4ai94TEJ0c09GSExjckovNXdLRVEKLS0tIG1oeUpnazl5NGtqclB5WFJ6eU9RSFpmbzdEcy9xMkpKY0pEZjB1NWpyNVEKSLwxc11YPm0CHPcBIH0jO59cVuV13NS36w9QBy9w3BzWBg" }
+
+#VEKTOR_HOST = "https://vektor.luckydye.de"
+#VEKTOR_SPACE_ID = "space_cf2e989a-f60e-47a0-a753-54cc756ad51b"
+#VEKTOR_ACCESS_TOKEN = "at_69c4091a35d2319929c9b1c432197c905f332428204588a3718b853b17781c5e"

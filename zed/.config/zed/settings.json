@@ -40,11 +40,16 @@
     },
     "claude-acp": {
       "default_config_options": {
-        "model": "opus[1m]"
+        "mode": "bypassPermissions",
+        "model": "default"
       },
       "type": "registry"
     },
     "codex-acp": {
+      "default_config_options": {
+        "mode": "agent-full-access",
+        "reasoning_effort": "high"
+      },
       "type": "registry"
     }
   },

@@ -1,4 +1,4 @@
-## Codestyle
+## General Guidelines
 
 - Less code is better than more code.
 - No fallback mechanisms — they hide real failures. Instead of a fallback branch in a condition, use assertions or throw and error please!
@@ -11,6 +11,7 @@
 - Always use Conventional Commits syntax for commit messages, examples: `feat: Added blend modes` or `fix: Crop not working`
 - You are NOT allowed in install arbitrary npm packages!!!
 - ALWAYS mark backwards compatible code paths or depricated functions as deprecated
+- Do NOT include backwards compatibility comments or code for code that has not been committed yet!!!
 - Important: Before implementing a "fix" or adding a new feature, ALWAYS look for a reason not to write new code. It may already exist in a similar from in the codebase.
 
 ### Tests
