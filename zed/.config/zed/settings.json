@@ -34,14 +34,15 @@
     },
     "opencode": {
       "default_config_options": {
-        "model": "opencode/deepseek-v4-flash-free"
+        "model": "opencode/mimo-v2.5-free"
       },
       "type": "registry"
     },
     "claude-acp": {
       "default_config_options": {
+        "fast": true,
         "mode": "bypassPermissions",
-        "model": "default"
+        "model": "opus[1m]"
       },
       "type": "registry"
     },
@@ -66,7 +67,7 @@
       "effort": "medium",
       "enable_thinking": true,
       "provider": "anthropic",
-      "model": "claude-sonnet-4-6"
+      "model": "claude-opus-4-8"
     },
     "model_parameters": []
   },
@@ -75,7 +76,7 @@
     "mode": "subtle"
   },
   "theme": {
-    "light": "Panda Light",
+    "light": "Gruvbox Light Soft",
     "dark": "Vercel Dark"
   },
   "icon_theme": {
