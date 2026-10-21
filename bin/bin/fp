@@ -10,8 +10,15 @@ else
 	name=$(basename "$project")
 	cd $project
 
-	tmux new-session -d -s "$name" -c "$project"
-	#tmux send 'ls -la && git-stack' ENTER
+	if ! tmux has-session -t "$name" 2>/dev/null; then
+		if varmint ls | grep -qx "$name"; then
+			varmint run "$name" --wait-network || exit 1
+		else
+			varmint run "$name" --persist --mount "$project:work" --wait-network || exit 1
+		fi
+		tmux new-session -d -s "$name" -c "$project" \
+			"varmint exec $name -- bash -lc 'cd work && exec bash -l'; varmint stop $name"
+	fi
 
 	if [ -z "$TMUX" ]; then
 		tmux attach -t $name
