@@ -10,19 +10,15 @@ else
 	name=$(basename "$project")
 	cd $project
 
-	if ! tmux has-session -t "$name" 2>/dev/null; then
-		if varmint ls | grep -qx "$name"; then
-			varmint run "$name" --wait-network || exit 1
-		else
-			varmint run "$name" --persist --mount "$project:work" --wait-network || exit 1
-		fi
-		tmux new-session -d -s "$name" -c "$project" \
-			"varmint exec $name -- bash -lc 'cd work && exec bash -l'; varmint stop $name"
+	if ! varmint exec "$name" -- true 2>/dev/null; then
+		persist=--persist
+		varmint ls | grep -qx "$name" && persist=
+		varmint run "$name" $persist --mount "$project:work" --wait-network || exit 1
 	fi
 
-	if [ -z "$TMUX" ]; then
-		tmux attach -t $name
-	else
-		tmux switch-client -t $name
-	fi
+	printf '\e]2;%s\a' "$name"
+	# Ghostty opens new splits and tabs here, so they are host shells in the project.
+	printf '\e]7;file://%s%s\a' "$(hostname)" "$project"
+	# The VM's tmux session "main", shared with the web UI; it outlives this client.
+	exec varmint exec "$name" -- bash -lc 'cd work && exec tmux new-session -A -s main'
 fi
