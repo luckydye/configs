@@ -14,6 +14,7 @@
 - Important: Before implementing a "fix" or adding a new feature, ALWAYS look for a reason not to write new code. It may already exist in a similar form in the codebase.
 - NEVER just run tests and checks after doing something, I tell you when we are done and should check the code.
 - NEVER write yourself as co-author in commits
+- NEVER read `.env` files, credentials, or vaults directly. Ask me for the values you need instead.
 
 ### Tests
 

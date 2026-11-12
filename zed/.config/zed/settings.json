@@ -1,5 +1,7 @@
 // Zed Settings
 {
+  "disable_ai": false,
+  "ssh_connections": [],
   "diff_view_style": "unified",
   "cli_default_open_behavior": "new_window",
   "telemetry": {
