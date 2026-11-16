@@ -20,7 +20,3 @@
 
 - Do not write unit-tests. Tests should be on an integration level. Testing individual units is not useful for most cases, since it will never catch errors in a combination of units.
 - You should prefere writing integration tests. For example, testing a cli should consist of a bash script actually using the cli and expecting a certain output. Or taking a snapshot of visual output, to compare to. etc.
-
-## Dev Enviroment
-
-I use tmux to run all my tasks and processes, capture logs by using tmux command like `tmux capture-pane -t 0 -S - -p`.

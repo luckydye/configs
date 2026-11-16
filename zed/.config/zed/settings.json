@@ -42,9 +42,10 @@
     },
     "claude-acp": {
       "default_config_options": {
+        "effort": "medium",
         "fast": true,
         "mode": "bypassPermissions",
-        "model": "opus[1m]"
+        "model": "opus"
       },
       "type": "registry"
     },
