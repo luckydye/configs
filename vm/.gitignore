@@ -1,0 +1,20 @@
+# Everything under .vm is state or secret unless listed below.
+/.vm/*
+
+# Configuration
+!/.vm/commands/
+!/.vm/commands/**
+!/.vm/seeds/
+!/.vm/seeds/**
+!/.vm/registries
+
+# Secrets
+/.vm/seeds/.ssh/
+/.vm/seeds/.local/share/opencode/
+/.vm/nodes
+/.vm/serve-token
+/.vm/ssh/
+/.vm/tls/
+
+# Never commit Finder files (overrides the whitelist above)
+.DS_Store

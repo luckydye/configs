@@ -1,0 +1,7 @@
+#!/bin/sh
+# Launch lazygit, installing it with mise on first use.
+set -e
+
+command -v lazygit >/dev/null 2>&1 || mise use -g lazygit@latest
+
+exec lazygit "$@"

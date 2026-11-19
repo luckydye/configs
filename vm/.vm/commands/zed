@@ -1,0 +1,31 @@
+#!/bin/sh
+# Open a directory of a VM in Zed, as the ssh host VM.varmint
+# usage: vm zed VM [GUEST_PATH]
+# GUEST_PATH defaults to work, the copy `vm dev` seeds; relative paths are under /home/varmint.
+# It opens as /mnt/VM, a bind mount, so Zed names the project after the VM; Zed resolves symlinks.
+# Needs the Host *.varmint block in ~/.ssh/config that this command prints when it is missing.
+set -e
+[ -n "$1" ] || { echo "usage: vm zed VM [GUEST_PATH]" >&2; exit 2; }
+if ! ssh -G "$1.varmint" | grep -q '^proxycommand .* proxy '; then
+	cat >&2 <<EOF
+Add this to ~/.ssh/config, before any Host * block, so ssh and Zed reach every VM as NAME.varmint:
+
+Host *.varmint
+  User varmint
+  ProxyCommand sh -c 'exec "$VM" proxy "\${0%%.varmint}" 22' %n
+  IdentityFile ${VM_HOME:-$HOME/.vm}/ssh/id_ed25519
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  LogLevel ERROR
+EOF
+	exit 1
+fi
+path=${2:-work}
+case $path in /*) ;; *) path=/home/varmint/$path ;; esac
+"$VM" run "$1" -- sh -c '
+if mountpoint -q "$2"; then
+	[ "$1" -ef "$2" ] || { echo "$2 already shows another directory, open it with: zed ssh://$3.varmint$2" >&2; exit 1; }
+else
+	sudo mkdir -p "$2" && sudo mount --bind "$1" "$2"
+fi' sh "$path" "/mnt/$1" "$1"
+exec zed "ssh://$1.varmint/mnt/$1"

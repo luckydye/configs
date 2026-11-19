@@ -1,0 +1,7 @@
+#!/bin/sh
+# Fetch the branches of a git repo in a VM into the current repo as <vm>/<branch>
+# usage: varmint pull VM [GUEST_PATH]
+# GUEST_PATH defaults to work, the copy `varmint dev` seeds.
+set -e
+[ -n "$1" ] || { echo "usage: varmint pull VM [GUEST_PATH]" >&2; exit 2; }
+exec git -c protocol.ext.allow=always fetch "ext::$VARMINT exec $1 -- %S ${2:-work}" "+refs/heads/*:refs/remotes/$1/*"

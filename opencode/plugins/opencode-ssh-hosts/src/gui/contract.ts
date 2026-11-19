@@ -37,5 +37,18 @@ export const SshHosts = Ipc.define({
       output: Schema.Struct({ url: Schema.String, password: Schema.optional(Schema.String) }),
     },
     retry: { input: Schema.String, output: Schema.Boolean },
+    screenOpen: { input: Schema.String },
+    screenClose: { input: Schema.String },
+    screenInput: { input: Schema.Struct({ host: Schema.String, line: Schema.String }) },
+  },
+  events: {
+    frame: Schema.Struct({
+      host: Schema.String,
+      keyframe: Schema.Boolean,
+      width: Schema.Number,
+      height: Schema.Number,
+      data: Schema.String,
+    }),
+    screenEnded: Schema.Struct({ host: Schema.String, message: Schema.String }),
   },
 })

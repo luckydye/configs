@@ -1,9 +1,12 @@
 import { Schema } from "effect"
 import type { Plugin } from "@opencode/plugin/gui"
 
+import type { ChildProcess } from "node:child_process"
+
 import { SshHosts, type HostPhase, type HostsSnapshot } from "./contract"
 import { readSshHosts } from "../ssh/config"
 import { discoverService, installOpenCode, verifyTunnel } from "../ssh/remote"
+import { openInput, openStream, parseVideo } from "../ssh/screen"
 import { openTunnel, type Tunnel } from "../ssh/tunnel"
 
 const SCAN_INTERVAL = 15_000
@@ -34,6 +37,10 @@ export const main: Plugin.MainSetup = (ctx) => {
   const ignored = ctx.storage.store("ignored", { schema: Schema.Array(Schema.String), initial: [] })
   const known = ctx.storage.store("known", { schema: Schema.Array(Schema.String), initial: [] })
   const runtimes = new Map<string, Runtime>()
+  const screens = new Map<
+    string,
+    { readonly stream: ChildProcess; readonly input: ChildProcess; buffer: Buffer; viewers: number }
+  >()
   let ready = false
   let error: string | undefined
   let refreshing = false
@@ -80,6 +87,9 @@ export const main: Plugin.MainSetup = (ctx) => {
     ignore: (input) => ignore(input.name, input.ignored),
     reconnect: (name) => reconnect(name),
     retry: (name) => retry(name),
+    screenOpen: (host) => screenOpen(host),
+    screenClose: (host) => screenClose(host),
+    screenInput: (input) => screenInput(input.host, input.line),
   })
 
   function push() {
@@ -370,6 +380,102 @@ export const main: Plugin.MainSetup = (ctx) => {
     return connect(name)
   }
 
+  function screenOpen(host: string): void {
+    const runtime = runtimes.get(host)
+
+    if (!runtime || runtime.phase !== "ready") throw new Error("The VM is not connected.")
+
+    const existing = screens.get(host)
+
+    if (existing) {
+      existing.viewers++
+      return
+    }
+
+    const stream = openStream(host)
+    const input = openInput(host)
+    const entry: { stream: ChildProcess; input: ChildProcess; buffer: Buffer; viewers: number } = {
+      stream,
+      input,
+      buffer: Buffer.alloc(0),
+      viewers: 1,
+    }
+
+    screens.set(host, entry)
+
+    stream.stdout?.on("data", (chunk: Buffer) => {
+      const parsed = parseVideo(entry.buffer, chunk)
+
+      entry.buffer = parsed.rest
+
+      for (const frame of parsed.frames) {
+        provider.emit("frame", {
+          host,
+          keyframe: frame.keyframe,
+          width: frame.width,
+          height: frame.height,
+          data: frame.data.toString("base64"),
+        })
+      }
+    })
+
+    stream.stderr?.on("data", (chunk: Buffer) => {
+      const detail = chunk.toString().trim()
+
+      if (detail) ctx.log.write("warn", "ssh-hosts: screen stream", { host, detail })
+    })
+
+    stream.on("error", (cause) => {
+      if (screens.get(host) === entry) screens.delete(host)
+      input.kill("SIGTERM")
+      provider.emit("screenEnded", { host, message: message(cause) })
+    })
+
+    stream.on("close", (code) => {
+      if (screens.get(host) !== entry) return
+
+      screens.delete(host)
+      input.kill("SIGTERM")
+      provider.emit("screenEnded", {
+        host,
+        message: code === null ? "The screen stream ended." : `The screen stream ended with code ${code}.`,
+      })
+    })
+
+    input.stderr?.on("data", (chunk: Buffer) => {
+      const detail = chunk.toString().trim()
+
+      if (detail) ctx.log.write("warn", "ssh-hosts: screen input", { host, detail })
+    })
+
+    input.on("error", (cause) =>
+      ctx.log.write("warn", "ssh-hosts: screen input failed", { host, detail: message(cause) }),
+    )
+  }
+
+  function screenClose(host: string): void {
+    const entry = screens.get(host)
+
+    if (!entry) return
+
+    entry.viewers--
+
+    if (entry.viewers > 0) return
+
+    screens.delete(host)
+    entry.stream.kill("SIGTERM")
+    entry.input.kill("SIGTERM")
+  }
+
+  function screenInput(host: string, line: string): void {
+    const entry = screens.get(host)
+
+    if (!entry) throw new Error("The screen is not open.")
+    if (!entry.input.stdin || entry.input.stdin.destroyed) throw new Error("The screen input closed.")
+
+    entry.input.stdin.write(`${line}\n`)
+  }
+
   function ignore(name: string, value: boolean): void {
     const runtime = runtimes.get(name)
 
@@ -396,6 +502,13 @@ export const main: Plugin.MainSetup = (ctx) => {
   ctx.onCleanup(() => {
     disposed = true
     clearInterval(timer)
+
+    for (const entry of screens.values()) {
+      entry.stream.kill("SIGTERM")
+      entry.input.kill("SIGTERM")
+    }
+
+    screens.clear()
 
     for (const runtime of runtimes.values()) {
       runtime.generation++
