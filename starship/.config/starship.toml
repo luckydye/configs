@@ -15,9 +15,6 @@ $container\
 $shell\
 $battery\
 $directory\
-$git_branch\
-$git_status\
-$git_state\
 $character\
 """
 
@@ -38,20 +35,3 @@ discharging_symbol = ''
 [[battery.display]]
 threshold = 10
 style = 'bold red'
-
-[git_state]
-format = '[\($state( $progress_current of $progress_total)\)]($style)'
-
-[git_branch]
-format = '[\($branch\)]($style)'
-
-[git_status]
-format = '$ahead_behind$renamed$deleted$untracked$modified$staged($style) '
-ahead = "[⇡${count}](green)"
-behind = "[⇣${count}](green)"
-up_to_date = "[✓](green)"
-renamed = "[R](red)"
-deleted = "[D](red)"
-untracked = "[?](red)"
-modified = "[M](red)"
-staged = "[M](green)"
