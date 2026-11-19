@@ -15,12 +15,12 @@ else
 	if ! lsof -t "${VM_HOME:-$HOME/.vm}/vms/$name/lock" >/dev/null 2>&1; then
 		persist=--persist
 		vm ls | grep -qx "$name" && persist=
-		vm run "$name" $persist --mount "$project:work" --wait-network || exit 1
+		vm run "$name" $persist --mount "$project:$name" --wait-network || exit 1
 	fi
 
 	printf '\e]2;%s\a' "$name"
 	# Ghostty opens new splits and tabs here, so they are host shells in the project.
 	printf '\e]7;file://%s%s\a' "$(hostname)" "$project"
 	# The VM's tmux session "main", shared with the web UI; it outlives this client.
-	exec vm run "$name" -- bash -lc 'cd work && exec tmux new-session -A -s main'
+	exec vm run "$name" -- bash -lc "cd $(printf %q "$name") && exec tmux new-session -A -s main"
 fi

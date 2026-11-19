@@ -1,0 +1,26 @@
+{
+  "name": "opencode-ssh-hosts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./gui-experimental": "./dist/gui-experimental.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@opencode/plugin": "2.3.2",
+    "@types/node": "^24.0.0",
+    "effect": "4.1.0",
+    "solid-js": "^1.9.0",
+    "typescript": "^5.0.0",
+    "vite": "^7.0.0",
+    "vite-plugin-solid": "^2.11.0"
+  }
+}
