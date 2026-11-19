@@ -24,14 +24,12 @@ export const setup: Plugin.Setup<typeof definition> = (ctx) => {
 
     return {
       ready: snapshot?.ready ?? false,
-      entries: (snapshot?.hosts ?? [])
-        .filter((host) => !host.ignored)
-        .map((host) => ({
+      entries: (snapshot?.hosts ?? []).map((host) => ({
           id: host.name,
           name: host.name,
           label: "SSH",
           state: serverPhase(host.phase),
-          listed: host.phase !== "failed" && host.phase !== "stopped",
+          listed: !host.ignored && host.phase !== "failed" && host.phase !== "stopped",
           http: host.phase === "ready" && host.url ? { url: host.url, password: host.password } : undefined,
           connect: () => ipc.connect(host.name),
           reconnect: (signal: AbortSignal) => ipc.reconnect(host.name, { signal }),

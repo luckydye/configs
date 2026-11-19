@@ -32,6 +32,7 @@ type Runtime = {
 
 export const main: Plugin.MainSetup = (ctx) => {
   const ignored = ctx.storage.store("ignored", { schema: Schema.Array(Schema.String), initial: [] })
+  const known = ctx.storage.store("known", { schema: Schema.Array(Schema.String), initial: [] })
   const runtimes = new Map<string, Runtime>()
   let ready = false
   let error: string | undefined
@@ -39,6 +40,22 @@ export const main: Plugin.MainSetup = (ctx) => {
   let disposed = false
 
   ctx.log.write("info", "ssh-hosts: main started")
+
+  const ignoredNames = new Set(ignored.value)
+
+  for (const name of known.value) {
+    runtimes.set(name, {
+      name,
+      phase: "stopped",
+      ignored: ignoredNames.has(name),
+      generation: 0,
+      retries: 0,
+      retryAt: 0,
+      reconnectAt: 0,
+      lastAttempt: 0,
+      blocked: false,
+    })
+  }
 
   const snapshot = (): HostsSnapshot => ({
     ready,
@@ -82,12 +99,23 @@ export const main: Plugin.MainSetup = (ctx) => {
       ctx.log.write("info", "ssh-hosts: scan", { hosts: names })
 
       for (const [name, runtime] of runtimes) {
-        if (present.has(name)) continue
+        if (present.has(name) || runtime.phase === "stopped") continue
 
         runtime.generation++
         runtime.tunnel?.close()
-        runtimes.delete(name)
+        runtime.tunnel = undefined
+        runtime.url = undefined
+        runtime.password = undefined
+        runtime.phase = "stopped"
+        runtime.detail = undefined
+        push()
       }
+
+      const knownNames = new Set(known.value)
+
+      for (const name of names) knownNames.add(name)
+
+      if (knownNames.size !== known.value.length) known.set([...knownNames])
 
       const added: string[] = []
 
@@ -96,6 +124,7 @@ export const main: Plugin.MainSetup = (ctx) => {
 
         if (existing) {
           existing.ignored = ignoredNames.has(name)
+          if (existing.phase === "stopped" && !existing.ignored) added.push(name)
           continue
         }
 
