@@ -20,3 +20,8 @@
 
 - Do not write unit-tests. Tests should be on an integration level. Testing individual units is not useful for most cases, since it will never catch errors in a combination of units.
 - You should prefere writing integration tests. For example, testing a cli should consist of a bash script actually using the cli and expecting a certain output. Or taking a snapshot of visual output, to compare to. etc.
+
+### Design
+
+- Before implementing a design, think of who and what someone is going to use the interface for. Consider their persepctive for optimal results.
+- We like beautiful designs, things should be beautiful.

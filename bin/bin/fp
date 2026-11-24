@@ -13,9 +13,10 @@ else
 	# The VMM holds the lock of a running VM. Starting it again with mounts
 	# is refused, so only run with the start flags when it is stopped.
 	if ! lsof -t "${VM_HOME:-$HOME/.vm}/vms/$name/lock" >/dev/null 2>&1; then
-		persist=--persist
-		vm ls | grep -qx "$name" && persist=
-		vm run "$name" $persist --mount "$project:$name" --wait-network || exit 1
+		# Hardware is fixed when the VM is created, so only a new VM gets it.
+		create="--persist --memory 6144"
+		vm ls | grep -qx "$name" && create=
+		vm run "$name" $create --mount "$project:$name" --wait-network || exit 1
 	fi
 
 	printf '\e]2;%s\a' "$name"

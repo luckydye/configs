@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mailctl sync && mailctl embed && mailctl digest | ollama run inkling-2-mini
