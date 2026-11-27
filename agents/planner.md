@@ -80,7 +80,7 @@ Facts that shape every dispatch:
 - A VM is ephemeral unless `--persist`; it is deleted when its command exits.
 - `vm run` returns the command's exit code. Its readiness line goes to **stderr**, so stdout stays clean for JSON.
 - **No host mounts.** Inputs are seeded; read files back with `vm run`, commits with the pull command.
-- Seeds are **host-local** too. A remote node still needs a `--base` image or store-based inputs.
+- Seeds are **host-local** too. For a remote node, copy the job and a repo bundle with `scp` through `vm proxy` (§3.8).
 - The stock image has Claude Code and OpenCode. `CLAUDE_CODE_OAUTH_TOKEN` and `ANTHROPIC_API_KEY` are copied from your shell automatically; other values need `--env NAME`.
 - A fresh VM has **no global git identity** and **no OpenCode auth**. The seeded clone carries the host's `user.name` and `user.email`; commits from the VM are unsigned unless you also seed a signing key.
 - Never add host credentials with `--env` or `--seed`. Use the token passthrough that `vm` already provides.
@@ -364,6 +364,48 @@ vm stop reviewer-project --delete
 vm run reviewer-project --persist --base project-base --wait-network
 ```
 
+### 3.8 Remote nodes
+
+Seeds do not work on remote nodes. Copy the job and a bundle of the clone with `scp` through `vm proxy` instead.
+
+```sh
+# bundle the clone
+git -C "$WT" bundle create "$RUN/repo.bundle" --all
+
+# start on a node; the name is qualified, e.g. vektor/rapid-lemur
+VM=$(vm run --node vektor --wait-network 2>/dev/null)
+vm ssh "$VM" true                            # installs the guest key for a remote VM
+
+# copy the job and bundle in; vmguest is a dummy host for scp
+scp -r -o ProxyCommand="$VM_BIN proxy $VM 22" \
+  -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+  -o IdentitiesOnly=yes -i "$HOME/.vm/ssh/id_ed25519" \
+  "$RUN/job" "$RUN/repo.bundle" "varmint@vmguest:/home/varmint/"
+
+# clone and set the host identity
+vm run "$VM" -- sh -lc 'git clone -q -b "$1" ~/repo.bundle ~/work && git -C ~/work remote remove origin && git -C ~/work config user.name "$2" && git -C ~/work config user.email "$3"' sh "ticket/$ID" "$GIT_NAME" "$GIT_EMAIL"
+
+# run the worker; use the OpenCode command from §3.4 if that is the runtime
+vm run "$VM" -- sh -lc 'mkdir -p ~/out && cd ~/work && claude -p --output-format json "$(cat ~/job/worker-contract.md ~/job/prompt.md)"' > "$RUN/result-a1.json" 2> "$RUN/stderr-a1.log"
+```
+
+Pull, report, and stop exactly as local, using the qualified `$VM`:
+
+```sh
+git -C "$WT" -c protocol.ext.allow=always fetch \
+  "ext::$VM_BIN run $VM -- %S work" \
+  "+refs/heads/*:refs/remotes/$VM/*"
+vm run "$VM" -- cat ~/out/report.md > "$RUN/report-a1.md"
+vm stop "$VM" --delete
+```
+
+- `scp` cannot parse a qualified `NODE/NAME` as a host. `vmguest` is a dummy; the ProxyCommand connects to `$VM`.
+- The fetched ref is `$VM/ticket/$ID`, e.g. `vektor/rapid-lemur/ticket/PROJ-123`; review it locally. In §3.5, use `$VM` in place of `$VM_NAME`.
+- Use `vm nodes --check` for reachability and the host list in `vm ui` for memory headroom. Keep the same 4 GiB per VM budget on that node.
+- Prefer `--node NODE`; `--any` can still choose the local host.
+- A node-local `--base` image must already exist on that node. The stock image already has both CLIs.
+- Do not use `--seed`, `--mount`, or the host store on a remote node.
+
 ## 4. Worker contract
 
 Keep this at `$HOME/.agent/planner/worker-contract.md`, copy it to `$JOB/worker-contract.md`, and prepend it to the job prompt. Append repo-specific rules if needed.
@@ -459,7 +501,10 @@ SLOTS=$(( (AVAIL - RESERVE) / VM_MEM ))
 - The default VM is 4 GiB. Light jobs may use `--memory 2048`; do not lower it for builds or tests without evidence they fit.
 - If swap is heavily used or load is high, reduce further; the free percentage alone is coarse.
 - Also check `vm ls` and disk. Running workers count against the effective limit.
-- One fresh clone and one branch per ticket; each VM gets its own seeded copy. Retries start a new VM from the updated clone.
+- Remote nodes are separate memory pools. Check their headroom in `vm ui` or `vm nodes --check`; do not apply the local free percentage to them.
+- `MAX_PARALLEL` caps the total across local and remote workers.
+- Remote dispatch uses §3.8; never pass `--seed` to a remote VM.
+- One fresh clone and one branch per ticket; each local VM gets its own seeded copy. Retries start a new VM from the updated clone.
 - Serialize tickets that may touch the same files. When overlap is plausible, one first, then the other.
 - Do not start a worker while a review of the same files is unresolved.
 - Batch: start VMs, run workers, pull, stop, review, then the next batch. No polling loops.
