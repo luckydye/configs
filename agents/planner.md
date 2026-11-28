@@ -196,7 +196,7 @@ cat "$RUN/$A.md"
 ```
 
 - [ ] `worker exit 0` in the log; no quota (429) or auth (401) failure.
-- [ ] At least one commit; author is the host identity; Conventional Commits; no `Co-authored-by`.
+- [ ] At least one commit; author is the host identity; Conventional Commits with the ticket ID at the end of the subject (`… (PROJ-123)`); no `Co-authored-by`.
 - [ ] Diff is scoped: no drive-by refactors, formatting, debug logs, dependency or lockfile changes, generated files, or secrets.
 - [ ] Every acceptance criterion is met or explicitly reported as not met.
 - [ ] It solves the stated problem, not only the literal steps.
@@ -264,6 +264,7 @@ You are a worker agent in a disposable Linux VM. There is no human here. Finish 
 - Do not change dependencies or lockfiles. If a dependency is unavoidable, stop and report it.
 - `sh ~/job/check.sh` sets up the toolchain and runs all checks. Run it before you report. This overrides "never run checks until told": there is no user to tell you.
 - Commit with the configured identity. Never amend, rebase, merge, fetch, pull, push, change remotes, or run gc.
+- End every commit subject with the ticket ID in parentheses: `feat(event-calendar): Added today button (<ID>)`.
 - If the ticket is ambiguous, already done, or blocked, stop and report. Do not guess.
 - Stay within the time budget. A smaller complete change beats a broad incomplete one.
 
