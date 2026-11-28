@@ -81,7 +81,7 @@ Observed, cause unknown: host-side `vm screenshot` returned an empty desktop whi
     a1-<state>.png          worker screenshots, only for UI tickets
 ```
 
-Nothing else. The scratch clone for the independent check is deleted when the check ends. Rejected attachments are deleted, not moved aside. `runs/` is the audit trail; clones are deleted after landing or abandoning.
+Nothing else. Seed bundles live in a temp dir and are deleted once the VM has booted or the check has ended. Rejected attachments are deleted, not moved aside. `runs/` is the audit trail; clones are deleted after landing or abandoning.
 
 `state.json` is the only memory across sessions. You are its only writer. Update it with `jq` at every transition (`prepared`, `dispatched`, `reviewing`, `accepted`, `changes_requested`, `blocked`, `handed_off`, `landed`, `abandoned`).
 
@@ -138,7 +138,7 @@ if grep -q '^Attachments:' "$JOB/ticket.md"; then work download "$ID" --out "$JO
 jq -er --arg k "$KEY" '.repos[$k].check' ~/.agent/planner/state.json > "$JOB/check.sh"
 ```
 
-The clone has no remote and carries the host identity into the VM. Then write `$JOB/prompt.md`: the worker contract (§6), the repo's `rules`, and the job prompt (§7), in that order, as one file.
+The clone stays on the host: it is where commits are pulled to and reviewed. The VM gets it as a single bundle file (§5.3). Then write `$JOB/prompt.md`: the worker contract (§6), the repo's `rules`, and the job prompt (§7), in that order, as one file.
 
 ### 5.2 Check script (once per repo)
 
@@ -155,7 +155,7 @@ mise exec -- <test command>
 test -z "$(git status --porcelain)"
 ```
 
-Before the first job on a repo, run it once against the base commit (as in §5.4, seeding a clone of `$BASE`, VM name `<project>-base-check`). That proves the script works and shows which failures already exist before any worker touches the code.
+Before the first job on a repo, run it once against the base commit (as in §5.4, with `SEED_REF=$BASE` bundled from `$REPO`, VM name `<project>-base-check`). That proves the script works and shows which failures already exist before any worker touches the code.
 
 ### 5.3 Dispatch
 
@@ -166,7 +166,14 @@ A=a1; LIMIT=2700
 VM_NAME="$(echo "$ID" | tr '[:upper:]' '[:lower:]')-$A"
 VM_BIN="$(command -v vm)"; LOG=$RUN/$A.log
 
-vm run "$VM_NAME" --wait-network --seed "$WT:work" --seed "$JOB:job" >> "$LOG" 2>&1 || exit 10
+SEED=$(mktemp -d)
+git -C "$WT" bundle create -q "$SEED/repo.bundle" "ticket/$ID" "$BASE"
+vm run "$VM_NAME" --wait-network --seed "$SEED:seed" --seed "$JOB:job" >> "$LOG" 2>&1
+rc=$?; rm -rf "$SEED"; [ $rc -eq 0 ] || exit 10
+vm run "$VM_NAME" -- sh -lc 'git clone -q --branch "$1" ~/seed/repo.bundle ~/work &&
+  git -C ~/work branch "$2" "origin/$2" && git -C ~/work remote remove origin &&
+  git -C ~/work config user.name "$3" && git -C ~/work config user.email "$4"' \
+  sh "ticket/$ID" "$BASE" "$(git -C "$WT" config user.name)" "$(git -C "$WT" config user.email)" >> "$LOG" 2>&1 || exit 10
 
 vm run "$VM_NAME" -- sh -lc 'mkdir -p ~/out && cd ~/work && timeout "$1" claude -p --output-format json "$(cat ~/job/prompt.md)"' sh "$LIMIT" >> "$LOG" 2>&1
 rc=$?
@@ -179,6 +186,8 @@ vm run "$VM_NAME" -- sh -lc 'cd ~/out && find . -name "*.png" | tar cf - -T -' |
 [ -z "$(vm run "$VM_NAME" -- sh -lc 'cd ~/work && git status --porcelain')" ] || exit 13
 vm stop "$VM_NAME" --delete
 ```
+
+Seed the repo as one bundle file, never as a directory. A local clone is thousands of hardlinked loose objects, and seeding it made boot take 23–68 s instead of 1.5 s (measured: 47 s for a seeded clone vs. 2 s for a bundle plus the clone in the guest). Seeds are copied at boot, so the bundle is deleted right after.
 
 The script deliberately has no `set -e`, so the pull runs even when the worker failed or timed out. Exits 11–13 leave the VM running for you to inspect (`vm run "$VM_NAME" -- sh -lc 'cd ~/work && git status --short && git diff'`). Record `total_cost_usd` from the log in `state.json`.
 
@@ -203,18 +212,19 @@ cat "$RUN/$A.md"
 - [ ] Tests are not flaky by construction (local vs UTC dates, real clocks, ordering).
 - [ ] The independent check passes. Worker claims about checks count for nothing on their own.
 
-Independent check, in a fresh VM from a scratch clone of the fetched ref:
+Independent check, in a fresh VM from a bundle of the fetched ref:
 
 ```sh
 git -C "$WT" branch -f "review/$ID" "$REF"
-CHECK_WT=$(mktemp -d)/work
-git clone -q --branch "review/$ID" "$WT" "$CHECK_WT"
+SEED_REF="review/$ID"; SEED=$(mktemp -d)
+git -C "$WT" bundle create -q "$SEED/repo.bundle" "$SEED_REF"
 vm run "$(echo "$ID" | tr '[:upper:]' '[:lower:]')-check-$A" --wait-network \
-  --seed "$CHECK_WT:work" --seed "$JOB:job" \
-  -- sh -lc 'cd ~/work && sh ~/job/check.sh' >> "$RUN/$A.log" 2>&1
+  --seed "$SEED:seed" --seed "$JOB:job" \
+  -- sh -lc 'git clone -q --branch "$1" ~/seed/repo.bundle ~/work && cd ~/work && sh ~/job/check.sh' \
+  sh "$SEED_REF" >> "$RUN/$A.log" 2>&1
 rc=$?
 echo "check exit $rc" >> "$RUN/$A.log"
-rm -rf "$(dirname "$CHECK_WT")"
+rm -rf "$SEED"
 ```
 
 UI tickets: the worker shows the result on the VM screen and returns `grim` screenshots (§7). Read every screenshot and compare it with the design attachment. The human gets images, never "go look at story X on branch Y". Screenshots that caught a loading state, an error, or the wrong state are not evidence; send the job back.
